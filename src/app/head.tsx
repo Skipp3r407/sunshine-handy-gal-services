@@ -1,9 +1,9 @@
 export default function Head() {
   return (
     <>
-      <link rel="icon" href="/images/logo.png" />
-      <link rel="shortcut icon" href="/images/logo.png" />
-      <link rel="apple-touch-icon" href="/images/logo.png" />
+      <link rel="icon" href="/favicon.ico" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      <link rel="apple-touch-icon" href="/favicon.ico" />
     </>
   );
 }
