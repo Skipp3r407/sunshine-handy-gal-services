@@ -73,7 +73,16 @@ export function Footer() {
         <p>
           © {new Date().getFullYear()} {businessInfo.name}. All rights reserved.
         </p>
-        <p className="mt-1">Designed by Elevated Digital Studios</p>
+        <p className="mt-1">
+          <a
+            href="https://elevatedigitalstudios.net/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition hover:underline"
+          >
+            Designed by Elevated Digital Studios
+          </a>
+        </p>
       </div>
     </footer>
   );
