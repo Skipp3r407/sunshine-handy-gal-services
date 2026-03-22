@@ -35,13 +35,13 @@ export function HeroSection() {
               href="/contact"
               className="inline-flex items-center justify-center rounded-full bg-teal px-6 py-3 text-sm font-semibold text-white transition hover:bg-teal/90"
             >
-              Book Your Cleaning
+              Get a Custom Quote
             </Link>
             <a
-              href={businessInfo.phoneHref}
+              href={businessInfo.textHref}
               className="inline-flex items-center justify-center rounded-full border border-teal/30 bg-white px-6 py-3 text-sm font-semibold text-teal transition hover:bg-teal/5"
             >
-              Call {businessInfo.phoneDisplay}
+              Text for a Quote
             </a>
           </div>
           <div className="mt-6">

@@ -21,15 +21,19 @@ export function CTASection({ title, description }: CTASectionProps) {
             href="/contact"
             className="inline-flex items-center justify-center rounded-full bg-charcoal px-6 py-3 text-sm font-semibold text-white transition hover:bg-charcoal/90"
           >
-            Book Now
+            Request a Custom Quote
           </Link>
           <a
-            href={businessInfo.phoneHref}
+            href={businessInfo.textHref}
             className="inline-flex items-center justify-center rounded-full border border-charcoal/30 bg-white/85 px-6 py-3 text-sm font-semibold text-charcoal transition hover:bg-white"
           >
-            Call Today
+            Text for a Quote
           </a>
         </div>
+        <p className="mt-4 text-xs font-medium text-charcoal/80">
+          Every home is different, so pricing is customized based on your needs.
+          3-hour minimum service rate: $150.
+        </p>
       </div>
     </section>
   );

@@ -4,9 +4,9 @@ import { ContactForm } from "@/components/contact-form";
 import { businessInfo } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "Contact | Book Cleaning in Orlando",
+  title: "Contact | Custom Cleaning Quote in Orlando",
   description:
-    "Contact Sunshines Handy Gal Services to request a quote, ask about availability, and book trusted cleaning in Orlando and nearby areas.",
+    "Contact Sunshines Handy Gal Services to call or text for custom pricing, check availability, and request trusted cleaning in Orlando and nearby areas.",
 };
 
 export default function ContactPage() {
@@ -16,7 +16,7 @@ export default function ContactPage() {
         <SectionHeading
           eyebrow="Contact"
           title="Tell us what you need, and we’ll bring a little more sunshine into your space."
-          description="Share a few details and we will follow up quickly with personalized recommendations, availability, and next steps."
+          description="Call or text for pricing and availability, or share a few details below and we will follow up quickly with personalized recommendations."
         />
       </section>
 
@@ -27,6 +27,12 @@ export default function ContactPage() {
             <li>
               <span className="font-semibold text-charcoal">Phone:</span>{" "}
               <a href={businessInfo.phoneHref} className="text-teal">
+                {businessInfo.phoneDisplay}
+              </a>
+            </li>
+            <li>
+              <span className="font-semibold text-charcoal">Text:</span>{" "}
+              <a href={businessInfo.textHref} className="text-teal">
                 {businessInfo.phoneDisplay}
               </a>
             </li>
@@ -47,8 +53,9 @@ export default function ContactPage() {
             </li>
           </ul>
           <p className="mt-5 rounded-2xl bg-cream px-4 py-3 text-sm text-charcoal">
-            We respond as quickly as possible and tailor each quote to your space
-            and goals.
+            Every home is different, so pricing is customized based on your
+            needs. Call or text for a personalized quote. 3-hour minimum service
+            rate: $150.
           </p>
         </article>
 

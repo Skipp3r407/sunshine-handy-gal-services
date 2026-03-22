@@ -48,7 +48,7 @@ export default function TestimonialsPage() {
           href="/contact"
           className="mt-6 inline-flex rounded-full bg-teal px-6 py-3 text-sm font-semibold text-white transition hover:bg-teal/90"
         >
-          Book Your Cleaning
+          Call or Text Today
         </Link>
       </section>
     </div>

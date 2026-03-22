@@ -42,7 +42,7 @@ export default function ServicesPage() {
               href="/contact"
               className="mt-5 inline-flex rounded-full bg-teal px-5 py-2 text-sm font-semibold text-white transition hover:bg-teal/90"
             >
-              Request Quote
+              Request a Custom Quote
             </Link>
           </article>
         ))}
@@ -66,7 +66,7 @@ export default function ServicesPage() {
 
       <CTASection
         title="Need a plan that fits your schedule?"
-        description="Call or message today and we will help you choose the right cleaning service for your home or small business."
+        description="Call or text today and we will help you choose the right cleaning service for your home or small business."
       />
     </div>
   );

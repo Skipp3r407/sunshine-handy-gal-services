@@ -14,7 +14,7 @@ import { trustBadges, services, testimonials, serviceAreas, processSteps, busine
 export const metadata: Metadata = {
   title: "Sunshines Handy Gal Services | Professional Cleaning in Orlando, FL",
   description:
-    "Trusted, women-owned cleaning company in Orlando, FL. Book standard cleaning, deep cleaning, move-out service, and organizing support.",
+    "Trusted, women-owned cleaning company in Orlando, FL. Call or text for a custom quote on standard cleaning, deep cleaning, move-out service, and organizing support.",
 };
 
 export default function Home() {
@@ -109,7 +109,7 @@ export default function Home() {
 
       <CTASection
         title="Ready for a cleaner, calmer home?"
-        description="Share your space, schedule, and goals. We will help bring a little more sunshine into your day."
+        description="Share your space, schedule, and goals. Call or text for a personalized quote and we will help bring a little more sunshine into your day."
       />
 
       <section className="space-y-8" id="contact-preview">
@@ -143,6 +143,11 @@ export default function Home() {
                 {trustBadges.join(" • ")}
               </li>
             </ul>
+            <p className="mt-4 rounded-2xl bg-cream px-4 py-3 text-xs text-charcoal">
+              Every home is different, so pricing is customized based on your
+              needs. Call or text for a personalized quote. 3-hour minimum
+              service rate: $150.
+            </p>
           </article>
           <ContactForm />
         </div>

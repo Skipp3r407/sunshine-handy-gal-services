@@ -75,7 +75,7 @@ export default function AboutPage() {
 
       <CTASection
         title="Let us bring more calm to your space"
-        description="Book your cleaning with a local team that is proud to serve Orlando with detail-focused, reliable care."
+        description="Call or text for a personalized quote from a local team that is proud to serve Orlando with detail-focused, reliable care."
       />
     </div>
   );

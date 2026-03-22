@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { businessInfo } from "@/lib/site-data";
 
 export function MobileStickyCTA() {
@@ -9,14 +8,14 @@ export function MobileStickyCTA() {
           href={businessInfo.phoneHref}
           className="flex-1 rounded-full border border-teal/35 px-4 py-2 text-center text-sm font-semibold text-teal"
         >
-          Call Now
+          Call for a Quote
         </a>
-        <Link
-          href="/contact"
+        <a
+          href={businessInfo.textHref}
           className="flex-1 rounded-full bg-teal px-4 py-2 text-center text-sm font-semibold text-white"
         >
-          Book Cleaning
-        </Link>
+          Text for a Quote
+        </a>
       </div>
     </div>
   );

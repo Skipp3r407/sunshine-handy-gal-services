@@ -3,6 +3,7 @@ export const businessInfo = {
   owner: "Sheena Hotaling",
   phoneDisplay: "(321) 339-6686",
   phoneHref: "tel:+13213396686",
+  textHref: "sms:+13213396686",
   email: "sunshineshandygalservices@gmail.com",
   emailHref: "mailto:sunshineshandygalservices@gmail.com",
   location: "Orlando, Florida",
@@ -218,12 +219,17 @@ export const faqItems = [
   {
     question: "How do I request a quote?",
     answer:
-      "You can call, email, or submit the contact form with your service needs and preferred date. We respond as quickly as possible with next steps.",
+      "You can call, text, email, or submit the contact form with your service needs and preferred date. We respond quickly with next steps and availability.",
   },
   {
     question: "How much do services cost?",
     answer:
-      "Pricing depends on property size, condition, and service type. We provide personalized quotes so you get the right service at a fair rate.",
+      "Every home is different, so pricing is customized based on your needs. Please call or text for a personalized quote. A 3-hour minimum service rate of $150 applies.",
+  },
+  {
+    question: "Do you list prices on the website?",
+    answer:
+      "No. Because every home and cleaning need is different, pricing is based on the size of the job and the services requested. Please call or text for a personalized quote. A 3-hour minimum service rate of $150 applies.",
   },
   {
     question: "Do you offer organizing help too?",

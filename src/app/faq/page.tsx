@@ -6,7 +6,7 @@ import { faqItems } from "@/lib/site-data";
 export const metadata: Metadata = {
   title: "FAQ | Sunshines Handy Gal Services",
   description:
-    "Answers to common questions about Sunshine's Handy Gal Services, including service types, supplies, scheduling, pricing, and service areas.",
+    "Answers to common questions about Sunshine's Handy Gal Services, including service types, supplies, scheduling, custom quote pricing, and service areas.",
 };
 
 export default function FAQPage() {

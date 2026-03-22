@@ -48,13 +48,13 @@ export function Navbar() {
             href={businessInfo.phoneHref}
             className="rounded-full px-4 py-2 text-sm font-semibold text-teal transition hover:bg-teal/5"
           >
-            Call Now
+            Call for a Quote
           </a>
           <Link
             href="/contact"
             className="rounded-full bg-teal px-5 py-2 text-sm font-semibold text-white transition hover:bg-teal/90"
           >
-            Book a Cleaning
+            Get a Custom Quote
           </Link>
         </div>
 
@@ -97,17 +97,17 @@ export function Navbar() {
           </nav>
           <div className="mt-4 grid gap-2">
             <a
-              href={businessInfo.phoneHref}
+              href={businessInfo.textHref}
               className="rounded-full border border-teal/30 px-4 py-2 text-center text-sm font-semibold text-teal"
             >
-              Call {businessInfo.phoneDisplay}
+              Text for a Quote
             </a>
             <Link
               href="/contact"
               onClick={() => setIsOpen(false)}
               className="rounded-full bg-teal px-4 py-2 text-center text-sm font-semibold text-white"
             >
-              Book a Cleaning
+              Call or Text to Book
             </Link>
           </div>
         </div>

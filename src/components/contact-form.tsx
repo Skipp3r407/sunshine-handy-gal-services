@@ -79,10 +79,11 @@ export function ContactForm() {
         type="submit"
         className="w-full rounded-full bg-teal px-6 py-3 text-sm font-semibold text-white transition hover:bg-teal/90"
       >
-        Request My Quote
+        Request a Custom Quote
       </button>
       <p className="text-xs text-muted-gray">
-        We typically respond quickly with personalized availability and pricing.
+        Pricing is confirmed after discussing your home and service needs. A
+        3-hour minimum service rate of $150 applies.
       </p>
     </form>
   );
