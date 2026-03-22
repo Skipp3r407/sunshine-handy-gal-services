@@ -21,6 +21,11 @@ export const metadata: Metadata = {
   title: "Sunshines Handy Gal Services | Professional Cleaning in Orlando, FL",
   description:
     "Women-owned cleaning and organizing service in Orlando, FL. Trusted for detail-oriented deep cleaning, move-out cleaning, and personalized recurring care.",
+  icons: {
+    icon: "/images/logo.png",
+    shortcut: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
   metadataBase: new URL("https://sunshineshandygalservices.com"),
   openGraph: {
     title: "Sunshines Handy Gal Services",
