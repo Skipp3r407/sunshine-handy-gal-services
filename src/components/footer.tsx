@@ -80,7 +80,7 @@ export function Footer() {
             rel="noopener noreferrer"
             className="transition hover:underline"
           >
-            Designed by Elevated Digital Studios
+            Website Design by Elevate Digital Studio.
           </a>
         </p>
       </div>
