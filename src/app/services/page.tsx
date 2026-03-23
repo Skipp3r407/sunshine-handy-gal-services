@@ -40,7 +40,7 @@ export default function ServicesPage() {
             </p>
             <Link
               href="/contact"
-              className="mt-5 inline-flex rounded-full bg-teal px-5 py-2 text-sm font-semibold text-white transition hover:bg-teal/90"
+              className="mt-5 inline-flex rounded-full bg-teal-deep px-5 py-2 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition hover:bg-teal-hover hover:shadow-lg"
             >
               Request a Custom Quote
             </Link>
@@ -48,7 +48,7 @@ export default function ServicesPage() {
         ))}
       </section>
 
-      <section className="rounded-3xl border border-teal/20 bg-[#f6fcff] p-8">
+      <section className="rounded-3xl border border-teal-deep/20 bg-gradient-to-br from-[#f4fcff] to-[#fffdf5] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">
         <h2 className="text-2xl font-bold text-charcoal">
           Why professional cleaning saves time and stress
         </h2>
@@ -56,7 +56,7 @@ export default function ServicesPage() {
           {siteChecklist.map((item) => (
             <li
               key={item}
-              className="rounded-2xl border border-white bg-white px-4 py-3 text-sm text-muted-gray"
+              className="rounded-2xl border border-teal/10 bg-white px-4 py-3 text-sm text-muted-gray shadow-sm"
             >
               {item}
             </li>

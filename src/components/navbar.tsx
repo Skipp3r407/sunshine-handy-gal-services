@@ -12,7 +12,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#eee6d6] bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-teal/10 bg-white/95 shadow-[0_1px_0_rgba(244,197,66,0.12)] backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
           <Image
@@ -34,7 +34,7 @@ export function Navbar() {
                 href={link.href}
                 className={cn(
                   "text-sm font-semibold transition-colors",
-                  isActive ? "text-teal" : "text-charcoal hover:text-teal",
+                  isActive ? "text-teal-deep" : "text-charcoal hover:text-teal-deep",
                 )}
               >
                 {link.label}
@@ -46,13 +46,13 @@ export function Navbar() {
         <div className="hidden items-center gap-2 lg:flex">
           <a
             href={businessInfo.phoneHref}
-            className="rounded-full px-4 py-2 text-sm font-semibold text-teal transition hover:bg-teal/5"
+            className="rounded-full px-4 py-2 text-sm font-semibold text-teal-deep transition hover:bg-sunshine-yellow/10 hover:text-teal-hover"
           >
             Call for a Quote
           </a>
           <Link
             href="/contact"
-            className="rounded-full bg-teal px-5 py-2 text-sm font-semibold text-white transition hover:bg-teal/90"
+            className="rounded-full bg-teal-deep px-5 py-2 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition hover:bg-teal-hover hover:shadow-lg hover:shadow-teal-deep/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/70 focus-visible:ring-offset-2"
           >
             Get a Custom Quote
           </Link>
@@ -86,8 +86,8 @@ export function Navbar() {
                   className={cn(
                     "rounded-xl px-3 py-2 text-sm font-semibold",
                     isActive
-                      ? "bg-teal/10 text-teal"
-                      : "text-charcoal hover:bg-cream",
+                      ? "bg-sunshine-yellow/15 text-teal-deep"
+                      : "text-charcoal hover:bg-cream hover:text-teal-deep",
                   )}
                 >
                   {link.label}
@@ -98,14 +98,14 @@ export function Navbar() {
           <div className="mt-4 grid gap-2">
             <a
               href={businessInfo.textHref}
-              className="rounded-full border border-teal/30 px-4 py-2 text-center text-sm font-semibold text-teal"
+              className="rounded-full border border-teal-deep/40 px-4 py-2 text-center text-sm font-semibold text-teal-deep transition hover:bg-sunshine-yellow/10"
             >
               Text for a Quote
             </a>
             <Link
               href="/contact"
               onClick={() => setIsOpen(false)}
-              className="rounded-full bg-teal px-4 py-2 text-center text-sm font-semibold text-white"
+              className="rounded-full bg-teal-deep px-4 py-2 text-center text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition hover:bg-teal-hover"
             >
               Call or Text to Book
             </Link>

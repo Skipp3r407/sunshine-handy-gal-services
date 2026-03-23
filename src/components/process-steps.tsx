@@ -13,9 +13,9 @@ export function ProcessSteps({ items }: ProcessStepsProps) {
       {items.map((step, index) => (
         <article
           key={step.title}
-          className="rounded-3xl border border-[#efe9dc] bg-white p-6 shadow-[0_12px_30px_-24px_rgba(0,0,0,0.45)]"
+          className="rounded-3xl border border-teal/10 bg-white p-6 shadow-[0_12px_30px_-24px_rgba(0,0,0,0.45)] transition hover:border-sunshine-yellow/30 hover:shadow-[0_14px_34px_-22px_rgba(12,125,150,0.3)]"
         >
-          <p className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-sunshine-yellow text-sm font-bold text-charcoal">
+          <p className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-sunshine-yellow to-golden-amber text-sm font-bold text-charcoal shadow-sm ring-2 ring-teal/15">
             {index + 1}
           </p>
           <h3 className="text-lg font-semibold text-charcoal">{step.title}</h3>

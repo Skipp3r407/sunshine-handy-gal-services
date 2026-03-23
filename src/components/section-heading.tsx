@@ -16,7 +16,7 @@ export function SectionHeading({
   return (
     <div className={isCentered ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
       {eyebrow ? (
-        <p className="mb-3 inline-flex rounded-full bg-sunshine-yellow/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-amber-700">
+        <p className="mb-3 inline-flex rounded-full border border-teal/15 bg-gradient-to-r from-sunshine-yellow/30 via-sunshine-yellow/20 to-aqua/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#7a5a0a] shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
           {eyebrow}
         </p>
       ) : null}

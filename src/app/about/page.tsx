@@ -54,7 +54,7 @@ export default function AboutPage() {
         </article>
       </section>
 
-      <section className="rounded-3xl border border-teal/20 bg-white p-8">
+      <section className="rounded-3xl border border-teal-deep/20 bg-gradient-to-br from-white to-[#fffdf6] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)]">
         <h2 className="text-2xl font-bold text-charcoal">Why Clients Trust Us</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
@@ -65,7 +65,7 @@ export default function AboutPage() {
           ].map((item) => (
             <div
               key={item}
-              className="rounded-2xl border border-[#ece4d4] bg-[#fffdf7] p-4 text-sm font-medium text-charcoal"
+              className="rounded-2xl border border-teal/12 bg-[#fffdf7] p-4 text-sm font-medium text-charcoal shadow-sm transition hover:border-sunshine-yellow/30"
             >
               {item}
             </div>

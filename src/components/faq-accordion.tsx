@@ -25,7 +25,9 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
             key={item.question}
             className={cn(
               "rounded-2xl border bg-white transition-colors",
-              isOpen ? "border-teal/40" : "border-[#efe9dc]",
+              isOpen
+                ? "border-teal-deep/45 shadow-[inset_3px_0_0_0_rgba(244,197,66,0.85)]"
+                : "border-[#efe9dc] hover:border-teal/25",
             )}
           >
             <button
@@ -39,7 +41,7 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
               </span>
               <span
                 className={cn(
-                  "inline-flex h-7 w-7 items-center justify-center rounded-full border border-teal/30 text-teal transition-transform",
+                  "inline-flex h-7 w-7 items-center justify-center rounded-full border border-teal-deep/35 bg-sunshine-yellow/10 text-teal-deep transition-transform",
                   isOpen ? "rotate-45" : "",
                 )}
               >

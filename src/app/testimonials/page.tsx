@@ -46,7 +46,7 @@ export default function TestimonialsPage() {
         </p>
         <Link
           href="/contact"
-          className="mt-6 inline-flex rounded-full bg-teal px-6 py-3 text-sm font-semibold text-white transition hover:bg-teal/90"
+          className="mt-6 inline-flex rounded-full bg-teal-deep px-6 py-3 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition hover:bg-teal-hover hover:shadow-lg"
         >
           Call or Text Today
         </Link>

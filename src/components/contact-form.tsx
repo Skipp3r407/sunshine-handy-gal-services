@@ -8,7 +8,7 @@ export function ContactForm() {
             name="name"
             autoComplete="name"
             required
-            className="w-full rounded-xl border border-[#ddd6c8] px-4 py-3 text-sm outline-none transition focus:border-teal focus:ring-2 focus:ring-teal/20"
+            className="w-full rounded-xl border border-[#ddd6c8] px-4 py-3 text-sm outline-none transition focus:border-teal-deep focus:ring-2 focus:ring-teal-deep/20"
             placeholder="Your full name"
           />
         </label>
@@ -18,7 +18,7 @@ export function ContactForm() {
             name="phone"
             autoComplete="tel"
             required
-            className="w-full rounded-xl border border-[#ddd6c8] px-4 py-3 text-sm outline-none transition focus:border-teal focus:ring-2 focus:ring-teal/20"
+            className="w-full rounded-xl border border-[#ddd6c8] px-4 py-3 text-sm outline-none transition focus:border-teal-deep focus:ring-2 focus:ring-teal-deep/20"
             placeholder="(321) 339-6686"
           />
         </label>
@@ -32,7 +32,7 @@ export function ContactForm() {
             name="email"
             autoComplete="email"
             required
-            className="w-full rounded-xl border border-[#ddd6c8] px-4 py-3 text-sm outline-none transition focus:border-teal focus:ring-2 focus:ring-teal/20"
+            className="w-full rounded-xl border border-[#ddd6c8] px-4 py-3 text-sm outline-none transition focus:border-teal-deep focus:ring-2 focus:ring-teal-deep/20"
             placeholder="you@email.com"
           />
         </label>
@@ -40,7 +40,7 @@ export function ContactForm() {
           Service Needed
           <select
             name="service"
-            className="w-full rounded-xl border border-[#ddd6c8] bg-white px-4 py-3 text-sm outline-none transition focus:border-teal focus:ring-2 focus:ring-teal/20"
+            className="w-full rounded-xl border border-[#ddd6c8] bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-deep focus:ring-2 focus:ring-teal-deep/20"
             defaultValue=""
           >
             <option value="" disabled>
@@ -61,7 +61,7 @@ export function ContactForm() {
         <input
           type="date"
           name="date"
-          className="w-full rounded-xl border border-[#ddd6c8] px-4 py-3 text-sm outline-none transition focus:border-teal focus:ring-2 focus:ring-teal/20"
+          className="w-full rounded-xl border border-[#ddd6c8] px-4 py-3 text-sm outline-none transition focus:border-teal-deep focus:ring-2 focus:ring-teal-deep/20"
         />
       </label>
 
@@ -70,14 +70,14 @@ export function ContactForm() {
         <textarea
           name="message"
           rows={4}
-          className="w-full resize-y rounded-xl border border-[#ddd6c8] px-4 py-3 text-sm outline-none transition focus:border-teal focus:ring-2 focus:ring-teal/20"
+          className="w-full resize-y rounded-xl border border-[#ddd6c8] px-4 py-3 text-sm outline-none transition focus:border-teal-deep focus:ring-2 focus:ring-teal-deep/20"
           placeholder="Tell us about your space and what you need."
         />
       </label>
 
       <button
         type="submit"
-        className="w-full rounded-full bg-teal px-6 py-3 text-sm font-semibold text-white transition hover:bg-teal/90"
+        className="w-full rounded-full bg-teal-deep px-6 py-3 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition hover:bg-teal-hover hover:shadow-lg hover:shadow-teal-deep/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/70 focus-visible:ring-offset-2"
       >
         Request a Custom Quote
       </button>

@@ -8,7 +8,7 @@ export function TrustBadgeRow({ badges }: TrustBadgeRowProps) {
       {badges.map((badge) => (
         <li
           key={badge}
-          className="rounded-full border border-teal/25 bg-white/90 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-teal"
+          className="rounded-full border border-teal-deep/30 bg-white/95 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-teal-deep shadow-sm shadow-teal-deep/10"
         >
           {badge}
         </li>

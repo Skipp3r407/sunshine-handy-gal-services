@@ -40,7 +40,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="rounded-[2rem] bg-cream px-6 py-12 sm:px-10">
+      <section className="rounded-[2rem] border border-teal/10 bg-cream px-6 py-12 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] sm:px-10">
         <SectionHeading
           eyebrow="Why Clients Choose Us"
           title="Trusted, detail-oriented, and easy to work with"
@@ -57,7 +57,7 @@ export default function Home() {
           ].map((item) => (
             <div
               key={item}
-              className="rounded-2xl border border-white bg-white px-5 py-4 text-sm font-semibold text-charcoal shadow-[0_10px_24px_-22px_rgba(0,0,0,0.5)]"
+              className="rounded-2xl border border-teal/10 bg-white px-5 py-4 text-sm font-semibold text-charcoal shadow-[0_10px_24px_-22px_rgba(0,0,0,0.5)] transition hover:border-sunshine-yellow/35 hover:shadow-[0_12px_28px_-20px_rgba(12,125,150,0.18)]"
             >
               {item}
             </div>
@@ -84,7 +84,7 @@ export default function Home() {
         </div>
         <Link
           href="/testimonials"
-          className="inline-flex rounded-full border border-teal/30 px-5 py-2 text-sm font-semibold text-teal transition hover:bg-teal/5"
+          className="inline-flex rounded-full border border-teal-deep/40 px-5 py-2 text-sm font-semibold text-teal-deep transition hover:bg-sunshine-yellow/12 hover:border-golden-amber/45"
         >
           View All Testimonials
         </Link>
@@ -119,7 +119,7 @@ export default function Home() {
           description="Tell us what you need, and we will help you choose the best service for your space and schedule."
         />
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <article className="rounded-3xl border border-[#efe5d6] bg-white p-6 shadow-[0_15px_36px_-25px_rgba(0,0,0,0.45)]">
+          <article className="rounded-3xl border border-teal/12 bg-white p-6 shadow-[0_15px_36px_-25px_rgba(12,125,150,0.12)]">
             <h3 className="text-lg font-semibold text-charcoal">Contact Details</h3>
             <ul className="mt-4 space-y-3 text-sm text-muted-gray">
               <li>
@@ -143,7 +143,7 @@ export default function Home() {
                 {trustBadges.join(" • ")}
               </li>
             </ul>
-            <p className="mt-4 rounded-2xl bg-cream px-4 py-3 text-xs text-charcoal">
+            <p className="mt-4 rounded-2xl border border-sunshine-yellow/20 bg-cream px-4 py-3 text-xs text-charcoal">
               Every home is different, so pricing is customized based on your
               needs. Call or text for a personalized quote. 3-hour minimum
               service rate: $150.

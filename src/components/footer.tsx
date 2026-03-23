@@ -5,6 +5,10 @@ import { businessInfo, navLinks, serviceAreas } from "@/lib/site-data";
 export function Footer() {
   return (
     <footer className="mt-20 bg-charcoal text-white">
+      <div
+        className="h-1 w-full bg-gradient-to-r from-teal-deep via-aqua to-sunshine-yellow"
+        aria-hidden
+      />
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div>
           <Image
@@ -24,13 +28,16 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-sunshine-yellow">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-aqua">
             Quick Links
           </h3>
           <ul className="mt-4 space-y-2 text-sm text-white/80">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="transition hover:text-white">
+                <Link
+                  href={link.href}
+                  className="transition hover:text-sunshine-yellow"
+                >
                   {link.label}
                 </Link>
               </li>
@@ -39,7 +46,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-sunshine-yellow">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-aqua">
             Service Areas
           </h3>
           <ul className="mt-4 space-y-2 text-sm text-white/80">
@@ -51,17 +58,23 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-sunshine-yellow">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-aqua">
             Contact
           </h3>
           <ul className="mt-4 space-y-2 text-sm text-white/80">
             <li>
-              <a href={businessInfo.phoneHref} className="transition hover:text-white">
+              <a
+                href={businessInfo.phoneHref}
+                className="transition hover:text-sunshine-yellow"
+              >
                 {businessInfo.phoneDisplay}
               </a>
             </li>
             <li>
-              <a href={businessInfo.emailHref} className="transition hover:text-white">
+              <a
+                href={businessInfo.emailHref}
+                className="transition hover:text-sunshine-yellow"
+              >
                 {businessInfo.email}
               </a>
             </li>
@@ -69,7 +82,7 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-white/15 py-4 text-center text-xs text-white/70">
+      <div className="border-t border-teal-deep/40 py-4 text-center text-xs text-white/70">
         <p>
           © {new Date().getFullYear()} {businessInfo.name}. All rights reserved.
         </p>
