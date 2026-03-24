@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { SectionHeading } from "@/components/section-heading";
 import { ContactForm } from "@/components/contact-form";
+import { Reveal } from "@/components/motion/reveal";
 import { businessInfo } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -13,15 +14,18 @@ export default function ContactPage() {
   return (
     <div className="space-y-10">
       <section className="rounded-[2rem] bg-gradient-to-br from-[#fff7d9] via-white to-[#ebf9ff] p-8 sm:p-12">
-        <SectionHeading
-          eyebrow="Contact"
-          title="Tell us what you need, and we’ll bring a little more sunshine into your space."
-          description="Call or text for pricing and availability, or share a few details below and we will follow up quickly with personalized recommendations."
-        />
+        <Reveal direction="up">
+          <SectionHeading
+            eyebrow="Contact"
+            title="Tell us what you need, and we’ll bring a little more sunshine into your space."
+            description="Call or text for pricing and availability, or share a few details below and we will follow up quickly with personalized recommendations."
+          />
+        </Reveal>
       </section>
 
       <section className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-        <article className="rounded-3xl border border-[#eee5d7] bg-white p-6 sm:p-8">
+        <Reveal direction="left" className="min-h-0">
+          <article className="rounded-3xl border border-[#eee5d7] bg-white p-6 sm:p-8">
           <h2 className="text-xl font-bold text-charcoal">Get In Touch</h2>
           <ul className="mt-4 space-y-3 text-sm text-muted-gray">
             <li>
@@ -58,8 +62,11 @@ export default function ContactPage() {
             rate: $150.
           </p>
         </article>
+        </Reveal>
 
-        <ContactForm />
+        <Reveal direction="right" className="min-h-0" delay={0.06}>
+          <ContactForm />
+        </Reveal>
       </section>
     </div>
   );

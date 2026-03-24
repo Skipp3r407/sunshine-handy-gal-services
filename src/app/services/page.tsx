@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { SectionHeading } from "@/components/section-heading";
 import { CTASection } from "@/components/cta-section";
+import { Reveal } from "@/components/motion/reveal";
+import { StaggerGrid } from "@/components/motion/stagger-grid";
 import { services, siteChecklist } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -14,18 +16,20 @@ export default function ServicesPage() {
   return (
     <div className="space-y-14">
       <section className="rounded-[2rem] bg-gradient-to-br from-[#fff8db] via-white to-[#eefaff] p-8 sm:p-12">
-        <SectionHeading
-          eyebrow="Services"
-          title="Cleaning and organizing services designed around your needs"
-          description="Every home and business is different. We tailor service plans for your space, schedule, and priorities."
-        />
+        <Reveal direction="up">
+          <SectionHeading
+            eyebrow="Services"
+            title="Cleaning and organizing services designed around your needs"
+            description="Every home and business is different. We tailor service plans for your space, schedule, and priorities."
+          />
+        </Reveal>
       </section>
 
-      <section className="grid gap-5 lg:grid-cols-2">
+      <StaggerGrid className="grid gap-5 lg:grid-cols-2">
         {services.map((service) => (
           <article
             key={service.title}
-            className="rounded-3xl border border-[#ece3d3] bg-white p-7"
+            className="rounded-3xl border border-[#ece3d3] bg-white p-7 transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-24px_rgba(12,125,150,0.15)]"
           >
             <h2 className="text-2xl font-bold text-charcoal">{service.title}</h2>
             <p className="mt-3 text-base leading-7 text-muted-gray">
@@ -46,23 +50,25 @@ export default function ServicesPage() {
             </Link>
           </article>
         ))}
-      </section>
+      </StaggerGrid>
 
-      <section className="rounded-3xl border border-teal-deep/20 bg-gradient-to-br from-[#f4fcff] to-[#fffdf5] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">
-        <h2 className="text-2xl font-bold text-charcoal">
-          Why professional cleaning saves time and stress
-        </h2>
-        <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-          {siteChecklist.map((item) => (
-            <li
-              key={item}
-              className="rounded-2xl border border-teal/10 bg-white px-4 py-3 text-sm text-muted-gray shadow-sm"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-      </section>
+      <Reveal direction="up">
+        <section className="rounded-3xl border border-teal-deep/20 bg-gradient-to-br from-[#f4fcff] to-[#fffdf5] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">
+          <h2 className="text-2xl font-bold text-charcoal">
+            Why professional cleaning saves time and stress
+          </h2>
+          <StaggerGrid className="mt-5 grid gap-3 sm:grid-cols-2" stagger={0.06}>
+            {siteChecklist.map((item) => (
+              <div
+                key={item}
+                className="rounded-2xl border border-teal/10 bg-white px-4 py-3 text-sm text-muted-gray shadow-sm transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5"
+              >
+                {item}
+              </div>
+            ))}
+          </StaggerGrid>
+        </section>
+      </Reveal>
 
       <CTASection
         title="Need a plan that fits your schedule?"

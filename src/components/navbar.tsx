@@ -4,17 +4,21 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { businessInfo, navLinks } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
+import { buttonLiftHover } from "@/lib/motion-variants";
 
 export function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const reduced = useReducedMotion();
 
   return (
     <header className="sticky top-0 z-50 border-b border-teal/10 bg-white/95 shadow-[0_1px_0_rgba(244,197,66,0.12)] backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2">
+        <motion.div whileHover={reduced ? undefined : { scale: 1.02 }} transition={{ duration: 0.2 }}>
+          <Link href="/" className="flex items-center gap-2">
           <Image
             src="/images/logo.png"
             alt="Sunshines Handy Gal Services"
@@ -23,39 +27,50 @@ export function Navbar() {
             className="h-auto w-[120px] sm:w-[140px]"
           />
         </Link>
+        </motion.div>
 
         <nav className="hidden items-center gap-5 lg:flex">
           {navLinks.map((link) => {
             const isActive =
               link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
             return (
-              <Link
+              <motion.span
                 key={link.href}
-                href={link.href}
-                className={cn(
-                  "text-sm font-semibold transition-colors",
-                  isActive ? "text-teal-deep" : "text-charcoal hover:text-teal-deep",
-                )}
+                className="inline-block"
+                whileHover={reduced ? undefined : { y: -1 }}
+                transition={{ duration: 0.2 }}
               >
-                {link.label}
-              </Link>
+                <Link
+                  href={link.href}
+                  className={cn(
+                    "text-sm font-semibold transition-colors",
+                    isActive ? "text-teal-deep" : "text-charcoal hover:text-teal-deep",
+                  )}
+                >
+                  {link.label}
+                </Link>
+              </motion.span>
             );
           })}
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
-          <a
-            href={businessInfo.phoneHref}
-            className="rounded-full px-4 py-2 text-sm font-semibold text-teal-deep transition hover:bg-sunshine-yellow/10 hover:text-teal-hover"
-          >
-            Call for a Quote
-          </a>
-          <Link
-            href="/contact"
-            className="rounded-full bg-teal-deep px-5 py-2 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition hover:bg-teal-hover hover:shadow-lg hover:shadow-teal-deep/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/70 focus-visible:ring-offset-2"
-          >
-            Get a Custom Quote
-          </Link>
+          <motion.span className="inline-block" whileHover={buttonLiftHover(reduced)}>
+            <a
+              href={businessInfo.phoneHref}
+              className="inline-flex rounded-full px-4 py-2 text-sm font-semibold text-teal-deep transition-colors hover:bg-sunshine-yellow/10 hover:text-teal-hover"
+            >
+              Call for a Quote
+            </a>
+          </motion.span>
+          <motion.span className="inline-block" whileHover={buttonLiftHover(reduced)}>
+            <Link
+              href="/contact"
+              className="inline-flex rounded-full bg-teal-deep px-5 py-2 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition-colors hover:bg-teal-hover hover:shadow-lg hover:shadow-teal-deep/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/70 focus-visible:ring-offset-2"
+            >
+              Get a Custom Quote
+            </Link>
+          </motion.span>
         </div>
 
         <button

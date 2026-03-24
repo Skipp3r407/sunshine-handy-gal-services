@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { SectionHeading } from "@/components/section-heading";
 import { ServiceAreaGrid } from "@/components/service-area-grid";
 import { CTASection } from "@/components/cta-section";
+import { Reveal } from "@/components/motion/reveal";
 import { serviceAreas } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -14,11 +15,13 @@ export default function ServiceAreasPage() {
   return (
     <div className="space-y-14">
       <section className="rounded-[2rem] bg-gradient-to-br from-[#fff6d5] via-white to-[#eaf9ff] p-8 sm:p-12">
-        <SectionHeading
-          eyebrow="Service Areas"
-          title="Local cleaning services throughout Central Florida"
-          description="If you are looking for dependable, detail-focused cleaning in Orlando or nearby areas, Sunshine&apos;s Handy Gal Services is here to help."
-        />
+        <Reveal direction="up">
+          <SectionHeading
+            eyebrow="Service Areas"
+            title="Local cleaning services throughout Central Florida"
+            description="If you are looking for dependable, detail-focused cleaning in Orlando or nearby areas, Sunshine&apos;s Handy Gal Services is here to help."
+          />
+        </Reveal>
       </section>
 
       <ServiceAreaGrid items={serviceAreas} />

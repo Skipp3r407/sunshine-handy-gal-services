@@ -1,4 +1,11 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+import { buttonLiftHover } from "@/lib/motion-variants";
+
 export function ContactForm() {
+  const reduced = useReducedMotion();
+
   return (
     <form className="space-y-4 rounded-3xl border border-[#efe9dc] bg-white p-6 shadow-[0_16px_42px_-28px_rgba(0,0,0,0.45)] sm:p-8">
       <div className="grid gap-4 sm:grid-cols-2">
@@ -75,12 +82,14 @@ export function ContactForm() {
         />
       </label>
 
-      <button
+      <motion.button
         type="submit"
-        className="w-full rounded-full bg-teal-deep px-6 py-3 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition hover:bg-teal-hover hover:shadow-lg hover:shadow-teal-deep/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/70 focus-visible:ring-offset-2"
+        whileHover={buttonLiftHover(reduced)}
+        whileTap={reduced ? undefined : { scale: 0.99 }}
+        className="w-full rounded-full bg-teal-deep px-6 py-3 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition-colors hover:bg-teal-hover hover:shadow-lg hover:shadow-teal-deep/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/70 focus-visible:ring-offset-2"
       >
         Request a Custom Quote
-      </button>
+      </motion.button>
       <p className="text-xs text-muted-gray">
         Pricing is confirmed after discussing your home and service needs. A
         3-hour minimum service rate of $150 applies.

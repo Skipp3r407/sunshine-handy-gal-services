@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import { SectionHeading } from "@/components/section-heading";
 import { CTASection } from "@/components/cta-section";
+import { Reveal } from "@/components/motion/reveal";
+import { StaggerGrid } from "@/components/motion/stagger-grid";
 import { businessInfo } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -13,14 +15,17 @@ export default function AboutPage() {
   return (
     <div className="space-y-14">
       <section className="rounded-[2rem] bg-gradient-to-br from-[#fff6d3] via-white to-[#ebf9fe] p-8 sm:p-12">
-        <SectionHeading
-          eyebrow="About Sunshine's Handy Gal Services"
-          title="A local cleaning company built on care, trust, and consistency"
-          description="Sunshine&apos;s Handy Gal Services was created to help Orlando families and small businesses enjoy cleaner, calmer spaces without the overwhelm."
-        />
+        <Reveal direction="up">
+          <SectionHeading
+            eyebrow="About Sunshine's Handy Gal Services"
+            title="A local cleaning company built on care, trust, and consistency"
+            description="Sunshine&apos;s Handy Gal Services was created to help Orlando families and small businesses enjoy cleaner, calmer spaces without the overwhelm."
+          />
+        </Reveal>
       </section>
 
       <section className="grid gap-8 lg:grid-cols-2">
+        <Reveal direction="left" className="min-h-0">
         <article className="rounded-3xl border border-[#eee4d0] bg-white p-8">
           <h2 className="text-2xl font-bold text-charcoal">Sheena&apos;s Story</h2>
           <p className="mt-4 text-base leading-7 text-muted-gray">
@@ -36,7 +41,9 @@ export default function AboutPage() {
             create a refreshed environment you can feel immediately.
           </p>
         </article>
+        </Reveal>
 
+        <Reveal direction="right" className="min-h-0" delay={0.06}>
         <article className="rounded-3xl border border-[#eee4d0] bg-cream p-8">
           <h2 className="text-2xl font-bold text-charcoal">Mission</h2>
           <p className="mt-4 text-base leading-7 text-muted-gray">
@@ -52,26 +59,29 @@ export default function AboutPage() {
             <li>• Deliver warm, trustworthy service every time</li>
           </ul>
         </article>
+        </Reveal>
       </section>
 
-      <section className="rounded-3xl border border-teal-deep/20 bg-gradient-to-br from-white to-[#fffdf6] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)]">
-        <h2 className="text-2xl font-bold text-charcoal">Why Clients Trust Us</h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            "100% recommend from local reviews",
-            "Women-owned and community-focused",
-            "Known for thorough, polished results",
-            "Responsive and easy to schedule with",
-          ].map((item) => (
-            <div
-              key={item}
-              className="rounded-2xl border border-teal/12 bg-[#fffdf7] p-4 text-sm font-medium text-charcoal shadow-sm transition hover:border-sunshine-yellow/30"
-            >
-              {item}
-            </div>
-          ))}
-        </div>
-      </section>
+      <Reveal direction="up">
+        <section className="rounded-3xl border border-teal-deep/20 bg-gradient-to-br from-white to-[#fffdf6] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)]">
+          <h2 className="text-2xl font-bold text-charcoal">Why Clients Trust Us</h2>
+          <StaggerGrid className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              "100% recommend from local reviews",
+              "Women-owned and community-focused",
+              "Known for thorough, polished results",
+              "Responsive and easy to schedule with",
+            ].map((item) => (
+              <div
+                key={item}
+                className="rounded-2xl border border-teal/12 bg-[#fffdf7] p-4 text-sm font-medium text-charcoal shadow-sm transition-[border-color,transform] duration-300 hover:-translate-y-0.5 hover:border-sunshine-yellow/30"
+              >
+                {item}
+              </div>
+            ))}
+          </StaggerGrid>
+        </section>
+      </Reveal>
 
       <CTASection
         title="Let us bring more calm to your space"

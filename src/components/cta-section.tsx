@@ -1,5 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
 import { businessInfo } from "@/lib/site-data";
+import {
+  buttonLiftHover,
+  ctaBannerVariants,
+} from "@/lib/motion-variants";
 
 type CTASectionProps = {
   title: string;
@@ -7,34 +14,46 @@ type CTASectionProps = {
 };
 
 export function CTASection({ title, description }: CTASectionProps) {
+  const reduced = useReducedMotion();
+
   return (
     <section className="rounded-[2rem] bg-gradient-to-r from-sunshine-yellow via-[#ffd85f] to-[#7ecce0] p-8 shadow-[0_18px_44px_-28px_rgba(12,125,150,0.25)] sm:p-12">
-      <div className="mx-auto max-w-4xl text-center">
+      <motion.div
+        className="mx-auto max-w-4xl text-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.35, margin: "0px 0px -5% 0px" }}
+        variants={ctaBannerVariants(reduced)}
+      >
         <h2 className="text-3xl font-bold tracking-tight text-charcoal sm:text-4xl">
           {title}
         </h2>
         <p className="mt-4 text-base leading-7 text-charcoal/85 sm:text-lg">
           {description}
         </p>
-        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-full bg-teal-deep px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-deep/30 transition hover:bg-teal-hover hover:shadow-xl hover:shadow-teal-deep/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/90 focus-visible:ring-offset-2 focus-visible:ring-offset-[#7ecce0]"
-          >
-            Request a Custom Quote
-          </Link>
-          <a
-            href={businessInfo.textHref}
-            className="inline-flex items-center justify-center rounded-full border border-teal-deep/45 bg-white/90 px-6 py-3 text-sm font-semibold text-teal-deep shadow-sm transition hover:border-golden-amber/55 hover:bg-sunshine-yellow/15 hover:shadow-md"
-          >
-            Text for a Quote
-          </a>
+        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:justify-center">
+          <motion.div whileHover={buttonLiftHover(reduced)}>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-full bg-teal-deep px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-deep/30 transition hover:bg-teal-hover hover:shadow-xl hover:shadow-teal-deep/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/90 focus-visible:ring-offset-2 focus-visible:ring-offset-[#7ecce0]"
+            >
+              Request a Custom Quote
+            </Link>
+          </motion.div>
+          <motion.div whileHover={buttonLiftHover(reduced)}>
+            <a
+              href={businessInfo.textHref}
+              className="inline-flex items-center justify-center rounded-full border border-teal-deep/45 bg-white/90 px-6 py-3 text-sm font-semibold text-teal-deep shadow-sm transition hover:border-golden-amber/55 hover:bg-sunshine-yellow/15 hover:shadow-md"
+            >
+              Text for a Quote
+            </a>
+          </motion.div>
         </div>
         <p className="mt-4 text-xs font-medium text-charcoal/80">
           Every home is different, so pricing is customized based on your needs.
           3-hour minimum service rate: $150.
         </p>
-      </div>
+      </motion.div>
     </section>
   );
 }
