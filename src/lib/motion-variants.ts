@@ -1,7 +1,17 @@
 import type { Variants } from "framer-motion";
 
-/** Premium ease-out; short durations to avoid feeling slow */
+/** Polished ease-out — GPU-friendly props only in variants (opacity, transform) */
 export const motionEase = [0.22, 1, 0.36, 1] as const;
+
+/** Scroll / section reveals: ~0.55–0.7s, small travel */
+const SCROLL_DURATION = 0.62;
+const SCROLL_Y = 14;
+const SCROLL_X = 20;
+
+/** Hero load: quick stagger, total sequence under ~1s */
+const HERO_CHILD_DURATION = 0.56;
+const HERO_STAGGER = 0.048;
+const HERO_DELAY_CHILDREN = 0.035;
 
 type Reduced = boolean | null;
 
@@ -11,18 +21,18 @@ export function revealVariants(
   delay = 0,
 ): Variants {
   const r = !!reduced;
-  const duration = r ? 0.12 : 0.48;
+  const duration = r ? 0.08 : SCROLL_DURATION;
   const hidden: Record<string, number> = { opacity: 0 };
   if (!r) {
     if (direction === "left") {
-      hidden.x = -28;
+      hidden.x = -SCROLL_X;
     } else if (direction === "right") {
-      hidden.x = 28;
+      hidden.x = SCROLL_X;
     } else if (direction === "scale") {
-      hidden.scale = 0.96;
-      hidden.y = 8;
+      hidden.scale = 0.985;
+      hidden.y = 6;
     } else {
-      hidden.y = 22;
+      hidden.y = SCROLL_Y;
     }
   }
 
@@ -38,14 +48,14 @@ export function revealVariants(
   };
 }
 
-export function staggerContainerVariants(reduced: Reduced, stagger = 0.075): Variants {
+export function staggerContainerVariants(reduced: Reduced, stagger = 0.065): Variants {
   const r = !!reduced;
   return {
     hidden: {},
     visible: {
       transition: r
         ? { duration: 0 }
-        : { staggerChildren: stagger, delayChildren: 0.05 },
+        : { staggerChildren: stagger, delayChildren: 0.04 },
     },
   };
 }
@@ -53,12 +63,12 @@ export function staggerContainerVariants(reduced: Reduced, stagger = 0.075): Var
 export function staggerItemVariants(reduced: Reduced): Variants {
   const r = !!reduced;
   return {
-    hidden: r ? { opacity: 0 } : { opacity: 0, y: 20, scale: 0.985 },
+    hidden: r ? { opacity: 0 } : { opacity: 0, y: 12, scale: 0.992 },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { duration: r ? 0.1 : 0.4, ease: motionEase },
+      transition: { duration: r ? 0.08 : SCROLL_DURATION, ease: motionEase },
     },
   };
 }
@@ -66,71 +76,89 @@ export function staggerItemVariants(reduced: Reduced): Variants {
 export function ctaBannerVariants(reduced: Reduced): Variants {
   const r = !!reduced;
   return {
-    hidden: r ? { opacity: 0 } : { opacity: 0, scale: 0.98, y: 14 },
+    hidden: r ? { opacity: 0 } : { opacity: 0, scale: 0.99, y: 10 },
     visible: {
       opacity: 1,
       scale: 1,
       y: 0,
-      transition: { duration: r ? 0.12 : 0.52, ease: motionEase },
+      transition: { duration: r ? 0.08 : 0.68, ease: motionEase },
     },
   };
 }
 
+/** Cards: slight lift + scale — shadow from CSS hover */
 export function subtleLiftHover(reduced: Reduced) {
   if (reduced) return undefined;
-  return { y: -3, transition: { duration: 0.22, ease: motionEase } };
+  return {
+    y: -4,
+    scale: 1.012,
+    transition: { duration: 0.22, ease: motionEase },
+  };
 }
 
+/** Legacy small lift for secondary controls */
 export function buttonLiftHover(reduced: Reduced) {
   if (reduced) return undefined;
-  return { y: -2, transition: { duration: 0.2, ease: motionEase } };
+  return {
+    y: -1,
+    scale: 1.02,
+    transition: { duration: 0.2, ease: motionEase },
+  };
 }
 
-/** Hero: left column with staggered children */
-export function heroLeftColumn(reduced: Reduced): Variants {
+/** Primary conversion CTAs: subtle scale within 1.02–1.05 */
+export function primaryCtaHover(reduced: Reduced) {
+  if (reduced) return undefined;
+  return {
+    scale: 1.035,
+    y: -1,
+    transition: { duration: 0.22, ease: motionEase },
+  };
+}
+
+/** Hero load: orchestrates stagger (mount, not scroll) */
+export function heroLoadContainer(reduced: Reduced): Variants {
   const r = !!reduced;
   return {
-    hidden: r ? { opacity: 0 } : { opacity: 0, x: -30 },
+    hidden: {},
     visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: r ? 0.12 : 0.48,
-        ease: motionEase,
-        staggerChildren: r ? 0 : 0.085,
-        delayChildren: r ? 0 : 0.04,
-      },
+      transition: r
+        ? { duration: 0 }
+        : {
+            staggerChildren: HERO_STAGGER,
+            delayChildren: HERO_DELAY_CHILDREN,
+          },
     },
   };
 }
 
-export function heroBlock(reduced: Reduced): Variants {
+/** Single hero block: fade + slight upward */
+export function heroLoadBlock(reduced: Reduced): Variants {
   const r = !!reduced;
   return {
-    hidden: r ? { opacity: 0 } : { opacity: 0, x: -12 },
+    hidden: r ? { opacity: 0 } : { opacity: 0, y: 12 },
     visible: {
       opacity: 1,
-      x: 0,
-      transition: { duration: r ? 0.1 : 0.36, ease: motionEase },
+      y: 0,
+      transition: { duration: r ? 0.08 : HERO_CHILD_DURATION, ease: motionEase },
     },
   };
 }
 
-/** Trust row: enters with hero column stagger, then badges stagger in */
 export function trustBadgeRowVariants(reduced: Reduced): Variants {
   const r = !!reduced;
   return {
-    hidden: r ? { opacity: 0 } : { opacity: 0, x: -12 },
+    hidden: r ? { opacity: 0 } : { opacity: 0, y: 8 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: r
-        ? { duration: 0.1 }
+        ? { duration: 0.08 }
         : {
-            duration: 0.36,
+            duration: HERO_CHILD_DURATION * 0.85,
             ease: motionEase,
-            staggerChildren: 0.075,
-            delayChildren: 0.02,
+            staggerChildren: 0.06,
+            delayChildren: 0.01,
           },
     },
   };
@@ -139,29 +167,29 @@ export function trustBadgeRowVariants(reduced: Reduced): Variants {
 export function heroTrustItem(reduced: Reduced): Variants {
   const r = !!reduced;
   return {
-    hidden: r ? { opacity: 0 } : { opacity: 0, y: 8, scale: 0.97 },
+    hidden: r ? { opacity: 0 } : { opacity: 0, y: 6, scale: 0.98 },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { duration: r ? 0.08 : 0.32, ease: motionEase },
+      transition: { duration: r ? 0.06 : 0.45, ease: motionEase },
     },
   };
 }
 
-/** Hero: right column + tag stagger */
-export function heroRightColumn(reduced: Reduced): Variants {
+/** Hero visual column: same mount timing, fade + slight rise */
+export function heroVisualColumn(reduced: Reduced): Variants {
   const r = !!reduced;
   return {
-    hidden: r ? { opacity: 0 } : { opacity: 0, x: 30 },
+    hidden: r ? { opacity: 0 } : { opacity: 0, y: 14 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: {
-        duration: r ? 0.12 : 0.5,
+        duration: r ? 0.08 : 0.62,
         ease: motionEase,
-        staggerChildren: r ? 0 : 0.08,
-        delayChildren: r ? 0 : 0.1,
+        staggerChildren: r ? 0 : 0.05,
+        delayChildren: r ? 0 : 0.06,
       },
     },
   };
@@ -173,7 +201,7 @@ export function heroTagList(reduced: Reduced): Variants {
     hidden: r ? { opacity: 0 } : { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: r ? { duration: 0.1 } : { staggerChildren: 0.055 },
+      transition: r ? { duration: 0.08 } : { staggerChildren: 0.045 },
     },
   };
 }

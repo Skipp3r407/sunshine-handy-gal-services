@@ -42,3 +42,34 @@ h6 {
   background: #f4c542;
   color: #222222;
 }
+
+/* Subtle CTA emphasis — transform/box-shadow only; disabled when user prefers reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes cta-soft-glow {
+    0%,
+    100% {
+      box-shadow:
+        0 4px 14px -3px rgba(12, 125, 150, 0.3),
+        0 0 0 0 rgba(94, 201, 232, 0);
+    }
+    50% {
+      box-shadow:
+        0 6px 20px -4px rgba(12, 125, 150, 0.38),
+        0 0 18px -10px rgba(94, 201, 232, 0.22);
+    }
+  }
+
+  .cta-primary-enhanced {
+    animation: cta-soft-glow 5.5s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-primary-enhanced {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { businessInfo } from "@/lib/site-data";
-import { buttonLiftHover } from "@/lib/motion-variants";
+import { buttonLiftHover, primaryCtaHover } from "@/lib/motion-variants";
 
 export function MobileStickyCTA() {
   const reduced = useReducedMotion();
@@ -20,8 +20,8 @@ export function MobileStickyCTA() {
         </motion.a>
         <motion.a
           href={businessInfo.textHref}
-          className="flex-1 rounded-full bg-teal-deep px-4 py-2 text-center text-sm font-semibold text-white shadow-md shadow-teal-deep/30 transition-colors hover:bg-teal-hover"
-          whileHover={buttonLiftHover(reduced)}
+          className="cta-primary-enhanced flex-1 rounded-full bg-teal-deep px-4 py-2 text-center text-sm font-semibold text-white shadow-md shadow-teal-deep/30 transition-colors hover:bg-teal-hover"
+          whileHover={primaryCtaHover(reduced)}
           whileTap={reduced ? undefined : { scale: 0.99 }}
         >
           Text for a Quote

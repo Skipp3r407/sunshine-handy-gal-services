@@ -24,7 +24,7 @@ export function ProcessSteps({ items }: ProcessStepsProps) {
       className="grid gap-4 md:grid-cols-3"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.15, margin: "0px 0px -6% 0px" }}
+      viewport={{ once: true, amount: 0.1, margin: "0px 0px -4% 0px" }}
       variants={staggerContainerVariants(reduced, 0.08)}
     >
       {items.map((step, index) => (

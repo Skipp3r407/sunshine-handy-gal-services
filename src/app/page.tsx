@@ -48,7 +48,7 @@ export default function Home() {
       </section>
 
       <section className="rounded-[2rem] border border-teal/10 bg-cream px-6 py-12 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] sm:px-10">
-        <Reveal direction="up">
+        <Reveal direction="left">
           <SectionHeading
             eyebrow="Why Clients Choose Us"
             title="Trusted, detail-oriented, and easy to work with"
@@ -77,7 +77,7 @@ export default function Home() {
       <AboutPreview />
 
       <section className="space-y-8">
-        <Reveal direction="up">
+        <Reveal direction="right">
           <SectionHeading
             eyebrow="Testimonials"
             title="Loved by families and businesses across Central Florida"
@@ -107,7 +107,7 @@ export default function Home() {
       </section>
 
       <section className="space-y-8">
-        <Reveal direction="up">
+        <Reveal direction="left">
           <SectionHeading
             eyebrow="Service Areas"
             title="Proudly serving Orlando and nearby Central Florida communities"
@@ -118,7 +118,7 @@ export default function Home() {
       </section>
 
       <section className="space-y-8">
-        <Reveal direction="up">
+        <Reveal direction="right">
           <SectionHeading
             eyebrow="How It Works"
             title="Simple, friendly process from first message to sparkling finish"

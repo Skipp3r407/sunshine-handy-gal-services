@@ -6,6 +6,7 @@ import { businessInfo } from "@/lib/site-data";
 import {
   buttonLiftHover,
   ctaBannerVariants,
+  primaryCtaHover,
 } from "@/lib/motion-variants";
 
 type CTASectionProps = {
@@ -32,10 +33,10 @@ export function CTASection({ title, description }: CTASectionProps) {
           {description}
         </p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:justify-center">
-          <motion.div whileHover={buttonLiftHover(reduced)}>
+          <motion.div whileHover={primaryCtaHover(reduced)}>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-teal-deep px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-deep/30 transition hover:bg-teal-hover hover:shadow-xl hover:shadow-teal-deep/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/90 focus-visible:ring-offset-2 focus-visible:ring-offset-[#7ecce0]"
+              className="cta-primary-enhanced inline-flex items-center justify-center rounded-full bg-teal-deep px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-deep/30 transition-colors hover:bg-teal-hover hover:shadow-xl hover:shadow-teal-deep/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/90 focus-visible:ring-offset-2 focus-visible:ring-offset-[#7ecce0]"
             >
               Request a Custom Quote
             </Link>

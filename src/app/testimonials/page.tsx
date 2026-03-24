@@ -1,8 +1,8 @@
 import { Metadata } from "next";
-import Link from "next/link";
 import { SectionHeading } from "@/components/section-heading";
 import { ReviewHighlightBanner } from "@/components/review-highlight-banner";
 import { TestimonialCard } from "@/components/testimonial-card";
+import { PrimaryCtaLink } from "@/components/motion/primary-cta-link";
 import { Reveal } from "@/components/motion/reveal";
 import { StaggerGrid } from "@/components/motion/stagger-grid";
 import { testimonials } from "@/lib/site-data";
@@ -56,12 +56,9 @@ export default function TestimonialsPage() {
             From deep clean resets to recurring care, we make your home or business
             feel polished, refreshed, and easier to enjoy.
           </p>
-          <Link
-            href="/contact"
-            className="mt-6 inline-flex rounded-full bg-teal-deep px-6 py-3 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition-[background-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:bg-teal-hover hover:shadow-lg"
-          >
+          <PrimaryCtaLink href="/contact" className="mt-6 px-6 py-3">
             Call or Text Today
-          </Link>
+          </PrimaryCtaLink>
         </section>
       </Reveal>
     </div>

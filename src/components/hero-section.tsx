@@ -7,11 +7,12 @@ import { businessInfo, trustBadges } from "@/lib/site-data";
 import { TrustBadgeRow } from "@/components/trust-badge-row";
 import {
   buttonLiftHover,
-  heroBlock,
-  heroLeftColumn,
-  heroRightColumn,
+  heroLoadBlock,
+  heroLoadContainer,
   heroTagList,
   heroTrustItem,
+  heroVisualColumn,
+  primaryCtaHover,
 } from "@/lib/motion-variants";
 
 const floatingTags = [
@@ -20,8 +21,6 @@ const floatingTags = [
   "Organizing",
   "Residential + Commercial",
 ];
-
-const heroViewport = { once: true, amount: 0.25, margin: "0px 0px -10% 0px" };
 
 export function HeroSection() {
   const reduced = useReducedMotion();
@@ -35,25 +34,24 @@ export function HeroSection() {
       <div className="relative grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <motion.div
           className="space-y-0"
-          variants={heroLeftColumn(reduced)}
+          variants={heroLoadContainer(reduced)}
           initial="hidden"
-          whileInView="visible"
-          viewport={heroViewport}
+          animate="visible"
         >
           <motion.p
-            variants={heroBlock(reduced)}
+            variants={heroLoadBlock(reduced)}
             className="mb-3 inline-flex rounded-full border border-teal/15 bg-gradient-to-r from-sunshine-yellow/35 to-aqua/25 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#7a5200] shadow-[inset_0_1px_0_rgba(255,255,255,0.65)]"
           >
             Professional Cleaning in Orlando
           </motion.p>
           <motion.h1
-            variants={heroBlock(reduced)}
+            variants={heroLoadBlock(reduced)}
             className="text-4xl font-bold tracking-tight text-charcoal sm:text-5xl"
           >
             Let Us Add Some Sunshine to Your Home
           </motion.h1>
           <motion.p
-            variants={heroBlock(reduced)}
+            variants={heroLoadBlock(reduced)}
             className="mt-5 max-w-xl text-base leading-7 text-muted-gray sm:text-lg"
           >
             Sunshine&apos;s Handy Gal Services delivers detail-oriented residential
@@ -62,13 +60,13 @@ export function HeroSection() {
             you can feel right away.
           </motion.p>
           <motion.div
-            variants={heroBlock(reduced)}
+            variants={heroLoadBlock(reduced)}
             className="mt-7 flex flex-col gap-3 sm:flex-row"
           >
-            <motion.div whileHover={buttonLiftHover(reduced)}>
+            <motion.div whileHover={primaryCtaHover(reduced)}>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-teal-deep px-6 py-3 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition hover:bg-teal-hover hover:shadow-lg hover:shadow-teal-deep/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/70 focus-visible:ring-offset-2"
+                className="cta-primary-enhanced inline-flex items-center justify-center rounded-full bg-teal-deep px-6 py-3 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition-colors hover:bg-teal-hover hover:shadow-lg hover:shadow-teal-deep/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/70 focus-visible:ring-offset-2"
               >
                 Get a Custom Quote
               </Link>
@@ -76,7 +74,7 @@ export function HeroSection() {
             <motion.div whileHover={buttonLiftHover(reduced)}>
               <a
                 href={businessInfo.textHref}
-                className="inline-flex items-center justify-center rounded-full border border-teal-deep/40 bg-white px-6 py-3 text-sm font-semibold text-teal-deep shadow-sm transition hover:border-golden-amber/50 hover:bg-sunshine-yellow/12 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-deep/35 focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center rounded-full border border-teal-deep/40 bg-white px-6 py-3 text-sm font-semibold text-teal-deep shadow-sm transition-[border-color,background-color,box-shadow] hover:border-golden-amber/50 hover:bg-sunshine-yellow/12 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-deep/35 focus-visible:ring-offset-2"
               >
                 Text for a Quote
               </a>
@@ -90,12 +88,11 @@ export function HeroSection() {
 
         <motion.div
           className="relative rounded-3xl border border-teal/10 bg-white/80 p-6 shadow-[0_12px_40px_-28px_rgba(12,125,150,0.35)] backdrop-blur"
-          variants={heroRightColumn(reduced)}
+          variants={heroVisualColumn(reduced)}
           initial="hidden"
-          whileInView="visible"
-          viewport={heroViewport}
+          animate="visible"
         >
-          <motion.div variants={heroBlock(reduced)}>
+          <motion.div variants={heroLoadBlock(reduced)}>
             <Image
               src="/images/logo.png"
               alt="Sunshines Handy Gal Services logo"

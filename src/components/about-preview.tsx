@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { businessInfo } from "@/lib/site-data";
-import { buttonLiftHover, revealVariants } from "@/lib/motion-variants";
+import { primaryCtaHover, revealVariants } from "@/lib/motion-variants";
 
 const aboutViewport = { once: true, amount: 0.2, margin: "0px 0px -8% 0px" };
 
@@ -31,10 +31,10 @@ export function AboutPreview() {
           often mention the thoughtful special touches and the care that goes into
           every single visit.
         </p>
-        <motion.div className="mt-6 inline-block" whileHover={buttonLiftHover(reduced)}>
+        <motion.div className="mt-6 inline-block" whileHover={primaryCtaHover(reduced)}>
           <Link
             href="/about"
-            className="inline-flex rounded-full bg-teal-deep px-6 py-3 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition hover:bg-teal-hover hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/70 focus-visible:ring-offset-2"
+            className="cta-primary-enhanced inline-flex rounded-full bg-teal-deep px-6 py-3 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition-colors hover:bg-teal-hover hover:shadow-lg hover:shadow-teal-deep/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/70 focus-visible:ring-offset-2"
           >
             Learn More About Us
           </Link>

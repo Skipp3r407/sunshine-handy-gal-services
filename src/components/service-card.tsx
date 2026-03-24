@@ -28,7 +28,7 @@ export function ServiceCard({ title, description, benefit }: ServiceCardProps) {
       </p>
       <Link
         href="/services"
-        className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-teal-deep transition-colors hover:text-teal hover:underline decoration-sunshine-yellow/70 underline-offset-4"
+        className="relative mt-5 inline-flex items-center gap-2 text-sm font-semibold text-teal-deep transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-gradient-to-r after:from-teal-deep after:to-aqua after:transition-all after:duration-300 hover:text-teal hover:after:w-full"
       >
         Learn more
         <span aria-hidden>→</span>

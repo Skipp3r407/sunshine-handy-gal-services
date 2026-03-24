@@ -1,10 +1,30 @@
 "use client";
 
+import { Suspense, useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion, useReducedMotion } from "framer-motion";
-import { buttonLiftHover } from "@/lib/motion-variants";
+import { primaryCtaHover } from "@/lib/motion-variants";
 
-export function ContactForm() {
+const SERVICE_OPTIONS = [
+  "Standard Cleaning",
+  "Deep Cleaning",
+  "Move-In / Move-Out Cleaning",
+  "Organization Services",
+  "Residential Cleaning",
+  "Light Commercial Cleaning",
+] as const;
+
+function ContactFormFields() {
   const reduced = useReducedMotion();
+  const searchParams = useSearchParams();
+  const { messageDefault, serviceDefault } = useMemo(() => {
+    const message = searchParams.get("message") ?? "";
+    const service = searchParams.get("service") ?? "";
+    const validService = SERVICE_OPTIONS.includes(service as (typeof SERVICE_OPTIONS)[number])
+      ? service
+      : "";
+    return { messageDefault: message, serviceDefault: validService };
+  }, [searchParams]);
 
   return (
     <form className="space-y-4 rounded-3xl border border-[#efe9dc] bg-white p-6 shadow-[0_16px_42px_-28px_rgba(0,0,0,0.45)] sm:p-8">
@@ -47,18 +67,18 @@ export function ContactForm() {
           Service Needed
           <select
             name="service"
+            key={searchParams.toString()}
+            defaultValue={serviceDefault || ""}
             className="w-full rounded-xl border border-[#ddd6c8] bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-deep focus:ring-2 focus:ring-teal-deep/20"
-            defaultValue=""
           >
             <option value="" disabled>
               Select a service
             </option>
-            <option>Standard Cleaning</option>
-            <option>Deep Cleaning</option>
-            <option>Move-In / Move-Out Cleaning</option>
-            <option>Organization Services</option>
-            <option>Residential Cleaning</option>
-            <option>Light Commercial Cleaning</option>
+            {SERVICE_OPTIONS.map((opt) => (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
+            ))}
           </select>
         </label>
       </div>
@@ -77,6 +97,8 @@ export function ContactForm() {
         <textarea
           name="message"
           rows={4}
+          key={searchParams.toString()}
+          defaultValue={messageDefault}
           className="w-full resize-y rounded-xl border border-[#ddd6c8] px-4 py-3 text-sm outline-none transition focus:border-teal-deep focus:ring-2 focus:ring-teal-deep/20"
           placeholder="Tell us about your space and what you need."
         />
@@ -84,9 +106,9 @@ export function ContactForm() {
 
       <motion.button
         type="submit"
-        whileHover={buttonLiftHover(reduced)}
+        whileHover={primaryCtaHover(reduced)}
         whileTap={reduced ? undefined : { scale: 0.99 }}
-        className="w-full rounded-full bg-teal-deep px-6 py-3 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition-colors hover:bg-teal-hover hover:shadow-lg hover:shadow-teal-deep/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/70 focus-visible:ring-offset-2"
+        className="cta-primary-enhanced w-full rounded-full bg-teal-deep px-6 py-3 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition-colors hover:bg-teal-hover hover:shadow-lg hover:shadow-teal-deep/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/70 focus-visible:ring-offset-2"
       >
         Request a Custom Quote
       </motion.button>
@@ -95,5 +117,22 @@ export function ContactForm() {
         3-hour minimum service rate of $150 applies.
       </p>
     </form>
+  );
+}
+
+function ContactFormFallback() {
+  return (
+    <div
+      className="h-[min(28rem,70vh)] animate-pulse rounded-3xl border border-[#efe9dc] bg-cream/50"
+      aria-hidden
+    />
+  );
+}
+
+export function ContactForm() {
+  return (
+    <Suspense fallback={<ContactFormFallback />}>
+      <ContactFormFields />
+    </Suspense>
   );
 }

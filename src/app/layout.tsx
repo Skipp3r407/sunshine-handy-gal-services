@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { MobileStickyCTA } from "@/components/mobile-sticky-cta";
+import { ChatWidget } from "@/components/chat/ChatWidget";
 import { LocalBusinessSchema } from "@/components/local-business-schema";
 
 const inter = Inter({
@@ -64,6 +65,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <MobileStickyCTA />
+        <ChatWidget />
       </body>
     </html>
   );

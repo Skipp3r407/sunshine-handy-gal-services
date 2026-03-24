@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import Link from "next/link";
 import { SectionHeading } from "@/components/section-heading";
 import { CTASection } from "@/components/cta-section";
+import { PrimaryCtaLink } from "@/components/motion/primary-cta-link";
 import { Reveal } from "@/components/motion/reveal";
 import { StaggerGrid } from "@/components/motion/stagger-grid";
 import { services, siteChecklist } from "@/lib/site-data";
@@ -42,12 +42,9 @@ export default function ServicesPage() {
             <p className="mt-3 rounded-2xl bg-cream px-4 py-3 text-sm font-semibold text-charcoal">
               {service.benefit}
             </p>
-            <Link
-              href="/contact"
-              className="mt-5 inline-flex rounded-full bg-teal-deep px-5 py-2 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition hover:bg-teal-hover hover:shadow-lg"
-            >
+            <PrimaryCtaLink href="/contact" className="mt-5 px-5 py-2">
               Request a Custom Quote
-            </Link>
+            </PrimaryCtaLink>
           </article>
         ))}
       </StaggerGrid>

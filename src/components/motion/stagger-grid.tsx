@@ -28,7 +28,7 @@ export function StaggerGrid({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.12, margin: "0px 0px -6% 0px" }}
+      viewport={{ once: true, amount: 0.1, margin: "0px 0px -4% 0px" }}
       variants={staggerContainerVariants(reduced, stagger)}
     >
       {Children.map(children, (child, index) => {
