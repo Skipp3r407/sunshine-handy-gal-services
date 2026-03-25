@@ -7,7 +7,7 @@ import { businessInfo } from "@/lib/site-data";
 import { primaryCtaHover } from "@/lib/motion-variants";
 
 const SERVICE_OPTIONS = [
-  "Standard Cleaning",
+  "Detailed Clean",
   "Deep Cleaning",
   "Move-In / Move-Out Cleaning",
   "Organization Services",

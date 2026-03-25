@@ -8,6 +8,7 @@ export const DEFAULT_QUICK_REPLIES = [
   "Services",
   "Pricing",
   "Service Areas",
+  "Detailed Clean",
   "Deep Cleaning",
   "Move-Out Cleaning",
   "Organizing",
@@ -27,13 +28,18 @@ export const PRESET_RESPONSES: Record<
   { text: string; quickReplies?: readonly string[] }
 > = {
   services: {
-    text: "We offer standard cleaning, deep cleaning, move-in / move-out cleaning, organization services, residential cleaning, and light commercial cleaning for small businesses. Which one are you most interested in?",
+    text: "We offer Detailed Clean, deep cleaning, move-in / move-out cleaning, organization services, residential cleaning, and light commercial cleaning for small businesses. Which one are you most interested in?",
     quickReplies: [
+      "Detailed Clean",
       "Deep Cleaning",
       "Move-Out Cleaning",
       "Organizing",
       "Get a Quote",
     ],
+  },
+  detailed_clean: {
+    text: "Detailed Clean includes thorough, top-to-bottom attention to all areas of your home, focusing on buildup, high-touch surfaces, and areas that need extra care. It's our go-to for consistent, premium upkeep.",
+    quickReplies: ["Pricing", "Get a Quote", "Deep Cleaning", "Services"],
   },
   deep_cleaning: {
     text: "Yes — deep cleaning includes detailed top-to-bottom attention for buildup, neglected areas, and high-touch surfaces that need extra care. It's a great option for a full reset.",
@@ -80,7 +86,7 @@ export const PRESET_RESPONSES: Record<
     quickReplies: ["Services", "Get a Quote", "Why choose you?"],
   },
   recurring: {
-    text: "Yes — standard cleaning is a great fit for dependable recurring care. Reach out to set a rhythm that works for your home.",
+    text: "Yes — Detailed Clean is a great fit for dependable recurring care. Reach out to set a rhythm that works for your home.",
     quickReplies: ["Pricing", "Get a Quote", "Services"],
   },
   online_booking: {

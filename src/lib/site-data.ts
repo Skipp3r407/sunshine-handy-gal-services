@@ -30,13 +30,13 @@ export const trustBadges = [
 
 export const services = [
   {
-    title: "Standard Cleaning",
+    title: "Detailed Clean",
     description:
-      "Consistent upkeep for kitchens, bathrooms, bedrooms, and living spaces so your home feels ready for everyday life.",
+      "Detailed cleaning includes thorough, top-to-bottom attention to all areas of your home, focusing on buildup, high-touch surfaces, and areas that need extra care.",
     benefit:
-      "Keeps your home fresh week after week without the stress of doing it all yourself.",
+      "Delivers a polished, refreshed feel with careful attention where it matters most—without cutting corners.",
     whoItsFor:
-      "Busy households who want dependable recurring care.",
+      "Homes that deserve consistent, detail-focused care on a recurring rhythm.",
     icon: "Sparkles",
   },
   {
@@ -194,7 +194,7 @@ export const faqItems = [
   {
     question: "What cleaning services do you offer?",
     answer:
-      "We offer standard cleaning, deep cleaning, move-in and move-out cleaning, organization services, residential cleaning, and light commercial cleaning for small businesses.",
+      "We offer Detailed Clean, deep cleaning, move-in and move-out cleaning, organization services, residential cleaning, and light commercial cleaning for small businesses.",
   },
   {
     question: "Do you bring your own supplies?",

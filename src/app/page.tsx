@@ -16,7 +16,7 @@ import { trustBadges, services, testimonials, serviceAreas, processSteps, busine
 export const metadata: Metadata = {
   title: "Sunshines Handy Gal Services | Professional Cleaning in Orlando, FL",
   description:
-    "Trusted, women-owned cleaning company in Orlando, FL. Call or text for a custom quote on standard cleaning, deep cleaning, move-out service, and organizing support.",
+    "Trusted, women-owned cleaning company in Orlando, FL. Call or text for a custom quote on Detailed Clean, deep cleaning, move-out service, and organizing support.",
 };
 
 export default function Home() {

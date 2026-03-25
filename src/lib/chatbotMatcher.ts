@@ -21,6 +21,18 @@ type IntentRule = {
 };
 
 const INTENT_RULES: IntentRule[] = [
+  {
+    key: "detailed_clean",
+    keywords: [
+      "detailed clean",
+      "detailed cleaning",
+      "basic clean",
+      "basic cleaning",
+      "standard cleaning",
+      "standard clean",
+    ],
+    minHits: 1,
+  },
   { key: "services", keywords: ["service", "services", "what do you offer", "what you offer", "do you offer"], minHits: 1 },
   { key: "deep_cleaning", keywords: ["deep clean", "deep cleaning", "full reset", "thorough clean"], minHits: 1 },
   { key: "move_out", keywords: ["move out", "move-out", "move in", "move-in", "listing", "handoff"], minHits: 1 },
@@ -57,6 +69,7 @@ const QUICK_REPLY_MAP: Record<string, string> = {
   Services: "services",
   Pricing: "pricing",
   "Service Areas": "areas",
+  "Detailed Clean": "detailed_clean",
   "Deep Cleaning": "deep_cleaning",
   "Move-Out Cleaning": "move_out",
   Organizing: "organizing",

@@ -12,7 +12,7 @@ export type QuoteLead = {
 };
 
 export const QUOTE_SERVICE_OPTIONS = [
-  "Standard Cleaning",
+  "Detailed Clean",
   "Deep Cleaning",
   "Move-In / Move-Out",
   "Organizing",
@@ -34,7 +34,7 @@ export function buildQuoteSummary(lead: Omit<QuoteLead, "source" | "createdAt">)
 }
 
 const QUOTE_TO_FORM_SERVICE: Record<string, string> = {
-  "Standard Cleaning": "Standard Cleaning",
+  "Detailed Clean": "Detailed Clean",
   "Deep Cleaning": "Deep Cleaning",
   "Move-In / Move-Out": "Move-In / Move-Out Cleaning",
   Organizing: "Organization Services",
