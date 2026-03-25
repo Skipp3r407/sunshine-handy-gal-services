@@ -4,34 +4,34 @@ import { businessInfo, navLinks, serviceAreas } from "@/lib/site-data";
 
 export function Footer() {
   return (
-    <footer className="mt-20 bg-charcoal text-white">
+    <footer className="mt-12 bg-charcoal text-white sm:mt-16 lg:mt-20">
       <div
         className="h-1 w-full bg-gradient-to-r from-teal-deep via-aqua to-sunshine-yellow"
         aria-hidden
       />
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-4 lg:px-8">
+      <div className="mx-auto grid max-w-6xl gap-6 px-3 py-8 sm:gap-10 sm:px-6 sm:py-12 lg:grid-cols-4 lg:px-8">
         <div>
           <Image
             src="/images/logo.png"
             alt="Sunshines Handy Gal Services logo"
             width={160}
             height={56}
-            className="h-auto w-[140px] rounded-lg bg-white p-1"
+            className="h-auto w-[112px] rounded-lg bg-white p-1 sm:w-[140px]"
           />
-          <p className="mt-4 text-sm leading-6 text-white/80">
+          <p className="mt-3 text-sm leading-relaxed text-white/80 sm:mt-4 sm:leading-6">
             Cheerful, professional cleaning and organizing with thoughtful detail
             across Orlando and Central Florida.
           </p>
-          <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-sunshine-yellow">
+          <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-sunshine-yellow sm:mt-3">
             Women-Owned Business
           </p>
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-aqua">
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-aqua sm:text-sm">
             Quick Links
           </h3>
-          <ul className="mt-4 space-y-2 text-sm text-white/80">
+          <ul className="mt-2 space-y-1.5 text-sm text-white/80 sm:mt-4 sm:space-y-2">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
@@ -46,10 +46,10 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-aqua">
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-aqua sm:text-sm">
             Service Areas
           </h3>
-          <ul className="mt-4 space-y-2 text-sm text-white/80">
+          <ul className="mt-2 space-y-1.5 text-sm text-white/80 sm:mt-4 sm:space-y-2">
             {serviceAreas.slice(0, 5).map((area) => (
               <li key={area.name}>{area.name}</li>
             ))}
@@ -58,10 +58,10 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-aqua">
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-aqua sm:text-sm">
             Contact
           </h3>
-          <ul className="mt-4 space-y-2 text-sm text-white/80">
+          <ul className="mt-2 space-y-1.5 text-sm text-white/80 sm:mt-4 sm:space-y-2">
             <li>
               <a
                 href={businessInfo.phoneHref}
@@ -82,7 +82,7 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-teal-deep/40 py-4 text-center text-xs text-white/70">
+      <div className="border-t border-teal-deep/40 px-3 py-2.5 text-center text-[0.7rem] leading-snug text-white/70 sm:py-4 sm:text-xs">
         <p>
           © {new Date().getFullYear()} {businessInfo.name}. All rights reserved.
         </p>

@@ -26,7 +26,7 @@ export function HeroSection() {
   const reduced = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden rounded-[2.25rem] bg-gradient-to-br from-[#fff4cc] via-[#fffdf8] to-[#dff6fc] px-6 pb-12 pt-10 shadow-[0_20px_45px_-32px_rgba(12,125,150,0.18)] sm:px-10 sm:pt-14 lg:px-12">
+    <section className="relative overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-[#fff4cc] via-[#fffdf8] to-[#dff6fc] px-4 pb-8 pt-6 shadow-[0_20px_45px_-32px_rgba(12,125,150,0.18)] min-[400px]:rounded-[2.25rem] sm:px-10 sm:pb-12 sm:pt-14 lg:px-12">
       <div className="pointer-events-none absolute -top-24 right-0 h-56 w-56 rounded-full bg-sunshine-yellow/40 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 left-0 h-56 w-56 rounded-full bg-aqua/35 blur-3xl" />
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-deep/10 blur-3xl" />

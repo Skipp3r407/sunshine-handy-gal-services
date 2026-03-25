@@ -60,7 +60,7 @@ export default function RootLayout({
       <body className="min-h-full bg-clean-white text-charcoal">
         <LocalBusinessSchema />
         <Navbar />
-        <main className="mx-auto min-h-[60vh] max-w-6xl px-4 pb-24 pt-10 sm:px-6 lg:px-8">
+        <main className="mx-auto min-h-[60vh] max-w-6xl px-3 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] pt-6 sm:px-6 sm:pb-24 sm:pt-8 md:pt-10 lg:px-8 lg:pb-12">
           {children}
         </main>
         <Footer />
