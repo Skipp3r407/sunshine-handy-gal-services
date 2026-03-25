@@ -29,18 +29,6 @@ export default function ContactPage() {
           <h2 className="text-xl font-bold text-charcoal">Get In Touch</h2>
           <ul className="mt-4 space-y-3 text-sm text-muted-gray">
             <li>
-              <span className="font-semibold text-charcoal">Phone:</span>{" "}
-              <a href={businessInfo.phoneHref} className="text-teal">
-                {businessInfo.phoneDisplay}
-              </a>
-            </li>
-            <li>
-              <span className="font-semibold text-charcoal">Text:</span>{" "}
-              <a href={businessInfo.textHref} className="text-teal">
-                {businessInfo.phoneDisplay}
-              </a>
-            </li>
-            <li>
               <span className="font-semibold text-charcoal">Email:</span>{" "}
               <a href={businessInfo.emailHref} className="text-teal">
                 {businessInfo.email}

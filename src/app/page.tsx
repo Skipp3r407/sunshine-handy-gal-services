@@ -146,12 +146,6 @@ export default function Home() {
             <h3 className="text-lg font-semibold text-charcoal">Contact Details</h3>
             <ul className="mt-4 space-y-3 text-sm text-muted-gray">
               <li>
-                <span className="font-semibold text-charcoal">Phone:</span>{" "}
-                <a href={businessInfo.phoneHref} className="text-teal">
-                  {businessInfo.phoneDisplay}
-                </a>
-              </li>
-              <li>
                 <span className="font-semibold text-charcoal">Email:</span>{" "}
                 <a href={businessInfo.emailHref} className="text-teal">
                   {businessInfo.email}

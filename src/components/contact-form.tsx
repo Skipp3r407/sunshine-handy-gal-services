@@ -3,6 +3,7 @@
 import { Suspense, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion, useReducedMotion } from "framer-motion";
+import { businessInfo } from "@/lib/site-data";
 import { primaryCtaHover } from "@/lib/motion-variants";
 
 const SERVICE_OPTIONS = [
@@ -104,14 +105,25 @@ function ContactFormFields() {
         />
       </label>
 
-      <motion.button
-        type="submit"
-        whileHover={primaryCtaHover(reduced)}
-        whileTap={reduced ? undefined : { scale: 0.99 }}
-        className="cta-primary-enhanced w-full rounded-full bg-teal-deep px-6 py-3 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition-colors hover:bg-teal-hover hover:shadow-lg hover:shadow-teal-deep/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/70 focus-visible:ring-offset-2"
-      >
-        Request a Custom Quote
-      </motion.button>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-stretch">
+        <motion.a
+          href={businessInfo.phoneHref}
+          whileHover={primaryCtaHover(reduced)}
+          whileTap={reduced ? undefined : { scale: 0.99 }}
+          className="cta-primary-enhanced inline-flex flex-1 items-center justify-center rounded-full bg-teal-deep px-6 py-3 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition-colors hover:bg-teal-hover hover:shadow-lg hover:shadow-teal-deep/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/70 focus-visible:ring-offset-2"
+        >
+          Call {businessInfo.phoneDisplay}
+        </motion.a>
+        <motion.button
+          type="submit"
+          whileHover={reduced ? undefined : { y: -1 }}
+          whileTap={reduced ? undefined : { scale: 0.99 }}
+          className="inline-flex flex-1 items-center justify-center rounded-full border border-teal-deep/45 bg-white px-6 py-3 text-sm font-semibold text-teal-deep shadow-sm transition-colors hover:border-golden-amber/50 hover:bg-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-deep/30 focus-visible:ring-offset-2"
+        >
+          Request a Quote
+        </motion.button>
+      </div>
+
       <p className="text-xs text-muted-gray">
         Pricing is confirmed after discussing your home and service needs. A
         3-hour minimum service rate of $150 applies.
