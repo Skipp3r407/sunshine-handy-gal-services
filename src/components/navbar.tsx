@@ -7,7 +7,13 @@ import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { businessInfo, navLinks } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
-import { buttonLiftHover, primaryCtaHover } from "@/lib/motion-variants";
+import { primaryCtaHover } from "@/lib/motion-variants";
+
+/** Avoids `/services` matching `/service-areas` (pathname.startsWith bug). */
+function navLinkIsActive(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 export function Navbar() {
   const pathname = usePathname();
@@ -66,24 +72,21 @@ export function Navbar() {
           </Link>
         </motion.div>
 
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden shrink-0 items-center gap-3 xl:gap-4 2xl:gap-5 lg:flex">
           {navLinks.map((link) => {
-            const isActive =
-              link.href === "/"
-                ? pathname === "/"
-                : pathname.startsWith(link.href);
+            const isActive = navLinkIsActive(pathname, link.href);
             return (
               <motion.span
                 key={link.href}
-                className="relative inline-block"
+                className="relative inline-flex shrink-0 items-center"
                 whileHover={reduced ? undefined : { y: -1 }}
                 transition={{ duration: 0.2 }}
               >
                 <Link
                   href={link.href}
                   className={cn(
-                    "relative pb-1 text-sm font-semibold transition-colors duration-200",
-                    isActive ? "text-teal-deep" : "text-charcoal hover:text-teal-deep",
+                    "relative whitespace-nowrap pb-1 text-[13px] font-semibold text-charcoal transition-colors duration-200 xl:text-sm",
+                    !isActive && "hover:text-teal-deep",
                   )}
                 >
                   {link.label}
@@ -100,19 +103,11 @@ export function Navbar() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-2 lg:flex">
-          <motion.span className="inline-block" whileHover={buttonLiftHover(reduced)}>
-            <a
-              href={businessInfo.phoneHref}
-              className="inline-flex rounded-full px-4 py-2 text-sm font-semibold text-teal-deep transition-colors duration-200 hover:bg-sunshine-yellow/10 hover:text-teal-hover"
-            >
-              Call for a Quote
-            </a>
-          </motion.span>
+        <div className="hidden shrink-0 items-center lg:flex">
           <motion.span className="inline-block" whileHover={primaryCtaHover(reduced)}>
             <Link
               href="/contact"
-              className="cta-primary-enhanced inline-flex rounded-full bg-teal-deep px-5 py-2 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition-colors duration-200 hover:bg-teal-hover hover:shadow-lg hover:shadow-teal-deep/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/70 focus-visible:ring-offset-2"
+              className="cta-primary-enhanced inline-flex whitespace-nowrap rounded-full bg-teal-deep px-5 py-2 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition-colors duration-200 hover:bg-teal-hover hover:shadow-lg hover:shadow-teal-deep/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/70 focus-visible:ring-offset-2"
             >
               Get a Custom Quote
             </Link>
@@ -168,10 +163,7 @@ export function Navbar() {
             <nav className="flex-1 overflow-y-auto px-2.5 py-3">
               <ul className="grid gap-0.5">
                 {navLinks.map((link) => {
-                  const isActive =
-                    link.href === "/"
-                      ? pathname === "/"
-                      : pathname.startsWith(link.href);
+                  const isActive = navLinkIsActive(pathname, link.href);
 
                   return (
                     <li key={link.href}>
