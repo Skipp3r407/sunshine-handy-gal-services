@@ -6,6 +6,7 @@ import { Footer } from "@/components/footer";
 import { MobileStickyCTA } from "@/components/mobile-sticky-cta";
 import { ChatWidget } from "@/components/chat/ChatWidget";
 import { LocalBusinessSchema } from "@/components/local-business-schema";
+import { SplashScreen } from "@/components/splash-screen";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -58,6 +59,7 @@ export default function RootLayout({
       className={`${inter.variable} ${poppins.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-clean-white text-charcoal">
+        <SplashScreen />
         <LocalBusinessSchema />
         <Navbar />
         <main className="mx-auto min-h-[60vh] max-w-6xl px-3 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] pt-6 sm:px-6 sm:pb-24 sm:pt-8 md:pt-10 lg:px-8 lg:pb-12">

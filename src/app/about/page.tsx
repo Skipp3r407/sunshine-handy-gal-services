@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Metadata } from "next";
 import { SectionHeading } from "@/components/section-heading";
 import { CTASection } from "@/components/cta-section";
@@ -24,26 +25,49 @@ export default function AboutPage() {
         </Reveal>
       </section>
 
-      <section className="grid gap-8 lg:grid-cols-2">
+      <section className="grid gap-8 lg:grid-cols-2 lg:items-start">
         <Reveal direction="left" className="min-h-0">
-        <article className="rounded-3xl border border-[#eee4d0] bg-white p-8">
-          <h2 className="text-2xl font-bold text-charcoal">Sheena&apos;s Story</h2>
-          <p className="mt-4 text-base leading-7 text-muted-gray">
-            {businessInfo.owner} started Sunshine&apos;s Handy Gal Services with a
-            simple mission: treat every home with pride and every client with
-            respect. What began as helping local families get caught up became a
-            trusted service known for detail, reliability, and genuine care.
-          </p>
-          <p className="mt-4 text-base leading-7 text-muted-gray">
-            Clients often mention the thoughtful “special touches” and the sense
-            of relief they feel after each visit. Whether it is a deep clean, a
-            move-out, or organization support, the goal is always the same:
-            create a refreshed environment you can feel immediately.
-          </p>
-        </article>
+          <figure className="mx-auto w-full max-w-[min(100%,320px)] lg:mx-0">
+            <div className="relative mx-auto aspect-square max-h-[320px] overflow-hidden rounded-full border-4 border-white shadow-[0_20px_50px_-20px_rgba(12,125,150,0.35)] ring-2 ring-teal-deep/15">
+              <Image
+                src="/images/sheena-hotaling-about.png"
+                alt={`${businessInfo.owner}, owner of ${businessInfo.name}, smiling in a black polo shirt`}
+                width={640}
+                height={640}
+                className="h-full w-full object-cover object-[center_20%]"
+                sizes="(max-width: 1024px) 80vw, 320px"
+                priority
+              />
+            </div>
+            <figcaption className="mt-4 text-center font-heading text-lg font-semibold text-charcoal lg:text-left">
+              {businessInfo.owner}
+              <span className="mt-0.5 block text-sm font-normal text-muted-gray">
+                Owner, {businessInfo.name}
+              </span>
+            </figcaption>
+          </figure>
         </Reveal>
 
         <Reveal direction="right" className="min-h-0" delay={0.06}>
+          <article className="rounded-3xl border border-[#eee4d0] bg-white p-8">
+            <h2 className="text-2xl font-bold text-charcoal">Sheena&apos;s Story</h2>
+            <p className="mt-4 text-base leading-7 text-muted-gray">
+              {businessInfo.owner} started Sunshine&apos;s Handy Gal Services with a
+              simple mission: treat every home with pride and every client with
+              respect. What began as helping local families get caught up became a
+              trusted service known for detail, reliability, and genuine care.
+            </p>
+            <p className="mt-4 text-base leading-7 text-muted-gray">
+              Clients often mention the thoughtful “special touches” and the sense
+              of relief they feel after each visit. Whether it is a deep clean, a
+              move-out, or organization support, the goal is always the same:
+              create a refreshed environment you can feel immediately.
+            </p>
+          </article>
+        </Reveal>
+      </section>
+
+      <Reveal direction="up" delay={0.04}>
         <article className="rounded-3xl border border-[#eee4d0] bg-cream p-8">
           <h2 className="text-2xl font-bold text-charcoal">Mission</h2>
           <p className="mt-4 text-base leading-7 text-muted-gray">
@@ -59,8 +83,7 @@ export default function AboutPage() {
             <li>• Deliver warm, trustworthy service every time</li>
           </ul>
         </article>
-        </Reveal>
-      </section>
+      </Reveal>
 
       <Reveal direction="up">
         <section className="rounded-3xl border border-teal-deep/20 bg-gradient-to-br from-white to-[#fffdf6] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)]">
