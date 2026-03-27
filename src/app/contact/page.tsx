@@ -1,8 +1,7 @@
 import { Metadata } from "next";
-import { SectionHeading } from "@/components/section-heading";
 import { ContactForm } from "@/components/contact-form";
+import { ContactPageSidebar } from "@/components/contact-page-sidebar";
 import { Reveal } from "@/components/motion/reveal";
-import { businessInfo } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Contact | Custom Cleaning Quote in Orlando",
@@ -12,50 +11,29 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="space-y-10">
-      <section className="rounded-[2rem] bg-gradient-to-br from-[#fff7d9] via-white to-[#ebf9ff] p-8 sm:p-12">
-        <Reveal direction="up">
-          <SectionHeading
-            eyebrow="Contact"
-            title="Tell us what you need, and we’ll bring a little more sunshine into your space."
-            description="Call or text for pricing and availability, or share a few details below and we will follow up quickly with personalized recommendations."
-          />
-        </Reveal>
-      </section>
-
-      <section className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-        <Reveal direction="left" className="min-h-0">
-          <article className="rounded-3xl border border-[#eee5d7] bg-white p-6 sm:p-8">
-          <h2 className="text-xl font-bold text-charcoal">Get In Touch</h2>
-          <ul className="mt-4 space-y-3 text-sm text-muted-gray">
-            <li>
-              <span className="font-semibold text-charcoal">Email:</span>{" "}
-              <a href={businessInfo.emailHref} className="text-teal">
-                {businessInfo.email}
-              </a>
-            </li>
-            <li>
-              <span className="font-semibold text-charcoal">Location:</span>{" "}
-              Orlando, Florida
-            </li>
-            <li>
-              <span className="font-semibold text-charcoal">Service Areas:</span>{" "}
-              Orlando, Lake Nona, Winter Park, Lake Mary, St. Cloud, and nearby
-              Central Florida communities.
-            </li>
-          </ul>
-          <p className="mt-5 rounded-2xl bg-cream px-4 py-3 text-sm text-charcoal">
-            Every home is different, so pricing is customized based on your
-            needs. Call or text for a personalized quote. 3-hour minimum service
-            rate: $150.
+    <div className="space-y-10 sm:space-y-12">
+      <Reveal direction="up">
+        <header className="mx-auto max-w-2xl text-center">
+          <p className="font-heading text-2xl font-bold leading-snug text-charcoal sm:text-3xl">
+            Request a booking
           </p>
-        </article>
-        </Reveal>
+          <p className="mt-3 text-sm leading-relaxed text-muted-gray sm:text-base">
+            Share your details and preferred date—we&apos;ll follow up with personalized options
+            for cleaning and organizing in your space.
+          </p>
+        </header>
+      </Reveal>
 
-        <Reveal direction="right" className="min-h-0" delay={0.06}>
-          <ContactForm />
-        </Reveal>
-      </section>
+      <div className="rounded-[1.75rem] bg-[#faf7f2] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] sm:p-8 lg:p-10">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(260px,340px)] lg:items-start lg:gap-10 xl:gap-12">
+          <Reveal direction="left" className="min-h-0">
+            <ContactForm variant="page" />
+          </Reveal>
+          <Reveal direction="right" className="min-h-0" delay={0.06}>
+            <ContactPageSidebar />
+          </Reveal>
+        </div>
+      </div>
     </div>
   );
 }

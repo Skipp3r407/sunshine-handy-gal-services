@@ -9,13 +9,29 @@ export const businessInfo = {
   location: "Orlando, Florida",
   serviceAreaSummary:
     "Orlando, Lake Nona, Winter Park, Lake Mary, St. Cloud, and nearby Central Florida communities",
+  /**
+   * Google Business Profile “Get more reviews” URL (recommended).
+   * Replace with your direct review link from Google Business; until then this opens Google search for the business.
+   */
+  googleReviewUrl:
+    "https://www.google.com/search?q=Sunshines+Handy+Gal+Services+Orlando+reviews",
 };
+
+/** Social profiles — add X / Instagram URLs when ready (empty = icon shown disabled). */
+export const socialLinks = {
+  /** WhatsApp chat — digits only, country code included */
+  whatsAppE164: "13213396686",
+  facebook: "https://www.facebook.com/profile.php?id=61577972807389",
+  x: "",
+  instagram: "",
+} as const;
 
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/service-areas", label: "Service Areas" },
+  { href: "/gallery", label: "Gallery" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
