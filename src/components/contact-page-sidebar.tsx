@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ExternalLinkIcon } from "@/components/google-review-cta";
 import { SocialLinksRow } from "@/components/social-links-row";
-import { businessInfo } from "@/lib/site-data";
+import { businessHoursRows, businessInfo } from "@/lib/site-data";
 
 const inputClass =
   "rounded-2xl border border-[#efe9dc] bg-white p-5 shadow-[0_8px_28px_-20px_rgba(0,0,0,0.12)]";
@@ -43,15 +43,16 @@ export function ContactPageSidebar() {
 
       <section className={inputClass}>
         <h2 className="text-base font-bold text-charcoal">Hours</h2>
-        <ul className="mt-3 space-y-2 text-sm text-muted-gray">
-          <li className="flex justify-between gap-3">
-            <span className="font-medium text-charcoal">Weekdays</span>
-            <span>By appointment</span>
-          </li>
-          <li className="flex justify-between gap-3">
-            <span className="font-medium text-charcoal">Weekends</span>
-            <span>By appointment</span>
-          </li>
+        <ul className="mt-3 divide-y divide-[#efe9dc] text-sm text-muted-gray">
+          {businessHoursRows.map((row) => (
+            <li
+              key={row.id}
+              className="flex justify-between gap-4 py-2.5 first:pt-0 last:pb-0"
+            >
+              <span className="font-medium text-charcoal">{row.labelShort}</span>
+              <span className="text-right">{row.hours}</span>
+            </li>
+          ))}
         </ul>
         <p className="mt-3 text-xs leading-relaxed text-muted-gray">
           Call or text for the soonest openings—we&apos;ll work with your schedule.

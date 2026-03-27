@@ -17,6 +17,31 @@ export const businessInfo = {
     "https://www.google.com/search?q=Sunshines+Handy+Gal+Services+Orlando+reviews",
 };
 
+/** Footer hours table — adjust times to match your real schedule. */
+export const businessHoursRows = [
+  { id: "mon" as const, labelShort: "Mon", hours: "8:00 AM – 5:30 PM" },
+  { id: "tue" as const, labelShort: "Tue", hours: "8:00 AM – 5:30 PM" },
+  { id: "wed" as const, labelShort: "Wed", hours: "8:00 AM – 5:30 PM" },
+  { id: "thu" as const, labelShort: "Thu", hours: "8:00 AM – 5:30 PM" },
+  { id: "fri" as const, labelShort: "Fri", hours: "8:00 AM – 5:30 PM" },
+  { id: "sat" as const, labelShort: "Sat", hours: "By appointment" },
+  { id: "sun" as const, labelShort: "Sun", hours: "Closed" },
+];
+
+/** Maps `businessHoursRows` id to JavaScript `Date#getDay()` (0 = Sunday). */
+export const businessHoursDayIndex: Record<
+  (typeof businessHoursRows)[number]["id"],
+  number
+> = {
+  sun: 0,
+  mon: 1,
+  tue: 2,
+  wed: 3,
+  thu: 4,
+  fri: 5,
+  sat: 6,
+};
+
 /** Social profiles — add X / Instagram URLs when ready (empty = icon shown disabled). */
 export const socialLinks = {
   /** WhatsApp chat — digits only, country code included */

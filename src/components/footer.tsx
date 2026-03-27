@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { GoogleReviewCta } from "@/components/google-review-cta";
 import { SocialLinksRow } from "@/components/social-links-row";
+import { FooterHours } from "@/components/footer-hours";
 import { businessInfo, navLinks, serviceAreas } from "@/lib/site-data";
 
 export function Footer() {
@@ -93,6 +94,13 @@ export function Footer() {
             </ul>
           </div>
         </div>
+
+        <div className="border-t border-white/10">
+          <div className="mx-auto max-w-6xl px-3 py-8 sm:px-6 sm:py-10 lg:px-8">
+            <FooterHours />
+          </div>
+        </div>
+
         <div className="border-t border-teal-deep/40 px-3 py-2.5 text-center text-[0.7rem] leading-snug text-white/70 sm:py-4 sm:text-xs">
           <p>
             © {new Date().getFullYear()} {businessInfo.name}. All rights reserved.
