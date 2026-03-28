@@ -37,6 +37,13 @@ export function Navbar() {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isOpen) root.classList.add("mobile-nav-open");
+    else root.classList.remove("mobile-nav-open");
+    return () => root.classList.remove("mobile-nav-open");
+  }, [isOpen]);
+
   const navSpring = reduced
     ? { duration: 0.12 }
     : { type: "spring" as const, stiffness: 420, damping: 34 };
@@ -53,8 +60,8 @@ export function Navbar() {
     >
       <div
         className={cn(
-          "relative z-[62] mx-auto flex max-w-6xl items-center justify-between gap-2 bg-white/95 px-3 py-2 sm:gap-4 sm:px-6 sm:py-3 lg:px-8",
-          isOpen && "shadow-sm",
+          "relative mx-auto flex max-w-6xl items-center justify-between gap-2 bg-white px-3 py-2 sm:gap-4 sm:px-6 sm:py-3 lg:px-8",
+          isOpen ? "z-[220] shadow-sm" : "z-10 bg-white/95 backdrop-blur",
         )}
       >
         <motion.div
@@ -137,12 +144,12 @@ export function Navbar() {
         <>
           <button
             type="button"
-            className="fixed inset-0 z-[60] bg-charcoal/35 backdrop-blur-[1px] lg:hidden"
+            className="fixed inset-0 z-[200] bg-charcoal/65 backdrop-blur-[2px] lg:hidden"
             aria-label="Close menu"
             onClick={() => setIsOpen(false)}
           />
           <div
-            className="fixed inset-y-0 right-0 z-[61] flex w-[min(100%,17.5rem)] flex-col border-l border-[#eee6d6] bg-white shadow-[-8px_0_32px_-12px_rgba(0,0,0,0.2)] lg:hidden"
+            className="fixed right-0 top-14 z-[210] flex h-[calc(100dvh-3.5rem)] w-[min(100%,20rem)] flex-col border-l border-[#eee6d6] bg-white shadow-[-8px_0_32px_-12px_rgba(0,0,0,0.22)] lg:hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Site navigation"

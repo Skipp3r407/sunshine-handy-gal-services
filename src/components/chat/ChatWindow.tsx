@@ -309,7 +309,7 @@ export function ChatWindow({ open, onClose }: ChatWindowProps) {
 
   return (
     <div
-      className="fixed bottom-[5.25rem] right-4 z-[100] flex w-[min(100vw-2rem,380px)] flex-col overflow-hidden rounded-2xl border border-teal/15 bg-white shadow-[0_16px_48px_-12px_rgba(12,125,150,0.35)] sm:bottom-24 sm:right-5 lg:bottom-6 lg:right-8"
+      className="nav-open-hide fixed bottom-[5.25rem] right-4 z-[100] flex w-[min(100vw-2rem,380px)] flex-col overflow-hidden rounded-2xl border border-teal/15 bg-white shadow-[0_16px_48px_-12px_rgba(12,125,150,0.35)] sm:bottom-24 sm:right-5 lg:bottom-6 lg:right-8"
       role="dialog"
       aria-label={`${CHATBOT_DISPLAY_NAME} chat assistant`}
       aria-modal="true"

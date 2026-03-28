@@ -8,7 +8,7 @@ export function MobileStickyCTA() {
   const reduced = useReducedMotion();
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-teal/15 bg-white/95 px-2 pb-[max(0.375rem,env(safe-area-inset-bottom,0px))] pt-2 shadow-[0_-4px_24px_-8px_rgba(12,125,150,0.2)] backdrop-blur sm:p-3 lg:hidden">
+    <div className="nav-open-hide fixed inset-x-0 bottom-0 z-40 border-t border-teal/15 bg-white/95 px-2 pb-[max(0.375rem,env(safe-area-inset-bottom,0px))] pt-2 shadow-[0_-4px_24px_-8px_rgba(12,125,150,0.2)] backdrop-blur sm:p-3 lg:hidden">
       <div className="mx-auto flex max-w-6xl gap-1.5 sm:gap-2">
         <motion.a
           href={businessInfo.phoneHref}

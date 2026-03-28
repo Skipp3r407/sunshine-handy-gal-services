@@ -83,3 +83,11 @@ h6 {
     scroll-behavior: auto;
   }
 }
+
+/* Mobile nav open: hide fixed CTAs / chat so they don’t show through the overlay */
+html.mobile-nav-open .nav-open-hide {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
