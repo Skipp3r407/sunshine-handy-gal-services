@@ -130,6 +130,26 @@ export const services = [
       "Studios, boutiques, offices, and small professional spaces.",
     icon: "BriefcaseBusiness",
   },
+  {
+    title: "Airbnb & Vacation Rental Cleaning",
+    description:
+      "Guest-ready turnover cleans between bookings—fresh linens attention, kitchen and bath reset, and quick resets so your listing always feels welcoming.",
+    benefit:
+      "Helps protect your reviews and calendar with reliable, photo-ready results.",
+    whoItsFor:
+      "Hosts and property managers with short-term rentals in Orlando and nearby areas.",
+    icon: "KeyRound",
+  },
+  {
+    title: "Post-Construction Cleaning",
+    description:
+      "Removal of fine dust, debris, and smudges after remodels or new builds so you can move in or list without a second round of scrubbing.",
+    benefit:
+      "Delivers a move-in-ready finish after contractors wrap up—floors, fixtures, and surfaces included.",
+    whoItsFor:
+      "Homeowners, landlords, and contractors who need a thorough cleanup after construction work.",
+    icon: "Paintbrush",
+  },
 ];
 
 export const processSteps = [
@@ -235,7 +255,7 @@ export const faqItems = [
   {
     question: "What cleaning services do you offer?",
     answer:
-      "We offer Detailed Clean, deep cleaning, move-in and move-out cleaning, organization services, residential cleaning, and light commercial cleaning for small businesses.",
+      "We offer Detailed Clean, deep cleaning, move-in and move-out cleaning, organization services, residential cleaning, light commercial cleaning, Airbnb and vacation rental turnovers, and post-construction cleaning.",
   },
   {
     question: "Do you bring your own supplies?",

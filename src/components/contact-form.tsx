@@ -14,6 +14,8 @@ const SERVICE_OPTIONS = [
   "Organization Services",
   "Residential Cleaning",
   "Light Commercial Cleaning",
+  "Airbnb & Vacation Rental Cleaning",
+  "Post-Construction Cleaning",
 ] as const;
 
 const fieldLabel = "space-y-1.5 text-sm font-medium text-charcoal";
