@@ -54,7 +54,7 @@ export function HeroSection() {
             variants={heroLoadBlock(reduced)}
             className="mt-5 max-w-xl text-base leading-7 text-muted-gray sm:text-lg"
           >
-            Sunshine&apos;s Handy Gal Services delivers detail-oriented residential
+            {businessInfo.name} delivers detail-oriented residential
             and light commercial cleaning across Orlando and nearby Central
             Florida. Warm service, reliable communication, and polished results
             you can feel right away.
@@ -95,7 +95,7 @@ export function HeroSection() {
           <motion.div variants={heroLoadBlock(reduced)}>
             <Image
               src="/images/logo.png"
-              alt="Sunshines Handy Gal Services logo"
+              alt={`${businessInfo.name} logo`}
               width={520}
               height={520}
               className="mx-auto w-full max-w-sm rounded-2xl bg-white p-4 shadow-[0_20px_42px_-30px_rgba(0,0,0,0.75)]"

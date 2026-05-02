@@ -3,12 +3,11 @@ import { SectionHeading } from "@/components/section-heading";
 import { ServiceAreaGrid } from "@/components/service-area-grid";
 import { CTASection } from "@/components/cta-section";
 import { Reveal } from "@/components/motion/reveal";
-import { serviceAreas } from "@/lib/site-data";
+import { serviceAreas, businessInfo } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Service Areas | Orlando & Central Florida Cleaning",
-  description:
-    "Sunshines Handy Gal Services proudly serves Orlando, Lake Nona, Winter Park, Lake Mary, St. Cloud, and nearby Central Florida communities.",
+  description: `${businessInfo.name} proudly serves Orlando, Lake Nona, Winter Park, Lake Mary, St. Cloud, and nearby Central Florida communities.`,
 };
 
 export default function ServiceAreasPage() {
@@ -19,7 +18,7 @@ export default function ServiceAreasPage() {
           <SectionHeading
             eyebrow="Service Areas"
             title="Local cleaning services throughout Central Florida"
-            description="If you are looking for dependable, detail-focused cleaning in Orlando or nearby areas, Sunshine&apos;s Handy Gal Services is here to help."
+            description={`If you are looking for dependable, detail-focused cleaning in Orlando or nearby areas, ${businessInfo.name} is here to help.`}
           />
         </Reveal>
       </section>

@@ -5,10 +5,10 @@ import { CTASection } from "@/components/cta-section";
 import { PrimaryCtaLink } from "@/components/motion/primary-cta-link";
 import { Reveal } from "@/components/motion/reveal";
 import { StaggerGrid } from "@/components/motion/stagger-grid";
-import { services, siteChecklist } from "@/lib/site-data";
+import { services, siteChecklist, businessInfo } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "Cleaning Services in Orlando | Sunshines Handy Gal Services",
+  title: `Cleaning Services in Orlando | ${businessInfo.name}`,
   description:
     "Explore professional cleaning services in Orlando including deep cleaning, move-out cleaning, Airbnb turnovers, post-construction cleaning, recurring care, organizing, and light commercial support.",
 };

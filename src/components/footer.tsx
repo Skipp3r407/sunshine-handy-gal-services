@@ -33,7 +33,7 @@ export function Footer() {
           <div>
             <Image
               src="/images/logo.png"
-              alt="Sunshines Handy Gal Services logo"
+              alt={`${businessInfo.name} logo`}
               width={160}
               height={56}
               className="h-auto w-[112px] sm:w-[140px]"

@@ -4,12 +4,11 @@ import { ReviewHighlightBanner } from "@/components/review-highlight-banner";
 import { PrimaryCtaLink } from "@/components/motion/primary-cta-link";
 import { Reveal } from "@/components/motion/reveal";
 import { TestimonialsExpandableSection } from "@/components/testimonials-expandable-section";
-import { testimonials } from "@/lib/site-data";
+import { testimonials, businessInfo } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "Testimonials | Sunshines Handy Gal Services",
-  description:
-    "Read what local clients say about Sunshines Handy Gal Services, from deep cleans and move-out support to detail-focused residential and commercial cleaning.",
+  title: `Testimonials | ${businessInfo.name}`,
+  description: `Read what local clients say about ${businessInfo.name}, from deep cleans and move-out support to detail-focused residential and commercial cleaning.`,
 };
 
 export default function TestimonialsPage() {

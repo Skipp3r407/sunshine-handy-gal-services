@@ -2,11 +2,11 @@ import { Metadata } from "next";
 import { ContactForm } from "@/components/contact-form";
 import { ContactPageSidebar } from "@/components/contact-page-sidebar";
 import { Reveal } from "@/components/motion/reveal";
+import { businessInfo } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Contact | Custom Cleaning Quote in Orlando",
-  description:
-    "Contact Sunshines Handy Gal Services to call or text for custom pricing, check availability, and request trusted cleaning in Orlando and nearby areas.",
+  description: `Contact ${businessInfo.name} to call or text for custom pricing, check availability, and request trusted cleaning in Orlando and nearby areas.`,
 };
 
 export default function ContactPage() {

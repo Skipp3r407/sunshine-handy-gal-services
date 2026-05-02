@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { businessInfo } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 const DISPLAY_MS = 3000;
@@ -56,7 +57,7 @@ export function SplashScreen() {
     >
       <Image
         src="/images/logo.png"
-        alt="Sunshines Handy Gal Services"
+        alt={businessInfo.name}
         width={220}
         height={72}
         priority

@@ -71,7 +71,7 @@ export function Navbar() {
           <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
             <Image
               src="/images/logo.png"
-              alt="Sunshines Handy Gal Services"
+              alt={businessInfo.name}
               width={160}
               height={52}
               className="h-auto w-[88px] min-[360px]:w-[96px] sm:w-[120px] md:w-[140px]"

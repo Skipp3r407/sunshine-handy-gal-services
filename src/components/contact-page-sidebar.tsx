@@ -49,7 +49,7 @@ export function ContactPageSidebar() {
         <div className="mt-3 overflow-hidden rounded-xl border border-[#d4e8f0] bg-[#e8f4fa] shadow-[inset_0_1px_0_rgba(255,255,255,0.5)]">
           <div className="relative aspect-[4/3] w-full min-h-[168px] bg-[#dfeaf1]">
             <iframe
-              title="Map of Orlando, Florida — Sunshines Handy Gal Services service area"
+              title={`Map of Orlando, Florida — ${businessInfo.name} service area`}
               src={businessInfo.serviceAreaMapEmbedUrl}
               className="absolute inset-0 h-full w-full border-0"
               loading="lazy"

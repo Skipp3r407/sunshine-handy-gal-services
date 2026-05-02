@@ -1,11 +1,11 @@
 import { Metadata } from "next";
 import { GalleryPageClient } from "@/components/gallery-page-client";
 import { galleryItems } from "@/lib/gallery-data";
+import { businessInfo } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Gallery | Before & After Cleaning Results in Orlando",
-  description:
-    "Browse before-and-after results from Sunshines Handy Gal Services—kitchen, bathroom, move-out, Airbnb turnover, and more across Central Florida.",
+  description: `Browse before-and-after results from ${businessInfo.name}—kitchen, bathroom, move-out, Airbnb turnover, and more across Central Florida.`,
 };
 
 export default function GalleryPage() {

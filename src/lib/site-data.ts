@@ -1,5 +1,6 @@
 export const businessInfo = {
-  name: "Sunshines Handy Gal Services",
+  /** Possessive branding used across the site (matches logo/marketing copy). */
+  name: "Sunshine's Handy Gal Services",
   owner: "Sheena Hotaling",
   phoneDisplay: "(321) 339-6686",
   phoneHref: "tel:+13213396686",
@@ -19,7 +20,7 @@ export const businessInfo = {
    * Replace with your direct review link from Google Business; until then this opens Google search for the business.
    */
   googleReviewUrl:
-    "https://www.google.com/search?q=Sunshines+Handy+Gal+Services+Orlando+reviews",
+    "https://www.google.com/search?q=Sunshine%27s+Handy+Gal+Services+Orlando+reviews",
 };
 
 /** Footer hours table — adjust times to match your real schedule. */

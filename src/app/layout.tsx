@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import { businessInfo } from "@/lib/site-data";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { MobileStickyCTA } from "@/components/mobile-sticky-cta";
@@ -25,7 +26,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Sunshines Handy Gal Services | Professional Cleaning in Orlando, FL",
+  title: `${businessInfo.name} | Professional Cleaning in Orlando, FL`,
   description:
     "Women-owned cleaning and organizing service in Orlando, FL. Trusted for detail-oriented deep cleaning, move-out cleaning, and personalized recurring care.",
   icons: {
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL("https://sunshineshandygalservices.com"),
   openGraph: {
-    title: "Sunshines Handy Gal Services",
+    title: businessInfo.name,
     description:
       "Trusted local cleaning services in Orlando and nearby Central Florida communities.",
     type: "website",
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
         url: "/images/logo.png",
         width: 1200,
         height: 630,
-        alt: "Sunshines Handy Gal Services logo",
+        alt: `${businessInfo.name} logo`,
       },
     ],
   },

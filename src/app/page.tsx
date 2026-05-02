@@ -14,7 +14,7 @@ import { StaggerGrid } from "@/components/motion/stagger-grid";
 import { trustBadges, services, testimonials, serviceAreas, processSteps, businessInfo } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "Sunshines Handy Gal Services | Professional Cleaning in Orlando, FL",
+  title: `${businessInfo.name} | Professional Cleaning in Orlando, FL`,
   description:
     "Trusted, women-owned cleaning company in Orlando, FL. Call or text for a custom quote on Detailed Clean, deep cleaning, move-out service, and organizing support.",
 };
@@ -83,7 +83,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Testimonials"
             title="Loved by families and businesses across Central Florida"
-            description="Real feedback from local clients who recommend Sunshine&apos;s Handy Gal Services."
+            description={`Real feedback from local clients who recommend ${businessInfo.name}.`}
           />
         </Reveal>
         <StaggerGrid

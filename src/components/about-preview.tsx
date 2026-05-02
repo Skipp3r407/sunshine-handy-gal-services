@@ -26,7 +26,7 @@ export function AboutPreview() {
           Warm, detail-focused care from {businessInfo.owner}
         </h2>
         <p className="mt-4 text-base leading-7 text-muted-gray">
-          Sunshine&apos;s Handy Gal Services was built on pride, consistency, and
+          {businessInfo.name} was built on pride, consistency, and
           the belief that a clean home creates peace for busy families. Clients
           often mention the thoughtful special touches and the care that goes into
           every single visit.
@@ -51,7 +51,7 @@ export function AboutPreview() {
         <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-white/60 blur-xl" />
         <Image
           src="/images/logo.png"
-          alt="Sunshines Handy Gal Services logo"
+          alt={`${businessInfo.name} logo`}
           width={420}
           height={420}
           className="relative mx-auto w-full max-w-xs rounded-2xl border border-white/80 bg-white/90 p-4 shadow-[0_16px_35px_-26px_rgba(0,0,0,0.7)]"
