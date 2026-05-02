@@ -11,19 +11,20 @@ type DropSpec = {
   peakOpacity: number;
 };
 
-/** Positions / timing only — shapes are SVG teardrops */
+/** Start above the fold; drift downward across the viewport */
 const DROPS: DropSpec[] = [
-  { left: "8%", top: "16%", size: 20, duration: 36, delay: 0, peakOpacity: 0.19 },
-  { left: "88%", top: "24%", size: 16, duration: 32, delay: 2, peakOpacity: 0.17 },
-  { left: "18%", top: "52%", size: 24, duration: 38, delay: 1, peakOpacity: 0.18 },
-  { left: "78%", top: "36%", size: 26, duration: 34, delay: 3, peakOpacity: 0.185 },
-  { left: "52%", top: "12%", size: 13, duration: 30, delay: 4, peakOpacity: 0.2 },
-  { left: "68%", top: "68%", size: 18, duration: 33, delay: 0.5, peakOpacity: 0.175 },
-  { left: "34%", top: "78%", size: 28, duration: 42, delay: 2.5, peakOpacity: 0.165 },
-  { left: "4%", top: "62%", size: 15, duration: 35, delay: 1.8, peakOpacity: 0.18 },
-  { left: "94%", top: "72%", size: 22, duration: 37, delay: 3.5, peakOpacity: 0.17 },
-  { left: "44%", top: "28%", size: 17, duration: 31, delay: 0.9, peakOpacity: 0.19 },
-  { left: "61%", top: "22%", size: 14, duration: 29, delay: 2.2, peakOpacity: 0.176 },
+  { left: "8%", top: "-14%", size: 20, duration: 44, delay: 0, peakOpacity: 0.19 },
+  { left: "18%", top: "-20%", size: 16, duration: 40, delay: 2.5, peakOpacity: 0.17 },
+  { left: "28%", top: "-10%", size: 24, duration: 46, delay: 1.2, peakOpacity: 0.18 },
+  { left: "38%", top: "-17%", size: 26, duration: 42, delay: 3.8, peakOpacity: 0.185 },
+  { left: "48%", top: "-8%", size: 13, duration: 36, delay: 0.4, peakOpacity: 0.2 },
+  { left: "58%", top: "-22%", size: 18, duration: 41, delay: 4.2, peakOpacity: 0.175 },
+  { left: "68%", top: "-12%", size: 28, duration: 48, delay: 2.1, peakOpacity: 0.165 },
+  { left: "78%", top: "-18%", size: 15, duration: 39, delay: 1.9, peakOpacity: 0.18 },
+  { left: "88%", top: "-9%", size: 22, duration: 43, delay: 3.3, peakOpacity: 0.17 },
+  { left: "94%", top: "-15%", size: 17, duration: 37, delay: 0.8, peakOpacity: 0.19 },
+  { left: "14%", top: "-6%", size: 14, duration: 35, delay: 5.1, peakOpacity: 0.176 },
+  { left: "72%", top: "-24%", size: 19, duration: 45, delay: 2.7, peakOpacity: 0.18 },
 ];
 
 /** Classic teardrop path in 40×52 viewBox (rounded top → tip bottom) */
@@ -122,40 +123,31 @@ export function WaterDropsBackground() {
                 reduced
                   ? {}
                   : {
-                      y: [0, 10, 0, -4, 0],
-                      rotate: [0, -2, 1, 0],
-                      scale: [1, 1.06, 0.98, 1],
+                      y: [0, "112vh"],
+                      rotate: [0, 2.5, -1.5, 0],
                       opacity: [
-                        drop.peakOpacity * 0.62,
-                        drop.peakOpacity * 0.18,
-                        drop.peakOpacity * 0.62,
+                        drop.peakOpacity * 0.72,
+                        drop.peakOpacity * 0.22,
+                        drop.peakOpacity * 0.72,
                       ],
                     }
               }
               transition={{
                 y: {
-                  duration: drop.duration,
+                  duration: drop.duration * 0.92,
                   delay: drop.delay,
                   repeat: Number.POSITIVE_INFINITY,
-                  repeatType: "mirror",
-                  ease: "easeInOut",
+                  ease: "linear",
                 },
                 rotate: {
-                  duration: drop.duration,
-                  delay: drop.delay,
-                  repeat: Number.POSITIVE_INFINITY,
-                  repeatType: "mirror",
-                  ease: "easeInOut",
-                },
-                scale: {
-                  duration: drop.duration,
+                  duration: drop.duration * 1.8,
                   delay: drop.delay,
                   repeat: Number.POSITIVE_INFINITY,
                   repeatType: "mirror",
                   ease: "easeInOut",
                 },
                 opacity: {
-                  duration: drop.duration * 2.4,
+                  duration: drop.duration * 1.6,
                   delay: drop.delay,
                   repeat: Number.POSITIVE_INFINITY,
                   repeatType: "mirror",
@@ -169,15 +161,15 @@ export function WaterDropsBackground() {
         );
       })}
       {/* Tiny bead accents (condensation) */}
-      {[...Array(8)].map((_, i) => (
+      {[...Array(10)].map((_, i) => (
         <motion.div
           key={`bead-${i}`}
           className="absolute"
           style={{
             width: 5 + (i % 3) * 2,
             height: 5 + (i % 3) * 2,
-            left: `${10 + i * 11}%`,
-            top: `${60 + (i % 4) * 7}%`,
+            left: `${4 + i * 9.5}%`,
+            top: `${-10 + (i % 3) * 2}%`,
           }}
           initial={
             reduced ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.35 }
@@ -196,16 +188,24 @@ export function WaterDropsBackground() {
               reduced
                 ? {}
                 : {
-                    opacity: [0.06, 0.18, 0.06],
-                    scale: [1, 1.06, 1],
+                    y: [0, "105vh"],
+                    opacity: [0.06, 0.2, 0.06],
                   }
             }
             transition={{
-              duration: 8 + i * 0.65,
-              delay: i * 0.45,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "mirror",
-              ease: "easeInOut",
+              y: {
+                duration: 26 + i * 1.4,
+                delay: i * 0.35,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "linear",
+              },
+              opacity: {
+                duration: 10 + i * 0.65,
+                delay: i * 0.45,
+                repeat: Number.POSITIVE_INFINITY,
+                repeatType: "mirror",
+                ease: "easeInOut",
+              },
             }}
           />
         </motion.div>

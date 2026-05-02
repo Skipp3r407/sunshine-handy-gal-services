@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-const BUBBLE_COUNT = 15;
+const BUBBLE_COUNT = 22;
 
 function mulberry32(seed: number) {
   return function () {
@@ -18,8 +18,10 @@ function mulberry32(seed: number) {
 function bubbleSpec(seed: number) {
   const rnd = mulberry32(seed);
   return {
-    left: rnd() * 86 + 7,
-    top: rnd() * 76 + 12,
+    left: rnd() * 88 + 5,
+    /** Negative % — spawn above viewport */
+    top: -(rnd() * 16 + 5),
+    driftPx: Math.round((rnd() - 0.5) * 64),
     size: Math.round(48 + rnd() * 80),
     duration: 10 + rnd() * 12,
     stagger: rnd() * 5,
@@ -53,16 +55,27 @@ function LifecycleBubble({ bubbleIndex }: { bubbleIndex: number }) {
     >
       <div
         key={`${bubbleIndex}-${cycle}`}
-        className={cn("growing-pop-bubble-shell", variantClass[spec.variant])}
+        className="growing-pop-bubble-fall-track"
         style={
           {
-            "--gb-size": `${spec.size}px`,
-            "--gb-duration": `${spec.duration}s`,
+            "--gb-run": `${spec.duration}s`,
+            "--gb-drift": `${spec.driftPx}px`,
             animationDelay: `${cycle === 0 ? spec.stagger : spec.repopPause}s`,
           } as CSSProperties
         }
         onAnimationEnd={() => setCycle((c) => c + 1)}
-      />
+      >
+        <div
+          className={cn("growing-pop-bubble-shell", variantClass[spec.variant])}
+          style={
+            {
+              "--gb-size": `${spec.size}px`,
+              "--gb-duration": `${spec.duration}s`,
+              animationDelay: `${cycle === 0 ? spec.stagger : spec.repopPause}s`,
+            } as CSSProperties
+          }
+        />
+      </div>
     </div>
   );
 }

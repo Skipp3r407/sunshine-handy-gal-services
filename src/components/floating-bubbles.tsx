@@ -23,25 +23,28 @@ type BubbleSpec = {
   variant: BubbleVariant;
 };
 
+/**
+ * Horizontally spread; start above the viewport so bubbles drift down across the screen.
+ */
 const BUBBLES: BubbleSpec[] = [
-  { left: "10%", top: "12%", size: 48, duration: 28, delay: 0, opacity: 0.26, fadeFloor: 0.052, fadeDuration: 92, variant: "aqua" },
-  { left: "86%", top: "18%", size: 34, duration: 32, delay: 2, opacity: 0.24, fadeFloor: 0.046, fadeDuration: 104, variant: "teal" },
-  { left: "22%", top: "48%", size: 26, duration: 26, delay: 1, opacity: 0.25, fadeFloor: 0.049, fadeDuration: 84, variant: "sky" },
-  { left: "74%", top: "32%", size: 56, duration: 30, delay: 3, opacity: 0.23, fadeFloor: 0.044, fadeDuration: 112, variant: "aqua" },
-  { left: "8%", top: "72%", size: 38, duration: 27, delay: 4, opacity: 0.245, fadeFloor: 0.048, fadeDuration: 88, variant: "teal" },
-  { left: "52%", top: "8%", size: 20, duration: 24, delay: 2.5, opacity: 0.27, fadeFloor: 0.056, fadeDuration: 78, variant: "sky" },
-  { left: "58%", top: "78%", size: 44, duration: 29, delay: 1.2, opacity: 0.23, fadeFloor: 0.046, fadeDuration: 96, variant: "aqua" },
-  { left: "33%", top: "24%", size: 24, duration: 31, delay: 0.8, opacity: 0.25, fadeFloor: 0.049, fadeDuration: 88, variant: "sky" },
-  { left: "92%", top: "54%", size: 42, duration: 27, delay: 3.2, opacity: 0.235, fadeFloor: 0.045, fadeDuration: 98, variant: "teal" },
-  { left: "43%", top: "62%", size: 32, duration: 29, delay: 2.2, opacity: 0.255, fadeFloor: 0.052, fadeDuration: 90, variant: "aqua" },
-  { left: "66%", top: "46%", size: 36, duration: 25, delay: 1.6, opacity: 0.24, fadeFloor: 0.047, fadeDuration: 94, variant: "sky" },
-  { left: "17%", top: "88%", size: 28, duration: 33, delay: 4.2, opacity: 0.248, fadeFloor: 0.048, fadeDuration: 100, variant: "teal" },
-  { left: "5%", top: "38%", size: 22, duration: 30, delay: 0.4, opacity: 0.265, fadeFloor: 0.054, fadeDuration: 86, variant: "aqua" },
-  { left: "96%", top: "34%", size: 26, duration: 28, delay: 2.8, opacity: 0.25, fadeFloor: 0.05, fadeDuration: 91, variant: "sky" },
-  { left: "48%", top: "42%", size: 18, duration: 22, delay: 1.1, opacity: 0.28, fadeFloor: 0.059, fadeDuration: 74, variant: "aqua" },
-  { left: "72%", top: "84%", size: 30, duration: 31, delay: 3.6, opacity: 0.238, fadeFloor: 0.046, fadeDuration: 96, variant: "sky" },
-  { left: "28%", top: "6%", size: 34, duration: 26, delay: 0.2, opacity: 0.252, fadeFloor: 0.05, fadeDuration: 89, variant: "teal" },
-  { left: "38%", top: "74%", size: 24, duration: 29, delay: 2.6, opacity: 0.26, fadeFloor: 0.053, fadeDuration: 93, variant: "aqua" },
+  { left: "6%", top: "-14%", size: 46, duration: 42, delay: 0, opacity: 0.24, fadeFloor: 0.05, fadeDuration: 96, variant: "aqua" },
+  { left: "18%", top: "-20%", size: 32, duration: 48, delay: 2.2, opacity: 0.22, fadeFloor: 0.045, fadeDuration: 108, variant: "teal" },
+  { left: "28%", top: "-11%", size: 26, duration: 38, delay: 0.6, opacity: 0.23, fadeFloor: 0.048, fadeDuration: 88, variant: "sky" },
+  { left: "38%", top: "-17%", size: 54, duration: 52, delay: 4.1, opacity: 0.21, fadeFloor: 0.042, fadeDuration: 118, variant: "aqua" },
+  { left: "48%", top: "-9%", size: 22, duration: 34, delay: 1.2, opacity: 0.26, fadeFloor: 0.054, fadeDuration: 78, variant: "sky" },
+  { left: "58%", top: "-19%", size: 40, duration: 46, delay: 3.3, opacity: 0.22, fadeFloor: 0.046, fadeDuration: 102, variant: "teal" },
+  { left: "68%", top: "-13%", size: 30, duration: 40, delay: 0.3, opacity: 0.24, fadeFloor: 0.049, fadeDuration: 90, variant: "aqua" },
+  { left: "78%", top: "-22%", size: 36, duration: 50, delay: 2.8, opacity: 0.21, fadeFloor: 0.044, fadeDuration: 112, variant: "sky" },
+  { left: "88%", top: "-10%", size: 44, duration: 44, delay: 1.7, opacity: 0.23, fadeFloor: 0.047, fadeDuration: 96, variant: "teal" },
+  { left: "94%", top: "-16%", size: 28, duration: 36, delay: 3.9, opacity: 0.25, fadeFloor: 0.051, fadeDuration: 84, variant: "aqua" },
+  { left: "12%", top: "-7%", size: 20, duration: 32, delay: 4.6, opacity: 0.27, fadeFloor: 0.056, fadeDuration: 74, variant: "sky" },
+  { left: "52%", top: "-23%", size: 34, duration: 46, delay: 0.9, opacity: 0.22, fadeFloor: 0.046, fadeDuration: 100, variant: "teal" },
+  { left: "72%", top: "-8%", size: 24, duration: 35, delay: 2.4, opacity: 0.24, fadeFloor: 0.048, fadeDuration: 82, variant: "sky" },
+  { left: "32%", top: "-18%", size: 42, duration: 43, delay: 3.6, opacity: 0.23, fadeFloor: 0.047, fadeDuration: 94, variant: "aqua" },
+  { left: "82%", top: "-12%", size: 38, duration: 41, delay: 1.1, opacity: 0.235, fadeFloor: 0.046, fadeDuration: 92, variant: "teal" },
+  { left: "42%", top: "-15%", size: 52, duration: 54, delay: 4.8, opacity: 0.2, fadeFloor: 0.041, fadeDuration: 122, variant: "aqua" },
+  { left: "62%", top: "-21%", size: 26, duration: 37, delay: 0.15, opacity: 0.25, fadeFloor: 0.05, fadeDuration: 86, variant: "sky" },
+  { left: "22%", top: "-6%", size: 18, duration: 30, delay: 5.2, opacity: 0.28, fadeFloor: 0.058, fadeDuration: 72, variant: "aqua" },
 ];
 
 const variantRing: Record<BubbleVariant, string> = {
@@ -144,28 +147,19 @@ export function FloatingBubbles() {
                 reduced
                   ? {}
                   : {
-                      y: [0, -10 - (i % 4), 0],
-                      opacity: [b.opacity, b.fadeFloor, b.opacity],
-                      scale: [1, 1.04 + (i % 3) * 0.015, 1],
+                      y: [0, "118vh"],
+                      opacity: [b.opacity * 0.88, b.fadeFloor * 1.35, b.opacity * 0.88],
                     }
               }
               transition={{
                 y: {
-                  duration: b.duration,
+                  duration: b.duration * 0.85,
                   delay: b.delay,
                   repeat: Number.POSITIVE_INFINITY,
-                  repeatType: "mirror",
-                  ease: "easeInOut",
+                  ease: "linear",
                 },
                 opacity: {
-                  duration: b.fadeDuration,
-                  delay: b.delay,
-                  repeat: Number.POSITIVE_INFINITY,
-                  repeatType: "mirror",
-                  ease: "easeInOut",
-                },
-                scale: {
-                  duration: b.fadeDuration * 1.05,
+                  duration: b.fadeDuration * 0.55,
                   delay: b.delay,
                   repeat: Number.POSITIVE_INFINITY,
                   repeatType: "mirror",

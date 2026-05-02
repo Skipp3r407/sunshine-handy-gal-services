@@ -291,6 +291,25 @@ html.mobile-nav-open .nav-open-hide {
   }
 }
 
+/* Wrapper: falls from spawn point toward bottom while shell grows/pops */
+@keyframes growing-pop-bubble-fall-track {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(var(--gb-drift, 0px), 118vh, 0);
+  }
+}
+
+.growing-pop-bubble-fall-track {
+  animation-name: growing-pop-bubble-fall-track;
+  animation-duration: var(--gb-run, 14s);
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  will-change: transform;
+}
+
 .growing-pop-bubble-shell {
   width: var(--gb-size, 80px);
   height: var(--gb-size, 80px);
@@ -344,7 +363,7 @@ html.mobile-nav-open .nav-open-hide {
   }
   100% {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0.12) translateY(-36px);
+    transform: translate(-50%, -50%) scale(0.12) translateY(52px);
   }
 }
 
@@ -366,6 +385,11 @@ html.mobile-nav-open .nav-open-hide {
   .growing-pop-bubble-shell {
     animation: none !important;
     opacity: 0 !important;
+  }
+
+  .growing-pop-bubble-fall-track {
+    animation: none !important;
+    transform: none !important;
   }
 
   .growing-pop-bubble-field {
