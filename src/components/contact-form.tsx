@@ -18,9 +18,15 @@ const SERVICE_OPTIONS = [
   "Post-Construction Cleaning",
 ] as const;
 
-const fieldLabel = "space-y-1.5 text-sm font-medium text-charcoal";
+const fieldLabel = "group/field space-y-2 text-xs font-semibold uppercase tracking-[0.14em] text-charcoal";
 const fieldInput =
-  "w-full rounded-xl border border-[#ddd6c8] bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-deep focus:ring-2 focus:ring-teal-deep/20";
+  "w-full rounded-2xl border border-[#efe9dc] bg-[#fffefb] px-4 py-3 text-sm leading-snug text-charcoal shadow-[inset_0_1px_0_rgba(255,255,255,0.92)] outline-none transition-[border-color,background-color,box-shadow] placeholder:text-muted-gray/60 hover:border-teal/25 hover:bg-white focus:border-teal-deep/55 focus:bg-white focus:shadow-[inset_0_1px_0_rgba(255,255,255,1),0_0_0_3px_rgba(21,153,184,0.12)]";
+
+const formCardPage =
+  "relative overflow-hidden rounded-2xl border border-[#efe9dc] bg-white shadow-[0_8px_28px_-20px_rgba(0,0,0,0.12)] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-[1] before:h-1 before:bg-gradient-to-r before:from-teal-deep before:via-aqua before:to-sunshine-yellow";
+
+const formCardCompact =
+  "relative overflow-hidden rounded-2xl border border-[#efe9dc] bg-white shadow-[0_8px_28px_-20px_rgba(0,0,0,0.12)] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-gradient-to-r before:from-teal-deep before:via-aqua before:to-sunshine-yellow";
 
 function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
   const reduced = useReducedMotion();
@@ -38,10 +44,12 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
 
   if (variant === "page") {
     return (
-      <form className="space-y-8 rounded-[1.25rem] border border-[#efe9dc] bg-white p-6 shadow-[0_20px_48px_-32px_rgba(0,0,0,0.35)] sm:p-8 lg:p-10">
+      <form
+        className={`${formCardPage} space-y-8 p-6 pt-8 sm:p-8 sm:pt-9 lg:p-10 lg:pt-11`}
+      >
         <div className="grid gap-5 sm:grid-cols-2">
           <label className={fieldLabel}>
-            Name
+            <span className="normal-case tracking-normal">Name</span>
             <input
               name="name"
               autoComplete="name"
@@ -51,7 +59,7 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
             />
           </label>
           <label className={fieldLabel}>
-            Phone
+            <span className="normal-case tracking-normal">Phone</span>
             <input
               name="phone"
               autoComplete="tel"
@@ -64,7 +72,7 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
 
         <div className="grid gap-5 sm:grid-cols-2">
           <label className={fieldLabel}>
-            Email
+            <span className="normal-case tracking-normal">Email</span>
             <input
               type="email"
               name="email"
@@ -75,7 +83,7 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
             />
           </label>
           <label className={fieldLabel}>
-            Address
+            <span className="normal-case tracking-normal">Address</span>
             <input
               name="address"
               autoComplete="street-address"
@@ -87,12 +95,12 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
 
         <div className="grid gap-5 sm:grid-cols-2">
           <label className={fieldLabel}>
-            Service needed
+            <span className="normal-case tracking-normal">Service needed</span>
             <select
               name="service"
               key={searchParams.toString()}
               defaultValue={serviceDefault || ""}
-              className={fieldInput}
+              className={`${fieldInput} cursor-pointer pr-10`}
             >
               <option value="" disabled>
                 Select a service
@@ -105,33 +113,35 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
             </select>
           </label>
           <label className={fieldLabel}>
-            Preferred date
+            <span className="normal-case tracking-normal">Preferred date</span>
             <input
               type="date"
               name="date"
               value={preferredDate}
               onChange={(e) => setPreferredDate(e.target.value)}
-              className={`${fieldInput} min-h-[46px]`}
+              className={`${fieldInput} min-h-[46px] [color-scheme:light]`}
             />
           </label>
         </div>
 
-        <div className="rounded-2xl border border-[#ebe4d6] bg-cream/40 p-4 sm:p-5">
+        <div className="rounded-2xl border border-[#d4e8f0] bg-gradient-to-b from-[#f4fbfd] via-white to-[#fffdf8] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.75)] sm:p-5">
           <div className="mb-1">
-            <h3 className="text-sm font-semibold text-charcoal">Select from calendar</h3>
-            <p className="text-xs text-muted-gray">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-charcoal">
+              Select from calendar
+            </h3>
+            <p className="mt-1.5 text-xs leading-relaxed text-muted-gray">
               Tap a date to fill in preferred date, or use the field above.
             </p>
           </div>
           <BookingCalendar
-            className="mx-auto max-w-sm pt-2"
+            className="mx-auto max-w-sm pt-3"
             value={preferredDate}
             onChange={setPreferredDate}
           />
         </div>
 
         <label className={fieldLabel}>
-          Message / details
+          <span className="normal-case tracking-normal">Message / details</span>
           <textarea
             name="message"
             rows={5}
@@ -147,7 +157,7 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
             type="submit"
             whileHover={reduced ? undefined : { y: -1 }}
             whileTap={reduced ? undefined : { scale: 0.99 }}
-            className="inline-flex w-full items-center justify-center rounded-xl bg-charcoal px-8 py-3.5 text-sm font-semibold text-white shadow-md transition hover:bg-charcoal/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/70 focus-visible:ring-offset-2 sm:w-auto sm:min-w-[200px]"
+            className="cta-primary-enhanced inline-flex w-full items-center justify-center rounded-full bg-teal-deep px-8 py-3.5 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition-colors hover:bg-teal-hover hover:shadow-lg hover:shadow-teal-deep/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#fffefb] sm:w-auto sm:min-w-[220px]"
           >
             Request a quote
           </motion.button>
@@ -161,10 +171,10 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
   }
 
   return (
-    <form className="space-y-4 rounded-3xl border border-[#efe9dc] bg-white p-6 shadow-[0_16px_42px_-28px_rgba(0,0,0,0.45)] sm:p-8">
+    <form className={`${formCardCompact} space-y-4 p-6 pt-8 sm:p-8 sm:pt-9`}>
       <div className="grid gap-4 sm:grid-cols-2">
         <label className={fieldLabel}>
-          Name
+          <span className="normal-case tracking-normal">Name</span>
           <input
             name="name"
             autoComplete="name"
@@ -174,7 +184,7 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
           />
         </label>
         <label className={fieldLabel}>
-          Phone
+          <span className="normal-case tracking-normal">Phone</span>
           <input
             name="phone"
             autoComplete="tel"
@@ -187,7 +197,7 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
 
       <div className="grid gap-4 sm:grid-cols-2">
         <label className={fieldLabel}>
-          Email
+          <span className="normal-case tracking-normal">Email</span>
           <input
             type="email"
             name="email"
@@ -198,12 +208,12 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
           />
         </label>
         <label className={fieldLabel}>
-          Service Needed
+          <span className="normal-case tracking-normal">Service needed</span>
           <select
             name="service"
             key={searchParams.toString()}
             defaultValue={serviceDefault || ""}
-            className={fieldInput}
+            className={`${fieldInput} cursor-pointer pr-10`}
           >
             <option value="" disabled>
               Select a service
@@ -218,12 +228,12 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
       </div>
 
       <label className={fieldLabel}>
-        Preferred Date
-        <input type="date" name="date" className={fieldInput} />
+        <span className="normal-case tracking-normal">Preferred date</span>
+        <input type="date" name="date" className={`${fieldInput} [color-scheme:light]`} />
       </label>
 
       <label className={fieldLabel}>
-        Message
+        <span className="normal-case tracking-normal">Message</span>
         <textarea
           name="message"
           rows={4}
@@ -265,7 +275,7 @@ function ContactFormFallback({ variant }: { variant: "page" | "compact" }) {
   const h = variant === "page" ? "min(52rem,85vh)" : "min(28rem,70vh)";
   return (
     <div
-      className="animate-pulse rounded-3xl border border-[#efe9dc] bg-cream/50"
+      className="animate-pulse overflow-hidden rounded-2xl border border-[#efe9dc] bg-white shadow-[0_8px_28px_-20px_rgba(0,0,0,0.12)] before:block before:h-1 before:bg-gradient-to-r before:from-teal-deep before:via-aqua before:to-sunshine-yellow"
       style={{ height: h }}
       aria-hidden
     />

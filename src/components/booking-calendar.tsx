@@ -85,7 +85,7 @@ export function BookingCalendar({ value, onChange, className }: BookingCalendarP
         <button
           type="button"
           onClick={prevMonth}
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-[#ddd6c8] bg-white text-charcoal transition hover:border-teal-deep/40 hover:bg-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-deep/25"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-[#efe9dc] bg-[#fffefb] text-charcoal shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] transition hover:border-teal-deep/35 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-deep/25"
           aria-label="Previous month"
         >
           ‹
@@ -96,7 +96,7 @@ export function BookingCalendar({ value, onChange, className }: BookingCalendarP
         <button
           type="button"
           onClick={nextMonth}
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-[#ddd6c8] bg-white text-charcoal transition hover:border-teal-deep/40 hover:bg-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-deep/25"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-[#efe9dc] bg-[#fffefb] text-charcoal shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] transition hover:border-teal-deep/35 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-deep/25"
           aria-label="Next month"
         >
           ›
@@ -117,10 +117,10 @@ export function BookingCalendar({ value, onChange, className }: BookingCalendarP
               type="button"
               disabled={isDisabled(day)}
               onClick={() => selectDay(day)}
-              className={`min-h-[2rem] rounded-lg text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-deep/30 disabled:cursor-not-allowed disabled:opacity-35 ${
+              className={`min-h-[2rem] rounded-xl text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-deep/35 disabled:cursor-not-allowed disabled:opacity-35 ${
                 selectedDay === day
-                  ? "bg-teal-deep text-white shadow-sm"
-                  : "text-charcoal hover:bg-cream"
+                  ? "bg-gradient-to-br from-teal-deep to-teal text-white shadow-sm ring-1 ring-teal-deep/20"
+                  : "border border-transparent text-charcoal hover:border-[#efe9dc] hover:bg-[#fffefb]"
               }`}
             >
               {day}

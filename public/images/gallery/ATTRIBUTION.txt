@@ -1,0 +1,14 @@
+Gallery before/after pairs — illustrative stock under the Unsplash License (https://unsplash.com/license). Hosted locally; credit photographers on Unsplash. Swap filenames in gallery-data.ts when you replace these with real job photos.
+
+kitchen-before.jpg       photo-1725645580140-c8491da55a0f  https://unsplash.com/photos/uAWyHbfLydc
+kitchen-after.jpg        photo-1639405069836-f82aa6dcb900  https://unsplash.com/photos/j6QSUeiW6vo
+bathroom-before.jpg      photo-1754212536450-1b3591a3b837  https://unsplash.com/photos/M5A8Wg1Wzes
+bathroom-after.jpg       photo-1765766556463-180500e61ea8  https://unsplash.com/photos/BiEp9l59r2U
+bedroom-before.jpg       photo-1742612246521-f313404fdd27  https://unsplash.com/photos/Mb1cVr467w4
+bedroom-after.jpg        photo-1721272251028-9eff057ea65e  https://unsplash.com/photos/dEUSPWJjM-E
+living-before.jpg        photo-1729811985748-9e248b1517d8  https://unsplash.com/photos/QzPaSzdgnZ8
+living-after.jpg         photo-1649083048381-520a5b3d91ff  https://unsplash.com/photos/Aq8ljLz12gk
+moveout-before.jpg       photo-1689966619977-7ab0c8f5bd28  https://unsplash.com/photos/n2vKNfLaAZQ
+moveout-after.jpg        photo-1757742690834-aa581b9f53b2  https://unsplash.com/photos/4YhNRgL59Fc
+airbnb-before.jpg        photo-1597308451192-d17c89701ef5  https://unsplash.com/photos/Zf8mxi8sqTo
+airbnb-after.jpg         photo-1733253870497-e9118f4b575e  https://unsplash.com/photos/pG-08dGwkAA

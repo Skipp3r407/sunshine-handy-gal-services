@@ -24,24 +24,24 @@ type BubbleSpec = {
 };
 
 const BUBBLES: BubbleSpec[] = [
-  { left: "10%", top: "12%", size: 48, duration: 28, delay: 0, opacity: 0.24, fadeFloor: 0.048, fadeDuration: 92, variant: "aqua" },
-  { left: "86%", top: "18%", size: 34, duration: 32, delay: 2, opacity: 0.22, fadeFloor: 0.042, fadeDuration: 104, variant: "teal" },
-  { left: "22%", top: "48%", size: 26, duration: 26, delay: 1, opacity: 0.23, fadeFloor: 0.045, fadeDuration: 84, variant: "sky" },
-  { left: "74%", top: "32%", size: 56, duration: 30, delay: 3, opacity: 0.21, fadeFloor: 0.04, fadeDuration: 112, variant: "aqua" },
-  { left: "8%", top: "72%", size: 38, duration: 27, delay: 4, opacity: 0.225, fadeFloor: 0.044, fadeDuration: 88, variant: "teal" },
-  { left: "52%", top: "8%", size: 20, duration: 24, delay: 2.5, opacity: 0.25, fadeFloor: 0.052, fadeDuration: 78, variant: "sky" },
-  { left: "58%", top: "78%", size: 44, duration: 29, delay: 1.2, opacity: 0.21, fadeFloor: 0.042, fadeDuration: 96, variant: "aqua" },
-  { left: "33%", top: "24%", size: 24, duration: 31, delay: 0.8, opacity: 0.23, fadeFloor: 0.045, fadeDuration: 88, variant: "sky" },
-  { left: "92%", top: "54%", size: 42, duration: 27, delay: 3.2, opacity: 0.215, fadeFloor: 0.041, fadeDuration: 98, variant: "teal" },
-  { left: "43%", top: "62%", size: 32, duration: 29, delay: 2.2, opacity: 0.235, fadeFloor: 0.048, fadeDuration: 90, variant: "aqua" },
-  { left: "66%", top: "46%", size: 36, duration: 25, delay: 1.6, opacity: 0.22, fadeFloor: 0.043, fadeDuration: 94, variant: "sky" },
-  { left: "17%", top: "88%", size: 28, duration: 33, delay: 4.2, opacity: 0.228, fadeFloor: 0.044, fadeDuration: 100, variant: "teal" },
-  { left: "5%", top: "38%", size: 22, duration: 30, delay: 0.4, opacity: 0.245, fadeFloor: 0.05, fadeDuration: 86, variant: "aqua" },
-  { left: "96%", top: "34%", size: 26, duration: 28, delay: 2.8, opacity: 0.23, fadeFloor: 0.046, fadeDuration: 91, variant: "sky" },
-  { left: "48%", top: "42%", size: 18, duration: 22, delay: 1.1, opacity: 0.26, fadeFloor: 0.055, fadeDuration: 74, variant: "aqua" },
-  { left: "72%", top: "84%", size: 30, duration: 31, delay: 3.6, opacity: 0.218, fadeFloor: 0.042, fadeDuration: 96, variant: "sky" },
-  { left: "28%", top: "6%", size: 34, duration: 26, delay: 0.2, opacity: 0.232, fadeFloor: 0.046, fadeDuration: 89, variant: "teal" },
-  { left: "38%", top: "74%", size: 24, duration: 29, delay: 2.6, opacity: 0.24, fadeFloor: 0.049, fadeDuration: 93, variant: "aqua" },
+  { left: "10%", top: "12%", size: 48, duration: 28, delay: 0, opacity: 0.26, fadeFloor: 0.052, fadeDuration: 92, variant: "aqua" },
+  { left: "86%", top: "18%", size: 34, duration: 32, delay: 2, opacity: 0.24, fadeFloor: 0.046, fadeDuration: 104, variant: "teal" },
+  { left: "22%", top: "48%", size: 26, duration: 26, delay: 1, opacity: 0.25, fadeFloor: 0.049, fadeDuration: 84, variant: "sky" },
+  { left: "74%", top: "32%", size: 56, duration: 30, delay: 3, opacity: 0.23, fadeFloor: 0.044, fadeDuration: 112, variant: "aqua" },
+  { left: "8%", top: "72%", size: 38, duration: 27, delay: 4, opacity: 0.245, fadeFloor: 0.048, fadeDuration: 88, variant: "teal" },
+  { left: "52%", top: "8%", size: 20, duration: 24, delay: 2.5, opacity: 0.27, fadeFloor: 0.056, fadeDuration: 78, variant: "sky" },
+  { left: "58%", top: "78%", size: 44, duration: 29, delay: 1.2, opacity: 0.23, fadeFloor: 0.046, fadeDuration: 96, variant: "aqua" },
+  { left: "33%", top: "24%", size: 24, duration: 31, delay: 0.8, opacity: 0.25, fadeFloor: 0.049, fadeDuration: 88, variant: "sky" },
+  { left: "92%", top: "54%", size: 42, duration: 27, delay: 3.2, opacity: 0.235, fadeFloor: 0.045, fadeDuration: 98, variant: "teal" },
+  { left: "43%", top: "62%", size: 32, duration: 29, delay: 2.2, opacity: 0.255, fadeFloor: 0.052, fadeDuration: 90, variant: "aqua" },
+  { left: "66%", top: "46%", size: 36, duration: 25, delay: 1.6, opacity: 0.24, fadeFloor: 0.047, fadeDuration: 94, variant: "sky" },
+  { left: "17%", top: "88%", size: 28, duration: 33, delay: 4.2, opacity: 0.248, fadeFloor: 0.048, fadeDuration: 100, variant: "teal" },
+  { left: "5%", top: "38%", size: 22, duration: 30, delay: 0.4, opacity: 0.265, fadeFloor: 0.054, fadeDuration: 86, variant: "aqua" },
+  { left: "96%", top: "34%", size: 26, duration: 28, delay: 2.8, opacity: 0.25, fadeFloor: 0.05, fadeDuration: 91, variant: "sky" },
+  { left: "48%", top: "42%", size: 18, duration: 22, delay: 1.1, opacity: 0.28, fadeFloor: 0.059, fadeDuration: 74, variant: "aqua" },
+  { left: "72%", top: "84%", size: 30, duration: 31, delay: 3.6, opacity: 0.238, fadeFloor: 0.046, fadeDuration: 96, variant: "sky" },
+  { left: "28%", top: "6%", size: 34, duration: 26, delay: 0.2, opacity: 0.252, fadeFloor: 0.05, fadeDuration: 89, variant: "teal" },
+  { left: "38%", top: "74%", size: 24, duration: 29, delay: 2.6, opacity: 0.26, fadeFloor: 0.053, fadeDuration: 93, variant: "aqua" },
 ];
 
 const variantRing: Record<BubbleVariant, string> = {
@@ -137,7 +137,7 @@ export function FloatingBubbles() {
             <motion.div
               className={`absolute inset-0 rounded-full border ${variantRing[b.variant]}`}
               style={
-                reduced ? { opacity: b.opacity * 0.72 } : undefined
+                reduced ? { opacity: b.opacity * 0.78 } : undefined
               }
               initial={false}
               animate={

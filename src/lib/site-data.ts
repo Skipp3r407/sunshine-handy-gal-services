@@ -74,6 +74,7 @@ export const trustBadges = [
   "Serving Orlando & Nearby Areas",
 ];
 
+/** Hero images are royalty-free stills from Unsplash (https://unsplash.com/license), hosted under /images/services/. Where people appear, imagery highlights women doing the work—aligned with our women-owned team. */
 export const services = [
   {
     title: "Detailed Clean",
@@ -84,6 +85,21 @@ export const services = [
     whoItsFor:
       "Homes that deserve consistent, detail-focused care on a recurring rhythm.",
     icon: "Sparkles",
+    imageSrc: "/images/services/detailed-clean.jpg",
+    imageAlt:
+      "Woman caring for a bright kitchen—checking the refrigerator during detailed cleaning",
+    examples: [
+      "Dusting shelves, trim, and décor—including spots often skipped on quick cleans",
+      "Vacuuming carpets and prepping hard floors for a thorough mop finish",
+      "Kitchen sinks, counters, and appliance exteriors wiped and polished",
+      "Bathroom vanities, mirrors, and fixtures cleaned and dried streak-free",
+      "Spot-cleaning cabinet fronts and disinfecting high-touch door handles",
+      "Emptying main trash bins and replacing liners where supplies are provided",
+      "Straightening common areas for a tidy “welcome home” presentation",
+      "Interior glass on sliding doors and selected reachable windows",
+      "Stair rails and banisters wiped down for fingerprints and dust",
+      "Final walk-through touch-ups guided by your priority list",
+    ],
   },
   {
     title: "Deep Cleaning",
@@ -94,6 +110,21 @@ export const services = [
     whoItsFor:
       "Seasonal refreshes, first-time cleanings, or homes needing a full reset.",
     icon: "ShieldCheck",
+    imageSrc: "/images/services/deep-cleaning.jpg",
+    imageAlt:
+      "Woman in gloves wiping a wooden surface during a thorough deep clean",
+    examples: [
+      "Grease and grime treatment on backsplashes, range areas, and hood exteriors",
+      "Microwave interior wipe-down; refrigerator exterior detailed",
+      "Tubs, showers, and tile grout scrubbed for soap scum and buildup",
+      "Baseboards and door frames hand-wiped for settled dust",
+      "Light switches, outlets, and thermostat plates sanitized",
+      "Ceiling fans and reachable vent covers dusted",
+      "Windowsills and tracks cleared where accessible",
+      "Furniture fronts and legs dusted or wiped as appropriate for finish",
+      "Edge vacuum along corners and under light furniture where reachable",
+      "Hard-water spots treated on glass enclosures and fixtures",
+    ],
   },
   {
     title: "Move-In / Move-Out Cleaning",
@@ -104,6 +135,20 @@ export const services = [
     whoItsFor:
       "Homeowners, renters, and families in transition.",
     icon: "Home",
+    imageSrc: "/images/services/move-in-out.jpg",
+    imageAlt: "Woman carrying moving boxes across a sunlit living room",
+    examples: [
+      "Empty cabinets and closets wiped—ready for belongings or listing photos",
+      "Kitchen deep-clean including sink polish and appliance fronts",
+      "Full bathroom sanitize including toilets, tubs, and showers",
+      "All floors vacuumed and hard surfaces mopped",
+      "Interior windows and tracks wiped in main living areas",
+      "Garage entry zone sweep-out where accessible",
+      "Cobweb removal along ceilings and corners within safe reach",
+      "Patio slider tracks and interior glass cleaned",
+      "Light fixtures and ceiling fans dusted",
+      "Checklist alignment with landlord, HOA, or realtor notes when provided",
+    ],
   },
   {
     title: "Organization Services",
@@ -114,6 +159,21 @@ export const services = [
     whoItsFor:
       "Anyone who wants a cleaner, calmer, more functional home.",
     icon: "LayoutGrid",
+    imageSrc: "/images/services/organization.jpg",
+    imageAlt:
+      "Woman arranging items on tidy pantry shelves during an in-home organization session",
+    examples: [
+      "Closet sorting—donate, keep, and relocate piles with your guidance",
+      "Pantry categorization and shelf zoning for faster meal prep",
+      "Kitchen drawer and utensil tidy-up",
+      "Bathroom vanity and linen closet refresh",
+      "Entryway shoe, bag, and coat zone setup",
+      "Kids’ toy or craft area containment and labeling",
+      "Home office paper, cable, and supply sorting",
+      "Laundry room workflow improvements",
+      "Seasonal clothing rotation support",
+      "Donation staging and simple bin labels so systems stick",
+    ],
   },
   {
     title: "Residential Cleaning",
@@ -124,6 +184,20 @@ export const services = [
     whoItsFor:
       "Single-family homes, apartments, condos, and townhomes.",
     icon: "House",
+    imageSrc: "/images/services/residential.jpg",
+    imageAlt: "Woman cleaning floors in a bright, modern living room",
+    examples: [
+      "Whole-home dusting of surfaces, frames, and décor",
+      "Kitchen and dining cleanup tailored to how you use the space",
+      "Bathroom refreshes across full baths and powder rooms",
+      "Bed linens smoothed and nightstands wiped",
+      "Living areas vacuumed including upholstery edges where reachable",
+      "Hard floors swept and mopped with care for your finish type",
+      "Trash emptied for kitchens and bathrooms",
+      "Stainless and panel appliance fronts wiped for fingerprints",
+      "Mirrors and glass tabletops polished",
+      "Pet-hair pickup routines where requested",
+    ],
   },
   {
     title: "Light Commercial Cleaning",
@@ -134,6 +208,20 @@ export const services = [
     whoItsFor:
       "Studios, boutiques, offices, and small professional spaces.",
     icon: "BriefcaseBusiness",
+    imageSrc: "/images/services/commercial.jpg",
+    imageAlt: "Two women collaborating at a sunlit desk in a professional setting",
+    examples: [
+      "Reception and lobby dusting with glass smudge touch-up",
+      "Conference tables sanitized and seating aligned neatly",
+      "Break room sinks, counters, and appliance exteriors wiped",
+      "Restroom restock assist when supplies are provided on-site",
+      "Office kitchen microwave and refrigerator exterior wipe-down",
+      "Deskside and common trash removal with liner replacement",
+      "Traffic-lane vacuum and hard-floor mop",
+      "Entry mats vacuumed or shaken at perimeter",
+      "Light workstation dusting while respecting electronics and papers",
+      "Interior glass partitions spot-cleaned for handprints",
+    ],
   },
   {
     title: "Airbnb & Vacation Rental Cleaning",
@@ -144,6 +232,20 @@ export const services = [
     whoItsFor:
       "Hosts and property managers with short-term rentals in Orlando and nearby areas.",
     icon: "KeyRound",
+    imageSrc: "/images/services/airbnb.jpg",
+    imageAlt: "Woman making the bed and smoothing linens for a guest-ready rental",
+    examples: [
+      "Crisp bed-making with hospital corners when linens are provided",
+      "Towel and amenity staging from your host checklist",
+      "Kitchen reset—dishes, counters, and appliance wipe-down",
+      "Coffee station straightened and supplies refilled if stocked",
+      "Bathroom sanitize with toilet paper and soap restock when on hand",
+      "Living areas—fluff pillows, fold throws, reset décor",
+      "Patio or balcony quick sweep and outdoor table wipe",
+      "Trash removal and fresh liners in kitchens and baths",
+      "Under-bed and sofa edge checks for guest-left items",
+      "Photo notes or messages for owners when something needs attention",
+    ],
   },
   {
     title: "Post-Construction Cleaning",
@@ -154,6 +256,21 @@ export const services = [
     whoItsFor:
       "Homeowners, landlords, and contractors who need a thorough cleanup after construction work.",
     icon: "Paintbrush",
+    imageSrc: "/images/services/post-construction.jpg",
+    imageAlt:
+      "Young woman wiping a shelf with gloves during a post-renovation dust-down cleanup",
+    examples: [
+      "Fine drywall dust removal from horizontal surfaces and ledges",
+      "Post-trade window glass and sill wipe-down",
+      "Initial vacuum passes for construction grit on carpets",
+      "Safe removal of painter’s tape residue and stray labels on finishes",
+      "Cabinet interiors vacuumed and wiped before dishes move in",
+      "Fixture and hardware polish after dust settles",
+      "Cool light fixtures and ceiling fans dusted post-install",
+      "Baseboards and trim wiped following sanding dust",
+      "Garage or work zone sweep toward exits",
+      "Final detail pass ahead of owner or contractor walkthrough",
+    ],
   },
 ];
 
@@ -180,35 +297,58 @@ export const serviceAreas = [
     name: "Orlando",
     description:
       "If you are searching for dependable house cleaning in Orlando, we provide thorough, friendly service that makes your home feel refreshed and cared for.",
+    hoverImageSrc: "/images/service-areas/orlando.jpg",
+    hoverImageAlt: "Sunlit Florida neighborhood palms and skyline suggesting Orlando",
   },
   {
     name: "Lake Nona",
     description:
       "Lake Nona homes and small businesses trust us for reliable cleaning, responsive communication, and detail-oriented care.",
+    hoverImageSrc: "/images/service-areas/lake-nona.jpg",
+    hoverImageAlt: "Green avenues and contemporary homes suggesting Lake Nona",
   },
   {
     name: "Winter Park",
     description:
       "From regular upkeep to deep clean resets, Winter Park clients choose us for polished results and professional service.",
+    hoverImageSrc: "/images/service-areas/winter-park.jpg",
+    hoverImageAlt: "Tree-lined residential street suggesting Winter Park charm",
   },
   {
     name: "Lake Mary",
     description:
       "Lake Mary families and professionals count on us for warm service, consistent quality, and spaces that feel renewed.",
+    hoverImageSrc: "/images/service-areas/lake-mary.jpg",
+    hoverImageAlt: "Welcoming suburban home exterior suggesting Lake Mary",
   },
   {
     name: "St. Cloud",
     description:
       "Need home cleaning in St. Cloud? We deliver personalized service that helps your home feel calm, clean, and ready.",
+    hoverImageSrc: "/images/service-areas/st-cloud.jpg",
+    hoverImageAlt: "Lake shoreline with palms suggesting Central Florida towns like St. Cloud",
   },
   {
     name: "Nearby Central Florida Areas",
     description:
       "We proudly serve nearby Central Florida communities with trusted cleaning and organizing support tailored to each client.",
+    hoverImageSrc: "/images/service-areas/central-florida.jpg",
+    hoverImageAlt: "Rolling hills and fields suggesting broader Central Florida",
   },
 ];
 
 export const testimonials = [
+  /** Quotes sourced from verified neighbor recommendations on Nextdoor (see business page). */
+  {
+    name: "Richard N., Pinellas Park, FL",
+    quote:
+      "I moved to Orlando 6 months ago and was recently recommended Sunshine's Handy Girl Services by a trusted friend. On her very first visit, Sheena did a deep cleaning, put away my clothes, replaced my bed sheets, and even cleaned all my appliances—including the fridge! I've used many cleaning services over the years while living as a single professional in 4 countries and 6 states, but I have never experienced this level of professionalism, care, and quality. Sheena is caring, detailed, and incredibly thorough. I highly recommend Sunshine's Handy Girl Services to anyone looking for exceptional cleaning and reliable service in Orlando!",
+  },
+  {
+    name: "Kelvin H., Orlando, FL",
+    quote:
+      "Great customer service, don't hesitate to contact them.",
+  },
   {
     name: "Tiffany Johnson",
     quote:
@@ -312,6 +452,12 @@ export const faqItems = [
 export const siteChecklist = [
   "Background-checked professionalism and respectful in-home care",
   "Thorough detail work in high-touch and often-missed areas",
-  "Flexible scheduling options with responsive communication",
-  "Trusted by local clients for both residential and light commercial service",
+  "Flexible scheduling options with responsive call, text, and email communication",
+  "Trusted by local clients for residential and light commercial service",
+  "Professional supplies and equipment brought to each visit—your preferred products welcome too",
+  "Scope tailored to your priorities, layout, and timing—not one-size-fits-all",
+  "Women-owned team focused on dependable, friendly service across Central Florida",
+  "Move-ready, listing-ready, and rental turnover options when life gets busy",
+  "Straightforward quoting so you know what to expect before we arrive",
+  "Recurring plans available to keep your space consistently guest- or family-ready",
 ];

@@ -124,7 +124,7 @@ export function Footer() {
                 href="https://elevatedigitalstudios.net/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white transition hover:text-aqua hover:underline"
+                className="rounded-sm text-white transition-all duration-200 hover:text-sky-200 hover:underline hover:[text-shadow:0_0_12px_rgba(56,189,248,0.95),0_0_26px_rgba(56,189,248,0.55)] focus-visible:outline-none focus-visible:text-sky-200 focus-visible:[text-shadow:0_0_12px_rgba(56,189,248,0.95),0_0_26px_rgba(56,189,248,0.55)] focus-visible:ring-2 focus-visible:ring-sky-400/55 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal"
               >
                 Website Design by Elevate Digital Studio.
               </a>

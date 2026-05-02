@@ -11,6 +11,7 @@ import { FloatingBubbles } from "@/components/floating-bubbles";
 import { WaterDropsBackground } from "@/components/water-drops-background";
 import { GrowingPopBubbles } from "@/components/growing-pop-bubbles";
 import { InteractiveMain } from "@/components/interactive-main";
+import { CursorBubbleTrail } from "@/components/cursor-bubble-trail";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -82,6 +83,7 @@ export default function RootLayout({
         <Footer />
         <MobileStickyCTA />
         <ChatWidget />
+        <CursorBubbleTrail />
       </body>
     </html>
   );

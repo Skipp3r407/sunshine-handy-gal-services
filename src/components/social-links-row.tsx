@@ -16,9 +16,9 @@ function shellClass(variant: Variant, enabled: boolean) {
     }`;
   }
   if (variant === "onDark") {
-    return `${base} border-white/15 text-white/85 hover:border-aqua/55 hover:text-aqua focus-visible:ring-aqua/50`;
+    return `${base} border-white/15 text-white/85 hover:border-sky-400/75 hover:text-sky-300 hover:shadow-[0_0_18px_rgba(56,189,248,0.32)] focus-visible:ring-sky-400/55 focus-visible:ring-offset-charcoal`;
   }
-  return `${base} border-[#e5dfd4] text-charcoal/85 hover:border-teal-deep/35 hover:text-teal-deep focus-visible:ring-teal-deep/30`;
+  return `${base} border-[#e5dfd4] text-charcoal/90 hover:border-sky-400 hover:text-sky-600 hover:shadow-[0_0_16px_rgba(56,189,248,0.22)] focus-visible:ring-sky-400/45`;
 }
 
 function WhatsAppIcon() {

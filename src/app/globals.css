@@ -185,12 +185,12 @@ html.mobile-nav-open .nav-open-hide {
     #eef8fc 74%,
     #fafdff 100%
   );
-  opacity: 0.88;
+  opacity: 0.92;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .bubble-backdrop-wash {
-    opacity: 0.65;
+    opacity: 0.69;
   }
 }
 
@@ -266,24 +266,24 @@ html.mobile-nav-open .nav-open-hide {
     transform: scale(0.14);
   }
   24% {
-    opacity: 0.09;
+    opacity: 0.11;
     transform: scale(0.62);
   }
   42% {
     transform: scale(1);
-    opacity: 0.2;
+    opacity: 0.23;
   }
   54% {
     transform: scale(1);
-    opacity: 0.17;
+    opacity: 0.195;
   }
   70% {
     transform: scale(1);
-    opacity: 0.11;
+    opacity: 0.125;
   }
   86% {
     transform: scale(1.02);
-    opacity: 0.052;
+    opacity: 0.062;
   }
   100% {
     transform: scale(1.42);
@@ -301,16 +301,16 @@ html.mobile-nav-open .nav-open-hide {
   border-style: solid;
   background: radial-gradient(
     circle at 30% 26%,
-    rgba(224, 246, 255, 0.42) 0%,
-    rgba(125, 211, 252, 0.28) 32%,
-    rgba(56, 189, 248, 0.14) 68%,
-    rgba(14, 165, 233, 0.06) 88%,
+    rgba(224, 246, 255, 0.48) 0%,
+    rgba(125, 211, 252, 0.32) 32%,
+    rgba(56, 189, 248, 0.17) 68%,
+    rgba(14, 165, 233, 0.075) 88%,
     transparent 96%
   );
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.38),
-    0 4px 22px rgba(56, 189, 248, 0.14),
-    0 0 36px rgba(94, 201, 232, 0.12);
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 4px 22px rgba(56, 189, 248, 0.17),
+    0 0 36px rgba(94, 201, 232, 0.145);
   animation-name: bubble-grow-pop;
   animation-duration: var(--gb-duration, 9s);
   animation-timing-function: cubic-bezier(0.26, 0.08, 0.2, 1);
@@ -336,6 +336,26 @@ html.mobile-nav-open .nav-open-hide {
   border-color: rgba(14, 165, 233, 0.52);
 }
 
+/* Cursor bubble trail (see CursorBubbleTrail) */
+@keyframes cursor-trail-bubble-drift {
+  0% {
+    opacity: 0.52;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.12) translateY(-36px);
+  }
+}
+
+.cursor-trail-bubble {
+  position: fixed;
+  box-sizing: border-box;
+  border-radius: 9999px;
+  animation: cursor-trail-bubble-drift 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .spray-droplet,
   .spray-mist {
@@ -351,5 +371,10 @@ html.mobile-nav-open .nav-open-hide {
   .growing-pop-bubble-field {
     transform: none !important;
     transition: none !important;
+  }
+
+  .cursor-trail-bubble {
+    animation: none !important;
+    opacity: 0 !important;
   }
 }

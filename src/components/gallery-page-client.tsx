@@ -195,10 +195,11 @@ function GalleryLightboxPanel({
             beforeSrc={item.beforeSrc}
             afterSrc={item.afterSrc}
             minHeightClass="min-h-[240px] sm:min-h-[320px] lg:min-h-[380px]"
+            imageHover={!!(item.beforeSrc || item.afterSrc)}
           />
         </div>
         <p className="shrink-0 border-t border-[#e8e4dc] bg-cream/40 px-4 py-2.5 text-center text-xs text-muted-gray">
-          Tap outside or press Esc to close — add your photos in{" "}
+          Tap outside or press Esc to close — swap in your photos via{" "}
           <code className="rounded bg-white px-1 py-0.5 text-[11px] text-teal-deep">
             gallery-data.ts
           </code>
@@ -299,9 +300,9 @@ export function GalleryPageClient({ items }: { items: GalleryItem[] }) {
           See the Difference a Detailed Clean Makes
         </h1>
         <p className="mx-auto max-w-2xl text-sm leading-relaxed text-muted-gray sm:mx-0 sm:text-base">
-          Real before-and-after spots coming soon—swap placeholders for your photos in{" "}
-          <span className="font-medium text-charcoal">gallery-data.ts</span>. Tap any card for a
-          larger view.
+          Illustrative before-and-after pairs (royalty-free stock). Replace them with your real job
+          photos in <span className="font-medium text-charcoal">gallery-data.ts</span> anytime—tap
+          any card for a larger view.
         </p>
       </motion.header>
 

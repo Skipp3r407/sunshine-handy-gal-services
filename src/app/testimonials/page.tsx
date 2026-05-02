@@ -1,10 +1,9 @@
 import { Metadata } from "next";
 import { SectionHeading } from "@/components/section-heading";
 import { ReviewHighlightBanner } from "@/components/review-highlight-banner";
-import { TestimonialCard } from "@/components/testimonial-card";
 import { PrimaryCtaLink } from "@/components/motion/primary-cta-link";
 import { Reveal } from "@/components/motion/reveal";
-import { StaggerGrid } from "@/components/motion/stagger-grid";
+import { TestimonialsExpandableSection } from "@/components/testimonials-expandable-section";
 import { testimonials } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -37,14 +36,7 @@ export default function TestimonialsPage() {
             <p className="text-sm font-semibold text-golden-amber">★★★★★ 100% Recommend</p>
           </div>
         </Reveal>
-        <StaggerGrid
-          className="grid gap-4 md:grid-cols-2 xl:grid-cols-3"
-          enableHoverLift={false}
-        >
-          {testimonials.map((item) => (
-            <TestimonialCard key={item.name} name={item.name} quote={item.quote} />
-          ))}
-        </StaggerGrid>
+        <TestimonialsExpandableSection items={testimonials} />
       </section>
 
       <Reveal direction="scale">

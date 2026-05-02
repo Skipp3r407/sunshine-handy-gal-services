@@ -42,6 +42,8 @@ export default function Home() {
               title={service.title}
               description={service.description}
               benefit={service.benefit}
+              imageSrc={service.imageSrc}
+              imageAlt={service.imageAlt}
             />
           ))}
         </StaggerGrid>

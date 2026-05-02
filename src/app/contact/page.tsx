@@ -24,7 +24,7 @@ export default function ContactPage() {
         </header>
       </Reveal>
 
-      <div className="rounded-[1.75rem] bg-[#faf7f2] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] sm:p-8 lg:p-10">
+      <div className="rounded-[2rem] border border-[#e8f0f4]/80 bg-gradient-to-br from-[#f5fbfe] via-[#faf7f2] to-[#fffdf8] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] sm:p-8 lg:p-10">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(260px,340px)] lg:items-start lg:gap-10 xl:gap-12">
           <Reveal direction="left" className="min-h-0">
             <ContactForm variant="page" />

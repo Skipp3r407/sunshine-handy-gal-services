@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { SectionHeading } from "@/components/section-heading";
 import { CTASection } from "@/components/cta-section";
 import { PrimaryCtaLink } from "@/components/motion/primary-cta-link";
@@ -29,22 +30,49 @@ export default function ServicesPage() {
         {services.map((service) => (
           <article
             key={service.title}
-            className="rounded-3xl border border-[#ece3d3] bg-white p-7 transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-24px_rgba(12,125,150,0.15)]"
+            className="group overflow-hidden rounded-3xl border border-[#ece3d3] bg-white transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-24px_rgba(12,125,150,0.15)]"
           >
-            <h2 className="text-2xl font-bold text-charcoal">{service.title}</h2>
-            <p className="mt-3 text-base leading-7 text-muted-gray">
-              {service.description}
-            </p>
-            <p className="mt-3 text-sm leading-7 text-muted-gray">
-              <span className="font-semibold text-charcoal">Who it&apos;s for:</span>{" "}
-              {service.whoItsFor}
-            </p>
-            <p className="mt-3 rounded-2xl bg-cream px-4 py-3 text-sm font-semibold text-charcoal">
-              {service.benefit}
-            </p>
-            <PrimaryCtaLink href="/contact" className="mt-5 px-5 py-2">
-              Request a Custom Quote
-            </PrimaryCtaLink>
+            <div className="relative aspect-[16/10] w-full overflow-hidden bg-gradient-to-b from-teal/5 to-cream/30">
+              <Image
+                src={service.imageSrc}
+                alt={service.imageAlt}
+                fill
+                className="object-cover opacity-[0.73] transition-opacity duration-300 group-hover:opacity-[0.83]"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/35 via-transparent to-[#fffdfb]/45"
+                aria-hidden
+              />
+            </div>
+            <div className="p-7">
+              <h2 className="text-2xl font-bold text-charcoal">{service.title}</h2>
+              <p className="mt-3 text-base leading-7 text-muted-gray">
+                {service.description}
+              </p>
+              <p className="mt-3 text-sm leading-7 text-muted-gray">
+                <span className="font-semibold text-charcoal">Who it&apos;s for:</span>{" "}
+                {service.whoItsFor}
+              </p>
+              <p className="mt-3 rounded-2xl bg-cream px-4 py-3 text-sm font-semibold text-charcoal">
+                {service.benefit}
+              </p>
+              <div className="mt-5">
+                <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-gray">
+                  Example tasks we often tackle
+                </h3>
+                <ul className="mt-3 grid list-disc gap-x-6 gap-y-2 pl-5 text-sm leading-snug text-muted-gray marker:text-teal-deep sm:grid-cols-2">
+                  {service.examples.map((line) => (
+                    <li key={line} className="pl-1">
+                      {line}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <PrimaryCtaLink href="/contact" className="mt-5 px-5 py-2">
+                Request a Custom Quote
+              </PrimaryCtaLink>
+            </div>
           </article>
         ))}
       </StaggerGrid>
