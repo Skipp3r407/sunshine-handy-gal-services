@@ -9,9 +9,9 @@ import { cn } from "@/lib/utils";
 const DISPLAY_MS = 3000;
 const FADE_MS = 450;
 
-/** Base splash logo was 220×72; +50% → 330×108 (same aspect). */
-const LOGO_W = 330;
-const LOGO_H = 108;
+/** Original splash asset baseline 220×72; +75% → 385×126 (same aspect). */
+const LOGO_W = 385;
+const LOGO_H = 126;
 
 type Phase = "show" | "fade" | "done";
 
@@ -63,20 +63,18 @@ export function SplashScreen() {
     >
       <motion.div
         initial={
-          reducedMotion ? { scale: 1, opacity: 1 } : { scale: 0.68, opacity: 0.88 }
+          reducedMotion ? { scale: 1, opacity: 1 } : { scale: 0.52, opacity: 0 }
         }
         animate={{ scale: 1, opacity: 1 }}
         transition={
           reducedMotion
             ? { duration: 0 }
             : {
-                type: "spring",
-                stiffness: 220,
-                damping: 20,
-                mass: 0.72,
+                duration: 0.95,
+                ease: [0.22, 1, 0.36, 1],
               }
         }
-        className="will-change-transform"
+        className="will-change-[transform,opacity]"
       >
         <Image
           src="/images/logo.png"
@@ -84,7 +82,7 @@ export function SplashScreen() {
           width={LOGO_W}
           height={LOGO_H}
           priority
-          className="h-auto w-[min(330px,87vw)] select-none"
+          className="h-auto w-[min(385px,92vw)] select-none"
         />
       </motion.div>
     </div>
