@@ -2,16 +2,22 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { businessInfo } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 const DISPLAY_MS = 3000;
 const FADE_MS = 450;
 
+/** Base splash logo was 220×72; +50% → 330×108 (same aspect). */
+const LOGO_W = 330;
+const LOGO_H = 108;
+
 type Phase = "show" | "fade" | "done";
 
 export function SplashScreen() {
   const [phase, setPhase] = useState<Phase>("show");
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
     const reduced =
@@ -55,14 +61,32 @@ export function SplashScreen() {
       aria-busy={phase === "show"}
       aria-label="Loading"
     >
-      <Image
-        src="/images/logo.png"
-        alt={businessInfo.name}
-        width={220}
-        height={72}
-        priority
-        className="h-auto w-[min(220px,58vw)] select-none"
-      />
+      <motion.div
+        initial={
+          reducedMotion ? { scale: 1, opacity: 1 } : { scale: 0.68, opacity: 0.88 }
+        }
+        animate={{ scale: 1, opacity: 1 }}
+        transition={
+          reducedMotion
+            ? { duration: 0 }
+            : {
+                type: "spring",
+                stiffness: 220,
+                damping: 20,
+                mass: 0.72,
+              }
+        }
+        className="will-change-transform"
+      >
+        <Image
+          src="/images/logo.png"
+          alt={businessInfo.name}
+          width={LOGO_W}
+          height={LOGO_H}
+          priority
+          className="h-auto w-[min(330px,87vw)] select-none"
+        />
+      </motion.div>
     </div>
   );
 }
