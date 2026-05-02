@@ -61,12 +61,28 @@ export function ContactPageSidebar() {
 
       <section className={inputClass}>
         <h2 className="text-base font-bold text-charcoal">Service area</h2>
-        <div
-          className="mt-3 flex min-h-[140px] items-center justify-center rounded-xl border border-[#d4e8f0] bg-[#e8f4fa] px-4 text-center text-sm font-medium text-teal-deep/80"
-          role="img"
-          aria-label="Service area map placeholder"
-        >
-          Map preview
+        <div className="mt-3 overflow-hidden rounded-xl border border-[#d4e8f0] bg-[#e8f4fa] shadow-[inset_0_1px_0_rgba(255,255,255,0.5)]">
+          <div className="relative aspect-[4/3] w-full min-h-[168px] bg-[#dfeaf1]">
+            <iframe
+              title="Map of Orlando, Florida — Sunshines Handy Gal Services service area"
+              src={businessInfo.serviceAreaMapEmbedUrl}
+              className="absolute inset-0 h-full w-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          </div>
+          <p className="border-t border-[#d4e8f0] bg-white/70 px-3 py-2.5 text-center text-xs text-muted-gray">
+            <a
+              href={businessInfo.serviceAreaGoogleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-1.5 font-semibold text-teal-deep underline-offset-2 transition hover:text-teal-deep hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-deep/35 focus-visible:ring-offset-2"
+            >
+              Open in Google Maps
+              <ExternalLinkIcon className="h-3.5 w-3.5 shrink-0 text-current" />
+            </a>
+          </p>
         </div>
       </section>
 

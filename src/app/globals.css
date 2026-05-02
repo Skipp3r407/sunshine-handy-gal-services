@@ -3,6 +3,11 @@
 :root {
   --background: #fffdf8;
   --foreground: #222222;
+  /* Scrollbars — matches sunshine / teal palette */
+  --scrollbar-track: #f0e9dc;
+  --scrollbar-thumb: #1599b8;
+  --scrollbar-thumb-hover: #0c7d96;
+  --scrollbar-corner: #f8f3e8;
 }
 
 @theme inline {
@@ -39,6 +44,20 @@ body {
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
 }
 
+/* Links follow surrounding text — no browser default blue / purple */
+a:any-link {
+  color: inherit;
+}
+
+a:any-link:visited {
+  color: inherit;
+}
+
+/* Main column: brand teal on hover (reads as blue); skip CTAs & links with their own hover:text-* */
+main a:any-link:hover:not(.cta-primary-enhanced):not([class*="hover:text-"]) {
+  color: var(--color-teal-deep);
+}
+
 h1,
 h2,
 h3,
@@ -51,6 +70,48 @@ h6 {
 ::selection {
   background: #f4c542;
   color: #222222;
+}
+
+@keyframes gallery-placeholder-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.88;
+  }
+}
+
+/* Themed scrollbars — Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* Themed scrollbars — Chromium / Safari / Edge */
+*::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #5ec9e8 0%, #1599b8 45%, #0c7d96 100%);
+  border-radius: 999px;
+  border: 2px solid var(--scrollbar-track);
+  box-shadow: inset 0 1px 0 rgba(255, 253, 248, 0.35);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #6ed4ef 0%, #0c7d96 55%, #0a6b82 100%);
+}
+
+*::-webkit-scrollbar-corner {
+  background: var(--scrollbar-corner);
 }
 
 /* Subtle CTA emphasis — transform/box-shadow only; disabled when user prefers reduced motion */
@@ -81,6 +142,28 @@ h6 {
 
   html {
     scroll-behavior: auto;
+    cursor: auto;
+  }
+
+  a,
+  button,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  input[type="checkbox"],
+  input[type="radio"],
+  label[for],
+  summary,
+  [role="button"],
+  .cursor-pointer {
+    cursor: pointer;
+  }
+
+  input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+  textarea,
+  select,
+  [contenteditable="true"] {
+    cursor: text;
   }
 }
 
@@ -90,4 +173,183 @@ html.mobile-nav-open .nav-open-hide {
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.15s ease;
+}
+
+/* Full-page bubble scene behind content (layout fixed layer) */
+.bubble-backdrop-wash {
+  background: linear-gradient(
+    165deg,
+    #a8d8f0 0%,
+    #c9e8f8 22%,
+    #dff2fb 48%,
+    #eef8fc 74%,
+    #fafdff 100%
+  );
+  opacity: 0.88;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble-backdrop-wash {
+    opacity: 0.65;
+  }
+}
+
+/* Left-click water spray (InteractiveMain) — cone aims along pointer motion; mist rotates via TS */
+@keyframes spray-droplet-fly {
+  from {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.92;
+  }
+  to {
+    transform: translate(var(--tx), var(--ty)) scale(0.12);
+    opacity: 0;
+  }
+}
+
+@keyframes spray-mist-fade {
+  from {
+    opacity: 0.45;
+    transform: scale(0.65);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+
+.spray-droplet {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 28% 28%,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(168, 230, 255, 0.85) 38%,
+    rgba(94, 201, 232, 0.55) 62%,
+    rgba(21, 153, 184, 0.15) 100%
+  );
+  box-shadow:
+    0 0 5px rgba(94, 201, 232, 0.55),
+    inset 0 -1px 2px rgba(12, 125, 150, 0.25);
+  animation: spray-droplet-fly 0.44s ease-out forwards;
+}
+
+.spray-mist {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 72px;
+  height: 72px;
+  margin-left: -36px;
+  margin-top: -36px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse 85% 65% at 65% 35%,
+    rgba(200, 242, 255, 0.5) 0%,
+    rgba(94, 201, 232, 0.22) 42%,
+    transparent 72%
+  );
+  filter: blur(1px);
+  pointer-events: none;
+  animation: spray-mist-fade 0.36s ease-out forwards;
+}
+
+/* Growing background bubbles: inflate slowly, then burst (see GrowingPopBubbles) */
+@keyframes bubble-grow-pop {
+  0% {
+    transform: scale(0.06);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+    transform: scale(0.14);
+  }
+  24% {
+    opacity: 0.09;
+    transform: scale(0.62);
+  }
+  42% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  54% {
+    transform: scale(1);
+    opacity: 0.17;
+  }
+  70% {
+    transform: scale(1);
+    opacity: 0.11;
+  }
+  86% {
+    transform: scale(1.02);
+    opacity: 0.052;
+  }
+  100% {
+    transform: scale(1.42);
+    opacity: 0;
+  }
+}
+
+.growing-pop-bubble-shell {
+  width: var(--gb-size, 80px);
+  height: var(--gb-size, 80px);
+  margin-left: calc(var(--gb-size, 80px) / -2);
+  margin-top: calc(var(--gb-size, 80px) / -2);
+  border-radius: 9999px;
+  border-width: 2px;
+  border-style: solid;
+  background: radial-gradient(
+    circle at 30% 26%,
+    rgba(224, 246, 255, 0.42) 0%,
+    rgba(125, 211, 252, 0.28) 32%,
+    rgba(56, 189, 248, 0.14) 68%,
+    rgba(14, 165, 233, 0.06) 88%,
+    transparent 96%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.38),
+    0 4px 22px rgba(56, 189, 248, 0.14),
+    0 0 36px rgba(94, 201, 232, 0.12);
+  animation-name: bubble-grow-pop;
+  animation-duration: var(--gb-duration, 9s);
+  animation-timing-function: cubic-bezier(0.26, 0.08, 0.2, 1);
+  /* backwards: invisible during animation-delay; forwards: stay vanished after pop */
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  will-change: transform, opacity;
+}
+
+.gb-var-aqua {
+  border-color: rgba(56, 189, 248, 0.52);
+}
+
+.gb-var-teal {
+  border-color: rgba(34, 211, 238, 0.48);
+}
+
+.gb-var-sky {
+  border-color: rgba(96, 165, 250, 0.5);
+}
+
+.gb-var-deep {
+  border-color: rgba(14, 165, 233, 0.52);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spray-droplet,
+  .spray-mist {
+    animation: none !important;
+    opacity: 0;
+  }
+
+  .growing-pop-bubble-shell {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+
+  .growing-pop-bubble-field {
+    transform: none !important;
+    transition: none !important;
+  }
 }

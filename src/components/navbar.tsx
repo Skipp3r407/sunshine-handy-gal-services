@@ -86,13 +86,13 @@ export function Navbar() {
               <motion.span
                 key={link.href}
                 className="relative inline-flex shrink-0 items-center"
-                whileHover={reduced ? undefined : { y: -1 }}
-                transition={{ duration: 0.2 }}
+                transition={{ type: "spring", stiffness: 520, damping: 22, mass: 0.35 }}
+                whileHover={reduced ? undefined : { y: 3 }}
               >
                 <Link
                   href={link.href}
                   className={cn(
-                    "relative whitespace-nowrap pb-1 text-[13px] font-semibold text-charcoal transition-colors duration-200 xl:text-sm",
+                    "group relative inline-block whitespace-nowrap pb-1 text-[13px] font-semibold text-charcoal transition-colors duration-200 xl:text-sm",
                     !isActive && "hover:text-teal-deep",
                   )}
                 >
@@ -100,10 +100,15 @@ export function Navbar() {
                   {isActive ? (
                     <motion.span
                       layoutId="navbar-active-indicator"
-                      className="absolute -bottom-px left-0 right-0 mx-auto h-0.5 max-w-full rounded-full bg-gradient-to-r from-teal-deep via-aqua to-teal-deep"
+                      className="absolute -bottom-px left-0 right-0 mx-auto h-0.5 max-w-full rounded-full bg-gradient-to-r from-teal-deep via-aqua to-teal-deep shadow-[0_0_8px_rgba(94,201,232,0.45)]"
                       transition={navSpring}
                     />
-                  ) : null}
+                  ) : (
+                    <span
+                      className="absolute -bottom-px left-1/2 h-0.5 w-full max-w-[100%] -translate-x-1/2 scale-x-0 rounded-full bg-gradient-to-r from-teal-deep via-aqua to-teal-deep shadow-[0_0_6px_rgba(94,201,232,0.35)] transition-transform duration-200 ease-out group-hover:scale-x-100"
+                      aria-hidden
+                    />
+                  )}
                 </Link>
               </motion.span>
             );
@@ -178,7 +183,7 @@ export function Navbar() {
                         href={link.href}
                         onClick={() => setIsOpen(false)}
                         className={cn(
-                          "block rounded-lg px-2.5 py-2 text-sm font-semibold transition-colors duration-200",
+                          "block rounded-lg px-2.5 py-2 text-sm font-semibold transition-[transform,colors] duration-200 hover:translate-y-0.5",
                           isActive
                             ? "bg-sunshine-yellow/15 text-teal-deep ring-1 ring-teal-deep/15"
                             : "text-charcoal hover:bg-cream hover:text-teal-deep",

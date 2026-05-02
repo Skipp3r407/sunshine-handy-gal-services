@@ -9,6 +9,11 @@ export const businessInfo = {
   location: "Orlando, Florida",
   serviceAreaSummary:
     "Orlando, Lake Nona, Winter Park, Lake Mary, St. Cloud, and nearby Central Florida communities",
+  /** Google Maps — embed (iframe src) and external link for contact sidebar */
+  serviceAreaMapEmbedUrl:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d450945.36688370604!2d-81.82079895859483!3d28.554348382689693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e773ed8e347581%3A0xf72aa23ed13aab69!2sOrlando%2C%20FL!5e0!3m2!1sen!2sus!4v1735689600000!5m2!1sen!2sus",
+  serviceAreaGoogleMapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=Orlando%2C%20Florida",
   /**
    * Google Business Profile “Get more reviews” URL (recommended).
    * Replace with your direct review link from Google Business; until then this opens Google search for the business.

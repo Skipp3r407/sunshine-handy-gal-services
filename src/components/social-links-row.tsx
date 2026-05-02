@@ -16,7 +16,7 @@ function shellClass(variant: Variant, enabled: boolean) {
     }`;
   }
   if (variant === "onDark") {
-    return `${base} border-white/15 text-white/85 hover:border-sunshine-yellow/40 hover:text-sunshine-yellow focus-visible:ring-sunshine-yellow/50`;
+    return `${base} border-white/15 text-white/85 hover:border-aqua/55 hover:text-aqua focus-visible:ring-aqua/50`;
   }
   return `${base} border-[#e5dfd4] text-charcoal/85 hover:border-teal-deep/35 hover:text-teal-deep focus-visible:ring-teal-deep/30`;
 }

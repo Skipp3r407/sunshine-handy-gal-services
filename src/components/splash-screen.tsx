@@ -18,8 +18,8 @@ export function SplashScreen() {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (reduced) {
-      setPhase("done");
-      return;
+      const id = requestAnimationFrame(() => setPhase("done"));
+      return () => cancelAnimationFrame(id);
     }
 
     const showTimer = window.setTimeout(() => setPhase("fade"), DISPLAY_MS);
