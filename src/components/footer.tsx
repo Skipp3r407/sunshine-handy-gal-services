@@ -15,7 +15,7 @@ const footerColumnLinkClass = cn(
 
 export function Footer() {
   return (
-    <footer className="relative z-[2] mt-12 sm:mt-16 lg:mt-20">
+    <footer className="relative z-[2] mt-12 pb-[calc(5.75rem+env(safe-area-inset-bottom,0px))] sm:mt-16 lg:mt-20 lg:pb-0">
       <div className="border-t border-white/10 bg-charcoal text-white">
         <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-10 sm:px-6 sm:py-12 lg:flex-row lg:items-end lg:justify-between lg:gap-12 lg:px-8">
           <div className="min-w-0 flex-1">

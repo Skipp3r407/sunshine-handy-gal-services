@@ -27,7 +27,11 @@ export function Reveal({
       initial="hidden"
       whileInView="visible"
       viewport={
-        viewport ?? { once: true, amount: 0.12, margin: "0px 0px -5% 0px" }
+        viewport ?? {
+          once: true,
+          amount: 0.06,
+          margin: "120px 0px 180px 0px",
+        }
       }
       variants={revealVariants(direction, reduced, delay)}
       {...rest}

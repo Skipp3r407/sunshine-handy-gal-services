@@ -28,7 +28,11 @@ export function StaggerGrid({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.1, margin: "0px 0px -4% 0px" }}
+      viewport={{
+        once: true,
+        amount: 0.05,
+        margin: "140px 0px 200px 0px",
+      }}
       variants={staggerContainerVariants(reduced, stagger)}
     >
       {Children.map(children, (child, index) => {
@@ -38,7 +42,7 @@ export function StaggerGrid({
             key={child.key ?? index}
             variants={staggerItemVariants(reduced)}
             whileHover={enableHoverLift ? subtleLiftHover(reduced) : undefined}
-            className="h-full min-h-0"
+            className="min-h-0 w-full"
           >
             {child}
           </motion.div>

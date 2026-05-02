@@ -61,7 +61,7 @@ export default function ServicesPage() {
                 <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-gray">
                   Example tasks we often tackle
                 </h3>
-                <ul className="mt-3 grid list-disc gap-x-6 gap-y-2 pl-5 text-sm leading-snug text-muted-gray marker:text-teal-deep sm:grid-cols-2">
+                <ul className="mt-3 flex list-disc flex-col gap-y-2 pl-5 text-sm leading-snug text-muted-gray marker:text-teal-deep sm:grid sm:grid-cols-2 sm:gap-x-6">
                   {service.examples.map((line) => (
                     <li key={line} className="pl-1">
                       {line}
