@@ -29,8 +29,9 @@ const escapeHtml = (value: string) =>
 
 export async function POST(request: Request) {
   if (!process.env.RESEND_API_KEY) {
+    console.error("Contact form email service is missing RESEND_API_KEY.");
     return NextResponse.json(
-      { message: "Email service is not configured." },
+      { success: false, message: "Email service is not configured." },
       { status: 500 },
     );
   }
@@ -42,7 +43,14 @@ export async function POST(request: Request) {
   try {
     payload = await request.json();
   } catch {
-    return NextResponse.json({ message: "Invalid form submission." }, { status: 400 });
+    return NextResponse.json(
+      { success: false, message: "Invalid form submission." },
+      { status: 400 },
+    );
+  }
+
+  if (process.env.NODE_ENV === "development") {
+    console.log("Incoming contact form payload:", payload);
   }
 
   const name = clean(payload.name);
@@ -55,12 +63,15 @@ export async function POST(request: Request) {
   const honeypot = clean(payload.company);
 
   if (honeypot) {
-    return NextResponse.json({ message: "Thanks, your request was received." });
+    return NextResponse.json({
+      success: true,
+      message: "Thanks, your request was received.",
+    });
   }
 
   if (!name || !phone || !email) {
     return NextResponse.json(
-      { message: "Please include your name, phone, and email." },
+      { success: false, message: "Please include your name, phone, and email." },
       { status: 400 },
     );
   }
@@ -76,7 +87,7 @@ export async function POST(request: Request) {
   ] as const;
 
   try {
-    await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: `${businessInfo.name} <onboarding@resend.dev>`,
       to: recipientEmail,
       replyTo: email,
@@ -105,11 +116,23 @@ export async function POST(request: Request) {
       `,
     });
 
-    return NextResponse.json({ message: "Thanks, your request was sent." });
+    if (error || !data) {
+      console.error("Resend contact form send failed:", error ?? "No email data returned.");
+      return NextResponse.json(
+        { success: false, message: "We could not send your request right now." },
+        { status: 502 },
+      );
+    }
+
+    return NextResponse.json({
+      success: true,
+      message: "Thanks, your request was sent.",
+      id: data.id,
+    });
   } catch (error) {
     console.error("Resend contact form error:", error);
     return NextResponse.json(
-      { message: "We could not send your request right now." },
+      { success: false, message: "We could not send your request right now." },
       { status: 500 },
     );
   }

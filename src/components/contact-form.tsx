@@ -75,9 +75,9 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(Object.fromEntries(formData.entries())),
       });
-      const result = (await response.json()) as { message?: string };
+      const result = (await response.json()) as { success?: boolean; message?: string };
 
-      if (!response.ok) {
+      if (!response.ok || result.success !== true) {
         throw new Error(result.message || "Unable to send your request.");
       }
 
