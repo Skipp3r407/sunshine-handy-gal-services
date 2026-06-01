@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { businessInfo } from "@/lib/site-data";
 
-const recipientEmail = "sunshineshandygalservices@gmail.com";
+const recipientEmail = process.env.RESEND_TEST_TO_EMAIL ?? "sunshineshandygalservices@gmail.com";
 
 type ContactPayload = {
   name?: string;
@@ -84,8 +83,8 @@ export async function POST(request: Request) {
   ] as const;
 
   try {
-    const { data, error } = await resend.emails.send({
-      from: `${businessInfo.name} <onboarding@resend.dev>`,
+    const resendResponse = await resend.emails.send({
+      from: "onboarding@resend.dev",
       to: recipientEmail,
       replyTo: email,
       subject: `New quote request from ${name}`,
@@ -112,9 +111,15 @@ export async function POST(request: Request) {
         </div>
       `,
     });
+    const { data, error } = resendResponse;
+
+    console.log("Resend contact form response:", resendResponse);
 
     if (error || !data) {
-      console.error("Resend contact form send failed:", error ?? "No email data returned.");
+      console.error("Resend contact form send failed:", {
+        error,
+        response: resendResponse,
+      });
       return NextResponse.json(
         { success: false, error: "Failed to send email" },
         { status: 502 },
