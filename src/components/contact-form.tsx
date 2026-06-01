@@ -60,6 +60,20 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
     setPreferredDate("");
   };
 
+  const readSubmitResponse = async (response: Response) => {
+    const body = await response.text();
+
+    try {
+      return JSON.parse(body) as { success?: boolean; message?: string };
+    } catch {
+      console.error("Contact form received a non-JSON response:", body.slice(0, 300));
+      return {
+        success: false,
+        message: "Unable to send your request right now. Please call or text us instead.",
+      };
+    }
+  };
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsSubmitting(true);
@@ -75,7 +89,7 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(Object.fromEntries(formData.entries())),
       });
-      const result = (await response.json()) as { success?: boolean; message?: string };
+      const result = await readSubmitResponse(response);
 
       if (!response.ok || result.success !== true) {
         throw new Error(result.message || "Unable to send your request.");
