@@ -267,11 +267,6 @@ export function GalleryPageClient({ items }: { items: GalleryItem[] }) {
   const reduced = useReducedMotion();
   const [filter, setFilter] = useState<GalleryFilterId>("all");
   const [lightboxItem, setLightboxItem] = useState<GalleryItem | null>(null);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const visible = useMemo(() => {
     if (filter === "all") return items;
@@ -417,7 +412,7 @@ export function GalleryPageClient({ items }: { items: GalleryItem[] }) {
         </motion.p>
       ) : null}
 
-      {mounted && typeof document !== "undefined"
+      {typeof document !== "undefined"
         ? createPortal(
             <AnimatePresence>
               {lightboxItem ? (

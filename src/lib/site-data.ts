@@ -338,17 +338,124 @@ export const serviceAreas = [
   },
 ];
 
-export const testimonials = [
-  /** Quotes sourced from verified neighbor recommendations on Nextdoor (see business page). */
+export type Testimonial = {
+  name: string;
+  quote: string;
+  location?: string;
+  date?: string;
+  rating?: number;
+  source?: string;
+};
+
+const normalizeTestimonialText = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/[“”]/g, '"')
+    .replace(/[‘’]/g, "'")
+    .replace(/\s+/g, " ")
+    .trim();
+
+const uniqueTestimonialsByReviewerAndQuote = (items: Testimonial[]) => {
+  const seen = new Set<string>();
+
+  return items.filter((item) => {
+    const key = `${normalizeTestimonialText(item.name)}::${normalizeTestimonialText(item.quote)}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+};
+
+export const testimonials = uniqueTestimonialsByReviewerAndQuote([
+  /** Quotes sourced from local customer recommendations and reviews. */
   {
-    name: "Richard N., Pinellas Park, FL",
+    name: "Andrew Nemchik",
+    location: "Lake Mary, FL",
+    date: "12 May",
+    source: "Facebook recommendation",
     quote:
-      "I moved to Orlando 6 months ago and was recently recommended Sunshine's Handy Girl Services by a trusted friend. On her very first visit, Sheena did a deep cleaning, put away my clothes, replaced my bed sheets, and even cleaned all my appliances—including the fridge! I've used many cleaning services over the years while living as a single professional in 4 countries and 6 states, but I have never experienced this level of professionalism, care, and quality. Sheena is caring, detailed, and incredibly thorough. I highly recommend Sunshine's Handy Girl Services to anyone looking for exceptional cleaning and reliable service in Orlando!",
+      "Very professional, efficient and fair priced. Couldn't ask for a better cleaning service.",
   },
   {
-    name: "Kelvin H., Orlando, FL",
+    name: "Richard Naraine",
+    location: "Pinellas Park, FL",
+    date: "14 Apr",
+    rating: 5,
+    source: "Facebook review",
+    quote:
+      "I moved to Orlando 6 months ago and was recently recommended Sunshine's Handy Gal Services by a trusted friend. On her very first visit, Sheena did a deep cleaning...",
+  },
+  {
+    name: "Kelvin Hill",
+    location: "Windhover",
+    date: "9 Apr",
+    source: "Facebook recommendation",
     quote:
       "Great customer service, don't hesitate to contact them.",
+  },
+  {
+    name: "Jeff Zawacki",
+    location: "Deer Run East",
+    date: "26 Mar",
+    source: "Facebook recommendation",
+    quote:
+      "Had them do an initial cleaning and did a fantastic and thorough job. Looking forward to continuing to use them for our bi-weekly cleaning.",
+  },
+  {
+    name: "Brandon Randolph",
+    location: "Pine Castle",
+    date: "20 Mar",
+    source: "Facebook recommendation",
+    quote:
+      "Best customer service ever...",
+  },
+  {
+    name: "Angel Daniel",
+    location: "Minneola, FL",
+    date: "16 Mar",
+    source: "Facebook recommendation",
+    quote:
+      "Sheena and her team were remarkable with their cleaning services! This didn't leave not one spot behind! Highly recommend!",
+  },
+  {
+    name: "Colton Shadron",
+    location: "Winter Springs, FL",
+    date: "23 Feb",
+    source: "Facebook recommendation",
+    quote:
+      "The best house cleaner in the area hands down!",
+  },
+  {
+    name: "Julia Schmertzler",
+    location: "South Semoran",
+    date: "10 Feb",
+    source: "Facebook recommendation",
+    quote:
+      "Extremely detailed, affordable and does a great job with residential and commercial!",
+  },
+  {
+    name: "Molly Herrera",
+    location: "Kaley/Bumby",
+    date: "29 Jan",
+    source: "Facebook recommendation",
+    quote:
+      "Her service is out of this world! She does her job with pride. She lives up to her standards. She has reasonable prices and will work with what your needs are. I definitely recommend her. 🌻 💗",
+  },
+  {
+    name: "David Wasdin",
+    location: "Robinsdale",
+    date: "4 Sep",
+    source: "Facebook recommendation",
+    quote:
+      "Sunshine offers only the best when it comes to cleaning. She'll leave your house looking brand new. Your windows looking see through clean. Would definitely recommend, 10/10.",
+  },
+  {
+    name: "Joshua Bonaccorso",
+    location: "Countryside",
+    date: "8 Jul",
+    source: "Facebook recommendation",
+    quote:
+      "Highly recommend the SUN IS SHINING 😘",
   },
   {
     name: "Tiffany Johnson",
@@ -359,11 +466,6 @@ export const testimonials = [
     name: "Amy Uselton Snellings",
     quote:
       "The absolute best and most thorough clean I have ever received. Every room felt refreshed.",
-  },
-  {
-    name: "Julia Schmertzler",
-    quote:
-      "A deep clean helped me fully reset my home. Everything looked great and felt so much lighter afterward.",
   },
   {
     name: "Amber Jones",
@@ -395,7 +497,7 @@ export const testimonials = [
     quote:
       "So grateful for the organization help and deep cleaning. It brought peace back into our daily routine.",
   },
-];
+]);
 
 export const faqItems = [
   {

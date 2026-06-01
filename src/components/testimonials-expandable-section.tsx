@@ -5,24 +5,19 @@ import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { StaggerGrid } from "@/components/motion/stagger-grid";
 import { TestimonialCard } from "@/components/testimonial-card";
+import type { Testimonial } from "@/lib/site-data";
 
-export type TestimonialItem = {
-  name: string;
-  quote: string;
-};
+const getStars = (rating: number) => "★".repeat(Math.max(0, Math.min(5, Math.round(rating))));
 
 type TestimonialsExpandableSectionProps = {
-  items: TestimonialItem[];
+  items: Testimonial[];
 };
 
 export function TestimonialsExpandableSection({ items }: TestimonialsExpandableSectionProps) {
   const reduced = useReducedMotion();
   const dialogTitleId = useId();
   const closeRef = useRef<HTMLButtonElement>(null);
-  const [open, setOpen] = useState<TestimonialItem | null>(null);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  const [open, setOpen] = useState<Testimonial | null>(null);
 
   const close = useCallback(() => setOpen(null), []);
 
@@ -43,7 +38,7 @@ export function TestimonialsExpandableSection({ items }: TestimonialsExpandableS
   }, [open, close]);
 
   const modal =
-    mounted &&
+    typeof document !== "undefined" &&
     createPortal(
       <AnimatePresence>
         {open ? (
@@ -85,17 +80,38 @@ export function TestimonialsExpandableSection({ items }: TestimonialsExpandableS
                 ×
               </button>
               <div className="pr-10">
-                <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-                  <p id={dialogTitleId} className="text-base font-semibold text-charcoal sm:text-lg">
-                    {open.name}
-                  </p>
-                  <p className="text-base text-golden-amber sm:text-lg" aria-label="5 stars">
-                    ★★★★★
-                  </p>
+                <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <p id={dialogTitleId} className="text-base font-semibold text-charcoal sm:text-lg">
+                      {open.name}
+                    </p>
+                    {[open.location, open.date].filter(Boolean).length ? (
+                      <p className="mt-1 text-sm font-medium text-muted-gray">
+                        {[open.location, open.date].filter(Boolean).join(" • ")}
+                      </p>
+                    ) : null}
+                  </div>
+                  {open.rating ? (
+                    <p
+                      className="text-base text-golden-amber sm:text-lg"
+                      aria-label={`${open.rating} out of 5 stars`}
+                    >
+                      {getStars(open.rating)}
+                    </p>
+                  ) : open.source ? (
+                    <p className="rounded-full bg-sunshine-yellow/15 px-3 py-1 text-xs font-semibold text-teal-deep">
+                      Recommendation
+                    </p>
+                  ) : null}
                 </div>
                 <p className="text-base leading-8 text-muted-gray sm:text-[1.05rem] sm:leading-9">
                   “{open.quote}”
                 </p>
+                {open.source ? (
+                  <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-teal-deep/70">
+                    {open.source}
+                  </p>
+                ) : null}
               </div>
             </motion.div>
           </motion.div>
@@ -115,6 +131,10 @@ export function TestimonialsExpandableSection({ items }: TestimonialsExpandableS
             key={item.name}
             name={item.name}
             quote={item.quote}
+            location={item.location}
+            date={item.date}
+            rating={item.rating}
+            source={item.source}
             onActivate={() => setOpen(item)}
           />
         ))}

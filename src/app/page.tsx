@@ -95,6 +95,10 @@ export default function Home() {
               key={testimonial.name}
               name={testimonial.name}
               quote={testimonial.quote}
+              location={testimonial.location}
+              date={testimonial.date}
+              rating={testimonial.rating}
+              source={testimonial.source}
             />
           ))}
         </StaggerGrid>
