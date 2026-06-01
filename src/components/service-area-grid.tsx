@@ -48,7 +48,7 @@ export function ServiceAreaGrid({ items }: ServiceAreaGridProps) {
                 src={area.hoverImageSrc}
                 alt=""
                 fill
-                className="object-cover opacity-[0.47]"
+                className="object-cover"
                 sizes="(max-width: 1024px) 100vw, min(1200px, 100vw)"
                 priority={false}
               />
@@ -56,11 +56,11 @@ export function ServiceAreaGrid({ items }: ServiceAreaGridProps) {
           );
         })}
         <div
-          className="absolute inset-0 bg-gradient-to-br from-[#eef8fc]/82 via-white/78 to-[#fffdf8]/85 mix-blend-soft-light"
+          className="absolute inset-0 bg-gradient-to-br from-[#eef8fc]/56 via-white/50 to-[#fffdf8]/58"
           aria-hidden
         />
         <div
-          className="absolute inset-0 bg-gradient-to-t from-white/55 via-transparent to-[#f4fbfd]/40"
+          className="absolute inset-0 bg-gradient-to-t from-white/34 via-transparent to-[#f4fbfd]/24"
           aria-hidden
         />
       </div>

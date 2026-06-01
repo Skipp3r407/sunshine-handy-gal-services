@@ -37,11 +37,11 @@ export default function ServicesPage() {
                 src={service.imageSrc}
                 alt={service.imageAlt}
                 fill
-                className="object-cover opacity-[0.73] transition-opacity duration-300 group-hover:opacity-[0.83]"
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/35 via-transparent to-[#fffdfb]/45"
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white/20 to-transparent"
                 aria-hidden
               />
             </div>
