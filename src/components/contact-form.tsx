@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useMemo, useState } from "react";
+import { type FormEvent, Suspense, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion, useReducedMotion } from "framer-motion";
 import { businessInfo } from "@/lib/site-data";
@@ -31,6 +31,7 @@ const formCardCompact =
 function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
   const reduced = useReducedMotion();
   const searchParams = useSearchParams();
+  const formRef = useRef<HTMLFormElement>(null);
   const { messageDefault, serviceDefault } = useMemo(() => {
     const message = searchParams.get("message") ?? "";
     const service = searchParams.get("service") ?? "";
@@ -41,12 +42,71 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
   }, [searchParams]);
 
   const [preferredDate, setPreferredDate] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
+  const [submitMessage, setSubmitMessage] = useState("");
+
+  const clearForm = (form: HTMLFormElement) => {
+    form.reset();
+    Array.from(form.elements).forEach((element) => {
+      if (
+        element instanceof HTMLInputElement ||
+        element instanceof HTMLTextAreaElement ||
+        element instanceof HTMLSelectElement
+      ) {
+        if (element.name !== "company") element.value = "";
+      }
+    });
+    setPreferredDate("");
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+    setSubmitMessage("");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(formData.entries())),
+      });
+      const result = (await response.json()) as { message?: string };
+
+      if (!response.ok) {
+        throw new Error(result.message || "Unable to send your request.");
+      }
+
+      clearForm(form);
+      setSubmitStatus("success");
+      setSubmitMessage(result.message || "Thanks, your request was sent.");
+    } catch (error) {
+      setSubmitStatus("error");
+      setSubmitMessage(
+        error instanceof Error
+          ? error.message
+          : "Unable to send your request right now. Please call or text us instead.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   if (variant === "page") {
     return (
       <form
+        ref={formRef}
+        onSubmit={handleSubmit}
         className={`${formCardPage} space-y-8 p-6 pt-8 sm:p-8 sm:pt-9 lg:p-10 lg:pt-11`}
       >
+        <label className="sr-only" aria-hidden="true">
+          Company
+          <input name="company" tabIndex={-1} autoComplete="off" />
+        </label>
         <div className="grid gap-5 sm:grid-cols-2">
           <label className={fieldLabel}>
             <span className="normal-case tracking-normal">Name</span>
@@ -155,12 +215,24 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
         <div className="flex flex-col items-stretch gap-3 sm:items-start">
           <motion.button
             type="submit"
+            disabled={isSubmitting}
             whileHover={reduced ? undefined : { y: -1 }}
             whileTap={reduced ? undefined : { scale: 0.99 }}
-            className="cta-primary-enhanced inline-flex w-full items-center justify-center rounded-full bg-teal-deep px-8 py-3.5 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition-colors hover:bg-teal-hover hover:shadow-lg hover:shadow-teal-deep/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#fffefb] sm:w-auto sm:min-w-[220px]"
+            className="cta-primary-enhanced inline-flex w-full items-center justify-center rounded-full bg-teal-deep px-8 py-3.5 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition-colors hover:bg-teal-hover hover:shadow-lg hover:shadow-teal-deep/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#fffefb] disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto sm:min-w-[220px]"
           >
-            Request a quote
+            {isSubmitting ? "Sending..." : "Request a quote"}
           </motion.button>
+          {submitMessage ? (
+            <p
+              className={`max-w-xl text-xs leading-relaxed ${
+                submitStatus === "success" ? "text-teal-deep" : "text-red-600"
+              }`}
+              role="status"
+              aria-live="polite"
+            >
+              {submitMessage}
+            </p>
+          ) : null}
           <p className="max-w-xl text-xs leading-relaxed text-muted-gray">
             Pricing is confirmed after discussing your home and service needs. A 3-hour minimum
             service rate of $150 applies.
@@ -171,7 +243,15 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
   }
 
   return (
-    <form className={`${formCardCompact} space-y-4 p-6 pt-8 sm:p-8 sm:pt-9`}>
+    <form
+      ref={formRef}
+      onSubmit={handleSubmit}
+      className={`${formCardCompact} space-y-4 p-6 pt-8 sm:p-8 sm:pt-9`}
+    >
+      <label className="sr-only" aria-hidden="true">
+        Company
+        <input name="company" tabIndex={-1} autoComplete="off" />
+      </label>
       <div className="grid gap-4 sm:grid-cols-2">
         <label className={fieldLabel}>
           <span className="normal-case tracking-normal">Name</span>
@@ -255,13 +335,26 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
         </motion.a>
         <motion.button
           type="submit"
+          disabled={isSubmitting}
           whileHover={reduced ? undefined : { y: -1 }}
           whileTap={reduced ? undefined : { scale: 0.99 }}
-          className="inline-flex flex-1 items-center justify-center rounded-full border border-teal-deep/45 bg-white px-6 py-3 text-sm font-semibold text-teal-deep shadow-sm transition-colors hover:border-golden-amber/50 hover:bg-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-deep/30 focus-visible:ring-offset-2"
+          className="inline-flex flex-1 items-center justify-center rounded-full border border-teal-deep/45 bg-white px-6 py-3 text-sm font-semibold text-teal-deep shadow-sm transition-colors hover:border-golden-amber/50 hover:bg-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-deep/30 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70"
         >
-          Request a Quote
+          {isSubmitting ? "Sending..." : "Request a Quote"}
         </motion.button>
       </div>
+
+      {submitMessage ? (
+        <p
+          className={`text-xs ${
+            submitStatus === "success" ? "text-teal-deep" : "text-red-600"
+          }`}
+          role="status"
+          aria-live="polite"
+        >
+          {submitMessage}
+        </p>
+      ) : null}
 
       <p className="text-xs text-muted-gray">
         Pricing is confirmed after discussing your home and service needs. A 3-hour minimum
