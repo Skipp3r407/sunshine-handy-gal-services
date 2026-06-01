@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const recipientEmail = process.env.RESEND_TEST_TO_EMAIL ?? "sunshineshandygalservices@gmail.com";
+const recipientEmail = "sunshineshandygalservices@gmail.com";
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 type ContactPayload = {
   name?: string;
@@ -26,6 +27,9 @@ const escapeHtml = (value: string) =>
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
 
+const getErrorMessage = (error: unknown) =>
+  error instanceof Error ? error.message : "Unknown error";
+
 export async function POST(request: Request) {
   if (!process.env.RESEND_API_KEY) {
     console.error("Contact form email service is missing RESEND_API_KEY.");
@@ -48,9 +52,7 @@ export async function POST(request: Request) {
     );
   }
 
-  if (process.env.NODE_ENV === "development") {
-    console.log("Incoming contact form payload:", payload);
-  }
+  console.log("Incoming contact form request body:", payload);
 
   const name = clean(payload.name);
   const phone = clean(payload.phone);
@@ -61,13 +63,45 @@ export async function POST(request: Request) {
   const message = clean(payload.message);
   const honeypot = clean(payload.company);
 
+  console.log("Parsed contact form fields:", {
+    name,
+    phone,
+    email,
+    address,
+    service,
+    date,
+    message,
+    honeypot: Boolean(honeypot),
+  });
+
   if (honeypot) {
     return NextResponse.json({ success: true });
   }
 
-  if (!name || !phone || !email) {
+  if (!name) {
     return NextResponse.json(
-      { success: false, error: "Please include your name, phone, and email." },
+      { success: false, error: "Name is required." },
+      { status: 400 },
+    );
+  }
+
+  if (!email) {
+    return NextResponse.json(
+      { success: false, error: "Email is required." },
+      { status: 400 },
+    );
+  }
+
+  if (!emailPattern.test(email)) {
+    return NextResponse.json(
+      { success: false, error: "Please enter a valid email address." },
+      { status: 400 },
+    );
+  }
+
+  if (!message) {
+    return NextResponse.json(
+      { success: false, error: "Message is required." },
       { status: 400 },
     );
   }
@@ -116,12 +150,20 @@ export async function POST(request: Request) {
     console.log("Resend contact form response:", resendResponse);
 
     if (error || !data) {
+      const resendErrorMessage =
+        error?.message ?? "Resend did not return email data.";
       console.error("Resend contact form send failed:", {
         error,
         response: resendResponse,
       });
       return NextResponse.json(
-        { success: false, error: "Failed to send email" },
+        {
+          success: false,
+          error:
+            process.env.NODE_ENV === "development"
+              ? resendErrorMessage
+              : "Failed to send email",
+        },
         { status: 502 },
       );
     }
@@ -130,7 +172,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("Resend contact form error:", error);
     return NextResponse.json(
-      { success: false, error: "Failed to send email" },
+      { success: false, error: getErrorMessage(error) },
       { status: 500 },
     );
   }
