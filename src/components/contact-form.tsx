@@ -61,15 +61,30 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
   };
 
   const readSubmitResponse = async (response: Response) => {
+    const contentType = response.headers.get("content-type") ?? "";
+
+    if (!contentType.includes("application/json")) {
+      const body = await response.text();
+      console.error("Contact form received a non-JSON response:", body.slice(0, 300));
+      return {
+        success: false,
+        error: "Unable to send your request right now. Please call or text us instead.",
+      };
+    }
+
+    return (await response.json()) as { success?: boolean; error?: string };
+  };
+
+  const readSubmitError = async (response: Response) => {
     const body = await response.text();
 
     try {
-      return JSON.parse(body) as { success?: boolean; message?: string };
+      return JSON.parse(body) as { success?: boolean; error?: string };
     } catch {
       console.error("Contact form received a non-JSON response:", body.slice(0, 300));
       return {
         success: false,
-        message: "Unable to send your request right now. Please call or text us instead.",
+        error: "Unable to send your request right now. Please call or text us instead.",
       };
     }
   };
@@ -89,15 +104,21 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(Object.fromEntries(formData.entries())),
       });
+
+      if (!response.ok) {
+        const errorResult = await readSubmitError(response);
+        throw new Error(errorResult.error || "Unable to send your request.");
+      }
+
       const result = await readSubmitResponse(response);
 
-      if (!response.ok || result.success !== true) {
-        throw new Error(result.message || "Unable to send your request.");
+      if (result.success !== true) {
+        throw new Error(result.error || "Unable to send your request.");
       }
 
       clearForm(form);
       setSubmitStatus("success");
-      setSubmitMessage(result.message || "Thanks, your request was sent.");
+      setSubmitMessage("Thanks, your request was sent.");
     } catch (error) {
       setSubmitStatus("error");
       setSubmitMessage(

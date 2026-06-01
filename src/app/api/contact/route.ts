@@ -31,7 +31,7 @@ export async function POST(request: Request) {
   if (!process.env.RESEND_API_KEY) {
     console.error("Contact form email service is missing RESEND_API_KEY.");
     return NextResponse.json(
-      { success: false, message: "Email service is not configured." },
+      { success: false, error: "Missing RESEND_API_KEY" },
       { status: 500 },
     );
   }
@@ -44,7 +44,7 @@ export async function POST(request: Request) {
     payload = await request.json();
   } catch {
     return NextResponse.json(
-      { success: false, message: "Invalid form submission." },
+      { success: false, error: "Invalid form submission" },
       { status: 400 },
     );
   }
@@ -63,15 +63,12 @@ export async function POST(request: Request) {
   const honeypot = clean(payload.company);
 
   if (honeypot) {
-    return NextResponse.json({
-      success: true,
-      message: "Thanks, your request was received.",
-    });
+    return NextResponse.json({ success: true });
   }
 
   if (!name || !phone || !email) {
     return NextResponse.json(
-      { success: false, message: "Please include your name, phone, and email." },
+      { success: false, error: "Please include your name, phone, and email." },
       { status: 400 },
     );
   }
@@ -119,21 +116,24 @@ export async function POST(request: Request) {
     if (error || !data) {
       console.error("Resend contact form send failed:", error ?? "No email data returned.");
       return NextResponse.json(
-        { success: false, message: "We could not send your request right now." },
+        { success: false, error: "Failed to send email" },
         { status: 502 },
       );
     }
 
-    return NextResponse.json({
-      success: true,
-      message: "Thanks, your request was sent.",
-      id: data.id,
-    });
+    return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Resend contact form error:", error);
     return NextResponse.json(
-      { success: false, message: "We could not send your request right now." },
+      { success: false, error: "Failed to send email" },
       { status: 500 },
     );
   }
+}
+
+export function GET() {
+  return NextResponse.json(
+    { success: false, error: "Method not allowed" },
+    { status: 405 },
+  );
 }
