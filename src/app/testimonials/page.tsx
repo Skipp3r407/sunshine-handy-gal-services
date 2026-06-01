@@ -32,7 +32,9 @@ export default function TestimonialsPage() {
         <Reveal direction="up">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <h2 className="text-2xl font-bold text-charcoal">What clients are saying</h2>
-            <p className="text-sm font-semibold text-golden-amber">★★★★★ 100% Recommend</p>
+            <p className="w-fit rounded-full bg-sunshine-yellow/15 px-4 py-2 text-sm font-medium text-teal-deep">
+              100% recommend
+            </p>
           </div>
         </Reveal>
         <TestimonialsExpandableSection items={testimonials} />

@@ -81,12 +81,12 @@ export function TestimonialsExpandableSection({ items }: TestimonialsExpandableS
               </button>
               <div className="pr-10">
                 <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
-                  <div>
+                  <div className="min-w-0">
                     <p id={dialogTitleId} className="text-base font-semibold text-charcoal sm:text-lg">
                       {open.name}
                     </p>
                     {[open.location, open.date].filter(Boolean).length ? (
-                      <p className="mt-1 text-sm font-medium text-muted-gray">
+                      <p className="mt-1 text-sm leading-6 text-muted-gray">
                         {[open.location, open.date].filter(Boolean).join(" • ")}
                       </p>
                     ) : null}
@@ -99,19 +99,14 @@ export function TestimonialsExpandableSection({ items }: TestimonialsExpandableS
                       {getStars(open.rating)}
                     </p>
                   ) : open.source ? (
-                    <p className="rounded-full bg-sunshine-yellow/15 px-3 py-1 text-xs font-semibold text-teal-deep">
-                      Recommendation
+                    <p className="rounded-full bg-sunshine-yellow/15 px-3 py-1 text-xs font-medium capitalize text-teal-deep">
+                      {open.source.replace(/^Facebook /, "")}
                     </p>
                   ) : null}
                 </div>
-                <p className="text-base leading-8 text-muted-gray sm:text-[1.05rem] sm:leading-9">
+                <p className="text-base leading-8 text-charcoal/75 sm:text-[1.05rem] sm:leading-9">
                   “{open.quote}”
                 </p>
-                {open.source ? (
-                  <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-teal-deep/70">
-                    {open.source}
-                  </p>
-                ) : null}
               </div>
             </motion.div>
           </motion.div>

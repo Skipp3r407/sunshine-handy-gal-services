@@ -28,6 +28,7 @@ export function TestimonialCard({
   const reduced = useReducedMotion();
   const interactive = Boolean(onActivate);
   const details = [location, date].filter(Boolean).join(" • ");
+  const sourceLabel = source ? source.replace(/^Facebook /, "") : null;
 
   return (
     <motion.article
@@ -53,28 +54,23 @@ export function TestimonialCard({
       whileHover={subtleLiftHover(reduced)}
     >
       <div className="mb-4 flex items-start justify-between gap-4">
-        <div>
+        <div className="min-w-0">
           <p className="text-sm font-semibold text-charcoal">{name}</p>
           {details ? (
-            <p className="mt-1 text-xs font-medium text-muted-gray">{details}</p>
+            <p className="mt-1 text-[13px] leading-5 text-muted-gray">{details}</p>
           ) : null}
         </div>
         {rating ? (
           <p className="shrink-0 text-sm text-golden-amber" aria-label={`${rating} out of 5 stars`}>
             {getStars(rating)}
           </p>
-        ) : source ? (
-          <p className="shrink-0 rounded-full bg-sunshine-yellow/15 px-3 py-1 text-xs font-semibold text-teal-deep">
-            Recommendation
+        ) : sourceLabel ? (
+          <p className="shrink-0 rounded-full bg-sunshine-yellow/15 px-2.5 py-1 text-[11px] font-medium capitalize text-teal-deep">
+            {sourceLabel}
           </p>
         ) : null}
       </div>
-      <p className="text-base leading-7 text-muted-gray">“{quote}”</p>
-      {source ? (
-        <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-teal-deep/70">
-          {source}
-        </p>
-      ) : null}
+      <p className="text-[0.95rem] leading-7 text-charcoal/75">“{quote}”</p>
     </motion.article>
   );
 }
