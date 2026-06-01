@@ -118,7 +118,7 @@ export async function POST(request: Request) {
 
   try {
     const resendResponse = await resend.emails.send({
-      from: "onboarding@resend.dev",
+      from: "SunShines Handy Gal Services <quotes@sunshineshandygal.com>",
       to: recipientEmail,
       replyTo: email,
       subject: `New quote request from ${name}`,
@@ -151,20 +151,17 @@ export async function POST(request: Request) {
 
     if (error || !data) {
       const resendErrorMessage =
-        error?.message ?? "Resend did not return email data.";
-      console.error("Resend contact form send failed:", {
-        error,
+        error?.message || "Resend rejected email";
+      console.error("Resend contact form send failed with full error:", {
+        resendError: error,
         response: resendResponse,
       });
       return NextResponse.json(
         {
           success: false,
-          error:
-            process.env.NODE_ENV === "development"
-              ? resendErrorMessage
-              : "Failed to send email",
+          error: resendErrorMessage,
         },
-        { status: 502 },
+        { status: 400 },
       );
     }
 
