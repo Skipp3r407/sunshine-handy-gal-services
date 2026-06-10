@@ -257,9 +257,9 @@ export const services = [
     whoItsFor:
       "RV owners, travelers, snowbirds, and hosts who need a refreshed camper or motorhome before the next trip.",
     icon: "Paintbrush",
-    imageSrc: "/images/services/residential.jpg",
+    imageSrc: "/images/services/rv-cleaning.jpg",
     imageAlt:
-      "Woman wiping surfaces with gloves as part of a detailed cleaning service",
+      "Clean camper van interior with kitchenette, seating, and open door",
     examples: [
       "Kitchenette counters, sinks, and appliance wipe-down",
       "Bathroom sanitize for compact RV baths and showers",
