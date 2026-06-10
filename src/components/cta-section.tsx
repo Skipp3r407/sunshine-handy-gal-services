@@ -52,7 +52,6 @@ export function CTASection({ title, description }: CTASectionProps) {
         </div>
         <p className="mt-4 text-xs font-medium text-charcoal/80">
           Every home is different, so pricing is customized based on your needs.
-          3-hour minimum service rate: $150.
         </p>
       </motion.div>
     </section>

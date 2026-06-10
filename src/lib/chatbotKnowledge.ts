@@ -62,7 +62,7 @@ export const PRESET_RESPONSES: Record<
     quickReplies: ["Pricing", "Get a Quote", "Call / Text"],
   },
   pricing: {
-    text: "Pricing is customized based on your space and cleaning needs. There's a 3-hour minimum service rate of $150, and the best next step is to call or text for a personalized quote.",
+    text: "Pricing is customized based on your space and cleaning needs, and the best next step is to call or text for a personalized quote.",
     quickReplies: ["Get a Quote", "Call / Text", "Services"],
   },
   list_prices: {

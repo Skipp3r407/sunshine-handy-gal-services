@@ -10,7 +10,7 @@ import { services, siteChecklist, businessInfo } from "@/lib/site-data";
 export const metadata: Metadata = {
   title: `Cleaning Services in Orlando | ${businessInfo.name}`,
   description:
-    "Explore professional cleaning services in Orlando including deep cleaning, move-out cleaning, Airbnb turnovers, post-construction cleaning, recurring care, organizing, and light commercial support.",
+    "Explore professional cleaning services in Orlando including deep cleaning, move-out cleaning, Airbnb turnovers, RV cleaning, recurring care, organizing, and light commercial support.",
 };
 
 export default function ServicesPage() {

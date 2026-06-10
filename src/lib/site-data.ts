@@ -249,28 +249,28 @@ export const services = [
     ],
   },
   {
-    title: "Post-Construction Cleaning",
+    title: "RV Cleaning",
     description:
-      "Removal of fine dust, debris, and smudges after remodels or new builds so you can move in or list without a second round of scrubbing.",
+      "Detailed cleaning for RV interiors so your camper, motorhome, or travel trailer feels fresh, organized, and road-trip ready.",
     benefit:
-      "Delivers a move-in-ready finish after contractors wrap up—floors, fixtures, and surfaces included.",
+      "Creates a clean, comfortable space for weekend trips, seasonal travel, guests, or storage resets.",
     whoItsFor:
-      "Homeowners, landlords, and contractors who need a thorough cleanup after construction work.",
+      "RV owners, travelers, snowbirds, and hosts who need a refreshed camper or motorhome before the next trip.",
     icon: "Paintbrush",
-    imageSrc: "/images/services/post-construction.jpg",
+    imageSrc: "/images/services/residential.jpg",
     imageAlt:
-      "Young woman wiping a shelf with gloves during a post-renovation dust-down cleanup",
+      "Woman wiping surfaces with gloves as part of a detailed cleaning service",
     examples: [
-      "Fine drywall dust removal from horizontal surfaces and ledges",
-      "Post-trade window glass and sill wipe-down",
-      "Initial vacuum passes for construction grit on carpets",
-      "Safe removal of painter’s tape residue and stray labels on finishes",
-      "Cabinet interiors vacuumed and wiped before dishes move in",
-      "Fixture and hardware polish after dust settles",
-      "Cool light fixtures and ceiling fans dusted post-install",
-      "Baseboards and trim wiped following sanding dust",
-      "Garage or work zone sweep toward exits",
-      "Final detail pass ahead of owner or contractor walkthrough",
+      "Kitchenette counters, sinks, and appliance wipe-down",
+      "Bathroom sanitize for compact RV baths and showers",
+      "Cabinet, drawer, and storage cubby wipe-outs",
+      "Interior window and mirror cleaning",
+      "Floor vacuuming and mopping in tight spaces",
+      "Dinette, seating, and sleeping area refresh",
+      "Dusting vents, ledges, trim, and reachable fixtures",
+      "Fridge and microwave wipe-down when emptied",
+      "Trash removal and fresh liners when provided",
+      "Move-in, pre-trip, or post-trip reset cleaning",
     ],
   },
 ];
@@ -511,7 +511,7 @@ export const faqItems = [
   {
     question: "What cleaning services do you offer?",
     answer:
-      "We offer Detailed Clean, deep cleaning, move-in and move-out cleaning, organization services, residential cleaning, light commercial cleaning, Airbnb and vacation rental turnovers, and post-construction cleaning.",
+      "We offer Detailed Clean, deep cleaning, move-in and move-out cleaning, organization services, residential cleaning, light commercial cleaning, Airbnb and vacation rental turnovers, and RV cleaning.",
   },
   {
     question: "Do you bring your own supplies?",
@@ -541,12 +541,12 @@ export const faqItems = [
   {
     question: "How much do services cost?",
     answer:
-      "Every home is different, so pricing is customized based on your needs. Please call or text for a personalized quote. A 3-hour minimum service rate of $150 applies.",
+      "Every home is different, so pricing is customized based on your needs. Please call or text for a personalized quote.",
   },
   {
     question: "Do you list prices on the website?",
     answer:
-      "No. Because every home and cleaning need is different, pricing is based on the size of the job and the services requested. Please call or text for a personalized quote. A 3-hour minimum service rate of $150 applies.",
+      "No. Because every home and cleaning need is different, pricing is based on the size of the job and the services requested. Please call or text for a personalized quote.",
   },
   {
     question: "Do you offer organizing help too?",

@@ -15,7 +15,7 @@ const SERVICE_OPTIONS = [
   "Residential Cleaning",
   "Light Commercial Cleaning",
   "Airbnb & Vacation Rental Cleaning",
-  "Post-Construction Cleaning",
+  "RV Cleaning",
 ] as const;
 
 const fieldLabel = "group/field space-y-2 text-xs font-semibold uppercase tracking-[0.14em] text-charcoal";
@@ -269,8 +269,7 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
             </p>
           ) : null}
           <p className="max-w-xl text-xs leading-relaxed text-muted-gray">
-            Pricing is confirmed after discussing your home and service needs. A 3-hour minimum
-            service rate of $150 applies.
+            Pricing is confirmed after discussing your home and service needs.
           </p>
         </div>
       </form>
@@ -392,8 +391,7 @@ function ContactFormFields({ variant }: { variant: "page" | "compact" }) {
       ) : null}
 
       <p className="text-xs text-muted-gray">
-        Pricing is confirmed after discussing your home and service needs. A 3-hour minimum
-        service rate of $150 applies.
+        Pricing is confirmed after discussing your home and service needs.
       </p>
     </form>
   );

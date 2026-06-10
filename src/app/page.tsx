@@ -168,8 +168,7 @@ export default function Home() {
             </ul>
             <p className="mt-4 rounded-2xl border border-sunshine-yellow/20 bg-cream px-4 py-3 text-xs text-charcoal">
               Every home is different, so pricing is customized based on your
-              needs. Call or text for a personalized quote. 3-hour minimum
-              service rate: $150.
+              needs. Call or text for a personalized quote.
             </p>
           </article>
           </Reveal>

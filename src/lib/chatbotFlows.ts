@@ -19,7 +19,7 @@ export const QUOTE_SERVICE_OPTIONS = [
   "Residential Cleaning",
   "Light Commercial",
   "Airbnb / Vacation Rental",
-  "Post-Construction",
+  "RV Cleaning",
 ] as const;
 
 export function buildQuoteSummary(lead: Omit<QuoteLead, "source" | "createdAt">) {
@@ -43,7 +43,7 @@ const QUOTE_TO_FORM_SERVICE: Record<string, string> = {
   "Residential Cleaning": "Residential Cleaning",
   "Light Commercial": "Light Commercial Cleaning",
   "Airbnb / Vacation Rental": "Airbnb & Vacation Rental Cleaning",
-  "Post-Construction": "Post-Construction Cleaning",
+  "RV Cleaning": "RV Cleaning",
 };
 
 export function mapQuoteServiceToFormValue(service: string) {
