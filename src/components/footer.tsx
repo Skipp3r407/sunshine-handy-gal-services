@@ -114,21 +114,37 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 bg-charcoal px-3 py-2.5 text-[0.7rem] leading-snug text-white sm:py-4 sm:text-xs">
-          <div className="mx-auto max-w-6xl text-center sm:text-left lg:px-8">
+        <div className="border-t border-white/10 bg-charcoal px-3 py-3 text-[0.7rem] leading-snug text-white sm:py-4 sm:text-xs">
+          <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left lg:px-8">
             <p className="text-white">
               © {new Date().getFullYear()} {businessInfo.name}. All rights reserved.
             </p>
-            <p className="mt-1">
-              <a
-                href="https://elevatedigitalstudios.net/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-sm text-white transition-all duration-200 hover:text-sky-200 hover:underline hover:[text-shadow:0_0_12px_rgba(56,189,248,0.95),0_0_26px_rgba(56,189,248,0.55)] focus-visible:outline-none focus-visible:text-sky-200 focus-visible:[text-shadow:0_0_12px_rgba(56,189,248,0.95),0_0_26px_rgba(56,189,248,0.55)] focus-visible:ring-2 focus-visible:ring-sky-400/55 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal"
-              >
-                Website Design by Elevate Digital Studio.
-              </a>
-            </p>
+            <a
+              href="https://www.elevatedigitalstudios.net/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-sm text-white transition-all duration-200 hover:text-sky-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/55 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal"
+              aria-label="Website designed by Elevate Digital Studios"
+            >
+              <span className="block text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-white/65">
+                Website Designed By
+              </span>
+              <span className="mt-1 flex items-center justify-center gap-2 sm:justify-start">
+                <Image
+                  src="/images/elevate-digital-studios-logo.png"
+                  alt=""
+                  width={28}
+                  height={28}
+                  className="h-7 w-7 rounded-full bg-white object-cover"
+                />
+                <span className="font-semibold text-white transition-all duration-200 group-hover:text-sky-200 group-hover:[text-shadow:0_0_12px_rgba(56,189,248,0.75)]">
+                  Elevate Digital Studios
+                </span>
+              </span>
+              <span className="mt-1 block text-[0.68rem] font-medium text-white/55 transition-colors group-hover:text-sky-200">
+                www.elevatedigitalstudios.net
+              </span>
+            </a>
           </div>
         </div>
       </div>
