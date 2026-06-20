@@ -86,9 +86,9 @@ export const services = [
     whoItsFor:
       "Homes that deserve consistent, detail-focused care on a recurring rhythm.",
     icon: "Sparkles",
-    imageSrc: "/images/services/detailed-clean.jpg",
+    imageSrc: "/images/services/detailedcleaning.png",
     imageAlt:
-      "Woman caring for a bright kitchen—checking the refrigerator during detailed cleaning",
+      "Blonde woman in yellow gloves wiping a kitchen counter for detailed cleaning",
     examples: [
       "Dusting shelves, trim, and décor—including spots often skipped on quick cleans",
       "Vacuuming carpets and prepping hard floors for a thorough mop finish",
@@ -257,9 +257,9 @@ export const services = [
     whoItsFor:
       "RV owners, travelers, snowbirds, and hosts who need a refreshed camper or motorhome before the next trip.",
     icon: "Paintbrush",
-    imageSrc: "/images/services/rv-cleaning.jpg",
+    imageSrc: "/images/services/moveinmoveout.png",
     imageAlt:
-      "Clean camper van interior with kitchenette, seating, and open door",
+      "Blonde woman packing a moving box in a bright room",
     examples: [
       "Kitchenette counters, sinks, and appliance wipe-down",
       "Bathroom sanitize for compact RV baths and showers",

@@ -1,4 +1,4 @@
-Service photos — Unsplash License (https://unsplash.com/license). Hosted locally; credit photographers on Unsplash. Selection emphasizes women performing cleaning, organizing, and related work where people appear.
+Service photos — mixed sources. Unsplash License photos are hosted locally; credit photographers on Unsplash. Client-provided photos are hosted locally for SunShines Handy Gal Services LLC.
 
 detailed-clean.jpg       photo-1700561306724-b3723282ce5e
 deep-cleaning.jpg        photo-1758272421751-963195322eaa
@@ -8,3 +8,5 @@ residential.jpg          photo-1758272421516-9593de0fb5bf
 commercial.jpg           photo-1752650735608-6895f65de119
 airbnb.jpg               photo-1749878065837-6968c1805247
 rv-cleaning.jpg          XAsr6c40MJM
+detailedcleaning.png     client-provided
+moveinmoveout.png        client-provided
