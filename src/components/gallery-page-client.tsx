@@ -199,10 +199,7 @@ function GalleryLightboxPanel({
           />
         </div>
         <p className="shrink-0 border-t border-[#e8e4dc] bg-cream/40 px-4 py-2.5 text-center text-xs text-muted-gray">
-          Tap outside or press Esc to close — swap in your photos via{" "}
-          <code className="rounded bg-white px-1 py-0.5 text-[11px] text-teal-deep">
-            gallery-data.ts
-          </code>
+          Tap outside or press Esc to close.
         </p>
       </motion.div>
     </>
@@ -295,9 +292,8 @@ export function GalleryPageClient({ items }: { items: GalleryItem[] }) {
           See the Difference a Detailed Clean Makes
         </h1>
         <p className="mx-auto max-w-2xl text-sm leading-relaxed text-muted-gray sm:mx-0 sm:text-base">
-          Illustrative before-and-after pairs (royalty-free stock). Replace them with your real job
-          photos in <span className="font-medium text-charcoal">gallery-data.ts</span> anytime—tap
-          any card for a larger view.
+          Real before-and-after results from detailed cleaning projects. Tap any card for a
+          larger view.
         </p>
       </motion.header>
 
