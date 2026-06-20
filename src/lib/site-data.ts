@@ -86,9 +86,9 @@ export const services = [
     whoItsFor:
       "Homes that deserve consistent, detail-focused care on a recurring rhythm.",
     icon: "Sparkles",
-    imageSrc: "/images/services/detailed-clean.jpg",
+    imageSrc: "/images/services/detailedcleaning.png",
     imageAlt:
-      "Woman caring for a bright kitchen—checking the refrigerator during detailed cleaning",
+      "Blonde woman in yellow gloves wiping a kitchen counter for detailed cleaning",
     examples: [
       "Dusting shelves, trim, and décor—including spots often skipped on quick cleans",
       "Vacuuming carpets and prepping hard floors for a thorough mop finish",
@@ -111,9 +111,9 @@ export const services = [
     whoItsFor:
       "Seasonal refreshes, first-time cleanings, or homes needing a full reset.",
     icon: "ShieldCheck",
-    imageSrc: "/images/services/deep-cleaning.jpg",
+    imageSrc: "/images/services/deepcleaning.jpg",
     imageAlt:
-      "Woman in gloves wiping a wooden surface during a thorough deep clean",
+      "Blonde woman in yellow gloves deep cleaning a kitchen stovetop",
     examples: [
       "Grease and grime treatment on backsplashes, range areas, and hood exteriors",
       "Microwave interior wipe-down; refrigerator exterior detailed",
@@ -136,8 +136,8 @@ export const services = [
     whoItsFor:
       "Homeowners, renters, and families in transition.",
     icon: "Home",
-    imageSrc: "/images/services/move-in-out.jpg",
-    imageAlt: "Woman carrying moving boxes across a sunlit living room",
+    imageSrc: "/images/services/moveinmoveout.png",
+    imageAlt: "Blonde woman packing a moving box in a bright room",
     examples: [
       "Empty cabinets and closets wiped—ready for belongings or listing photos",
       "Kitchen deep-clean including sink polish and appliance fronts",
@@ -162,7 +162,7 @@ export const services = [
     icon: "LayoutGrid",
     imageSrc: "/images/services/organization.jpg",
     imageAlt:
-      "Woman arranging items on tidy pantry shelves during an in-home organization session",
+      "Blonde woman organizing folded clothing in a storage basket",
     examples: [
       "Closet sorting—donate, keep, and relocate piles with your guidance",
       "Pantry categorization and shelf zoning for faster meal prep",
@@ -186,7 +186,7 @@ export const services = [
       "Single-family homes, apartments, condos, and townhomes.",
     icon: "House",
     imageSrc: "/images/services/residential.jpg",
-    imageAlt: "Woman cleaning floors in a bright, modern living room",
+    imageAlt: "Blonde woman vacuuming a bright residential living room",
     examples: [
       "Whole-home dusting of surfaces, frames, and décor",
       "Kitchen and dining cleanup tailored to how you use the space",
@@ -209,8 +209,8 @@ export const services = [
     whoItsFor:
       "Studios, boutiques, offices, and small professional spaces.",
     icon: "BriefcaseBusiness",
-    imageSrc: "/images/services/commercial.jpg",
-    imageAlt: "Two women collaborating at a sunlit desk in a professional setting",
+    imageSrc: "/images/services/lightcommerical.png",
+    imageAlt: "Blonde woman wiping a desk in a small commercial office",
     examples: [
       "Reception and lobby dusting with glass smudge touch-up",
       "Conference tables sanitized and seating aligned neatly",
@@ -234,7 +234,7 @@ export const services = [
       "Hosts and property managers with short-term rentals in Orlando and nearby areas.",
     icon: "KeyRound",
     imageSrc: "/images/services/airbnb.jpg",
-    imageAlt: "Woman making the bed and smoothing linens for a guest-ready rental",
+    imageAlt: "Blonde woman staging pillows on a bed for a guest-ready rental",
     examples: [
       "Crisp bed-making with hospital corners when linens are provided",
       "Towel and amenity staging from your host checklist",
@@ -259,7 +259,7 @@ export const services = [
     icon: "Paintbrush",
     imageSrc: "/images/services/rv-cleaning.jpg",
     imageAlt:
-      "Clean camper van interior with kitchenette, seating, and open door",
+      "Blonde woman wiping an RV kitchen counter inside a camper",
     examples: [
       "Kitchenette counters, sinks, and appliance wipe-down",
       "Bathroom sanitize for compact RV baths and showers",
