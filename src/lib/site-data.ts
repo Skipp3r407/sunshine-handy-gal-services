@@ -209,8 +209,8 @@ export const services = [
     whoItsFor:
       "Studios, boutiques, offices, and small professional spaces.",
     icon: "BriefcaseBusiness",
-    imageSrc: "/images/services/commercial.jpg",
-    imageAlt: "Two women collaborating at a sunlit desk in a professional setting",
+    imageSrc: "/images/services/newcommercial.jpg",
+    imageAlt: "Commercial cleaning service photo for a small business space",
     examples: [
       "Reception and lobby dusting with glass smudge touch-up",
       "Conference tables sanitized and seating aligned neatly",
