@@ -133,6 +133,41 @@ export default function AboutPage() {
         </section>
       </Reveal>
 
+      <Reveal direction="up">
+        <section className="overflow-hidden rounded-3xl border border-teal-deep/15 bg-white shadow-[0_14px_36px_-28px_rgba(12,125,150,0.2)]">
+          <div className="p-8 sm:p-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal-deep">
+              Service Area
+            </p>
+            <h2 className="mt-2 text-2xl font-bold text-charcoal">
+              Proudly serving Orlando and nearby Central Florida communities
+            </h2>
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-gray">
+              Based in {businessInfo.location}, we help homes, rentals, RVs, and
+              small businesses throughout {businessInfo.serviceAreaSummary}.
+            </p>
+            <a
+              href={businessInfo.serviceAreaGoogleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex rounded-full border border-teal-deep/35 px-4 py-2 text-sm font-semibold text-teal-deep transition-[background-color,border-color,transform] duration-200 hover:-translate-y-0.5 hover:border-golden-amber/45 hover:bg-sunshine-yellow/12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-deep/30 focus-visible:ring-offset-2"
+            >
+              Open Service Area Map
+            </a>
+          </div>
+          <div className="border-t border-teal-deep/10">
+            <iframe
+              src={businessInfo.serviceAreaMapEmbedUrl}
+              title={`${businessInfo.name} service area map`}
+              className="h-[320px] w-full sm:h-[380px]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          </div>
+        </section>
+      </Reveal>
+
       <CTASection
         title="Let us bring more calm to your space"
         description="Call or text for a personalized quote from a local team that is proud to serve Orlando with detail-focused, reliable care."
