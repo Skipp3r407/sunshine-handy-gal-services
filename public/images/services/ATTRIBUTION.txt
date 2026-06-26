@@ -2,8 +2,8 @@ Service photos — mixed sources. Unsplash License photos are hosted locally; cr
 
 detailed-clean.jpg       photo-1700561306724-b3723282ce5e
 deep-cleaning.jpg        photo-1758272421751-963195322eaa
-move-in-out.jpg          photo-1714647211902-bb711d643a17
-organization.jpg         photo-1768876798875-6bedec06ce61
+moveinandout.png         client-provided
+organization.jpg         client-provided
 residential.jpg          photo-1758272421516-9593de0fb5bf
 newcommercial.jpg        client-provided
 airbnb.jpg               photo-1749878065837-6968c1805247

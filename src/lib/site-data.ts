@@ -136,8 +136,8 @@ export const services = [
     whoItsFor:
       "Homeowners, renters, and families in transition.",
     icon: "Home",
-    imageSrc: "/images/services/move-in-out.jpg",
-    imageAlt: "Woman carrying moving boxes across a sunlit living room",
+    imageSrc: "/images/services/moveinandout.png",
+    imageAlt: "Woman packing a moving box in a bright room",
     examples: [
       "Empty cabinets and closets wiped—ready for belongings or listing photos",
       "Kitchen deep-clean including sink polish and appliance fronts",
@@ -162,7 +162,7 @@ export const services = [
     icon: "LayoutGrid",
     imageSrc: "/images/services/organization.jpg",
     imageAlt:
-      "Woman arranging items on tidy pantry shelves during an in-home organization session",
+      "Blonde woman organizing folded clothing in a storage basket",
     examples: [
       "Closet sorting—donate, keep, and relocate piles with your guidance",
       "Pantry categorization and shelf zoning for faster meal prep",
