@@ -5,7 +5,12 @@ import { CTASection } from "@/components/cta-section";
 import { PrimaryCtaLink } from "@/components/motion/primary-cta-link";
 import { Reveal } from "@/components/motion/reveal";
 import { StaggerGrid } from "@/components/motion/stagger-grid";
-import { services, siteChecklist, businessInfo } from "@/lib/site-data";
+import {
+  businessInfo,
+  serviceApproachHighlights,
+  services,
+  siteChecklist,
+} from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: `Cleaning Services in Orlando | ${businessInfo.name}`,
@@ -28,6 +33,31 @@ export default function ServicesPage() {
           />
         </Reveal>
       </section>
+
+      <Reveal direction="up">
+        <section className="rounded-3xl border border-teal-deep/15 bg-white p-8 shadow-sm sm:p-10">
+          <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+            <SectionHeading
+              eyebrow="Our Approach"
+              title="Custom cleaning that fits your lifestyle, not a generic checklist"
+              description="A home with pets, kids, guests, or a work-from-home schedule needs a different rhythm than a rental turnover, RV, office, or move-out clean. We help match the service to the actual use of the space."
+            />
+            <div className="grid gap-3 sm:grid-cols-2">
+              {serviceApproachHighlights.map((item) => (
+                <article
+                  key={item.title}
+                  className="rounded-2xl border border-[#eee4d0] bg-[#fffdf7] p-4"
+                >
+                  <h3 className="font-bold text-charcoal">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted-gray">
+                    {item.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      </Reveal>
 
       <StaggerGrid className="grid gap-5 lg:grid-cols-2">
         {services.map((service) => (

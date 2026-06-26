@@ -19,7 +19,41 @@ export type CleaningTipGuide = {
   maintenance: string[];
 };
 
-export const cleaningTipGuides: CleaningTipGuide[] = [
+type CleaningTipGuideInput = Omit<CleaningTipGuide, "readingTime"> & {
+  readingTime?: string;
+};
+
+const WORDS_PER_MINUTE = 200;
+const SHARED_TUTORIAL_PAGE_WORDS = 150;
+
+const countWords = (value: unknown): number => {
+  if (typeof value === "string") {
+    return value.trim().split(/\s+/).filter(Boolean).length;
+  }
+
+  if (Array.isArray(value)) {
+    return value.reduce<number>((total, item) => total + countWords(item), 0);
+  }
+
+  if (value && typeof value === "object") {
+    return Object.values(value as Record<string, unknown>).reduce<number>(
+      (total, item) => total + countWords(item),
+      0,
+    );
+  }
+
+  return 0;
+};
+
+const estimateReadingTime = (guide: CleaningTipGuideInput) => {
+  const guideContent = { ...guide, readingTime: "" };
+  const wordCount = countWords(guideContent) + SHARED_TUTORIAL_PAGE_WORDS;
+  const minutes = Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE));
+
+  return `${minutes} min read`;
+};
+
+const cleaningTipGuideContent: CleaningTipGuideInput[] = [
   {
     slug: "deep-cleaning-kitchen",
     title: "Deep Cleaning a Kitchen Without Missing the Hidden Grease",
@@ -494,9 +528,369 @@ export const cleaningTipGuides: CleaningTipGuide[] = [
       "Before storage: remove food, dry surfaces, and leave spaces fresh.",
     ],
   },
+  {
+    slug: "weekly-home-cleaning-schedule",
+    title: "Weekly Home Cleaning Schedule That Keeps Mess From Taking Over",
+    category: "Schedules",
+    summary:
+      "A realistic weekly routine for busy households that separates daily touch-ups, weekly resets, and monthly detail tasks.",
+    readingTime: "8 min read",
+    difficulty: "Easy",
+    bestFor: "Families, pet owners, work-from-home households, and recurring upkeep",
+    serviceHref: "/services",
+    serviceLabel: "Residential Cleaning",
+    tools: [
+      "Laundry basket for room resets",
+      "Microfiber cloths",
+      "All-purpose cleaner",
+      "Vacuum",
+      "Mop",
+      "Bathroom cleaner",
+      "Trash bags",
+      "Timer",
+    ],
+    steps: [
+      {
+        title: "Make a daily 15-minute reset list",
+        body:
+          "Daily cleaning should prevent pileups, not become a full deep clean. Set a timer and focus on the messes that make tomorrow harder if ignored.",
+        checklist: [
+          "Clear kitchen counters and sink",
+          "Collect dishes, cups, and trash from main rooms",
+          "Wipe obvious spills and sticky spots",
+        ],
+      },
+      {
+        title: "Assign one weekly focus area per day",
+        body:
+          "Instead of trying to clean the whole home in one exhausting block, give each day a focus. Bathrooms one day, floors another, dusting another, and laundry catch-up another.",
+        checklist: [
+          "Monday: bathrooms and towels",
+          "Wednesday: dusting and high-touch surfaces",
+          "Friday: floors and trash reset",
+        ],
+      },
+      {
+        title: "Use a top-to-bottom order",
+        body:
+          "Whether you clean one room or the whole home, start with dusting and surfaces, then finish with floors. This prevents rework and makes the final result feel more polished.",
+        checklist: [
+          "Dust shelves, frames, and reachable vents first",
+          "Clean counters, tables, and handles next",
+          "Vacuum and mop last",
+        ],
+      },
+      {
+        title: "Save monthly details for one rotating checklist",
+        body:
+          "Baseboards, ceiling fans, vent covers, window tracks, cabinet fronts, and appliance edges do not all need the same frequency. Rotate them so detail work stays manageable.",
+        checklist: [
+          "Choose two detail tasks each week",
+          "Write them on a calendar or notes app",
+          "Repeat the rotation each month",
+        ],
+      },
+    ],
+    proTips: [
+      "Keep supplies close to where they are used, such as bathroom cloths under the bathroom sink.",
+      "Clean visible clutter before detail work; clutter makes every task feel slower.",
+      "If the house feels overwhelming, start with trash, dishes, laundry, and floors.",
+    ],
+    mistakesToAvoid: [
+      "Trying to deep clean every room every week.",
+      "Starting floors before dusting and wiping surfaces.",
+      "Skipping high-touch areas like handles, switches, remotes, and faucets.",
+    ],
+    maintenance: [
+      "Daily: kitchen sink, counters, dishes, and trash.",
+      "Weekly: bathrooms, floors, dusting, linens, and high-touch surfaces.",
+      "Monthly: baseboards, vents, fans, cabinet fronts, and window tracks.",
+    ],
+  },
+  {
+    slug: "safe-cleaning-products-and-disinfecting",
+    title: "Safe Cleaning Products, Disinfecting, and What Not to Mix",
+    category: "Product Safety",
+    summary:
+      "A practical guide to choosing products, ventilating rooms, cleaning before disinfecting, and avoiding unsafe chemical combinations.",
+    readingTime: "9 min read",
+    difficulty: "Moderate",
+    bestFor: "Homes with kids, pets, allergies, frequent guests, or shared spaces",
+    serviceHref: "/cleaning-tips",
+    serviceLabel: "More Cleaning Tips",
+    tools: [
+      "Product labels",
+      "Gloves",
+      "Microfiber cloths",
+      "Soap or detergent-based cleaner",
+      "EPA-registered disinfectant when needed",
+      "Open windows or ventilation",
+      "Separate bathroom and kitchen cloths",
+      "Closed storage bin for chemicals",
+    ],
+    steps: [
+      {
+        title: "Clean first, disinfect only when needed",
+        body:
+          "Routine cleaning removes dirt, oils, and many germs. Disinfecting is a second step for high-risk situations, such as illness in the home or high-touch surfaces that need extra attention.",
+        checklist: [
+          "Wash visible dirt with soap or detergent first",
+          "Disinfect after cleaning if someone is sick or high-risk",
+          "Let disinfectant stay wet for the label contact time",
+        ],
+      },
+      {
+        title: "Read the label before using a product",
+        body:
+          "Labels tell you where the product can be used, how long it should sit, whether gloves are needed, and whether ventilation is required. The right product used incorrectly can still disappoint or damage a surface.",
+        checklist: [
+          "Check the surface type",
+          "Check dwell or contact time",
+          "Check first aid, storage, and ventilation instructions",
+        ],
+      },
+      {
+        title: "Never mix cleaning chemicals",
+        body:
+          "Mixing products can create dangerous fumes. Keep bleach separate from ammonia, vinegar, toilet bowl cleaners, and other cleaners unless a product label specifically says they are designed to be used together.",
+        checklist: [
+          "Use one product at a time",
+          "Rinse when switching product types",
+          "Store chemicals away from children and pets",
+        ],
+      },
+      {
+        title: "Choose lower-scent and surface-safe options when possible",
+        body:
+          "A clean home does not need to smell heavily perfumed. Lower-scent products, proper ventilation, and microfiber cloths can help spaces feel fresh without overwhelming sensitive noses.",
+        checklist: [
+          "Open windows or increase airflow when using stronger products",
+          "Use non-aerosol products where practical",
+          "Test new products in a hidden area first",
+        ],
+      },
+    ],
+    proTips: [
+      "Keep disinfecting cloths separate from general dusting cloths.",
+      "Use fragrance-free or low-scent options when clients, children, pets, or employees are sensitive to smells.",
+      "Write the open date on products you use rarely so you know what has been sitting too long.",
+    ],
+    mistakesToAvoid: [
+      "Disinfecting dirty surfaces without cleaning first.",
+      "Ignoring label contact time and wiping disinfectant away too soon.",
+      "Assuming natural, green, or scented products are automatically safe for every surface.",
+    ],
+    maintenance: [
+      "After each use: close caps tightly and store products upright.",
+      "Monthly: check labels and toss leaking or unlabeled containers.",
+      "Seasonally: review supplies and replace worn brushes, sponges, and cloths.",
+    ],
+  },
+  {
+    slug: "floor-care-by-surface",
+    title: "Floor Care by Surface: Tile, Vinyl, Laminate, Wood, and Rugs",
+    category: "Floors",
+    summary:
+      "A surface-by-surface floor tutorial for reducing streaks, protecting finishes, and choosing the right cleaning rhythm.",
+    readingTime: "9 min read",
+    difficulty: "Moderate",
+    bestFor: "Homes with mixed flooring, pets, kids, sand, and high-traffic entryways",
+    serviceHref: "/services",
+    serviceLabel: "Residential Cleaning",
+    tools: [
+      "Vacuum or broom",
+      "Microfiber mop",
+      "pH-neutral floor cleaner",
+      "Dry microfiber towel",
+      "Entry mats",
+      "Soft brush attachment",
+      "Spot-cleaning cloth",
+      "Bucket or spray mop",
+    ],
+    steps: [
+      {
+        title: "Remove dry debris first",
+        body:
+          "Dust, sand, pet hair, and crumbs can scratch floors or turn into muddy streaks when mopped. Vacuum or sweep thoroughly before adding moisture.",
+        checklist: [
+          "Vacuum edges and under toe kicks",
+          "Use a soft brush on hard floors",
+          "Shake or vacuum entry mats",
+        ],
+      },
+      {
+        title: "Use less water than you think",
+        body:
+          "Most residential floors look better with a damp mop, not a soaking wet one. Too much water can leave streaks, seep into seams, or dull certain finishes.",
+        checklist: [
+          "Wring mop pads well",
+          "Work in small sections",
+          "Dry any puddles right away",
+        ],
+      },
+      {
+        title: "Match product to the surface",
+        body:
+          "Tile, vinyl, laminate, sealed wood, and stone can have different needs. When unsure, use a pH-neutral cleaner and avoid harsh products until the finish is confirmed.",
+        checklist: [
+          "Avoid abrasive powders on glossy floors",
+          "Avoid steam on surfaces that warn against heat or moisture",
+          "Test cleaners in a hidden area",
+        ],
+      },
+      {
+        title: "Control traffic and pet messes",
+        body:
+          "The easiest floor to clean is the one protected from grit. Entry mats, quick spot cleaning, and regular vacuuming extend the time between deeper floor resets.",
+        checklist: [
+          "Place mats at exterior doors",
+          "Spot-clean spills as soon as possible",
+          "Vacuum pet zones more often",
+        ],
+      },
+    ],
+    proTips: [
+      "Use a dry microfiber towel after mopping glossy floors to reduce streaks.",
+      "Change mop water or pads when they look dirty; otherwise you spread soil around.",
+      "Clean baseboards before floors so dust does not fall onto freshly mopped areas.",
+    ],
+    mistakesToAvoid: [
+      "Using too much cleaner, which can leave sticky residue.",
+      "Skipping vacuuming before mopping.",
+      "Assuming one product is safe for every floor in the home.",
+    ],
+    maintenance: [
+      "Daily: spot-clean spills and entry dirt.",
+      "Weekly: vacuum traffic lanes and mop hard floors as needed.",
+      "Monthly: detail baseboards, corners, and under movable furniture.",
+    ],
+  },
+  {
+    slug: "airbnb-turnover-cleaning-checklist",
+    title: "Airbnb Turnover Cleaning Checklist for Guest-Ready Rentals",
+    category: "Vacation Rentals",
+    summary:
+      "A host-friendly turnover routine for beds, bathrooms, kitchens, restocking, guest-left items, and final photo-ready presentation.",
+    readingTime: "10 min read",
+    difficulty: "Detailed",
+    bestFor: "Short-term rental hosts, property managers, and guest suites",
+    serviceHref: "/services",
+    serviceLabel: "Airbnb & Vacation Rental Cleaning",
+    tools: [
+      "Host checklist",
+      "Fresh linens and towels",
+      "Trash bags",
+      "Bathroom cleaner",
+      "Kitchen cleaner",
+      "Vacuum",
+      "Mop",
+      "Restock supplies",
+    ],
+    steps: [
+      {
+        title: "Walk the property before cleaning",
+        body:
+          "A turnover starts with inspection. Look for damage, missing items, guest-left belongings, stains, trash, and maintenance issues before resetting the space.",
+        checklist: [
+          "Check under beds, sofa edges, drawers, and closets",
+          "Photograph damage or maintenance concerns",
+          "Collect laundry and trash first",
+        ],
+      },
+      {
+        title: "Reset beds and bathrooms with guest eyes",
+        body:
+          "Guests notice linens and bathrooms immediately. Make beds neatly, stage towels consistently, polish mirrors and fixtures, and make sure toilets, tubs, and sinks are fully sanitized.",
+        checklist: [
+          "Inspect sheets and towels for stains",
+          "Stage towels according to the host checklist",
+          "Restock toilet paper, soap, and amenities if provided",
+        ],
+      },
+      {
+        title: "Clean kitchen and dining areas thoroughly",
+        body:
+          "Even small food residue can affect reviews. Check dishes, appliances, counters, coffee stations, cabinet handles, fridge shelves when needed, and trash areas.",
+        checklist: [
+          "Check dishwasher and dish cabinets",
+          "Wipe appliance handles and coffee station surfaces",
+          "Remove crumbs from dining chairs and under tables",
+        ],
+      },
+      {
+        title: "Finish with a photo-ready walkthrough",
+        body:
+          "After floors are done, walk the rental like a new guest. Align pillows, fold throws, check lights, remove streaks, and make sure the first impression feels intentional.",
+        checklist: [
+          "Turn on lamps or set lighting as requested",
+          "Straighten decor and remotes",
+          "Message the host about low supplies or issues",
+        ],
+      },
+    ],
+    proTips: [
+      "Use a host-approved photo checklist so every turnover is consistent.",
+      "Keep spare batteries, lint rollers, and stain treatment in the owner supply area.",
+      "Report maintenance problems quickly; communication protects reviews.",
+    ],
+    mistakesToAvoid: [
+      "Assuming guests washed dishes properly.",
+      "Skipping sofa cushions, under beds, or patio areas.",
+      "Forgetting to check supply levels before the next arrival.",
+    ],
+    maintenance: [
+      "Every turnover: bathrooms, linens, kitchen, floors, trash, and guest-left item check.",
+      "Weekly or biweekly: appliance detail, patio touch-up, and upholstery edges.",
+      "Monthly: inventory audit, baseboards, vents, and deeper dusting.",
+    ],
+  },
 ];
 
+export const cleaningTipGuides: CleaningTipGuide[] = cleaningTipGuideContent.map(
+  (guide) => ({
+    ...guide,
+    readingTime: estimateReadingTime(guide),
+  }),
+);
+
 export const featuredCleaningTip = cleaningTipGuides[0];
+
+export const cleaningSafetyBasics = [
+  "Clean visible dirt first; disinfecting works best after soil and residue are removed.",
+  "Focus routine cleaning on high-touch areas such as handles, switches, faucets, counters, remotes, and phones.",
+  "Read labels for surface compatibility, contact time, gloves, ventilation, storage, and first aid.",
+  "Never mix bleach with ammonia, vinegar, toilet bowl cleaner, or other chemicals.",
+  "Use good airflow when cleaning with stronger products, especially in bathrooms and small rooms.",
+  "Store cleaning products upright, labeled, closed, and out of reach of children and pets.",
+];
+
+export const cleaningQuickWins = [
+  "Make the bed first so the bedroom instantly looks more organized.",
+  "Clear counters before spraying cleaner so you do not clean around clutter.",
+  "Use one laundry basket to collect misplaced items before detail cleaning.",
+  "Dust before vacuuming so fallen debris is picked up at the end.",
+  "Keep a dry microfiber cloth nearby for final shine on faucets and mirrors.",
+  "Set a 20-minute timer when you feel stuck and focus only on trash, dishes, laundry, and floors.",
+];
+
+export const cleaningScheduleRows = [
+  {
+    rhythm: "Daily",
+    tasks: "Kitchen counters, dishes, sink wipe-down, trash check, quick bathroom splash wipe, and clutter reset.",
+  },
+  {
+    rhythm: "Weekly",
+    tasks: "Bathrooms, floors, dusting, high-touch surfaces, linens, mirrors, and main trash bins.",
+  },
+  {
+    rhythm: "Monthly",
+    tasks: "Baseboards, vents, fans, cabinet fronts, appliance edges, window tracks, and under light furniture.",
+  },
+  {
+    rhythm: "Seasonal",
+    tasks: "Deep cleaning, pantry edits, closet rotation, grout detail, donation sorting, and full-home reset.",
+  },
+];
 
 export function getCleaningTipGuide(slug: string) {
   return cleaningTipGuides.find((guide) => guide.slug === slug);

@@ -11,7 +11,15 @@ import { CTASection } from "@/components/cta-section";
 import { ContactForm } from "@/components/contact-form";
 import { Reveal } from "@/components/motion/reveal";
 import { StaggerGrid } from "@/components/motion/stagger-grid";
-import { trustBadges, services, testimonials, serviceAreas, processSteps, businessInfo } from "@/lib/site-data";
+import {
+  businessInfo,
+  cleaningNeedsHighlights,
+  processSteps,
+  serviceAreas,
+  services,
+  testimonials,
+  trustBadges,
+} from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: `${businessInfo.name} | Professional Cleaning in Orlando, FL`,
@@ -51,6 +59,43 @@ export default function Home() {
           ))}
         </StaggerGrid>
       </section>
+
+      <Reveal direction="up">
+        <section className="rounded-[2rem] border border-teal-deep/15 bg-white p-8 shadow-[0_14px_36px_-28px_rgba(12,125,150,0.18)] sm:p-10">
+          <SectionHeading
+            eyebrow="How We Meet Your Needs"
+            title="Custom cleaning help for real homes, rentals, RVs, and small businesses"
+            description="The best cleaning plan is the one that fits how you actually live and work. We help you choose the right scope, frequency, and focus areas before the visit."
+          />
+          <StaggerGrid className="mt-7 grid gap-4 md:grid-cols-2">
+            {cleaningNeedsHighlights.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-2xl border border-[#eee4d0] bg-[#fffdf7] p-5"
+              >
+                <h3 className="text-lg font-bold text-charcoal">{item.title}</h3>
+                <p className="mt-2 text-sm leading-7 text-muted-gray">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </StaggerGrid>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Link
+              href="/services"
+              className="inline-flex rounded-full border border-teal-deep/35 px-5 py-2.5 text-sm font-semibold text-teal-deep transition-colors hover:bg-sunshine-yellow/10"
+            >
+              Explore Services
+            </Link>
+            <Link
+              href="/cleaning-tips"
+              className="inline-flex rounded-full border border-sunshine-yellow/50 px-5 py-2.5 text-sm font-semibold text-charcoal transition-colors hover:bg-sunshine-yellow/15"
+            >
+              Read Cleaning Tips
+            </Link>
+          </div>
+        </section>
+      </Reveal>
 
       <section className="rounded-[2rem] border border-teal/10 bg-cream px-6 py-12 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] sm:px-10">
         <Reveal direction="left">

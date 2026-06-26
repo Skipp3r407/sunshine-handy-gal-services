@@ -5,6 +5,7 @@ import { CTASection } from "@/components/cta-section";
 import { PrimaryCtaLink } from "@/components/motion/primary-cta-link";
 import { Reveal } from "@/components/motion/reveal";
 import {
+  cleaningSafetyBasics,
   cleaningTipGuides,
   getCleaningTipGuide,
 } from "@/lib/cleaning-tips-data";
@@ -112,6 +113,29 @@ export default async function CleaningTipGuidePage({
             </section>
           </Reveal>
 
+          <Reveal direction="up" delay={0.04}>
+            <section className="rounded-3xl border border-sunshine-yellow/25 bg-gradient-to-br from-[#fffdf7] to-white p-7 shadow-sm sm:p-8">
+              <h2 className="text-2xl font-bold text-charcoal">
+                Safety Notes Before You Start
+              </h2>
+              <p className="mt-3 text-sm leading-7 text-muted-gray">
+                Strong results come from good technique, not harsh shortcuts. Clean
+                visible soil first, follow product labels, and use ventilation when
+                products have stronger fumes.
+              </p>
+              <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+                {cleaningSafetyBasics.slice(0, 4).map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-2xl border border-teal-deep/10 bg-white/80 px-4 py-3 text-sm leading-6 text-muted-gray"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </Reveal>
+
           <section className="space-y-5">
             {guide.steps.map((step, index) => (
               <Reveal key={step.title} direction="up" delay={index * 0.03}>
@@ -174,6 +198,35 @@ export default async function CleaningTipGuidePage({
           </Reveal>
         </aside>
       </div>
+
+      <Reveal direction="up">
+        <section className="rounded-3xl border border-[#eee4d0] bg-gradient-to-br from-cream to-[#fffdf7] p-7 sm:p-8">
+          <div className="grid gap-6 lg:grid-cols-[1fr_0.8fr] lg:items-center">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal-deep">
+                When to Get Help
+              </p>
+              <h2 className="mt-2 text-2xl font-bold text-charcoal">
+                Call in support when the checklist becomes a weekend project
+              </h2>
+              <p className="mt-3 text-base leading-7 text-muted-gray">
+                If the space has heavy buildup, move-out deadlines, rental turnover
+                pressure, recurring pet hair, or rooms that never feel fully reset,
+                professional help can save time and protect your energy.
+              </p>
+            </div>
+            <div className="rounded-2xl bg-white/80 p-5">
+              <h3 className="font-bold text-charcoal">Good reasons to book</h3>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-muted-gray marker:text-teal-deep">
+                <li>You need a deep reset before guests, photos, or a move.</li>
+                <li>You want recurring care so maintenance stays manageable.</li>
+                <li>You are unsure which products are safe for a surface.</li>
+                <li>You need detail work in bathrooms, kitchens, RVs, or rentals.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </Reveal>
 
       <Reveal direction="up">
         <section className="rounded-3xl border border-teal-deep/15 bg-white p-7 sm:p-8">

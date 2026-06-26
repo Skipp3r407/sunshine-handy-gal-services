@@ -295,6 +295,52 @@ export const processSteps = [
   },
 ];
 
+export const cleaningNeedsHighlights = [
+  {
+    title: "Customized Cleaning Plans",
+    description:
+      "We match the cleaning plan to your home, priorities, schedule, and comfort level instead of forcing every client into the same checklist.",
+  },
+  {
+    title: "One-Time or Recurring Help",
+    description:
+      "Book a single reset before guests, a move, or a busy season, or ask about weekly, bi-weekly, and monthly recurring care.",
+  },
+  {
+    title: "Whole-Home Attention",
+    description:
+      "Kitchens, bathrooms, bedrooms, living spaces, entryways, floors, high-touch areas, and special priority zones can all be included in your scope.",
+  },
+  {
+    title: "Simple Quote and Scheduling",
+    description:
+      "Call, text, email, or use the form. We confirm your needs, timing, access details, and any product or pet notes before the visit.",
+  },
+] as const;
+
+export const serviceApproachHighlights = [
+  {
+    title: "Residential and recurring cleaning",
+    description:
+      "Keep the main living areas, bathrooms, kitchens, floors, and high-touch surfaces consistently cared for on a schedule that fits your household.",
+  },
+  {
+    title: "One-time and occasional resets",
+    description:
+      "Great before company, after a busy stretch, during seasonal refreshes, or anytime your home needs a clean slate.",
+  },
+  {
+    title: "Move-in and move-out support",
+    description:
+      "We focus on the details that matter during transitions: cabinets, closets, bathrooms, kitchens, floors, and final walkthrough touch-ups.",
+  },
+  {
+    title: "Rental, RV, and light commercial care",
+    description:
+      "Guest-ready turnover cleaning, compact RV refreshes, and small business spaces receive practical, detail-focused attention.",
+  },
+] as const;
+
 export const serviceAreas = [
   {
     name: "Orlando",
@@ -531,9 +577,29 @@ export const faqItems = [
       "Absolutely. We can help you set a recurring schedule that fits your routine, whether weekly, bi-weekly, or monthly.",
   },
   {
+    question: "Do you offer one-time or occasional cleaning?",
+    answer:
+      "Yes. One-time and occasional cleaning are helpful before guests arrive, after a busy season, before listing photos, after travel, or anytime your home needs a reset without committing to recurring service.",
+  },
+  {
     question: "Do you offer move-out cleaning?",
     answer:
       "Yes. Move-in and move-out cleaning is one of our most requested services, especially for renters, sellers, and families in transition.",
+  },
+  {
+    question: "What rooms can be included in a home cleaning?",
+    answer:
+      "Most home cleanings can include kitchens, bathrooms, bedrooms, living rooms, dining areas, laundry rooms, entryways, hallways, and floors. We also discuss priority areas like appliance fronts, baseboards, mirrors, cabinet fronts, and high-touch surfaces.",
+  },
+  {
+    question: "Do I need to be home during the appointment?",
+    answer:
+      "No, not always. Many clients prefer to provide access instructions and return to a refreshed space. If you would rather be home for the first visit, that is perfectly fine too. We will work with the access option that makes you comfortable.",
+  },
+  {
+    question: "How often should I have my home cleaned?",
+    answer:
+      "It depends on your household, pets, schedule, and comfort level. Weekly or bi-weekly cleaning helps busy homes stay maintained, monthly cleaning can support lighter upkeep, and one-time deep cleaning is helpful when buildup needs a reset.",
   },
   {
     question: "How do I request a quote?",
@@ -554,6 +620,16 @@ export const faqItems = [
     question: "Do you offer organizing help too?",
     answer:
       "Yes. We provide practical organization support for areas like kitchens, closets, and high-use spaces to create better flow and less stress.",
+  },
+  {
+    question: "Can I request extra attention on appliances or high-use areas?",
+    answer:
+      "Yes. Please tell us if the oven area, refrigerator exterior, microwave, cabinet fronts, bathroom buildup, floors, pet zones, or entryways need extra focus. Interior appliance cleaning may depend on access, condition, and whether the appliance is emptied.",
+  },
+  {
+    question: "What makes your cleaning process thorough?",
+    answer:
+      "We work with a top-to-bottom mindset, focus on high-touch and often-missed areas, use careful techniques for each space, and finish with a walkthrough approach so the home feels polished rather than just quickly wiped down.",
   },
   {
     question: "How soon can I get scheduled?",

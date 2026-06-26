@@ -5,7 +5,13 @@ import { PrimaryCtaLink } from "@/components/motion/primary-cta-link";
 import { Reveal } from "@/components/motion/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { StaggerGrid } from "@/components/motion/stagger-grid";
-import { cleaningTipGuides, featuredCleaningTip } from "@/lib/cleaning-tips-data";
+import {
+  cleaningQuickWins,
+  cleaningSafetyBasics,
+  cleaningScheduleRows,
+  cleaningTipGuides,
+  featuredCleaningTip,
+} from "@/lib/cleaning-tips-data";
 import { businessInfo } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -73,6 +79,46 @@ export default function CleaningTipsPage() {
         </section>
       </Reveal>
 
+      <section className="grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
+        <Reveal direction="left">
+          <article className="h-full rounded-3xl border border-[#eee4d0] bg-white p-7 shadow-sm sm:p-8">
+            <SectionHeading
+              eyebrow="Start Here"
+              title="Safe cleaning basics"
+              description="A cleaner home starts with the right order, the right product, and a few simple safety habits."
+            />
+            <ul className="mt-6 space-y-3 text-sm leading-7 text-muted-gray">
+              {cleaningSafetyBasics.map((item) => (
+                <li key={item} className="rounded-2xl bg-[#fffdf7] px-4 py-3">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </article>
+        </Reveal>
+
+        <Reveal direction="right" delay={0.05}>
+          <article className="h-full rounded-3xl border border-teal-deep/15 bg-gradient-to-br from-cream to-[#fffdf7] p-7 shadow-sm sm:p-8">
+            <SectionHeading
+              eyebrow="Cleaning Rhythm"
+              title="What to clean daily, weekly, monthly, and seasonally"
+              description="Use this as a simple maintenance map between professional cleanings or deep reset days."
+            />
+            <div className="mt-6 grid gap-3">
+              {cleaningScheduleRows.map((row) => (
+                <div
+                  key={row.rhythm}
+                  className="rounded-2xl border border-teal-deep/10 bg-white/80 p-4"
+                >
+                  <h3 className="font-bold text-charcoal">{row.rhythm}</h3>
+                  <p className="mt-1 text-sm leading-6 text-muted-gray">{row.tasks}</p>
+                </div>
+              ))}
+            </div>
+          </article>
+        </Reveal>
+      </section>
+
       <section className="space-y-6">
         <Reveal direction="up">
           <SectionHeading
@@ -118,6 +164,26 @@ export default function CleaningTipsPage() {
           ))}
         </StaggerGrid>
       </section>
+
+      <Reveal direction="up">
+        <section className="rounded-3xl border border-teal-deep/15 bg-white p-7 shadow-sm sm:p-8">
+          <SectionHeading
+            eyebrow="Fast Wins"
+            title="Small cleaning tricks that make a room feel better quickly"
+            description="Use these when guests are coming, you are short on time, or you need momentum before a bigger clean."
+          />
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {cleaningQuickWins.map((item) => (
+              <div
+                key={item}
+                className="rounded-2xl border border-sunshine-yellow/20 bg-[#fffdf7] p-4 text-sm font-medium leading-6 text-charcoal"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+        </section>
+      </Reveal>
 
       <CTASection
         title="Need a deeper reset than a checklist can cover?"

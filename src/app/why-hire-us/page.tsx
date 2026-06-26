@@ -67,6 +67,67 @@ const process = [
 
 const serviceLinks = services.slice(0, 6).map((service) => service.title);
 
+const hiringQuestions = [
+  {
+    question: "Will the service be customized to my space?",
+    answer:
+      "Yes. A good cleaning plan should consider the size of the home, surface types, pets, clutter level, priorities, and timing.",
+  },
+  {
+    question: "How do you handle special instructions?",
+    answer:
+      "We encourage notes about delicate surfaces, rooms to skip, product preferences, pets, entry instructions, and must-finish areas.",
+  },
+  {
+    question: "What should I do before the appointment?",
+    answer:
+      "Pick up personal clutter when possible, secure valuables, share access details, and let us know about any fragile or off-limit items.",
+  },
+  {
+    question: "How is pricing handled?",
+    answer:
+      "Pricing is customized because each home, rental, RV, and business has a different layout, condition, and priority list.",
+  },
+];
+
+const expectations = [
+  "Clear communication before scheduling so the scope makes sense.",
+  "Respectful service around families, pets, belongings, and work schedules.",
+  "A practical plan for kitchens, bathrooms, floors, high-touch areas, and detail work.",
+  "Honest feedback if a job needs extra time, a deeper reset, or recurring maintenance.",
+  "A local point of contact instead of a cold, one-size-fits-all experience.",
+];
+
+const redFlags = [
+  "A quote that ignores the size, condition, or priorities of the space.",
+  "Pressure to book immediately without time to ask questions.",
+  "Vague communication about what is included.",
+  "No willingness to discuss product preferences, pets, access, or delicate surfaces.",
+];
+
+const commonConcerns = [
+  {
+    question: "What do you clean in a typical home?",
+    answer:
+      "Kitchens, bathrooms, bedrooms, living rooms, dining spaces, entryways, floors, mirrors, high-touch areas, and priority zones can all be discussed before the visit.",
+  },
+  {
+    question: "Can the plan change over time?",
+    answer:
+      "Yes. A first deep clean may focus on buildup, while recurring visits may shift toward maintenance, floors, bathrooms, pet hair, or the spaces your family uses most.",
+  },
+  {
+    question: "Do I have to be home?",
+    answer:
+      "You can be home, or you can provide access instructions if that is more convenient. We work with the option that makes you most comfortable.",
+  },
+  {
+    question: "What if I only need help once?",
+    answer:
+      "One-time cleaning is perfect before guests, after travel, during a move, before listing photos, or when the house needs a reset.",
+  },
+];
+
 export default function WhyHireUsPage() {
   const featuredQuote = testimonials[0];
 
@@ -166,6 +227,46 @@ export default function WhyHireUsPage() {
         </StaggerGrid>
       </section>
 
+      <section className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+        <Reveal direction="left">
+          <article className="h-full rounded-3xl border border-[#eee4d0] bg-white p-8 shadow-sm sm:p-10">
+            <SectionHeading
+              eyebrow="Smart Hiring Guide"
+              title="Questions to ask before hiring a cleaning company"
+              description="A trustworthy service should be able to explain scope, scheduling, access, product preferences, and how special instructions are handled."
+            />
+            <div className="mt-6 grid gap-4">
+              {hiringQuestions.map((item) => (
+                <div
+                  key={item.question}
+                  className="rounded-2xl border border-teal-deep/10 bg-[#fffdf7] p-4"
+                >
+                  <h3 className="font-bold text-charcoal">{item.question}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted-gray">{item.answer}</p>
+                </div>
+              ))}
+            </div>
+          </article>
+        </Reveal>
+
+        <Reveal direction="right" delay={0.05}>
+          <article className="h-full rounded-3xl border border-teal-deep/15 bg-gradient-to-br from-cream to-[#fffdf7] p-8 shadow-sm sm:p-10">
+            <SectionHeading
+              eyebrow="What You Should Expect"
+              title="A better cleaning experience starts before the first visit"
+              description="Clear expectations protect your time, your home, and the quality of the final result."
+            />
+            <ul className="mt-6 space-y-3 text-sm leading-7 text-muted-gray">
+              {expectations.map((item) => (
+                <li key={item} className="rounded-2xl bg-white/80 px-4 py-3">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </article>
+        </Reveal>
+      </section>
+
       <Reveal direction="up">
         <section className="rounded-3xl border border-teal-deep/15 bg-gradient-to-br from-white to-[#fffdf6] p-8 sm:p-10">
           <SectionHeading
@@ -186,6 +287,56 @@ export default function WhyHireUsPage() {
                 <p className="mt-2 text-sm leading-6 text-muted-gray">{step.body}</p>
               </div>
             ))}
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal direction="up">
+        <section className="rounded-3xl border border-[#eee4d0] bg-white p-8 sm:p-10">
+          <SectionHeading
+            eyebrow="Common Questions"
+            title="Reliable answers before you book"
+            description="A good cleaning experience should feel clear before anyone arrives. These are the details clients often want to know first."
+          />
+          <div className="mt-7 grid gap-4 md:grid-cols-2">
+            {commonConcerns.map((item) => (
+              <article
+                key={item.question}
+                className="rounded-2xl border border-teal-deep/10 bg-[#fffdf7] p-5"
+              >
+                <h3 className="font-bold text-charcoal">{item.question}</h3>
+                <p className="mt-2 text-sm leading-7 text-muted-gray">
+                  {item.answer}
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal direction="up">
+        <section className="rounded-3xl border border-sunshine-yellow/25 bg-white p-8 sm:p-10">
+          <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr] lg:items-start">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal-deep">
+                Red Flags
+              </p>
+              <h2 className="mt-2 text-2xl font-bold text-charcoal">
+                Signs a cleaning quote may not fit your needs
+              </h2>
+              <p className="mt-3 text-base leading-7 text-muted-gray">
+                Choosing the right cleaning help is not only about the lowest price.
+                You deserve a clear scope, respectful communication, and a plan that
+                matches your space.
+              </p>
+            </div>
+            <ul className="space-y-3 text-sm leading-7 text-muted-gray">
+              {redFlags.map((item) => (
+                <li key={item} className="rounded-2xl bg-[#fffdf7] px-4 py-3">
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
       </Reveal>
