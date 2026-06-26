@@ -9,6 +9,9 @@ import { businessInfo } from "@/lib/site-data";
 export const metadata: Metadata = {
   title: `About | ${businessInfo.name}`,
   description: `Meet ${businessInfo.owner} and learn the story behind ${businessInfo.name}, a trusted women-owned cleaning company in Orlando.`,
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 const coreValues = [

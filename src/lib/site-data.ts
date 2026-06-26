@@ -60,9 +60,11 @@ export const socialLinks = {
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/why-hire-us", label: "Why Hire Us" },
   { href: "/services", label: "Services" },
   { href: "/service-areas", label: "Service Areas" },
   { href: "/gallery", label: "Gallery" },
+  { href: "/cleaning-tips", label: "Cleaning Tips" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
@@ -111,9 +113,9 @@ export const services = [
     whoItsFor:
       "Seasonal refreshes, first-time cleanings, or homes needing a full reset.",
     icon: "ShieldCheck",
-    imageSrc: "/images/services/deep-cleaning.jpg",
+    imageSrc: "/images/services/deep.png",
     imageAlt:
-      "Woman in gloves wiping a wooden surface during a thorough deep clean",
+      "Woman in yellow gloves deep cleaning an oven in a bright kitchen",
     examples: [
       "Grease and grime treatment on backsplashes, range areas, and hood exteriors",
       "Microwave interior wipe-down; refrigerator exterior detailed",
@@ -186,7 +188,7 @@ export const services = [
       "Single-family homes, apartments, condos, and townhomes.",
     icon: "House",
     imageSrc: "/images/services/residential.jpg",
-    imageAlt: "Woman cleaning floors in a bright, modern living room",
+    imageAlt: "Woman mopping the floor in a bright residential living room",
     examples: [
       "Whole-home dusting of surfaces, frames, and décor",
       "Kitchen and dining cleanup tailored to how you use the space",

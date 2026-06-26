@@ -8,6 +8,9 @@ import { serviceAreas, businessInfo } from "@/lib/site-data";
 export const metadata: Metadata = {
   title: "Service Areas | Orlando & Central Florida Cleaning",
   description: `${businessInfo.name} proudly serves Orlando, Lake Nona, Winter Park, Lake Mary, St. Cloud, and nearby Central Florida communities.`,
+  alternates: {
+    canonical: "/service-areas",
+  },
 };
 
 export default function ServiceAreasPage() {

@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   title: `${businessInfo.name} | Professional Cleaning in Orlando, FL`,
   description:
     "Trusted, women-owned cleaning company in Orlando, FL. Call or text for a custom quote on Detailed Clean, deep cleaning, move-out service, and organizing support.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function Home() {
@@ -78,19 +81,33 @@ export default function Home() {
 
       <AboutPreview />
 
-      <section className="space-y-8">
-        <Reveal direction="right">
-          <SectionHeading
-            eyebrow="Testimonials"
-            title="Loved by families and businesses across Central Florida"
-            description={`Real feedback from local clients who recommend ${businessInfo.name}.`}
-          />
+      <section className="overflow-hidden rounded-[2rem] border border-[#f1dff4] bg-white px-5 py-10 shadow-[0_18px_54px_-42px_rgba(111,39,145,0.35)] sm:px-8 lg:px-10">
+        <Reveal direction="up">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-fuchsia-500">
+              Client Reviews
+            </p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-charcoal sm:text-4xl">
+              Loved by families and businesses across Central Florida
+            </h2>
+            <p className="mt-4 text-base leading-7 text-muted-gray sm:text-lg">
+              Real feedback from local clients who recommend {businessInfo.name} for
+              responsive service, thoughtful details, and polished results.
+            </p>
+            <Link
+              href="/testimonials"
+              className="mt-6 inline-flex rounded-full border border-fuchsia-400/60 px-5 py-2 text-sm font-semibold text-fuchsia-600 transition-[background-color,border-color,transform] duration-200 hover:-translate-y-0.5 hover:border-fuchsia-500 hover:bg-fuchsia-50"
+            >
+              Read More Reviews
+            </Link>
+          </div>
         </Reveal>
+
         <StaggerGrid
-          className="grid gap-4 md:grid-cols-2 xl:grid-cols-3"
+          className="mx-auto mt-10 grid max-w-5xl gap-6 md:grid-cols-3"
           enableHoverLift={false}
         >
-          {testimonials.slice(0, 6).map((testimonial) => (
+          {testimonials.slice(0, 3).map((testimonial) => (
             <TestimonialCard
               key={testimonial.name}
               name={testimonial.name}
@@ -102,13 +119,23 @@ export default function Home() {
             />
           ))}
         </StaggerGrid>
+
         <Reveal direction="up" delay={0.08}>
-          <Link
-            href="/testimonials"
-            className="inline-flex rounded-full border border-teal-deep/40 px-5 py-2 text-sm font-semibold text-teal-deep transition-[background-color,border-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-sunshine-yellow/12 hover:border-golden-amber/45"
-          >
-            View All Testimonials
-          </Link>
+          <div className="mx-auto mt-9 flex max-w-3xl flex-col items-center justify-center gap-4 rounded-3xl bg-gradient-to-r from-[#fff8fc] via-white to-[#eefaff] px-5 py-5 text-center sm:flex-row sm:text-left">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-deep to-aqua text-lg font-bold text-white shadow-md">
+              S
+            </div>
+            <p className="text-sm leading-6 text-muted-gray">
+              Our promise is simple: communicate clearly, respect your space, and
+              clean with the kind of detail that makes your home feel refreshed.
+            </p>
+            <Link
+              href="/contact"
+              className="shrink-0 rounded-full bg-teal-deep px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-teal-deep/20 transition-colors hover:bg-teal-hover"
+            >
+              Request a Quote
+            </Link>
+          </div>
         </Reveal>
       </section>
 

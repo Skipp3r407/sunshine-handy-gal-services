@@ -7,6 +7,9 @@ import { businessInfo } from "@/lib/site-data";
 export const metadata: Metadata = {
   title: "Contact | Custom Cleaning Quote in Orlando",
   description: `Contact ${businessInfo.name} to call or text for custom pricing, check availability, and request trusted cleaning in Orlando and nearby areas.`,
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default function ContactPage() {

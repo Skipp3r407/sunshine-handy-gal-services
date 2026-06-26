@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: `Cleaning Services in Orlando | ${businessInfo.name}`,
   description:
     "Explore professional cleaning services in Orlando including deep cleaning, move-out cleaning, Airbnb turnovers, RV cleaning, recurring care, organizing, and light commercial support.",
+  alternates: {
+    canonical: "/services",
+  },
 };
 
 export default function ServicesPage() {

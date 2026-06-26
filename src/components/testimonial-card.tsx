@@ -16,6 +16,27 @@ type TestimonialCardProps = {
 
 const getStars = (rating: number) => "★".repeat(Math.max(0, Math.min(5, Math.round(rating))));
 
+function ReviewBadge() {
+  return (
+    <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-fuchsia-400 to-pink-500 shadow-[0_12px_30px_-16px_rgba(217,70,239,0.75)] ring-8 ring-fuchsia-100/70">
+      <svg
+        viewBox="0 0 24 24"
+        className="h-8 w-8 text-white"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        aria-hidden
+      >
+        <path
+          d="M12 3.8 14.2 8.3l5 .7-3.6 3.5.8 5-4.4-2.3-4.4 2.3.8-5L4.8 9l5-.7L12 3.8Z"
+          strokeLinejoin="round"
+        />
+        <path d="M7.2 20.4a9 9 0 1 1 9.6 0" strokeLinecap="round" />
+      </svg>
+    </div>
+  );
+}
+
 export function TestimonialCard({
   name,
   quote,
@@ -46,31 +67,44 @@ export function TestimonialCard({
             }
           : undefined
       }
-      className={`rounded-3xl border border-teal/10 bg-white p-6 shadow-[0_10px_24px_-20px_rgba(0,0,0,0.4)] transition-[box-shadow,border-color] duration-300 hover:border-teal/20 hover:shadow-[0_14px_32px_-22px_rgba(12,125,150,0.35)] ${
+      className={`group relative overflow-hidden rounded-[2rem] border border-[#f2d7f5] bg-white px-6 pb-6 pt-8 text-center shadow-[0_18px_44px_-34px_rgba(111,39,145,0.45)] transition-[box-shadow,border-color] duration-300 hover:border-fuchsia-300/70 hover:shadow-[0_22px_48px_-32px_rgba(111,39,145,0.55)] ${
         interactive
-          ? "cursor-pointer select-none outline-none focus-visible:border-teal-deep/35 focus-visible:ring-2 focus-visible:ring-teal-deep/25"
+          ? "cursor-pointer select-none outline-none focus-visible:border-fuchsia-300 focus-visible:ring-2 focus-visible:ring-fuchsia-300/35"
           : ""
       }`}
       whileHover={subtleLiftHover(reduced)}
     >
-      <div className="mb-4 flex items-start justify-between gap-4">
-        <div className="min-w-0">
-          <p className="text-sm font-semibold text-charcoal">{name}</p>
-          {details ? (
-            <p className="mt-1 text-[13px] leading-5 text-muted-gray">{details}</p>
-          ) : null}
-        </div>
+      <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-fuchsia-300/70 to-transparent" />
+      <ReviewBadge />
+      <p className="mt-7 text-[0.95rem] italic leading-8 text-charcoal/65">
+        &ldquo;{quote}&rdquo;
+      </p>
+      {interactive ? (
+        <p className="mt-2 text-sm font-semibold text-teal-deep underline decoration-teal-deep/25 underline-offset-4 transition-colors group-hover:text-teal-hover">
+          Read More
+        </p>
+      ) : null}
+      <div className="mt-5">
+        <p className="text-sm font-semibold text-charcoal">{name}</p>
+        {details ? (
+          <p className="mt-1 text-[13px] leading-5 text-muted-gray">{details}</p>
+        ) : null}
+      </div>
+      <div className="mt-4 flex min-h-5 items-center justify-center">
         {rating ? (
-          <p className="shrink-0 text-sm text-golden-amber" aria-label={`${rating} out of 5 stars`}>
+          <p className="text-sm tracking-[0.18em] text-[#fff200]" aria-label={`${rating} out of 5 stars`}>
             {getStars(rating)}
           </p>
         ) : sourceLabel ? (
-          <p className="shrink-0 rounded-full bg-sunshine-yellow/15 px-2.5 py-1 text-[11px] font-medium capitalize text-teal-deep">
+          <p className="rounded-full bg-sunshine-yellow/15 px-3 py-1 text-[11px] font-semibold capitalize text-teal-deep">
             {sourceLabel}
           </p>
-        ) : null}
+        ) : (
+          <p className="text-sm tracking-[0.18em] text-[#fff200]" aria-label="Recommended review">
+            ★★★★★
+          </p>
+        )}
       </div>
-      <p className="text-[0.95rem] leading-7 text-charcoal/75">“{quote}”</p>
     </motion.article>
   );
 }

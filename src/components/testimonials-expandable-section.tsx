@@ -59,7 +59,7 @@ export function TestimonialsExpandableSection({ items }: TestimonialsExpandableS
               role="dialog"
               aria-modal="true"
               aria-labelledby={dialogTitleId}
-              className="relative z-[1] max-h-[85vh] w-full max-w-2xl cursor-auto overflow-y-auto rounded-3xl border border-teal/15 bg-white p-6 shadow-[0_24px_60px_-28px_rgba(12,125,150,0.45)] sm:p-8"
+              className="relative z-[1] max-h-[85vh] w-full max-w-2xl cursor-auto overflow-y-auto rounded-[2rem] border border-fuchsia-200 bg-white p-6 text-center shadow-[0_24px_60px_-28px_rgba(111,39,145,0.45)] sm:p-8"
               initial={reduced ? false : { scale: 0.9, opacity: 0 }}
               animate={reduced ? { opacity: 1 } : { scale: 1, opacity: 1 }}
               exit={reduced ? { opacity: 0 } : { scale: 0.94, opacity: 0 }}
@@ -74,26 +74,32 @@ export function TestimonialsExpandableSection({ items }: TestimonialsExpandableS
                 ref={closeRef}
                 type="button"
                 onClick={close}
-                className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full border border-teal/15 bg-cream/80 text-lg font-semibold leading-none text-charcoal transition hover:border-teal-deep/25 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-deep/35 sm:right-4 sm:top-4"
+                className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full border border-fuchsia-200 bg-cream/80 text-lg font-semibold leading-none text-charcoal transition hover:border-fuchsia-300 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-300/35 sm:right-4 sm:top-4"
                 aria-label="Close"
               >
                 ×
               </button>
-              <div className="pr-10">
-                <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
-                  <div className="min-w-0">
-                    <p id={dialogTitleId} className="text-base font-semibold text-charcoal sm:text-lg">
-                      {open.name}
-                    </p>
-                    {[open.location, open.date].filter(Boolean).length ? (
-                      <p className="mt-1 text-sm leading-6 text-muted-gray">
-                        {[open.location, open.date].filter(Boolean).join(" • ")}
-                      </p>
-                    ) : null}
-                  </div>
+              <div className="px-2 pt-4 sm:px-6">
+                <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-fuchsia-400 to-pink-500 shadow-[0_12px_30px_-16px_rgba(217,70,239,0.75)] ring-8 ring-fuchsia-100/70">
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-9 w-9 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    aria-hidden
+                  >
+                    <path
+                      d="M12 3.8 14.2 8.3l5 .7-3.6 3.5.8 5-4.4-2.3-4.4 2.3.8-5L4.8 9l5-.7L12 3.8Z"
+                      strokeLinejoin="round"
+                    />
+                    <path d="M7.2 20.4a9 9 0 1 1 9.6 0" strokeLinecap="round" />
+                  </svg>
+                </div>
+                <div className="mb-5">
                   {open.rating ? (
                     <p
-                      className="text-base text-golden-amber sm:text-lg"
+                      className="text-base tracking-[0.18em] text-[#fff200] sm:text-lg"
                       aria-label={`${open.rating} out of 5 stars`}
                     >
                       {getStars(open.rating)}
@@ -102,11 +108,23 @@ export function TestimonialsExpandableSection({ items }: TestimonialsExpandableS
                     <p className="rounded-full bg-sunshine-yellow/15 px-3 py-1 text-xs font-medium capitalize text-teal-deep">
                       {open.source.replace(/^Facebook /, "")}
                     </p>
-                  ) : null}
+                  ) : (
+                    <p className="text-base tracking-[0.18em] text-[#fff200]" aria-label="Recommended review">
+                      ★★★★★
+                    </p>
+                  )}
                 </div>
-                <p className="text-base leading-8 text-charcoal/75 sm:text-[1.05rem] sm:leading-9">
-                  “{open.quote}”
+                <p className="text-base italic leading-8 text-charcoal/75 sm:text-[1.05rem] sm:leading-9">
+                  &ldquo;{open.quote}&rdquo;
                 </p>
+                <p id={dialogTitleId} className="mt-6 text-base font-semibold text-charcoal sm:text-lg">
+                  {open.name}
+                </p>
+                {[open.location, open.date].filter(Boolean).length ? (
+                  <p className="mt-1 text-sm leading-6 text-muted-gray">
+                    {[open.location, open.date].filter(Boolean).join(" • ")}
+                  </p>
+                ) : null}
               </div>
             </motion.div>
           </motion.div>

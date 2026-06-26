@@ -7,6 +7,9 @@ import { faqItems, businessInfo } from "@/lib/site-data";
 export const metadata: Metadata = {
   title: `FAQ | ${businessInfo.name}`,
   description: `Answers to common questions about ${businessInfo.name}, including service types, supplies, scheduling, custom quote pricing, and service areas.`,
+  alternates: {
+    canonical: "/faq",
+  },
 };
 
 export default function FAQPage() {

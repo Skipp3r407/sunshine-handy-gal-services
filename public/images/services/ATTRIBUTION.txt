@@ -1,10 +1,10 @@
 Service photos — mixed sources. Unsplash License photos are hosted locally; credit photographers on Unsplash. Client-provided photos are hosted locally for SunShines Handy Gal Services LLC.
 
 detailed-clean.jpg       photo-1700561306724-b3723282ce5e
-deep-cleaning.jpg        photo-1758272421751-963195322eaa
+deep.png                 client-provided
 moveinandout.png         client-provided
 organization.jpg         client-provided
-residential.jpg          photo-1758272421516-9593de0fb5bf
+residential.jpg          client-provided
 newcommercial.jpg        client-provided
 airbnb.jpg               photo-1749878065837-6968c1805247
 rv-cleaning.jpg          client-provided

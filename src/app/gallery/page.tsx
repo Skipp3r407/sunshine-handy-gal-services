@@ -6,6 +6,9 @@ import { businessInfo } from "@/lib/site-data";
 export const metadata: Metadata = {
   title: "Gallery | Before & After Cleaning Results in Orlando",
   description: `Browse before-and-after results from ${businessInfo.name}—kitchen, bathroom, move-out, Airbnb turnover, and more across Central Florida.`,
+  alternates: {
+    canonical: "/gallery",
+  },
 };
 
 export default function GalleryPage() {

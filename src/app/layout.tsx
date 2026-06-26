@@ -26,20 +26,58 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  applicationName: businessInfo.name,
   title: `${businessInfo.name} | Professional Cleaning in Orlando, FL`,
   description:
     "Women-owned cleaning and organizing service in Orlando, FL. Trusted for detail-oriented deep cleaning, move-out cleaning, and personalized recurring care.",
+  keywords: [
+    "Orlando cleaning service",
+    "house cleaning Orlando",
+    "deep cleaning Orlando",
+    "move-out cleaning Orlando",
+    "residential cleaning Orlando",
+    "commercial cleaning Orlando",
+    "RV cleaning Orlando",
+    "cleaning tips Orlando",
+    "home cleaning tutorials",
+    "trusted cleaning company Orlando",
+    "Sunshine's Handy Gal Services",
+  ],
+  authors: [{ name: businessInfo.name }],
+  creator: businessInfo.name,
+  publisher: businessInfo.name,
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
     apple: "/favicon.ico",
   },
   metadataBase: new URL("https://sunshineshandygalservices.com"),
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? {
+        verification: {
+          google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+        },
+      }
+    : {}),
   openGraph: {
     title: businessInfo.name,
     description:
       "Trusted local cleaning services in Orlando and nearby Central Florida communities.",
+    url: "https://sunshineshandygalservices.com",
+    siteName: businessInfo.name,
     type: "website",
+    locale: "en_US",
     images: [
       {
         url: "/images/logo.png",
@@ -48,9 +86,6 @@ export const metadata: Metadata = {
         alt: `${businessInfo.name} logo`,
       },
     ],
-  },
-  alternates: {
-    canonical: "/",
   },
 };
 
