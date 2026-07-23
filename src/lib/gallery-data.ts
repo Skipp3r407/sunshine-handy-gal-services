@@ -208,4 +208,34 @@ export const galleryItems: GalleryItem[] = [
     beforeSrc: "/images/gallery/roombefore724.jpg",
     afterSrc: "/images/gallery/roomafter724.jpg",
   },
+  {
+    id: "19",
+    category: "kitchen",
+    categoryLabel: "Kitchen",
+    title: "Refrigerator Interior Reset",
+    description:
+      "SunShines Handy Gal removed spills, crumbs, and drawer buildup to turn the refrigerator interior into a cleaner, brighter food storage space.",
+    beforeSrc: "/images/gallery/fridgebefore724.jpg",
+    afterSrc: "/images/gallery/fridgeafter724.jpg",
+  },
+  {
+    id: "20",
+    category: "kitchen",
+    categoryLabel: "Kitchen",
+    title: "Oven Rack and Door Detail",
+    description:
+      "This oven received detailed care across the racks, glass, and interior surfaces, helping lift residue and restore a more polished finish.",
+    beforeSrc: "/images/gallery/overbefore724.jpg",
+    afterSrc: "/images/gallery/overafter724.jpg",
+  },
+  {
+    id: "21",
+    category: "bathroom",
+    categoryLabel: "Bathroom",
+    title: "Bathroom Sink and Counter Shine",
+    description:
+      "SunShines Handy Gal cleaned the sink, faucet, counter, and vanity edges with pride, transforming buildup into a fresh, smooth-looking finish.",
+    beforeSrc: "/images/gallery/beforesink724.jpg",
+    afterSrc: "/images/gallery/aftgersink724.jpg",
+  },
 ];

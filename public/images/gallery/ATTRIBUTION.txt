@@ -18,3 +18,6 @@ bedroombefore724.jpg / bedroomafter724.jpg
 bedroombefore724-2.jpg / bedroomafter724-2.jpg
 livingroombefore724.jpg / livingroomafter724.jpg
 roombefore724.jpg / roomafter724.jpg
+fridgebefore724.jpg / fridgeafter724.jpg
+overbefore724.jpg / overafter724.jpg
+beforesink724.jpg / aftgersink724.jpg
