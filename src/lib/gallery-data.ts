@@ -64,7 +64,7 @@ export const galleryItems: GalleryItem[] = [
     categoryLabel: "Bathroom",
     title: "Bathtub Shine Reset",
     description:
-      "SunShines Handy Gal scrubbed the tub and tile lines with patience, turning a dull bathroom area into a brighter clean space.",
+      "SunShines Handy Gal focused on the tub basin, tile walls, and dark grout lines, lifting visible staining so the bathroom looked brighter and better cared for.",
     beforeSrc: "/images/gallery/beforebath.jpeg",
     afterSrc: "/images/gallery/afterbath.jpeg",
   },
@@ -74,7 +74,7 @@ export const galleryItems: GalleryItem[] = [
     categoryLabel: "Bathroom",
     title: "Bathroom Window Detail",
     description:
-      "This detail focused on the window and surrounding bathroom surfaces, clearing buildup so the room felt lighter and fresher.",
+      "This bathroom glass detail targeted cloudy buildup, water spots, and surrounding tile so the shower area looked clearer, cleaner, and more polished.",
     beforeSrc: "/images/gallery/beforebathroomwindow.jpeg",
     afterSrc: "/images/gallery/afterbathroomwindow.jpeg",
   },
@@ -84,7 +84,7 @@ export const galleryItems: GalleryItem[] = [
     categoryLabel: "Bathroom",
     title: "Shower Refresh",
     description:
-      "The shower was carefully cleaned from tile to fixtures, helping remove visible buildup and bring back a cleaner finish.",
+      "The shower walls, tub ledge, fixtures, and lower edges were carefully cleaned to reduce residue and bring back a fresh, brighter finish.",
     beforeSrc: "/images/gallery/beforeshower.jpeg",
     afterSrc: "/images/gallery/aftershower.jpeg",
   },
@@ -94,7 +94,7 @@ export const galleryItems: GalleryItem[] = [
     categoryLabel: "Bathroom",
     title: "Toilet Area Reset",
     description:
-      "SunShines Handy Gal gave this toilet area detailed attention, removing stains and leaving the bathroom noticeably refreshed.",
+      "SunShines Handy Gal gave the toilet bowl, seat, base, and nearby floor detailed attention, removing visible stains and restoring a cleaner bathroom feel.",
     beforeSrc: "/images/gallery/beforetoiliet.jpeg",
     afterSrc: "/images/gallery/aftertoilet.jpeg",
   },
@@ -104,7 +104,7 @@ export const galleryItems: GalleryItem[] = [
     categoryLabel: "Bathroom",
     title: "Bathtub Detail Refresh",
     description:
-      "This bathtub received a careful reset along the basin, edges, and nearby surfaces to create a cleaner, more polished look.",
+      "This bathtub detail focused on the tub edge, wall seams, floor line, and built-up grime around the surround to make the area look cleaner and more maintained.",
     beforeSrc: "/images/gallery/beforebathtub.jpg",
     afterSrc: "/images/gallery/afterbathtub.jpg",
   },
@@ -114,7 +114,7 @@ export const galleryItems: GalleryItem[] = [
     categoryLabel: "Bathroom",
     title: "Sink Shine Reset",
     description:
-      "The sink and counter were cleaned with pride, lifting residue and restoring a smoother, brighter bathroom vanity area.",
+      "The sink bowl, faucet, counter, and vanity surface were cleaned with care to lift residue, soap film, and marks from daily use.",
     beforeSrc: "/images/gallery/beforesink.jpg",
     afterSrc: "/images/gallery/aftersink.jpg",
   },
@@ -144,7 +144,7 @@ export const galleryItems: GalleryItem[] = [
     categoryLabel: "Bathroom",
     title: "Bathroom Vanity Detail",
     description:
-      "The vanity, sink, toilet area, and surrounding surfaces were reset with care to turn a messy bathroom into a cleaner space.",
+      "The vanity, sink, toilet area, trash, and floor were reset with care, turning a cluttered bathroom into a cleaner and more comfortable space.",
     beforeSrc: "/images/gallery/bathroombefore724.jpg",
     afterSrc: "/images/gallery/bathroomafter724.jpg",
   },
@@ -154,7 +154,7 @@ export const galleryItems: GalleryItem[] = [
     categoryLabel: "Bathroom",
     title: "Shower Glass and Tile Detail",
     description:
-      "This shower transformation focused on glass, tile, and floor buildup, bringing back a cleaner and more inviting finish.",
+      "This shower transformation focused on foggy glass, tile walls, grout lines, and the shower floor to remove buildup and reveal a cleaner finish.",
     beforeSrc: "/images/gallery/bathroom724-2before.jpg",
     afterSrc: "/images/gallery/bathroom724-2after.jpg",
   },
@@ -164,7 +164,7 @@ export const galleryItems: GalleryItem[] = [
     categoryLabel: "Bathroom",
     title: "Toilet Detail Reset",
     description:
-      "SunShines Handy Gal tackled visible toilet stains and surrounding floor details to leave the bathroom looking fresh again.",
+      "SunShines Handy Gal tackled the toilet ring, bowl staining, seat area, and surrounding floor details so the bathroom looked fresh again.",
     beforeSrc: "/images/gallery/toiletbefore724.jpg",
     afterSrc: "/images/gallery/toiletafter724.jpg",
   },
@@ -174,7 +174,7 @@ export const galleryItems: GalleryItem[] = [
     categoryLabel: "Bedroom",
     title: "Bedroom Pickup and Reset",
     description:
-      "This bedroom was picked up, straightened, and cleaned so the space changed from cluttered to calm and livable.",
+      "SunShines Handy Gal brought care and order back to this bedroom by clearing the floor, resetting the bed area, and giving the room a neater, more comfortable feel.",
     beforeSrc: "/images/gallery/bedroombefore724.jpg",
     afterSrc: "/images/gallery/bedroomafter724.jpg",
   },
@@ -234,7 +234,7 @@ export const galleryItems: GalleryItem[] = [
     categoryLabel: "Bathroom",
     title: "Bathroom Sink and Counter Shine",
     description:
-      "SunShines Handy Gal cleaned the sink, faucet, counter, and vanity edges with pride, transforming buildup into a fresh, smooth-looking finish.",
+      "SunShines Handy Gal cleaned the sink basin, faucet handles, counter surface, mirror edge, and vanity buildup to reveal a smoother, brighter finish.",
     beforeSrc: "/images/gallery/beforesink724.jpg",
     afterSrc: "/images/gallery/aftgersink724.jpg",
   },
