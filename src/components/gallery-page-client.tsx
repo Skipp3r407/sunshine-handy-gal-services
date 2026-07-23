@@ -26,12 +26,14 @@ function ComparisonHalves({
   afterSrc,
   minHeightClass = "min-h-[200px] sm:min-h-[220px]",
   imageHover = false,
+  imageClassName = "object-cover",
 }: {
   beforeSrc?: string;
   afterSrc?: string;
   minHeightClass?: string;
   /** Subtle zoom on real photos */
   imageHover?: boolean;
+  imageClassName?: string;
 }) {
   const imgMotion = imageHover
     ? ({ whileHover: { scale: 1.06 } } as const)
@@ -55,8 +57,8 @@ function ComparisonHalves({
               src={beforeSrc}
               alt="Before cleaning"
               fill
-              className="object-cover"
-              sizes="(max-width: 768px) 50vw, 36vw"
+              className={imageClassName}
+              sizes="(max-width: 768px) 50vw, 48vw"
             />
           </motion.div>
         ) : (
@@ -90,8 +92,8 @@ function ComparisonHalves({
               src={afterSrc}
               alt="After cleaning"
               fill
-              className="object-cover"
-              sizes="(max-width: 768px) 50vw, 36vw"
+              className={imageClassName}
+              sizes="(max-width: 768px) 50vw, 48vw"
             />
           </motion.div>
         ) : (
@@ -159,7 +161,7 @@ function GalleryLightboxPanel({
         role="dialog"
         aria-modal="true"
         aria-labelledby="gallery-lightbox-title"
-        className="relative z-10 flex max-h-[min(90vh,920px)] w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-white/25 bg-white shadow-[0_24px_80px_-24px_rgba(30,42,58,0.55)]"
+        className="relative z-10 flex max-h-[min(95vh,1080px)] w-full max-w-7xl flex-col overflow-hidden rounded-2xl border border-white/25 bg-white shadow-[0_24px_80px_-24px_rgba(30,42,58,0.55)]"
         {...dialogMotion}
       >
         <div className="relative shrink-0 border-b border-[#e8e4dc] px-4 py-3 sm:px-5 sm:py-4">
@@ -197,8 +199,9 @@ function GalleryLightboxPanel({
           <ComparisonHalves
             beforeSrc={item.beforeSrc}
             afterSrc={item.afterSrc}
-            minHeightClass="min-h-[240px] sm:min-h-[320px] lg:min-h-[380px]"
+            minHeightClass="min-h-[360px] sm:min-h-[540px] lg:min-h-[680px]"
             imageHover={!!(item.beforeSrc || item.afterSrc)}
+            imageClassName="object-contain bg-charcoal/5"
           />
         </div>
         <p className="shrink-0 border-t border-[#e8e4dc] bg-cream/40 px-4 py-2.5 text-center text-xs text-muted-gray">
