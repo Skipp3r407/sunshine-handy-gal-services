@@ -10,3 +10,11 @@ beforetoiliet.jpeg / aftertoilet.jpeg
 beforebathtub.jpg / afterbathtub.jpg
 beforesink.jpg / aftersink.jpg
 beforefloor.jpg / afterfloor.jpg
+kitchenbefore724.jpg / kitchenafter724.jpg
+bathroombefore724.jpg / bathroomafter724.jpg
+bathroom724-2before.jpg / bathroom724-2after.jpg
+toiletbefore724.jpg / toiletafter724.jpg
+bedroombefore724.jpg / bedroomafter724.jpg
+bedroombefore724-2.jpg / bedroomafter724-2.jpg
+livingroombefore724.jpg / livingroomafter724.jpg
+roombefore724.jpg / roomafter724.jpg

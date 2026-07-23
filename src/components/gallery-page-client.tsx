@@ -172,6 +172,9 @@ function GalleryLightboxPanel({
           >
             {item.title}
           </h2>
+          <p className="mt-2 max-w-2xl pr-10 text-sm leading-relaxed text-muted-gray">
+            {item.description}
+          </p>
           <button
             type="button"
             onClick={onClose}
@@ -252,6 +255,9 @@ function GalleryCard({
         <h3 className="mt-1.5 font-heading text-base font-bold leading-snug text-charcoal transition-colors duration-200 group-hover:text-teal-deep sm:text-lg">
           {item.title}
         </h3>
+        <p className="mt-2 text-sm leading-relaxed text-muted-gray">
+          {item.description}
+        </p>
         <p className="mt-2 text-xs font-medium text-teal-deep/90 opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100">
           Click to enlarge
         </p>
