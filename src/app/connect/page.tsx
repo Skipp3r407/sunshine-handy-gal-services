@@ -187,7 +187,7 @@ function ConnectButton({ link }: { link: ConnectLink }) {
 
 export default function ConnectPage() {
   return (
-    <div className="mx-auto max-w-3xl">
+    <div className="mx-auto max-w-5xl">
       <section
         className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#fdfaf2] bg-center bg-no-repeat shadow-[0_24px_80px_-48px_rgba(30,42,58,0.55)] backdrop-blur"
         style={{
@@ -199,7 +199,7 @@ export default function ConnectPage() {
           className="relative h-2 bg-gradient-to-r from-teal-deep via-aqua to-sunshine-yellow"
           aria-hidden
         />
-        <div className="relative px-5 py-7 sm:px-8 sm:py-10">
+        <div className="relative mx-auto max-w-3xl px-5 py-7 sm:px-8 sm:py-10">
           <div
             className="pointer-events-none absolute -right-20 -top-20 h-44 w-44 rounded-full bg-sunshine-yellow/18 blur-3xl"
             aria-hidden
