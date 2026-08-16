@@ -683,9 +683,6 @@ export function GalleryPageClient({
               <h3 className="font-heading text-lg font-bold text-[#1e2a3a]">
                 {title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-gray">
-                Add video footage here when new SunShines project clips are ready.
-              </p>
             </div>
           ))}
         </div>
