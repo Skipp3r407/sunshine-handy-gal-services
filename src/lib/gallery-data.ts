@@ -2,6 +2,7 @@ export type GalleryCategory =
   | "kitchen"
   | "bathroom"
   | "bedroom"
+  | "organization"
   | "living-space"
   | "move-out"
   | "airbnb";
@@ -13,6 +14,7 @@ export const galleryFilters: { id: GalleryFilterId; label: string }[] = [
   { id: "kitchen", label: "Kitchen" },
   { id: "bathroom", label: "Bathroom" },
   { id: "bedroom", label: "Bedroom" },
+  { id: "organization", label: "Organization" },
   { id: "living-space", label: "Living Space" },
 ];
 
@@ -276,6 +278,36 @@ export const galleryItems: GalleryItem[] = [
     beforeSrc: "/images/gallery/beforebathroom816.jpg",
     afterSrc: "/images/gallery/afterbathroom816.jpg",
   },
+  {
+    id: "25",
+    category: "organization",
+    categoryLabel: "Organization",
+    title: "Organized Room Reset",
+    description:
+      "SunShines Handy Gal transformed this packed room into a calmer, more functional space by clearing clutter, arranging furniture, opening walkways, and giving every detail a more intentional place.",
+    beforeSrc: "/images/gallery/organizingroombefore816.png",
+    afterSrc: "/images/gallery/organizingroomafter816.png",
+  },
+  {
+    id: "26",
+    category: "organization",
+    categoryLabel: "Organization",
+    title: "Living Room Organization Reset",
+    description:
+      "SunShines Handy Gal helped bring order back to this busy living room by sorting clutter, opening up the main walkways, clearing surfaces, and making the room feel easier to use again.",
+    beforeSrc: "/images/gallery/organizinlivingroombefore816.jpg",
+    afterSrc: "/images/gallery/organizinlivingroomafter816.jpg",
+  },
+  {
+    id: "27",
+    category: "bathroom",
+    categoryLabel: "Bathroom",
+    title: "Bathtub Buildup Refresh",
+    description:
+      "SunShines Handy Gal focused on the tub basin, tile walls, ledges, and fixture area to lift visible buildup and leave the bathtub looking brighter, smoother, and more refreshed.",
+    beforeSrc: "/images/gallery/tubbefore816.jpg",
+    afterSrc: "/images/gallery/tubbafter816.jpg",
+  },
 ];
 
 export const miscGalleryItems: MiscGalleryItem[] = [
@@ -323,5 +355,14 @@ export const miscGalleryItems: MiscGalleryItem[] = [
     imageSrc: "/images/gallery/miscbathroomview816.jpg",
     imageAlt:
       "Wide view of a bathroom with glass shower, toilet, trim, and cleaned floor area",
+  },
+  {
+    id: "organized-misc-816",
+    title: "Organized Storage Closet",
+    description:
+      "SunShines Handy Gal helped bring structure to this storage closet by grouping bins, arranging seasonal items, and making the space easier to access and maintain.",
+    imageSrc: "/images/gallery/organizedmisc816.png",
+    imageAlt:
+      "Organized storage closet with stacked bins and seasonal decor arranged on shelves",
   },
 ];

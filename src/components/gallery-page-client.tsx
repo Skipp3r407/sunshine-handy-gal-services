@@ -646,42 +646,57 @@ export function GalleryPageClient({
             Video Gallery
           </p>
           <h2 className="font-heading text-2xl font-bold leading-tight text-[#1e2a3a] sm:text-3xl">
-            Project Videos Coming Soon
+            Project Videos
           </h2>
           <p className="mx-auto max-w-2xl text-sm leading-relaxed text-muted-gray sm:mx-0 sm:text-base">
-            This space is ready for future cleaning walkthroughs, before-and-after
-            clips, and behind-the-scenes project videos from SunShines Handy Gal.
+            Watch cleaning walkthroughs, before-and-after clips, and
+            behind-the-scenes project videos from SunShines Handy Gal.
           </p>
         </div>
 
         <div className="grid gap-5 sm:grid-cols-3">
           {[
-            "Before & after clips",
-            "Cleaning walkthroughs",
-            "Project highlights",
-          ].map((title) => (
+            { title: "Before & after clips" },
+            {
+              title: "Cleaning walkthroughs",
+              embedSrc: "https://www.youtube.com/embed/b2k2F55AwhI",
+            },
+            { title: "Project highlights" },
+          ].map((video) => (
             <div
-              key={title}
+              key={video.title}
               className="flex min-h-[180px] flex-col items-center justify-center rounded-2xl border border-dashed border-[#d4d0c8] bg-white/80 p-6 text-center shadow-[0_18px_45px_-32px_rgba(30,42,58,0.38)]"
             >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#1e2a3a] text-white shadow-sm">
-                <svg
-                  className="h-5 w-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  aria-hidden
-                >
-                  <path
-                    d="M8 5v14l11-7z"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+              {video.embedSrc ? (
+                <div className="mb-4 aspect-[9/16] w-full max-w-[180px] overflow-hidden rounded-xl bg-[#1e2a3a] shadow-sm">
+                  <iframe
+                    className="h-full w-full"
+                    src={video.embedSrc}
+                    title="Satisfying cleaning walkthrough video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
                   />
-                </svg>
-              </div>
+                </div>
+              ) : (
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#1e2a3a] text-white shadow-sm">
+                  <svg
+                    className="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    aria-hidden
+                  >
+                    <path
+                      d="M8 5v14l11-7z"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              )}
               <h3 className="font-heading text-lg font-bold text-[#1e2a3a]">
-                {title}
+                {video.title}
               </h3>
             </div>
           ))}
