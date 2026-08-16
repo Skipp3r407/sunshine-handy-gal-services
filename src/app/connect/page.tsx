@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import {
-  disabledConnectLinks,
   enabledConnectLinks,
   type ConnectLink,
   type ConnectLinkIcon,
@@ -190,8 +189,11 @@ export default function ConnectPage() {
   return (
     <div className="mx-auto max-w-3xl">
       <section
-        className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#fdfaf2] bg-contain bg-top bg-no-repeat shadow-[0_24px_80px_-48px_rgba(30,42,58,0.55)] backdrop-blur"
-        style={{ backgroundImage: "url('/images/connect/link-tree-bg.png')" }}
+        className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#fdfaf2] bg-center bg-no-repeat shadow-[0_24px_80px_-48px_rgba(30,42,58,0.55)] backdrop-blur"
+        style={{
+          backgroundImage: "url('/images/connect/link-tree-bg.png')",
+          backgroundSize: "100% 100%",
+        }}
       >
         <div
           className="relative h-2 bg-gradient-to-r from-teal-deep via-aqua to-sunshine-yellow"
@@ -319,12 +321,6 @@ export default function ConnectPage() {
             </Link>
           </section>
 
-          {disabledConnectLinks.length > 0 ? (
-            <p className="relative mt-5 text-center text-xs leading-5 text-muted-gray">
-              Additional official profile links can be enabled here as soon as
-              their URLs are supplied.
-            </p>
-          ) : null}
         </div>
       </section>
 
