@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { PaymentHelpNote, PaymentOptions } from "@/components/payment-options";
 import { businessInfo } from "@/lib/site-data";
 import { paymentPageUrl } from "@/lib/payment-methods";
@@ -77,6 +78,12 @@ export default function PayPage() {
         <p>
           &copy; {new Date().getFullYear()} {businessInfo.name}
         </p>
+        <Link
+          href="https://www.sunshineshandygal.com"
+          className="font-semibold text-teal-deep underline-offset-4 hover:underline focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-deep/35 focus-visible:ring-offset-2"
+        >
+          Visit our website
+        </Link>
       </footer>
     </div>
   );
