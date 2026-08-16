@@ -6,6 +6,8 @@ import {
   type ConnectLink,
   type ConnectLinkIcon,
 } from "@/lib/connect-links";
+import { FloatingBubbles } from "@/components/floating-bubbles";
+import { GrowingPopBubbles } from "@/components/growing-pop-bubbles";
 import { businessInfo } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
@@ -195,7 +197,14 @@ export default function ConnectPage() {
           backgroundSize: "100% 100%",
         }}
       >
-        <div className="relative mx-auto max-w-3xl px-5 py-7 sm:px-8 sm:py-10">
+        <div
+          className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+          aria-hidden
+        >
+          <FloatingBubbles />
+          <GrowingPopBubbles />
+        </div>
+        <div className="relative z-10 mx-auto max-w-3xl px-5 py-7 sm:px-8 sm:py-10">
           <div
             className="pointer-events-none absolute -right-20 -top-20 h-44 w-44 rounded-full bg-sunshine-yellow/18 blur-3xl"
             aria-hidden

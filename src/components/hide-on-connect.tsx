@@ -2,7 +2,6 @@
 
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
-import { cn } from "@/lib/utils";
 
 export function HideOnConnect({ children }: { children: ReactNode }) {
   const pathname = usePathname();
@@ -12,17 +11,11 @@ export function HideOnConnect({ children }: { children: ReactNode }) {
   return <>{children}</>;
 }
 
-/** On /connect the page card sits above the default atmosphere layer, so raise it. */
+/** Site-wide atmosphere stays behind page content, including /connect. */
 export function AtmosphereLayer({ children }: { children: ReactNode }) {
-  const pathname = usePathname();
-  const onConnect = pathname === "/connect";
-
   return (
     <div
-      className={cn(
-        "pointer-events-none fixed inset-0 overflow-hidden",
-        onConnect ? "z-[25]" : "z-[1]",
-      )}
+      className="pointer-events-none fixed inset-0 z-[1] overflow-hidden"
       aria-hidden
     >
       {children}
