@@ -4,11 +4,11 @@ import { businessInfo } from "@/lib/site-data";
  * Client payment options — edit this file when accounts change
  * (for example after a business bank account is set up).
  *
- * Zelle is live from Sheena's enrollment QR.
- * Add `paypalMe` and `cashAppCashtag` when those handles are ready;
- * the Pay page, QR blocks, and buttons update from this file.
+ * Zelle and PayPal.me are live. Add a Cash App $cashtag when ready.
+ * Send clients: https://www.sunshineshandygal.com/pay
  */
 export const paymentPagePath = "/pay";
+export const paymentPageUrl = "https://www.sunshineshandygal.com/pay";
 
 export const paymentInfo = {
   recipientName: "SHEENA HOTALING",
@@ -22,11 +22,9 @@ export const paymentInfo = {
   },
   paypal: {
     email: businessInfo.email,
-    /**
-     * PayPal.me username only (no URL). Example: "SunshineHandyGal"
-     * Leave empty to show the business email instead.
-     */
-    paypalMe: "",
+    paypalMe: "Irishsunshine86",
+    href: "https://www.paypal.me/Irishsunshine86",
+    qrSrc: "/images/qr/paypal-qr.png",
   },
   cashApp: {
     /**
@@ -59,7 +57,8 @@ export type PaymentMethod = {
 
 function paypalHref() {
   const handle = paymentInfo.paypal.paypalMe.trim();
-  if (handle) return `https://paypal.me/${encodeURIComponent(handle)}`;
+  if (paymentInfo.paypal.href) return paymentInfo.paypal.href;
+  if (handle) return `https://www.paypal.me/${encodeURIComponent(handle)}`;
   return "https://www.paypal.com/myaccount/transfer/homepage";
 }
 
@@ -107,6 +106,8 @@ export const paymentMethods: PaymentMethod[] = [
       : paymentInfo.paypal.email,
     href: paypalHref(),
     hrefLabel: "Open PayPal",
+    qrSrc: paymentInfo.paypal.qrSrc,
+    qrAlt: `PayPal QR code for ${paymentInfo.paypal.href}`,
     accent: "#003087",
     soft: "#e8f1fb",
     buttonClass: "bg-[#003087] hover:bg-[#00266c] text-white",

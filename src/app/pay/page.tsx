@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { PaymentHelpNote, PaymentOptions } from "@/components/payment-options";
 import { businessInfo } from "@/lib/site-data";
-import { paymentPagePath } from "@/lib/payment-methods";
+import { paymentPageUrl } from "@/lib/payment-methods";
 
 export const metadata: Metadata = {
   title: `Pay Your Invoice | ${businessInfo.name}`,
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     follow: false,
   },
   alternates: {
-    canonical: paymentPagePath,
+    canonical: paymentPageUrl,
   },
 };
 
