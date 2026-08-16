@@ -10,6 +10,20 @@ const inputClass =
 export function ContactPageSidebar() {
   return (
     <div className="flex flex-col gap-5">
+      <section className="rounded-2xl border border-teal-deep/20 bg-gradient-to-br from-[#fff8db] to-white p-5 shadow-[0_8px_28px_-20px_rgba(0,0,0,0.12)]">
+        <h2 className="text-base font-bold text-charcoal">Pay an invoice</h2>
+        <p className="mt-2 text-sm leading-relaxed text-muted-gray">
+          Zelle, PayPal, and Cash App are ready on our payment page — including a
+          scannable Zelle QR code.
+        </p>
+        <Link
+          href="/pay"
+          className="mt-4 inline-flex min-h-11 items-center justify-center rounded-full bg-teal-deep px-4 py-2 text-sm font-semibold text-white shadow-md shadow-teal-deep/25 transition-colors hover:bg-teal-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/70 focus-visible:ring-offset-2"
+        >
+          View payment options
+        </Link>
+      </section>
+
       <section className={inputClass}>
         <h2 className="text-base font-bold text-charcoal">Quick contact</h2>
         <ul className="mt-3 space-y-2.5 text-sm text-muted-gray">

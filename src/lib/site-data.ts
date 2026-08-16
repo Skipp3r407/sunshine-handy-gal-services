@@ -68,6 +68,7 @@ export const navLinks = [
   { href: "/testimonials", label: "Testimonials" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
+  { href: "/pay", label: "Pay" },
 ];
 
 export const trustBadges = [
@@ -620,6 +621,11 @@ export const faqItems = [
     question: "How do I request a quote?",
     answer:
       "You can call, text, email, or submit the contact form with your service needs and preferred date. We respond quickly with next steps and availability.",
+  },
+  {
+    question: "How can I pay for my cleaning?",
+    answer:
+      "You can pay with Zelle, PayPal, or Cash App. Visit the Pay page for the Zelle QR code and current payment details, and include your name or invoice number in the payment note.",
   },
   {
     question: "How much do services cost?",

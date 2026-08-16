@@ -103,6 +103,14 @@ function ConnectIcon({ icon }: { icon: ConnectLinkIcon }) {
           <path d="M12 3l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.8 1-6.1-4.4-4.3 6.1-.9L12 3z" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       );
+    case "wallet":
+      return (
+        <svg {...iconProps}>
+          <path d="M3 8h18v11H3z" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M3 8V6.5A1.5 1.5 0 0 1 4.5 5H16" strokeLinecap="round" />
+          <circle cx="17" cy="13.5" r="1" />
+        </svg>
+      );
     default:
       return (
         <svg {...iconProps}>
@@ -150,6 +158,11 @@ function ConnectButton({ link }: { link: ConnectLink }) {
           {link.id === "email" ? (
             <span className="mt-0.5 block truncate text-xs opacity-80">
               {businessInfo.email}
+            </span>
+          ) : null}
+          {link.id === "pay" ? (
+            <span className="mt-0.5 block text-xs opacity-80">
+              Zelle · PayPal · Cash App
             </span>
           ) : null}
         </span>

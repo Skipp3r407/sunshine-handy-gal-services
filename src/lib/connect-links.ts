@@ -11,6 +11,7 @@ export type ConnectLinkIcon =
   | "facebook"
   | "map"
   | "star"
+  | "wallet"
   | "external";
 
 export type ConnectLink = {
@@ -38,6 +39,17 @@ export const connectLinks: ConnectLink[] = [
     order: 10,
     ariaLabel: "Request a free quote from Sunshine's Handy Gal Services",
     analyticsEvent: "connect_quote_click",
+  },
+  {
+    id: "pay",
+    label: "Pay Invoice",
+    href: "/pay",
+    icon: "wallet",
+    type: "website",
+    enabled: true,
+    order: 15,
+    ariaLabel: "Pay Sunshine's Handy Gal Services with Zelle, PayPal, or Cash App",
+    analyticsEvent: "connect_pay_click",
   },
   {
     id: "website",

@@ -60,6 +60,11 @@ const INTENT_RULES: IntentRule[] = [
   { key: "online_booking", keywords: ["online book", "book online", "website book"], minHits: 1 },
   { key: "long_reset", keywords: ["haven't cleaned", "havent cleaned", "long time", "months ago", "first time", "where to start"], minHits: 1 },
   { key: "call_text", keywords: ["call", "text", "phone", "number", "reach you"], minHits: 1 },
+  {
+    key: "payment",
+    keywords: ["zelle", "paypal", "cash app", "cashapp", "invoice", "how to pay", "payment page", "pay invoice"],
+    minHits: 1,
+  },
   { key: "testimonials", keywords: ["review", "testimonial", "feedback", "clients say"], minHits: 1 },
 ];
 
