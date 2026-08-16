@@ -10,6 +10,7 @@ import {
   type CSSProperties,
   type ReactNode,
 } from "react";
+import { usePathname } from "next/navigation";
 import { useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -66,6 +67,8 @@ function createSprayDroplets(burstId: number, aimRad: number): Droplet[] {
 
 export function InteractiveMain({ children, className }: InteractiveMainProps) {
   const mainRef = useRef<HTMLElement>(null);
+  const pathname = usePathname();
+  const hideScrollBar = pathname === "/connect";
   const reduced = useReducedMotion();
   const rafRef = useRef<number | undefined>(undefined);
   const lastPointerRef = useRef<{ x: number; y: number } | null>(null);
@@ -152,6 +155,8 @@ export function InteractiveMain({ children, className }: InteractiveMainProps) {
   }, [reduced, recordPointerMotion]);
 
   useEffect(() => {
+    if (hideScrollBar) return;
+
     const onScroll = () => {
       const doc = document.documentElement;
       const total = doc.scrollHeight - doc.clientHeight;
@@ -160,7 +165,7 @@ export function InteractiveMain({ children, className }: InteractiveMainProps) {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [hideScrollBar]);
 
   const mainVars = {
     "--mouse-x": "50%",
@@ -183,19 +188,21 @@ export function InteractiveMain({ children, className }: InteractiveMainProps) {
 
         {children}
 
-        <div
-          className="pointer-events-none fixed left-0 right-0 z-[45] h-[3px]"
-          style={{ top: SCROLL_BAR_TOP }}
-          aria-hidden
-        >
+        {!hideScrollBar ? (
           <div
-            className="h-full origin-left rounded-full bg-gradient-to-r from-teal-deep via-aqua to-sunshine-yellow shadow-[0_1px_8px_rgba(21,153,184,0.35)] transition-[transform] duration-150 ease-out"
-            style={{
-              transform: `scaleX(${scrollProgress})`,
-              width: "100%",
-            }}
-          />
-        </div>
+            className="pointer-events-none fixed left-0 right-0 z-[45] h-[3px]"
+            style={{ top: SCROLL_BAR_TOP }}
+            aria-hidden
+          >
+            <div
+              className="h-full origin-left rounded-full bg-gradient-to-r from-teal-deep via-aqua to-sunshine-yellow shadow-[0_1px_8px_rgba(21,153,184,0.35)] transition-[transform] duration-150 ease-out"
+              style={{
+                transform: `scaleX(${scrollProgress})`,
+                width: "100%",
+              }}
+            />
+          </div>
+        ) : null}
       </main>
       {mounted &&
         !reduced &&

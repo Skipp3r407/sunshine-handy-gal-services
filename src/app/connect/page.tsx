@@ -6,7 +6,7 @@ import {
   type ConnectLink,
   type ConnectLinkIcon,
 } from "@/lib/connect-links";
-import { businessHoursRows, businessInfo } from "@/lib/site-data";
+import { businessInfo } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 const legalBusinessName = "Sunshine's Handy Gal Services LLC";
@@ -195,10 +195,6 @@ export default function ConnectPage() {
           backgroundSize: "100% 100%",
         }}
       >
-        <div
-          className="relative h-2 bg-gradient-to-r from-teal-deep via-aqua to-sunshine-yellow"
-          aria-hidden
-        />
         <div className="relative mx-auto max-w-3xl px-5 py-7 sm:px-8 sm:py-10">
           <div
             className="pointer-events-none absolute -right-20 -top-20 h-44 w-44 rounded-full bg-sunshine-yellow/18 blur-3xl"
@@ -240,86 +236,6 @@ export default function ConnectPage() {
               <ConnectButton key={link.id} link={link} />
             ))}
           </div>
-
-          <section className="relative mt-8 grid gap-4 md:grid-cols-2">
-            <article className="rounded-[1.5rem] border border-[#e8e4dc] bg-white/92 p-5 shadow-[0_14px_36px_-32px_rgba(30,42,58,0.35)]">
-              <h2 className="font-heading text-xl font-bold text-charcoal">
-                Quick Contact
-              </h2>
-              <dl className="mt-4 space-y-3 text-sm leading-6 text-muted-gray">
-                <div>
-                  <dt className="font-bold text-charcoal">Phone</dt>
-                  <dd>
-                    <a
-                      href={businessInfo.phoneHref}
-                      className="text-teal-deep underline-offset-4 hover:underline focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-deep/35 focus-visible:ring-offset-2"
-                    >
-                      {businessInfo.phoneDisplay}
-                    </a>
-                  </dd>
-                </div>
-                <div>
-                  <dt className="font-bold text-charcoal">Email</dt>
-                  <dd className="break-words">
-                    <a
-                      href={businessInfo.emailHref}
-                      className="text-teal-deep underline-offset-4 hover:underline focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-deep/35 focus-visible:ring-offset-2"
-                    >
-                      {businessInfo.email}
-                    </a>
-                  </dd>
-                </div>
-                <div>
-                  <dt className="font-bold text-charcoal">Service Area</dt>
-                  <dd>{businessInfo.serviceAreaSummary}</dd>
-                </div>
-              </dl>
-            </article>
-
-            <article className="rounded-[1.5rem] border border-[#e8e4dc] bg-white/92 p-5 shadow-[0_14px_36px_-32px_rgba(30,42,58,0.35)]">
-              <h2 className="font-heading text-xl font-bold text-charcoal">
-                Hours
-              </h2>
-              <dl className="mt-4 divide-y divide-[#e8e4dc] text-sm">
-                {businessHoursRows.map((row) => (
-                  <div
-                    key={row.id}
-                    className="flex items-center justify-between gap-4 py-2"
-                  >
-                    <dt className="font-semibold text-charcoal">
-                      {row.labelShort}
-                    </dt>
-                    <dd className="text-right text-muted-gray">{row.hours}</dd>
-                  </div>
-                ))}
-              </dl>
-              <p className="mt-3 text-sm leading-6 text-muted-gray">
-                Call or text for the soonest opening. We will work with your
-                schedule.
-              </p>
-            </article>
-          </section>
-
-          <section className="relative mt-8 rounded-[1.5rem] border border-teal-deep/15 bg-[#fffdf7]/88 p-5 text-center shadow-[0_14px_36px_-32px_rgba(12,125,150,0.35)] backdrop-blur-[2px] sm:p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-deep">
-              Need Your Home Cleaned?
-            </p>
-            <h2 className="mt-2 font-heading text-2xl font-bold text-charcoal">
-              Let us add some sunshine to your home.
-            </h2>
-            <p className="mx-auto mt-2 max-w-lg text-sm leading-6 text-muted-gray">
-              Tell us what you need cleaned, your timing, and your priorities. We
-              will follow up with next steps for a custom quote.
-            </p>
-            <Link
-              href="/contact"
-              aria-label="Request a free quote from the connect page"
-              data-analytics-event="connect_bottom_quote_click"
-              className="mt-5 inline-flex min-h-[52px] items-center justify-center rounded-full bg-teal-deep px-6 py-3 text-sm font-bold text-white shadow-md shadow-teal-deep/25 transition-colors hover:bg-teal-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunshine-yellow/80 focus-visible:ring-offset-2"
-            >
-              Request a Free Quote
-            </Link>
-          </section>
 
         </div>
       </section>
