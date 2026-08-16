@@ -190,10 +190,9 @@ export default function ConnectPage() {
   return (
     <div className="mx-auto max-w-3xl">
       <section
-        className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/92 bg-cover bg-center shadow-[0_24px_80px_-48px_rgba(30,42,58,0.55)] backdrop-blur"
+        className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#fdfaf2] bg-contain bg-top bg-no-repeat shadow-[0_24px_80px_-48px_rgba(30,42,58,0.55)] backdrop-blur"
         style={{ backgroundImage: "url('/images/connect/link-tree-bg.png')" }}
       >
-        <div className="absolute inset-0 bg-white/76 backdrop-blur-[1px]" aria-hidden />
         <div
           className="relative h-2 bg-gradient-to-r from-teal-deep via-aqua to-sunshine-yellow"
           aria-hidden

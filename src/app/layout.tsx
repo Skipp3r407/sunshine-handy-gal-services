@@ -13,6 +13,7 @@ import { WaterDropsBackground } from "@/components/water-drops-background";
 import { GrowingPopBubbles } from "@/components/growing-pop-bubbles";
 import { InteractiveMain } from "@/components/interactive-main";
 import { CursorBubbleTrail } from "@/components/cursor-bubble-trail";
+import { HideOnConnect } from "@/components/hide-on-connect";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -100,9 +101,13 @@ export default function RootLayout({
       className={`${inter.variable} ${poppins.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-[#e3f2fb] text-charcoal">
-        <SplashScreen />
+        <HideOnConnect>
+          <SplashScreen />
+        </HideOnConnect>
         <LocalBusinessSchema />
-        <Navbar />
+        <HideOnConnect>
+          <Navbar />
+        </HideOnConnect>
         {/* Full-viewport blue wash + bubbles (fixed so they show outside max-w-6xl and behind sections) */}
         <div
           className="pointer-events-none fixed inset-0 z-[1] overflow-hidden"
@@ -116,9 +121,11 @@ export default function RootLayout({
         <InteractiveMain className="relative z-[2] mx-auto min-h-[60vh] max-w-6xl px-3 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] pt-6 sm:px-6 sm:pb-24 sm:pt-8 md:pt-10 lg:px-8 lg:pb-12">
           <div className="relative z-10">{children}</div>
         </InteractiveMain>
-        <Footer />
-        <MobileStickyCTA />
-        <ChatWidget />
+        <HideOnConnect>
+          <Footer />
+          <MobileStickyCTA />
+          <ChatWidget />
+        </HideOnConnect>
         <CursorBubbleTrail />
       </body>
     </html>
