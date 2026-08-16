@@ -782,7 +782,8 @@ export function GalleryPageClient({
               key={video.title}
               className="flex min-h-[180px] flex-col items-center justify-center rounded-2xl border border-dashed border-[#d4d0c8] bg-white/80 p-6 text-center shadow-[0_18px_45px_-32px_rgba(30,42,58,0.38)]"
             >
-              {video.embedSrc ? (
+              {video.embedSrc &&
+              videoLightboxItem?.embedSrc !== video.embedSrc ? (
                 <div className="mb-4 aspect-[9/16] w-full max-w-[180px] overflow-hidden rounded-xl bg-[#1e2a3a] shadow-sm">
                   <iframe
                     className="h-full w-full"

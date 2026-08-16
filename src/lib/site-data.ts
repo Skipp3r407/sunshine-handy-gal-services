@@ -424,6 +424,14 @@ export const testimonials = uniqueTestimonialsByReviewerAndQuote([
       "After going through a difficult period of depression and a divorce, I felt completely overwhelmed and unable to get my home back to a place that felt livable. This team stepped in with compassion, professionalism and incredible attention to detail. They didn't just deep clean my house, they helped me reclaim a space I hadn't been able to manage on my own. Every room feels lighter, fresher and genuinely reset. Their work gave me a sense of relief and a fresh start that I didn't realize I needed. I love just walking through my home and seeing the transformation. I'm deeply grateful for their kindness and the quality of the cleaning they put into every part of my home and highly recommend Sunshine Handy Gal Services and Holly's Glow Suds and Scents LLC!!",
   },
   {
+    name: "Helen Avalon",
+    location: "Willowwood",
+    date: "25 Jun",
+    source: "Facebook recommendation",
+    quote:
+      "Sheena went way above and beyond looking for someone who would be fragrance free to clean my house. Mine was a very unusual request and yet she went to extraordinary lengths to help me. The world is such a beautiful place when there are people like Sheena and her company!",
+  },
+  {
     name: "Andrew Nemchik",
     location: "Lake Mary, FL",
     date: "12 May",
