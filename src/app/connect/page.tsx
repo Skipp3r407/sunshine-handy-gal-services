@@ -300,7 +300,7 @@ export default function ConnectPage() {
             </article>
           </section>
 
-          <section className="relative mt-8 rounded-[1.5rem] border border-teal-deep/15 bg-[#fffdf7] p-5 text-center shadow-[0_14px_36px_-32px_rgba(12,125,150,0.35)] sm:p-6">
+          <section className="relative mt-8 rounded-[1.5rem] border border-teal-deep/15 bg-[#fffdf7]/88 p-5 text-center shadow-[0_14px_36px_-32px_rgba(12,125,150,0.35)] backdrop-blur-[2px] sm:p-6">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-deep">
               Need Your Home Cleaned?
             </p>
