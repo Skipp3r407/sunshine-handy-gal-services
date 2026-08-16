@@ -102,7 +102,7 @@ export const PRESET_RESPONSES: Record<
     quickReplies: ["Get a Quote", "Pricing", "Services"],
   },
   payment: {
-    text: "You can pay with Zelle, PayPal, or Cash App. Visit sunshineshandygalservices.com/pay for the Zelle QR code and current payment details, and include your name or invoice number in the note.",
+    text: "You can pay with Zelle, PayPal, or Cash App. After booking, we send a private payment link with the current details. Please include your name or invoice number in the note.",
     quickReplies: ["Get a Quote", "Call / Text", "Services"],
   },
   testimonials: {

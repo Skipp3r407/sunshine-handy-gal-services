@@ -10,7 +10,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/service-areas", priority: 0.9, changeFrequency: "weekly" },
     { path: "/why-hire-us", priority: 0.9, changeFrequency: "monthly" },
     { path: "/contact", priority: 0.9, changeFrequency: "monthly" },
-    { path: "/pay", priority: 0.8, changeFrequency: "monthly" },
     { path: "/about", priority: 0.8, changeFrequency: "monthly" },
     { path: "/cleaning-tips", priority: 0.8, changeFrequency: "weekly" },
     { path: "/gallery", priority: 0.8, changeFrequency: "weekly" },
