@@ -5,6 +5,7 @@ import { businessInfo } from "@/lib/site-data";
 import { paymentPageUrl } from "@/lib/payment-methods";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.sunshineshandygal.com"),
   title: `Pay Your Invoice | ${businessInfo.name}`,
   description: `Pay ${businessInfo.name} with Zelle, PayPal, or Cash App.`,
   robots: {
@@ -13,6 +14,13 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: paymentPageUrl,
+  },
+  openGraph: {
+    title: `Pay Your Invoice | ${businessInfo.name}`,
+    description: `Pay ${businessInfo.name} with Zelle, PayPal, or Cash App.`,
+    url: paymentPageUrl,
+    siteName: businessInfo.name,
+    type: "website",
   },
 };
 
