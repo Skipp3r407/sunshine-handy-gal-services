@@ -22,6 +22,25 @@ const navy = "bg-[#1e2a3a]";
 const sage = "bg-[#6d8b6e]";
 const navyText = "text-[#1e2a3a]";
 
+type VideoGalleryItem = {
+  title: string;
+  caption?: string;
+  embedSrc?: string;
+  embedTitle?: string;
+};
+
+const videoGalleryItems: VideoGalleryItem[] = [
+  { title: "Before & after clips" },
+  {
+    title: "Cleaning walkthroughs",
+    caption:
+      "A satisfying walkthrough of another beautiful clean completed with SunShines Handy Gal's detail-focused care.",
+    embedSrc: "https://www.youtube.com/embed/b2k2F55AwhI",
+    embedTitle: "Satisfying cleaning walkthrough video",
+  },
+  { title: "Project highlights" },
+];
+
 function ComparisonHalves({
   beforeSrc,
   afterSrc,
@@ -433,6 +452,106 @@ function MiscGalleryCard({
   );
 }
 
+function VideoLightboxPanel({
+  item,
+  onClose,
+  reduced,
+}: {
+  item: VideoGalleryItem;
+  onClose: () => void;
+  reduced: boolean | null;
+}) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, []);
+
+  const dialogMotion = reduced
+    ? {}
+    : {
+        initial: { opacity: 0, scale: 0.94, y: 16 },
+        animate: { opacity: 1, scale: 1, y: 0 },
+        transition: { type: "spring" as const, stiffness: 380, damping: 28 },
+      };
+
+  return (
+    <>
+      <button
+        type="button"
+        className="absolute inset-0 bg-charcoal/72 backdrop-blur-[3px]"
+        onClick={onClose}
+        aria-label="Close enlarged video"
+      />
+      <motion.div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="video-lightbox-title"
+        className="relative z-10 flex max-h-[min(95vh,1080px)] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-white/25 bg-white shadow-[0_24px_80px_-24px_rgba(30,42,58,0.55)]"
+        {...dialogMotion}
+      >
+        <div className="relative shrink-0 border-b border-[#e8e4dc] px-4 py-3 sm:px-5 sm:py-4">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-gray">
+            Video Gallery
+          </p>
+          <h2
+            id="video-lightbox-title"
+            className="mt-1 font-heading text-lg font-bold text-charcoal sm:text-xl"
+          >
+            {item.title}
+          </h2>
+          {item.caption ? (
+            <p className="mt-2 max-w-2xl pr-10 text-sm leading-relaxed text-muted-gray">
+              {item.caption}
+            </p>
+          ) : null}
+          <button
+            type="button"
+            onClick={onClose}
+            className="absolute right-3 top-3 rounded-full border border-[#e8e4dc] bg-white p-2 text-charcoal transition-colors hover:border-teal/25 hover:bg-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-deep/35 focus-visible:ring-offset-2 sm:right-4 sm:top-4"
+            aria-label="Close"
+          >
+            <svg
+              className="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              aria-hidden
+            >
+              <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+            </svg>
+          </button>
+        </div>
+        <div className="relative bg-charcoal/5 p-4 sm:p-6">
+          <div className="mx-auto aspect-[9/16] max-h-[78vh] max-w-[min(92vw,420px)] overflow-hidden rounded-xl bg-[#1e2a3a] shadow-sm">
+            <iframe
+              className="h-full w-full"
+              src={item.embedSrc}
+              title={item.embedTitle ?? item.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+        </div>
+        <p className="shrink-0 border-t border-[#e8e4dc] bg-cream/40 px-4 py-2.5 text-center text-xs text-muted-gray">
+          Use the video controls for fullscreen, or press Esc to close.
+        </p>
+      </motion.div>
+    </>
+  );
+}
+
 export function GalleryPageClient({
   items,
   miscItems = [],
@@ -445,6 +564,8 @@ export function GalleryPageClient({
   const [lightboxItem, setLightboxItem] = useState<GalleryItem | null>(null);
   const [miscLightboxItem, setMiscLightboxItem] =
     useState<MiscGalleryItem | null>(null);
+  const [videoLightboxItem, setVideoLightboxItem] =
+    useState<VideoGalleryItem | null>(null);
 
   const visible = useMemo(() => {
     if (filter === "all") return items;
@@ -453,6 +574,7 @@ export function GalleryPageClient({
 
   const closeLightbox = useCallback(() => setLightboxItem(null), []);
   const closeMiscLightbox = useCallback(() => setMiscLightboxItem(null), []);
+  const closeVideoLightbox = useCallback(() => setVideoLightboxItem(null), []);
 
   return (
     <div className="space-y-8 sm:space-y-10">
@@ -655,14 +777,7 @@ export function GalleryPageClient({
         </div>
 
         <div className="grid gap-5 sm:grid-cols-3">
-          {[
-            { title: "Before & after clips" },
-            {
-              title: "Cleaning walkthroughs",
-              embedSrc: "https://www.youtube.com/embed/b2k2F55AwhI",
-            },
-            { title: "Project highlights" },
-          ].map((video) => (
+          {videoGalleryItems.map((video) => (
             <div
               key={video.title}
               className="flex min-h-[180px] flex-col items-center justify-center rounded-2xl border border-dashed border-[#d4d0c8] bg-white/80 p-6 text-center shadow-[0_18px_45px_-32px_rgba(30,42,58,0.38)]"
@@ -698,6 +813,20 @@ export function GalleryPageClient({
               <h3 className="font-heading text-lg font-bold text-[#1e2a3a]">
                 {video.title}
               </h3>
+              {video.caption ? (
+                <p className="mt-2 text-sm leading-relaxed text-muted-gray">
+                  {video.caption}
+                </p>
+              ) : null}
+              {video.embedSrc ? (
+                <button
+                  type="button"
+                  onClick={() => setVideoLightboxItem(video)}
+                  className="mt-3 rounded-full border border-[#1e2a3a]/15 bg-white px-4 py-2 text-sm font-semibold text-[#1e2a3a] transition-colors hover:border-teal/30 hover:bg-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e2a3a]/30 focus-visible:ring-offset-2"
+                >
+                  Enlarge video
+                </button>
+              ) : null}
             </div>
           ))}
         </div>
@@ -734,6 +863,22 @@ export function GalleryPageClient({
                   <MiscGalleryLightboxPanel
                     item={miscLightboxItem}
                     onClose={closeMiscLightbox}
+                    reduced={reduced}
+                  />
+                </motion.div>
+              ) : null}
+              {videoLightboxItem ? (
+                <motion.div
+                  key={videoLightboxItem.title}
+                  className="fixed inset-0 z-[120] flex items-center justify-center p-4 sm:p-8"
+                  initial={reduced ? undefined : { opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={reduced ? undefined : { opacity: 0 }}
+                  transition={{ duration: reduced ? 0 : 0.22 }}
+                >
+                  <VideoLightboxPanel
+                    item={videoLightboxItem}
+                    onClose={closeVideoLightbox}
                     reduced={reduced}
                   />
                 </motion.div>
