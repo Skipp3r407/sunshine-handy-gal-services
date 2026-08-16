@@ -14,6 +14,7 @@ import {
   galleryFilters,
   type GalleryFilterId,
   type GalleryItem,
+  type MiscGalleryItem,
 } from "@/lib/gallery-data";
 
 /** Dark navy + sage — gallery-specific accents */
@@ -212,6 +213,102 @@ function GalleryLightboxPanel({
   );
 }
 
+function MiscGalleryLightboxPanel({
+  item,
+  onClose,
+  reduced,
+}: {
+  item: MiscGalleryItem;
+  onClose: () => void;
+  reduced: boolean | null;
+}) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, []);
+
+  const dialogMotion = reduced
+    ? {}
+    : {
+        initial: { opacity: 0, scale: 0.94, y: 16 },
+        animate: { opacity: 1, scale: 1, y: 0 },
+        transition: { type: "spring" as const, stiffness: 380, damping: 28 },
+      };
+
+  return (
+    <>
+      <button
+        type="button"
+        className="absolute inset-0 bg-charcoal/72 backdrop-blur-[3px]"
+        onClick={onClose}
+        aria-label="Close enlarged view"
+      />
+      <motion.div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="misc-gallery-lightbox-title"
+        className="relative z-10 flex max-h-[min(95vh,1080px)] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-white/25 bg-white shadow-[0_24px_80px_-24px_rgba(30,42,58,0.55)]"
+        {...dialogMotion}
+      >
+        <div className="relative shrink-0 border-b border-[#e8e4dc] px-4 py-3 sm:px-5 sm:py-4">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-gray">
+            Misc Gallery
+          </p>
+          <h2
+            id="misc-gallery-lightbox-title"
+            className="mt-1 font-heading text-lg font-bold text-charcoal sm:text-xl"
+          >
+            {item.title}
+          </h2>
+          <p className="mt-2 max-w-2xl pr-10 text-sm leading-relaxed text-muted-gray">
+            {item.description}
+          </p>
+          <button
+            type="button"
+            onClick={onClose}
+            className="absolute right-3 top-3 rounded-full border border-[#e8e4dc] bg-white p-2 text-charcoal transition-colors hover:border-teal/25 hover:bg-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-deep/35 focus-visible:ring-offset-2 sm:right-4 sm:top-4"
+            aria-label="Close"
+          >
+            <svg
+              className="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              aria-hidden
+            >
+              <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+            </svg>
+          </button>
+        </div>
+        <div className="relative min-h-[360px] flex-1 overflow-hidden bg-charcoal/5 sm:min-h-[540px] lg:min-h-[680px]">
+          <Image
+            src={item.imageSrc}
+            alt={item.imageAlt}
+            fill
+            className="object-contain"
+            sizes="(max-width: 768px) 92vw, 80vw"
+          />
+        </div>
+        <p className="shrink-0 border-t border-[#e8e4dc] bg-cream/40 px-4 py-2.5 text-center text-xs text-muted-gray">
+          Tap outside or press Esc to close.
+        </p>
+      </motion.div>
+    </>
+  );
+}
+
 function GalleryCard({
   item,
   onOpen,
@@ -269,10 +366,85 @@ function GalleryCard({
   );
 }
 
-export function GalleryPageClient({ items }: { items: GalleryItem[] }) {
+function MiscGalleryCard({
+  item,
+  onOpen,
+  reduced,
+}: {
+  item: MiscGalleryItem;
+  onOpen: (item: MiscGalleryItem) => void;
+  reduced: boolean | null;
+}) {
+  const handleOpen = useCallback(() => onOpen(item), [item, onOpen]);
+
+  return (
+    <motion.article
+      layout={!reduced}
+      className={cn(
+        "group flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-[#e8e4dc] bg-white shadow-[0_12px_40px_-28px_rgba(30,42,58,0.35)] transition-[box-shadow,transform] duration-300",
+        "hover:-translate-y-1 hover:border-teal/15 hover:shadow-[0_22px_48px_-26px_rgba(12,125,150,0.35)]",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-deep/40 focus-visible:ring-offset-2",
+      )}
+      tabIndex={0}
+      role="button"
+      aria-label={`Open larger view: ${item.title}`}
+      onClick={handleOpen}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleOpen();
+        }
+      }}
+      whileTap={reduced ? undefined : { scale: 0.992 }}
+    >
+      <div className="relative aspect-[10/7] w-full overflow-hidden sm:aspect-auto sm:min-h-[260px]">
+        <Image
+          src={item.imageSrc}
+          alt={item.imageAlt}
+          fill
+          className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+          sizes="(max-width: 768px) 92vw, 32vw"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/[0.14] via-transparent to-transparent" />
+        <span
+          className={cn(
+            "absolute bottom-3 left-3 z-10 rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-white shadow-sm",
+            navy,
+          )}
+        >
+          Misc
+        </span>
+      </div>
+      <div className="flex flex-1 flex-col justify-center bg-white px-4 py-4 sm:px-5 sm:py-5">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-gray sm:text-xs">
+          Misc Gallery
+        </p>
+        <h3 className="mt-1.5 font-heading text-base font-bold leading-snug text-charcoal transition-colors duration-200 group-hover:text-teal-deep sm:text-lg">
+          {item.title}
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed text-muted-gray">
+          {item.description}
+        </p>
+        <p className="mt-2 text-xs font-medium text-teal-deep/90 opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100">
+          Click to enlarge
+        </p>
+      </div>
+    </motion.article>
+  );
+}
+
+export function GalleryPageClient({
+  items,
+  miscItems = [],
+}: {
+  items: GalleryItem[];
+  miscItems?: MiscGalleryItem[];
+}) {
   const reduced = useReducedMotion();
   const [filter, setFilter] = useState<GalleryFilterId>("all");
   const [lightboxItem, setLightboxItem] = useState<GalleryItem | null>(null);
+  const [miscLightboxItem, setMiscLightboxItem] =
+    useState<MiscGalleryItem | null>(null);
 
   const visible = useMemo(() => {
     if (filter === "all") return items;
@@ -280,6 +452,7 @@ export function GalleryPageClient({ items }: { items: GalleryItem[] }) {
   }, [filter, items]);
 
   const closeLightbox = useCallback(() => setLightboxItem(null), []);
+  const closeMiscLightbox = useCallback(() => setMiscLightboxItem(null), []);
 
   return (
     <div className="space-y-8 sm:space-y-10">
@@ -417,6 +590,107 @@ export function GalleryPageClient({ items }: { items: GalleryItem[] }) {
         </motion.p>
       ) : null}
 
+      {miscItems.length > 0 ? (
+        <motion.section
+          className="border-t border-[#e8e4dc] pt-8 sm:pt-10"
+          initial={reduced ? undefined : { opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: reduced ? 0 : 0.08 }}
+        >
+          <div className="mb-5 space-y-2 text-center sm:text-left">
+            <p
+              className={cn(
+                "text-[11px] font-semibold uppercase tracking-[0.2em] sm:text-xs",
+                navyText,
+              )}
+            >
+              Misc Gallery
+            </p>
+            <h2 className="font-heading text-2xl font-bold leading-tight text-[#1e2a3a] sm:text-3xl">
+              More Project Photos
+            </h2>
+            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-muted-gray sm:mx-0 sm:text-base">
+              Additional project moments that do not need a before-and-after
+              comparison, but still show the care SunShines Handy Gal brings to
+              each visit.
+            </p>
+          </div>
+
+          <ul className="grid list-none gap-6 sm:gap-8 lg:grid-cols-3">
+            {miscItems.map((item) => (
+              <li key={item.id}>
+                <MiscGalleryCard
+                  item={item}
+                  onOpen={setMiscLightboxItem}
+                  reduced={reduced}
+                />
+              </li>
+            ))}
+          </ul>
+        </motion.section>
+      ) : null}
+
+      <motion.section
+        className="border-t border-[#e8e4dc] pt-8 sm:pt-10"
+        initial={reduced ? undefined : { opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: reduced ? 0 : 0.1 }}
+      >
+        <div className="mb-5 space-y-2 text-center sm:text-left">
+          <p
+            className={cn(
+              "text-[11px] font-semibold uppercase tracking-[0.2em] sm:text-xs",
+              navyText,
+            )}
+          >
+            Video Gallery
+          </p>
+          <h2 className="font-heading text-2xl font-bold leading-tight text-[#1e2a3a] sm:text-3xl">
+            Project Videos Coming Soon
+          </h2>
+          <p className="mx-auto max-w-2xl text-sm leading-relaxed text-muted-gray sm:mx-0 sm:text-base">
+            This space is ready for future cleaning walkthroughs, before-and-after
+            clips, and behind-the-scenes project videos from SunShines Handy Gal.
+          </p>
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-3">
+          {[
+            "Before & after clips",
+            "Cleaning walkthroughs",
+            "Project highlights",
+          ].map((title) => (
+            <div
+              key={title}
+              className="flex min-h-[180px] flex-col items-center justify-center rounded-2xl border border-dashed border-[#d4d0c8] bg-white/80 p-6 text-center shadow-[0_18px_45px_-32px_rgba(30,42,58,0.38)]"
+            >
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#1e2a3a] text-white shadow-sm">
+                <svg
+                  className="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  aria-hidden
+                >
+                  <path
+                    d="M8 5v14l11-7z"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              <h3 className="font-heading text-lg font-bold text-[#1e2a3a]">
+                {title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-gray">
+                Add video footage here when new SunShines project clips are ready.
+              </p>
+            </div>
+          ))}
+        </div>
+      </motion.section>
+
       {typeof document !== "undefined"
         ? createPortal(
             <AnimatePresence>
@@ -432,6 +706,22 @@ export function GalleryPageClient({ items }: { items: GalleryItem[] }) {
                   <GalleryLightboxPanel
                     item={lightboxItem}
                     onClose={closeLightbox}
+                    reduced={reduced}
+                  />
+                </motion.div>
+              ) : null}
+              {miscLightboxItem ? (
+                <motion.div
+                  key={miscLightboxItem.id}
+                  className="fixed inset-0 z-[120] flex items-center justify-center p-4 sm:p-8"
+                  initial={reduced ? undefined : { opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={reduced ? undefined : { opacity: 0 }}
+                  transition={{ duration: reduced ? 0 : 0.22 }}
+                >
+                  <MiscGalleryLightboxPanel
+                    item={miscLightboxItem}
+                    onClose={closeMiscLightbox}
                     reduced={reduced}
                   />
                 </motion.div>

@@ -27,6 +27,14 @@ export type GalleryItem = {
   afterSrc?: string;
 };
 
+export type MiscGalleryItem = {
+  id: string;
+  title: string;
+  description: string;
+  imageSrc: string;
+  imageAlt: string;
+};
+
 export const galleryItems: GalleryItem[] = [
   {
     id: "1",
@@ -237,5 +245,83 @@ export const galleryItems: GalleryItem[] = [
       "SunShines Handy Gal cleaned the sink basin, faucet handles, counter surface, mirror edge, and vanity buildup to reveal a smoother, brighter finish.",
     beforeSrc: "/images/gallery/beforesink724.jpg",
     afterSrc: "/images/gallery/aftgersink724.jpg",
+  },
+  {
+    id: "22",
+    category: "kitchen",
+    categoryLabel: "Kitchen",
+    title: "Oven Interior Grease Reset",
+    description:
+      "SunShines Handy Gal detailed the oven interior, racks, door glass, and baked-on grease so the appliance looked cleaner, brighter, and ready to use again.",
+    beforeSrc: "/images/gallery/beforeoven816.png",
+    afterSrc: "/images/gallery/afteroven816.png",
+  },
+  {
+    id: "23",
+    category: "living-space",
+    categoryLabel: "Living Space",
+    title: "Floor Spot and Scuff Refresh",
+    description:
+      "SunShines Handy Gal carefully treated the floor spots, lifted visible marks, and refreshed the walkway so the wood finish looked cleaner, smoother, and cared for.",
+    beforeSrc: "/images/gallery/beforefloor816.jpg",
+    afterSrc: "/images/gallery/afterfloor816.jpg",
+  },
+  {
+    id: "24",
+    category: "bathroom",
+    categoryLabel: "Bathroom",
+    title: "Shower Tile and Floor Detail",
+    description:
+      "SunShines Handy Gal focused on the shower tile, grout lines, pebble floor, drain area, and fixtures to help lift buildup and bring the bathroom back to a fresher, more cared-for finish.",
+    beforeSrc: "/images/gallery/beforebathroom816.jpg",
+    afterSrc: "/images/gallery/afterbathroom816.jpg",
+  },
+];
+
+export const miscGalleryItems: MiscGalleryItem[] = [
+  {
+    id: "misc-816",
+    title: "Ready for the Next Detailed Clean",
+    description:
+      "SunShines Handy Gal brings organized tools, supplies, and care to every project so each home gets the attention it deserves.",
+    imageSrc: "/images/gallery/misc816.jpg",
+    imageAlt:
+      "Cleaning supplies and tools organized on a tile floor before a detailed cleaning project",
+  },
+  {
+    id: "bathroom-misc-816",
+    title: "Bathroom Detail and Shine",
+    description:
+      "SunShines Handy Gal gave this bathroom thoughtful detail work across the shower glass, tile, fixtures, and floor so the space felt cleaner, brighter, and cared for.",
+    imageSrc: "/images/gallery/bathroommisc816.jpg",
+    imageAlt:
+      "Clean bathroom with glass shower, tile walls, pebble floor, and toilet after detailed cleaning",
+  },
+  {
+    id: "bathroom-2-misc-816",
+    title: "Shower Tile Detail View",
+    description:
+      "SunShines Handy Gal paid close attention to the shower walls, fixture area, pebble floor, and drain so the finished space showed the extra care behind the clean.",
+    imageSrc: "/images/gallery/bathroom2misc816.jpg",
+    imageAlt:
+      "Detailed view of a cleaned tile shower with pebble floor and shower fixture",
+  },
+  {
+    id: "floor-misc-816",
+    title: "Bathroom Floor Detail",
+    description:
+      "SunShines Handy Gal cleaned around the pebble floor, toilet base, trim, and tight bathroom edges to show the kind of detail work that makes the whole space feel refreshed.",
+    imageSrc: "/images/gallery/floormisc816.jpg",
+    imageAlt:
+      "Bathroom pebble floor and toilet area after detail cleaning around edges and trim",
+  },
+  {
+    id: "bathroom-view-misc-816",
+    title: "Full Bathroom Finishing Touches",
+    description:
+      "SunShines Handy Gal brought careful attention to the full bathroom, from the shower glass and tile to the toilet area, trim, and walkways, leaving the space looking more polished and cared for.",
+    imageSrc: "/images/gallery/miscbathroomview816.jpg",
+    imageAlt:
+      "Wide view of a bathroom with glass shower, toilet, trim, and cleaned floor area",
   },
 ];

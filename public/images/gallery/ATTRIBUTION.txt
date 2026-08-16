@@ -21,3 +21,11 @@ roombefore724.jpg / roomafter724.jpg
 fridgebefore724.jpg / fridgeafter724.jpg
 overbefore724.jpg / overafter724.jpg
 beforesink724.jpg / aftgersink724.jpg
+misc816.jpg
+beforeoven816.png / afteroven816.png
+beforefloor816.jpg / afterfloor816.jpg
+bathroommisc816.jpg
+beforebathroom816.jpg / afterbathroom816.jpg
+bathroom2misc816.jpg
+floormisc816.jpg
+miscbathroomview816.jpg
