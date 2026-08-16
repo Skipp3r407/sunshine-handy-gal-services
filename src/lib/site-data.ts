@@ -622,6 +622,11 @@ export const faqItems = [
       "You can call, text, email, or submit the contact form with your service needs and preferred date. We respond quickly with next steps and availability.",
   },
   {
+    question: "How can I pay for my cleaning?",
+    answer:
+      "You can pay with Zelle, PayPal, or Cash App. After booking, we send a private payment link with the current details. Please include your name or invoice number in the payment note.",
+  },
+  {
     question: "How much do services cost?",
     answer:
       "Every home is different, so pricing is customized based on your needs. Please call or text for a personalized quote.",

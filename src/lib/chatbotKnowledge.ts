@@ -101,6 +101,10 @@ export const PRESET_RESPONSES: Record<
     text: `You can reach us at ${businessInfo.phoneDisplay} — call or text anytime for a friendly, personalized quote.`,
     quickReplies: ["Get a Quote", "Pricing", "Services"],
   },
+  payment: {
+    text: "You can pay with Zelle, PayPal, or Cash App. After booking, we send a private payment link with the current details. Please include your name or invoice number in the note.",
+    quickReplies: ["Get a Quote", "Call / Text", "Services"],
+  },
   testimonials: {
     text: "Local clients often share that we're responsive, professional, thorough, and thoughtful — from deep cleans to move-out help and special touches. See more on our Testimonials page!",
     quickReplies: ["Get a Quote", "Services", "Pricing"],

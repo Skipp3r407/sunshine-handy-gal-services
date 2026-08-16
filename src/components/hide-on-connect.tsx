@@ -3,10 +3,12 @@
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 
+const hideChromePaths = new Set(["/connect", "/pay"]);
+
 export function HideOnConnect({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
-  if (pathname === "/connect") return null;
+  if (hideChromePaths.has(pathname)) return null;
 
   return <>{children}</>;
 }
