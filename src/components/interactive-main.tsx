@@ -68,7 +68,7 @@ function createSprayDroplets(burstId: number, aimRad: number): Droplet[] {
 export function InteractiveMain({ children, className }: InteractiveMainProps) {
   const mainRef = useRef<HTMLElement>(null);
   const pathname = usePathname();
-  const hideScrollBar = pathname === "/connect";
+  const hideScrollBar = pathname === "/connect" || pathname === "/pay";
   const reduced = useReducedMotion();
   const rafRef = useRef<number | undefined>(undefined);
   const lastPointerRef = useRef<{ x: number; y: number } | null>(null);
