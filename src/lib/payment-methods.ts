@@ -4,7 +4,7 @@ import { businessInfo } from "@/lib/site-data";
  * Client payment options — edit this file when accounts change
  * (for example after a business bank account is set up).
  *
- * Zelle and PayPal.me are live. Add a Cash App $cashtag when ready.
+ * Zelle, PayPal.me, and Cash App are live.
  * Send clients: https://www.sunshineshandygal.com/pay
  */
 export const paymentPagePath = "/pay";
@@ -27,11 +27,9 @@ export const paymentInfo = {
     qrSrc: "/images/qr/paypal-qr.png",
   },
   cashApp: {
-    /**
-     * Cash App $cashtag without the $. Example: "SunshineHandyGal"
-     * Leave empty to show the business phone instead.
-     */
-    cashtag: "",
+    cashtag: "sunshine4u86",
+    href: "https://cash.app/$sunshine4u86",
+    qrSrc: "/images/qr/cashapp-qr.png",
   },
 } as const;
 
@@ -63,6 +61,7 @@ function paypalHref() {
 }
 
 function cashAppHref() {
+  if (paymentInfo.cashApp.href) return paymentInfo.cashApp.href;
   const tag = paymentInfo.cashApp.cashtag.trim().replace(/^\$/, "");
   if (tag) return `https://cash.app/$${encodeURIComponent(tag)}`;
   return "https://cash.app/";
@@ -123,6 +122,8 @@ export const paymentMethods: PaymentMethod[] = [
     detailValue: cashAppDetail(),
     href: cashAppHref(),
     hrefLabel: "Open Cash App",
+    qrSrc: paymentInfo.cashApp.qrSrc,
+    qrAlt: `Cash App QR code for $${paymentInfo.cashApp.cashtag}`,
     accent: "#00c244",
     soft: "#e9fbf0",
     buttonClass: "bg-[#00c244] hover:bg-[#00a83a] text-white",
