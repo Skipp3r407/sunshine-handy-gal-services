@@ -11,14 +11,14 @@ const legalBusinessName = "Sunshine's Handy Gal Services LLC";
 export const metadata: Metadata = {
   title: "Sunshine's Handy Gal Services LLC | Connect With Us",
   description:
-    "Connect with Sunshine's Handy Gal Services LLC to request a free quote, pay with Zelle, call, text, email, visit the website, or open official review and social links.",
+    "Connect with Sunshine's Handy Gal Services LLC to request a free quote, pay an invoice, call, text, email, visit the website, or open official review and social links.",
   alternates: {
     canonical: "https://sunshineshandygal.com/connect",
   },
   openGraph: {
     title: "Sunshine's Handy Gal Services LLC | Connect With Us",
     description:
-      "Official digital business card and contact hub for Sunshine's Handy Gal Services LLC, including Pay with Zelle.",
+      "Official digital business card and contact hub for Sunshine's Handy Gal Services LLC, including invoice payment.",
     url: "https://sunshineshandygal.com/connect",
     siteName: businessInfo.name,
     type: "website",

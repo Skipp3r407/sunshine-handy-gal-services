@@ -1,3 +1,4 @@
+import { paymentPagePath } from "@/lib/payment-methods";
 import { businessInfo, socialLinks } from "@/lib/site-data";
 
 export const connectQrUrl = "https://sunshineshandygal.com/connect";
@@ -11,9 +12,7 @@ export type ConnectLinkIcon =
   | "facebook"
   | "map"
   | "star"
-  | "zelle"
-  | "copy"
-  | "check"
+  | "pay"
   | "external";
 
 export type ConnectLink = {
@@ -25,7 +24,6 @@ export type ConnectLink = {
   enabled: boolean;
   order: number;
   external?: boolean;
-  copyValue?: string;
   ariaLabel: string;
   analyticsEvent: string;
   note?: string;
@@ -89,16 +87,15 @@ export const connectLinks: ConnectLink[] = [
     analyticsEvent: "connect_email_click",
   },
   {
-    id: "zelle",
-    label: "Pay with Zelle",
-    href: "",
-    icon: "zelle",
+    id: "pay",
+    label: "Pay Your Invoice",
+    href: paymentPagePath,
+    icon: "pay",
     type: "payment",
     enabled: true,
     order: 55,
-    copyValue: businessInfo.zelleValue,
-    ariaLabel: `Copy the Zelle number ${businessInfo.zelleDisplay} for Sunshine's Handy Gal Services`,
-    analyticsEvent: "connect_zelle_click",
+    ariaLabel: "Open the Sunshine's Handy Gal Services payment page",
+    analyticsEvent: "connect_pay_click",
   },
   {
     id: "facebook",

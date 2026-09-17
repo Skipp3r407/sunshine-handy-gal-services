@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
 import {
   enabledConnectLinks,
@@ -75,24 +72,11 @@ function ConnectIcon({ icon }: { icon: ConnectLinkIcon }) {
           <path d="M12 3l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.8 1-6.1-4.4-4.3 6.1-.9L12 3z" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       );
-    case "zelle":
+    case "pay":
       return (
         <svg {...iconProps}>
-          <rect x="4" y="4" width="16" height="16" rx="4" />
-          <path d="M8.5 8.5h7L8.5 15.5h7" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      );
-    case "copy":
-      return (
-        <svg {...iconProps}>
-          <rect x="9" y="9" width="10" height="10" rx="2" />
-          <path d="M5 15V7a2 2 0 0 1 2-2h8" strokeLinecap="round" />
-        </svg>
-      );
-    case "check":
-      return (
-        <svg {...iconProps}>
-          <path d="M5 12.5l4.2 4.2L19 7.5" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="12" cy="12" r="8" />
+          <path d="M12 7v10M15.2 9.2c0-1.2-1.4-2.2-3.2-2.2S8.8 8 8.8 9.2 10.2 11.2 12 11.5s3.2.9 3.2 2.3-1.4 2.2-3.2 2.2-3.2-1-3.2-2.2" strokeLinecap="round" />
         </svg>
       );
     default:
@@ -156,9 +140,9 @@ function ConnectButtonContent({
   );
 }
 
-function linkDetail(link: ConnectLink, copied: boolean) {
-  if (link.id === "zelle") {
-    return copied ? "Zelle number copied" : businessInfo.zelleDisplay;
+function linkDetail(link: ConnectLink) {
+  if (link.id === "pay") {
+    return "Zelle, PayPal, or Cash App";
   }
   if (link.id === "call" || link.id === "text") {
     return businessInfo.phoneDisplay;
@@ -169,50 +153,12 @@ function linkDetail(link: ConnectLink, copied: boolean) {
   return undefined;
 }
 
-function CopyConnectButton({ link }: { link: ConnectLink }) {
-  const [copied, setCopied] = useState(false);
-
-  async function handleClick() {
-    const value = link.copyValue;
-    if (!value) return;
-
-    try {
-      await navigator.clipboard.writeText(value);
-    } catch {
-      window.prompt("Copy this Zelle number", value);
-    }
-
-    setCopied(true);
-    window.setTimeout(() => setCopied(false), 2200);
-  }
-
-  return (
-    <button
-      type="button"
-      onClick={handleClick}
-      aria-label={copied ? "Zelle number copied" : link.ariaLabel}
-      data-analytics-event={link.analyticsEvent}
-      className={connectButtonClass(link)}
-    >
-      <ConnectButtonContent
-        link={link}
-        trailingIcon={copied ? "check" : "copy"}
-        detail={linkDetail(link, copied)}
-      />
-    </button>
-  );
-}
-
 function ConnectButton({ link }: { link: ConnectLink }) {
-  if (link.copyValue) {
-    return <CopyConnectButton link={link} />;
-  }
-
   const content = (
     <ConnectButtonContent
       link={link}
       trailingIcon={link.external ? "external" : "sparkles"}
-      detail={linkDetail(link, false)}
+      detail={linkDetail(link)}
     />
   );
 
