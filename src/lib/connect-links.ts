@@ -11,6 +11,9 @@ export type ConnectLinkIcon =
   | "facebook"
   | "map"
   | "star"
+  | "zelle"
+  | "copy"
+  | "check"
   | "external";
 
 export type ConnectLink = {
@@ -18,10 +21,11 @@ export type ConnectLink = {
   label: string;
   href: string;
   icon: ConnectLinkIcon;
-  type: "primary" | "website" | "contact" | "social" | "review";
+  type: "primary" | "website" | "contact" | "social" | "review" | "payment";
   enabled: boolean;
   order: number;
   external?: boolean;
+  copyValue?: string;
   ariaLabel: string;
   analyticsEvent: string;
   note?: string;
@@ -83,6 +87,18 @@ export const connectLinks: ConnectLink[] = [
     order: 50,
     ariaLabel: `Email Sunshine's Handy Gal Services at ${businessInfo.email}`,
     analyticsEvent: "connect_email_click",
+  },
+  {
+    id: "zelle",
+    label: "Pay with Zelle",
+    href: "",
+    icon: "zelle",
+    type: "payment",
+    enabled: true,
+    order: 55,
+    copyValue: businessInfo.zelleValue,
+    ariaLabel: `Copy the Zelle number ${businessInfo.zelleDisplay} for Sunshine's Handy Gal Services`,
+    analyticsEvent: "connect_zelle_click",
   },
   {
     id: "facebook",

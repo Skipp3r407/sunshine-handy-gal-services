@@ -7,6 +7,9 @@ export const businessInfo = {
   textHref: "sms:+13213396686",
   email: "sunshineshandygalservices@gmail.com",
   emailHref: "mailto:sunshineshandygalservices@gmail.com",
+  /** Zelle send-to number shown on /connect. */
+  zelleDisplay: "(321) 339-6686",
+  zelleValue: "3213396686",
   location: "Orlando, Florida",
   serviceAreaSummary:
     "Orlando, Lake Nona, Winter Park, Lake Mary, St. Cloud, and nearby Central Florida communities",
@@ -416,6 +419,38 @@ const uniqueTestimonialsByReviewerAndQuote = (items: Testimonial[]) => {
 
 export const testimonials = uniqueTestimonialsByReviewerAndQuote([
   /** Quotes sourced from local customer recommendations and reviews. */
+  {
+    name: "D. D.",
+    location: "Casselberry, FL",
+    date: "11 Sep",
+    source: "Facebook recommendation",
+    quote:
+      "I'm really happy with the quality of the work. They were professional, responsible and provided great value which stood out to me. The most was the amazing customer service and how well they treated me throughout the whole process. I would definitely recommend them.",
+  },
+  {
+    name: "A. P.",
+    location: "Orlando, FL",
+    date: "11 Sep",
+    source: "Facebook recommendation",
+    quote:
+      "Such a reliable and affordable cleaning service. Definitely worth the price and she's so family friendly!!",
+  },
+  {
+    name: "J. S.",
+    location: "Orlando, FL",
+    date: "11 Sep",
+    source: "Facebook recommendation",
+    quote:
+      "Sunshine's Handy Gal Services is by far the best and does an amazing job. All staff are very friendly and professional.",
+  },
+  {
+    name: "J. K.",
+    location: "New Smyrna Beach, FL",
+    date: "16 Aug",
+    source: "Facebook recommendation",
+    quote:
+      "Sheena did a great job on the move out clean of my rental house. She provided great communication and before/after pictures throughout. I would recommend her services to anyone and would definitely call her again. Great job!",
+  },
   {
     name: "Kelly Ann",
     date: "26 Jul",
