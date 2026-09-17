@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { StaggerGrid } from "@/components/motion/stagger-grid";
 import { TestimonialCard } from "@/components/testimonial-card";
-import { formatTestimonialDate, type Testimonial } from "@/lib/site-data";
+import type { Testimonial } from "@/lib/site-data";
 
 const getStars = (rating: number) => "★".repeat(Math.max(0, Math.min(5, Math.round(rating))));
 
@@ -120,9 +120,9 @@ export function TestimonialsExpandableSection({ items }: TestimonialsExpandableS
                 <p id={dialogTitleId} className="mt-6 text-base font-semibold text-charcoal sm:text-lg">
                   {open.name}
                 </p>
-                {[open.location, formatTestimonialDate(open)].filter(Boolean).length ? (
+                {[open.location, open.date].filter(Boolean).length ? (
                   <p className="mt-1 text-sm leading-6 text-muted-gray">
-                    {[open.location, formatTestimonialDate(open)].filter(Boolean).join(" • ")}
+                    {[open.location, open.date].filter(Boolean).join(" • ")}
                   </p>
                 ) : null}
               </div>
@@ -146,7 +146,6 @@ export function TestimonialsExpandableSection({ items }: TestimonialsExpandableS
             quote={item.quote}
             location={item.location}
             date={item.date}
-            postedAt={item.postedAt}
             rating={item.rating}
             source={item.source}
             onActivate={() => setOpen(item)}
