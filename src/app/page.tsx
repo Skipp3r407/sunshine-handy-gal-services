@@ -159,6 +159,7 @@ export default function Home() {
               quote={testimonial.quote}
               location={testimonial.location}
               date={testimonial.date}
+              postedAt={testimonial.postedAt}
               rating={testimonial.rating}
               source={testimonial.source}
             />

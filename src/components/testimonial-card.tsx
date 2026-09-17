@@ -2,12 +2,14 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { subtleLiftHover } from "@/lib/motion-variants";
+import { formatTestimonialDate } from "@/lib/site-data";
 
 type TestimonialCardProps = {
   name: string;
   quote: string;
   location?: string;
   date?: string;
+  postedAt?: string;
   rating?: number;
   source?: string;
   /** Opens enlarged view (e.g. testimonials page zoom). */
@@ -42,13 +44,14 @@ export function TestimonialCard({
   quote,
   location,
   date,
+  postedAt,
   rating,
   source,
   onActivate,
 }: TestimonialCardProps) {
   const reduced = useReducedMotion();
   const interactive = Boolean(onActivate);
-  const details = [location, date].filter(Boolean).join(" • ");
+  const details = [location, formatTestimonialDate({ date, postedAt })].filter(Boolean).join(" • ");
   const sourceLabel = source ? source.replace(/^Facebook /, "") : null;
 
   return (

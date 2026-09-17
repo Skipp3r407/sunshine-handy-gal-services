@@ -394,9 +394,48 @@ export type Testimonial = {
   quote: string;
   location?: string;
   date?: string;
+  /** ISO calendar date (`YYYY-MM-DD`) used to match Nextdoor/Facebook date labels. */
+  postedAt?: string;
   rating?: number;
   source?: string;
 };
+
+const SHORT_MONTHS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+] as const;
+
+export function formatPostedAt(isoDate: string, now = new Date()): string {
+  const [year, month, day] = isoDate.split("-").map(Number);
+  const posted = new Date(year, month - 1, day);
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const diffDays = Math.round((today.getTime() - posted.getTime()) / 86_400_000);
+
+  if (diffDays <= 0) return "Today";
+  if (diffDays === 1) return "1 day ago";
+  if (diffDays < 7) return `${diffDays} days ago`;
+
+  const label = `${day} ${SHORT_MONTHS[month - 1]}`;
+  return year === today.getFullYear() ? label : `${label} ${year}`;
+}
+
+export function formatTestimonialDate(
+  item: Pick<Testimonial, "date" | "postedAt">,
+  now = new Date(),
+): string | undefined {
+  if (item.postedAt) return formatPostedAt(item.postedAt, now);
+  return item.date;
+}
 
 const normalizeTestimonialText = (value: string) =>
   value
@@ -422,7 +461,7 @@ export const testimonials = uniqueTestimonialsByReviewerAndQuote([
   {
     name: "D. D.",
     location: "Casselberry, FL",
-    date: "11 Sep",
+    postedAt: "2026-09-11",
     source: "Facebook recommendation",
     quote:
       "I'm really happy with the quality of the work. They were professional, responsible and provided great value which stood out to me. The most was the amazing customer service and how well they treated me throughout the whole process. I would definitely recommend them.",
@@ -430,7 +469,7 @@ export const testimonials = uniqueTestimonialsByReviewerAndQuote([
   {
     name: "A. P.",
     location: "Orlando, FL",
-    date: "11 Sep",
+    postedAt: "2026-09-11",
     source: "Facebook recommendation",
     quote:
       "Such a reliable and affordable cleaning service. Definitely worth the price and she's so family friendly!!",
@@ -438,7 +477,7 @@ export const testimonials = uniqueTestimonialsByReviewerAndQuote([
   {
     name: "J. S.",
     location: "Orlando, FL",
-    date: "11 Sep",
+    postedAt: "2026-09-11",
     source: "Facebook recommendation",
     quote:
       "Sunshine's Handy Gal Services is by far the best and does an amazing job. All staff are very friendly and professional.",
@@ -446,7 +485,7 @@ export const testimonials = uniqueTestimonialsByReviewerAndQuote([
   {
     name: "J. K.",
     location: "New Smyrna Beach, FL",
-    date: "16 Aug",
+    postedAt: "2026-08-16",
     source: "Facebook recommendation",
     quote:
       "Sheena did a great job on the move out clean of my rental house. She provided great communication and before/after pictures throughout. I would recommend her services to anyone and would definitely call her again. Great job!",
