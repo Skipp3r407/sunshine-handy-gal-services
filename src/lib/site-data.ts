@@ -444,6 +444,13 @@ export const testimonials = uniqueTestimonialsByReviewerAndQuote([
       "Sunshine's Handy Gal Services is by far the best and does an amazing job. All staff are very friendly and professional.",
   },
   {
+    name: "Kassandra Rodriguez",
+    date: "25 Aug",
+    source: "Facebook recommendation",
+    quote:
+      "My kitchen was beyond dirty and Sunshine Handy Gal Services came in and did an amazing job transforming it. One less thing for me to clean. I honestly didn't even know where to start had I had to clean it myself.!",
+  },
+  {
     name: "J. K.",
     location: "New Smyrna Beach, FL",
     date: "16 Aug",
