@@ -19,6 +19,8 @@ export const businessInfo = {
   serviceAreaGoogleMapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Orlando%2C%20Florida",
   /**
+   * TODO(Sheena): replace with the real Google Business Profile review link
+   * (Business Profile > "Ask for reviews" / "Get more reviews", looks like https://g.page/r/.../review).
    * Google Business Profile “Get more reviews” URL (recommended).
    * Replace with your direct review link from Google Business; until then this opens Google search for the business.
    */
@@ -76,7 +78,7 @@ export const navLinks = [
 export const trustBadges = [
   "100% Recommended",
   "Women-Owned",
-  "Online Booking Available",
+  "Easy Online Quotes",
   "Serving Orlando & Nearby Areas",
 ];
 
@@ -232,7 +234,7 @@ export const services = [
   {
     title: "Airbnb & Vacation Rental Cleaning",
     description:
-      "Guest-ready turnover cleans between bookings—fresh linens attention, kitchen and bath reset, and quick resets so your listing always feels welcoming.",
+      "Guest-ready turnover cleans between bookings—fresh linens, a kitchen and bath reset, and quick touch-ups so your listing always feels welcoming.",
     benefit:
       "Helps protect your reviews and calendar with reliable, photo-ready results.",
     whoItsFor:
@@ -422,7 +424,7 @@ export const testimonials = uniqueTestimonialsByReviewerAndQuote([
   {
     name: "D. D.",
     location: "Casselberry, FL",
-    date: "11 Sep",
+    date: "11 Sep 2026",
     source: "Facebook recommendation",
     quote:
       "I'm really happy with the quality of the work. They were professional, responsible and provided great value which stood out to me. The most was the amazing customer service and how well they treated me throughout the whole process. I would definitely recommend them.",
@@ -430,7 +432,7 @@ export const testimonials = uniqueTestimonialsByReviewerAndQuote([
   {
     name: "A. P.",
     location: "Orlando, FL",
-    date: "11 Sep",
+    date: "11 Sep 2026",
     source: "Facebook recommendation",
     quote:
       "Such a reliable and affordable cleaning service. Definitely worth the price and she's so family friendly!!",
@@ -438,14 +440,14 @@ export const testimonials = uniqueTestimonialsByReviewerAndQuote([
   {
     name: "J. S.",
     location: "Orlando, FL",
-    date: "11 Sep",
+    date: "11 Sep 2026",
     source: "Facebook recommendation",
     quote:
       "Sunshine's Handy Gal Services is by far the best and does an amazing job. All staff are very friendly and professional.",
   },
   {
     name: "Kassandra Rodriguez",
-    date: "25 Aug",
+    date: "25 Aug 2026",
     source: "Facebook recommendation",
     quote:
       "My kitchen was beyond dirty and Sunshine Handy Gal Services came in and did an amazing job transforming it. One less thing for me to clean. I honestly didn't even know where to start had I had to clean it myself.!",
@@ -453,14 +455,14 @@ export const testimonials = uniqueTestimonialsByReviewerAndQuote([
   {
     name: "J. K.",
     location: "New Smyrna Beach, FL",
-    date: "16 Aug",
+    date: "16 Aug 2026",
     source: "Facebook recommendation",
     quote:
       "Sheena did a great job on the move out clean of my rental house. She provided great communication and before/after pictures throughout. I would recommend her services to anyone and would definitely call her again. Great job!",
   },
   {
     name: "Kelly Ann",
-    date: "26 Jul",
+    date: "26 Jul 2026",
     source: "Facebook recommendation",
     quote:
       "After going through a difficult period of depression and a divorce, I felt completely overwhelmed and unable to get my home back to a place that felt livable. This team stepped in with compassion, professionalism and incredible attention to detail. They didn't just deep clean my house, they helped me reclaim a space I hadn't been able to manage on my own. Every room feels lighter, fresher and genuinely reset. Their work gave me a sense of relief and a fresh start that I didn't realize I needed. I love just walking through my home and seeing the transformation. I'm deeply grateful for their kindness and the quality of the cleaning they put into every part of my home and highly recommend Sunshine Handy Gal Services and Holly's Glow Suds and Scents LLC!!",
@@ -468,7 +470,7 @@ export const testimonials = uniqueTestimonialsByReviewerAndQuote([
   {
     name: "Helen Avalon",
     location: "Willowwood",
-    date: "25 Jun",
+    date: "25 Jun 2026",
     source: "Facebook recommendation",
     quote:
       "Sheena went way above and beyond looking for someone who would be fragrance free to clean my house. Mine was a very unusual request and yet she went to extraordinary lengths to help me. The world is such a beautiful place when there are people like Sheena and her company!",
@@ -476,7 +478,7 @@ export const testimonials = uniqueTestimonialsByReviewerAndQuote([
   {
     name: "Andrew Nemchik",
     location: "Lake Mary, FL",
-    date: "12 May",
+    date: "12 May 2026",
     source: "Facebook recommendation",
     quote:
       "Very professional, efficient and fair priced. Couldn't ask for a better cleaning service.",
@@ -484,7 +486,7 @@ export const testimonials = uniqueTestimonialsByReviewerAndQuote([
   {
     name: "Richard Naraine",
     location: "Pinellas Park, FL",
-    date: "14 Apr",
+    date: "14 Apr 2026",
     rating: 5,
     source: "Facebook review",
     quote:
@@ -493,7 +495,7 @@ export const testimonials = uniqueTestimonialsByReviewerAndQuote([
   {
     name: "Kelvin Hill",
     location: "Windhover",
-    date: "9 Apr",
+    date: "9 Apr 2026",
     source: "Facebook recommendation",
     quote:
       "Great customer service, don't hesitate to contact them.",
@@ -501,7 +503,7 @@ export const testimonials = uniqueTestimonialsByReviewerAndQuote([
   {
     name: "Jeff Zawacki",
     location: "Deer Run East",
-    date: "26 Mar",
+    date: "26 Mar 2026",
     source: "Facebook recommendation",
     quote:
       "Had them do an initial cleaning and did a fantastic and thorough job. Looking forward to continuing to use them for our bi-weekly cleaning.",
@@ -509,7 +511,7 @@ export const testimonials = uniqueTestimonialsByReviewerAndQuote([
   {
     name: "Brandon Randolph",
     location: "Pine Castle",
-    date: "20 Mar",
+    date: "20 Mar 2026",
     source: "Facebook recommendation",
     quote:
       "Best customer service ever...",
@@ -517,7 +519,7 @@ export const testimonials = uniqueTestimonialsByReviewerAndQuote([
   {
     name: "Angel Daniel",
     location: "Minneola, FL",
-    date: "16 Mar",
+    date: "16 Mar 2026",
     source: "Facebook recommendation",
     quote:
       "Sheena and her team were remarkable with their cleaning services! This didn't leave not one spot behind! Highly recommend!",
@@ -525,7 +527,7 @@ export const testimonials = uniqueTestimonialsByReviewerAndQuote([
   {
     name: "Colton Shadron",
     location: "Winter Springs, FL",
-    date: "23 Feb",
+    date: "23 Feb 2026",
     source: "Facebook recommendation",
     quote:
       "The best house cleaner in the area hands down!",
@@ -533,7 +535,7 @@ export const testimonials = uniqueTestimonialsByReviewerAndQuote([
   {
     name: "Julia Schmertzler",
     location: "South Semoran",
-    date: "10 Feb",
+    date: "10 Feb 2026",
     source: "Facebook recommendation",
     quote:
       "Extremely detailed, affordable and does a great job with residential and commercial!",
@@ -541,7 +543,7 @@ export const testimonials = uniqueTestimonialsByReviewerAndQuote([
   {
     name: "Molly Herrera",
     location: "Kaley/Bumby",
-    date: "29 Jan",
+    date: "29 Jan 2026",
     source: "Facebook recommendation",
     quote:
       "Her service is out of this world! She does her job with pride. She lives up to her standards. She has reasonable prices and will work with what your needs are. I definitely recommend her. 🌻 💗",

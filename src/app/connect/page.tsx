@@ -5,6 +5,7 @@ import { ConnectButtons } from "@/components/connect-buttons";
 import { FloatingBubbles } from "@/components/floating-bubbles";
 import { GrowingPopBubbles } from "@/components/growing-pop-bubbles";
 import { businessInfo } from "@/lib/site-data";
+import { absoluteUrl } from "@/lib/site-url";
 
 const legalBusinessName = "Sunshine's Handy Gal Services LLC";
 
@@ -13,18 +14,18 @@ export const metadata: Metadata = {
   description:
     "Connect with Sunshine's Handy Gal Services LLC to request a free quote, pay an invoice, call, text, email, visit the website, or open official review and social links.",
   alternates: {
-    canonical: "https://sunshineshandygal.com/connect",
+    canonical: absoluteUrl("/connect"),
   },
   openGraph: {
     title: "Sunshine's Handy Gal Services LLC | Connect With Us",
     description:
       "Official digital business card and contact hub for Sunshine's Handy Gal Services LLC, including invoice payment.",
-    url: "https://sunshineshandygal.com/connect",
+    url: absoluteUrl("/connect"),
     siteName: businessInfo.name,
     type: "website",
     images: [
       {
-        url: "https://sunshineshandygal.com/images/logo.png",
+        url: absoluteUrl("/images/logo.png"),
         width: 1200,
         height: 630,
         alt: `${businessInfo.name} logo`,

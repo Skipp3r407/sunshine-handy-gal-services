@@ -17,9 +17,9 @@ export default function ContactPage() {
     <div className="space-y-10 sm:space-y-12">
       <Reveal direction="up">
         <header className="mx-auto max-w-2xl text-center">
-          <p className="font-heading text-2xl font-bold leading-snug text-charcoal sm:text-3xl">
+          <h1 className="font-heading text-2xl font-bold leading-snug text-charcoal sm:text-3xl">
             Request a booking
-          </p>
+          </h1>
           <p className="mt-3 text-sm leading-relaxed text-muted-gray sm:text-base">
             Share your details and preferred date—we&apos;ll follow up with personalized options
             for cleaning and organizing in your space.

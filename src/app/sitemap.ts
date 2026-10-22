@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 import { cleaningTipGuides } from "@/lib/cleaning-tips-data";
+import { SITE_URL } from "@/lib/site-url";
 
-const baseUrl = "https://sunshineshandygalservices.com";
+const baseUrl = SITE_URL;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = [

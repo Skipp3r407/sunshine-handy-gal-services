@@ -35,6 +35,7 @@ export function FooterHours() {
                 )}
               >
                 {row.labelShort}
+                <span className="sr-only">: </span>
               </span>
               <span
                 className={cn(

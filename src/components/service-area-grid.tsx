@@ -46,7 +46,7 @@ export function ServiceAreaGrid({ items }: ServiceAreaGridProps) {
             >
               <Image
                 src={area.hoverImageSrc}
-                alt=""
+                alt={area.hoverImageAlt}
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, min(1200px, 100vw)"

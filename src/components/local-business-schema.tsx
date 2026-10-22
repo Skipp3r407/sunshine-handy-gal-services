@@ -1,11 +1,13 @@
 import { businessInfo, serviceAreas } from "@/lib/site-data";
+import { SITE_URL, absoluteUrl } from "@/lib/site-url";
 
 export function LocalBusinessSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "CleaningService",
     name: businessInfo.name,
-    image: "https://sunshineshandygalservices.com/images/logo.png",
+    url: SITE_URL,
+    image: absoluteUrl("/images/logo.png"),
     telephone: "+1-321-339-6686",
     email: businessInfo.email,
     address: {

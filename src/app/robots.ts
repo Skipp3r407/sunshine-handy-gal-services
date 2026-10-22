@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL, absoluteUrl } from "@/lib/site-url";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -14,7 +15,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/pay"],
       },
     ],
-    sitemap: "https://sunshineshandygalservices.com/sitemap.xml",
-    host: "https://sunshineshandygalservices.com",
+    sitemap: absoluteUrl("/sitemap.xml"),
+    host: SITE_URL,
   };
 }

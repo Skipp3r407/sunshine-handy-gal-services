@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { businessInfo } from "@/lib/site-data";
+import { SITE_URL } from "@/lib/site-url";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { MobileStickyCTA } from "@/components/mobile-sticky-cta";
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
     apple: "/favicon.ico",
   },
-  metadataBase: new URL("https://sunshineshandygalservices.com"),
+  metadataBase: new URL(SITE_URL),
   robots: {
     index: true,
     follow: true,
@@ -75,7 +76,7 @@ export const metadata: Metadata = {
     title: businessInfo.name,
     description:
       "Trusted local cleaning services in Orlando and nearby Central Florida communities.",
-    url: "https://sunshineshandygalservices.com",
+    url: SITE_URL,
     siteName: businessInfo.name,
     type: "website",
     locale: "en_US",

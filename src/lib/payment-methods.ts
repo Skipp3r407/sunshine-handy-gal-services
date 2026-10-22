@@ -1,4 +1,5 @@
 import { businessInfo } from "@/lib/site-data";
+import { absoluteUrl } from "@/lib/site-url";
 
 /**
  * Client payment options — edit this file when accounts change
@@ -8,7 +9,7 @@ import { businessInfo } from "@/lib/site-data";
  * Send clients: https://www.sunshineshandygal.com/pay
  */
 export const paymentPagePath = "/pay";
-export const paymentPageUrl = "https://www.sunshineshandygal.com/pay";
+export const paymentPageUrl = absoluteUrl(paymentPagePath);
 
 export const paymentInfo = {
   recipientName: "SHEENA HOTALING",

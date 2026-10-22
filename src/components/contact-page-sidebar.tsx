@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ContactHoursCard } from "@/components/contact-hours-card";
 import { ExternalLinkIcon } from "@/components/google-review-cta";
+import { LazyMapEmbed } from "@/components/lazy-map-embed";
 import { SocialLinksRow } from "@/components/social-links-row";
 import { businessInfo } from "@/lib/site-data";
 
@@ -47,16 +48,11 @@ export function ContactPageSidebar() {
       <section className={inputClass}>
         <h2 className="text-base font-bold text-charcoal">Service area</h2>
         <div className="mt-3 overflow-hidden rounded-xl border border-[#d4e8f0] bg-[#e8f4fa] shadow-[inset_0_1px_0_rgba(255,255,255,0.5)]">
-          <div className="relative aspect-[4/3] w-full min-h-[168px] bg-[#dfeaf1]">
-            <iframe
-              title={`Map of Orlando, Florida — ${businessInfo.name} service area`}
-              src={businessInfo.serviceAreaMapEmbedUrl}
-              className="absolute inset-0 h-full w-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
-          </div>
+          <LazyMapEmbed
+            title={`Map of Orlando, Florida — ${businessInfo.name} service area`}
+            src={businessInfo.serviceAreaMapEmbedUrl}
+            className="relative aspect-[4/3] w-full min-h-[168px] bg-[#dfeaf1]"
+          />
           <p className="border-t border-[#d4e8f0] bg-white/70 px-3 py-2.5 text-center text-xs text-muted-gray">
             <a
               href={businessInfo.serviceAreaGoogleMapsUrl}

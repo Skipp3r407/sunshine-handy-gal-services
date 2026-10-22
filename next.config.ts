@@ -9,6 +9,14 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // One main host: send the bare domain to www so only one version answers 200.
+      // Keep in sync with SITE_URL in src/lib/site-url.ts.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "sunshineshandygal.com" }],
+        destination: "https://www.sunshineshandygal.com/:path*",
+        permanent: true,
+      },
       {
         source: "/pay",
         has: [{ type: "host", value: "sunshineshandygal.com" }],

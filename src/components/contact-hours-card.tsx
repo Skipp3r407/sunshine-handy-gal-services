@@ -37,6 +37,7 @@ export function ContactHoursCard({ className }: ContactHoursCardProps) {
                 )}
               >
                 {row.labelShort}
+                <span className="sr-only">: </span>
               </span>
               <span
                 className={cn(

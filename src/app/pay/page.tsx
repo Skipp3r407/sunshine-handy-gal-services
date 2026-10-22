@@ -4,9 +4,10 @@ import Link from "next/link";
 import { PaymentHelpNote, PaymentOptions } from "@/components/payment-options";
 import { businessInfo } from "@/lib/site-data";
 import { paymentPageUrl } from "@/lib/payment-methods";
+import { SITE_URL } from "@/lib/site-url";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.sunshineshandygal.com"),
+  metadataBase: new URL(SITE_URL),
   title: `Pay Your Invoice | ${businessInfo.name}`,
   description: `Pay ${businessInfo.name} with Zelle, PayPal, or Cash App.`,
   robots: {
@@ -79,7 +80,7 @@ export default function PayPage() {
           &copy; {new Date().getFullYear()} {businessInfo.name}
         </p>
         <Link
-          href="https://www.sunshineshandygal.com"
+          href={SITE_URL}
           className="font-semibold text-teal-deep underline-offset-4 hover:underline focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-deep/35 focus-visible:ring-offset-2"
         >
           Visit our website
