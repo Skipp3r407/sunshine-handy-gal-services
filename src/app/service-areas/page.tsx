@@ -19,6 +19,7 @@ export default function ServiceAreasPage() {
       <section className="rounded-[2rem] bg-gradient-to-br from-[#fff6d5] via-white to-[#eaf9ff] p-8 sm:p-12">
         <Reveal direction="up">
           <SectionHeading
+            as="h1"
             eyebrow="Service Areas"
             title="Local cleaning services throughout Central Florida"
             description={`If you are looking for dependable, detail-focused cleaning in Orlando or nearby areas, ${businessInfo.name} is here to help.`}

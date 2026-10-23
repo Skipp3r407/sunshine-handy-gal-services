@@ -36,6 +36,7 @@ export default function AboutPage() {
       <section className="rounded-[2rem] bg-gradient-to-br from-[#fff6d3] via-white to-[#ebf9fe] p-8 sm:p-12">
         <Reveal direction="up">
           <SectionHeading
+            as="h1"
             eyebrow={`About ${businessInfo.name}`}
             title="A local cleaning company built on care, trust, and consistency"
             description={`${businessInfo.name} was created to help Orlando families and small businesses enjoy cleaner, calmer spaces without the overwhelm.`}

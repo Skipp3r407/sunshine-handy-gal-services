@@ -27,6 +27,7 @@ export default function ServicesPage() {
       <section className="rounded-[2rem] bg-gradient-to-br from-[#fff8db] via-white to-[#eefaff] p-8 sm:p-12">
         <Reveal direction="up">
           <SectionHeading
+            as="h1"
             eyebrow="Services"
             title="Cleaning and organizing services designed around your needs"
             description="Every home and business is different. We tailor service plans for your space, schedule, and priorities."

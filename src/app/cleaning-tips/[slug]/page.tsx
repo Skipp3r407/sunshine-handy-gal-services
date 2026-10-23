@@ -36,7 +36,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${guide.title} | ${businessInfo.name}`,
+    title: `${guide.seoTitle ?? guide.title} | Sunshine's Handy Gal`,
     description: guide.summary,
     alternates: {
       canonical: `/cleaning-tips/${guide.slug}`,

@@ -18,6 +18,7 @@ export default function FAQPage() {
       <section className="rounded-[2rem] bg-gradient-to-br from-[#fff7d7] via-white to-[#edfaff] p-8 sm:p-12">
         <Reveal direction="up">
           <SectionHeading
+            as="h1"
             eyebrow="FAQ"
             title="Helpful answers before you book"
             description="Friendly, straightforward guidance to help you plan your cleaning service with confidence."

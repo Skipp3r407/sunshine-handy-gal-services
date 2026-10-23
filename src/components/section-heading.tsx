@@ -3,6 +3,8 @@ type SectionHeadingProps = {
   title: string;
   description?: string;
   align?: "left" | "center";
+  /** Use "h1" for the heading at the top of a page (one per page). */
+  as?: "h1" | "h2";
 };
 
 export function SectionHeading({
@@ -10,6 +12,7 @@ export function SectionHeading({
   title,
   description,
   align = "left",
+  as: Tag = "h2",
 }: SectionHeadingProps) {
   const isCentered = align === "center";
 
@@ -20,9 +23,9 @@ export function SectionHeading({
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="text-3xl font-bold tracking-tight text-charcoal sm:text-4xl">
+      <Tag className="text-3xl font-bold tracking-tight text-charcoal sm:text-4xl">
         {title}
-      </h2>
+      </Tag>
       {description ? (
         <p className="mt-4 text-base leading-7 text-muted-gray sm:text-lg">
           {description}

@@ -29,6 +29,7 @@ export default function CleaningTipsPage() {
       <section className="rounded-[2rem] bg-gradient-to-br from-[#fff8db] via-white to-[#eefaff] p-8 sm:p-12">
         <Reveal direction="up">
           <SectionHeading
+            as="h1"
             eyebrow="Cleaning Tips"
             title="Detailed tutorials for a cleaner, calmer space"
             description={`Step-by-step cleaning tips from ${businessInfo.name} for real homes, rentals, RVs, and small business spaces around Central Florida.`}

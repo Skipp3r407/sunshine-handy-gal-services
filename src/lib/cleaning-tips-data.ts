@@ -1,6 +1,8 @@
 export type CleaningTipGuide = {
   slug: string;
   title: string;
+  /** Short title for search results and browser tabs (keep under ~42 characters). */
+  seoTitle?: string;
   category: string;
   summary: string;
   readingTime: string;
@@ -57,6 +59,7 @@ const cleaningTipGuideContent: CleaningTipGuideInput[] = [
   {
     slug: "deep-cleaning-kitchen",
     title: "Deep Cleaning a Kitchen Without Missing the Hidden Grease",
+    seoTitle: "Kitchen Deep Cleaning Guide",
     category: "Kitchens",
     summary:
       "A detailed kitchen reset for stovetops, cabinet fronts, appliance exteriors, sinks, counters, and the grime that collects around high-touch cooking zones.",
@@ -136,6 +139,7 @@ const cleaningTipGuideContent: CleaningTipGuideInput[] = [
   {
     slug: "bathroom-reset",
     title: "Bathroom Cleaning Tutorial for Soap Scum, Mirrors, and Fresh Fixtures",
+    seoTitle: "Bathroom Cleaning: Soap Scum & Mirrors",
     category: "Bathrooms",
     summary:
       "A practical bathroom system for tubs, showers, toilets, vanities, mirrors, hard-water spots, and high-touch surfaces.",
@@ -215,6 +219,7 @@ const cleaningTipGuideContent: CleaningTipGuideInput[] = [
   {
     slug: "move-in-move-out-cleaning-checklist",
     title: "Move-In and Move-Out Cleaning Checklist for a Fresh Handoff",
+    seoTitle: "Move-In & Move-Out Cleaning Checklist",
     category: "Moving",
     summary:
       "A room-by-room move cleaning tutorial for cabinets, appliances, bathrooms, floors, closets, and final walkthrough details.",
@@ -294,6 +299,7 @@ const cleaningTipGuideContent: CleaningTipGuideInput[] = [
   {
     slug: "home-organization-systems",
     title: "Home Organization Systems That Stay Easy After Cleanup Day",
+    seoTitle: "Home Organization Systems That Last",
     category: "Organization",
     summary:
       "A guide to organizing closets, pantries, drawers, bathrooms, and entry zones in a way that is simple to maintain.",
@@ -373,6 +379,7 @@ const cleaningTipGuideContent: CleaningTipGuideInput[] = [
   {
     slug: "light-commercial-cleaning-routine",
     title: "Light Commercial Cleaning Routine for Offices, Studios, and Small Shops",
+    seoTitle: "Office & Small Shop Cleaning Routine",
     category: "Light Commercial",
     summary:
       "A professional routine for small business spaces that keeps entry areas, desks, restrooms, break rooms, and floors client-ready.",
@@ -452,6 +459,7 @@ const cleaningTipGuideContent: CleaningTipGuideInput[] = [
   {
     slug: "rv-cleaning-tips",
     title: "RV Cleaning Tips for Compact Kitchens, Storage Cubbies, and Travel Dust",
+    seoTitle: "RV Cleaning Tips for Small Spaces",
     category: "RV Cleaning",
     summary:
       "A compact-space cleaning routine for campers, motorhomes, and travel trailers before or after a trip.",
@@ -531,6 +539,7 @@ const cleaningTipGuideContent: CleaningTipGuideInput[] = [
   {
     slug: "weekly-home-cleaning-schedule",
     title: "Weekly Home Cleaning Schedule That Keeps Mess From Taking Over",
+    seoTitle: "Weekly Home Cleaning Schedule",
     category: "Schedules",
     summary:
       "A realistic weekly routine for busy households that separates daily touch-ups, weekly resets, and monthly detail tasks.",
@@ -610,6 +619,7 @@ const cleaningTipGuideContent: CleaningTipGuideInput[] = [
   {
     slug: "safe-cleaning-products-and-disinfecting",
     title: "Safe Cleaning Products, Disinfecting, and What Not to Mix",
+    seoTitle: "Safe Cleaning Products & Disinfecting",
     category: "Product Safety",
     summary:
       "A practical guide to choosing products, ventilating rooms, cleaning before disinfecting, and avoiding unsafe chemical combinations.",
@@ -689,6 +699,7 @@ const cleaningTipGuideContent: CleaningTipGuideInput[] = [
   {
     slug: "floor-care-by-surface",
     title: "Floor Care by Surface: Tile, Vinyl, Laminate, Wood, and Rugs",
+    seoTitle: "Floor Care by Surface: Tile, Wood & More",
     category: "Floors",
     summary:
       "A surface-by-surface floor tutorial for reducing streaks, protecting finishes, and choosing the right cleaning rhythm.",
@@ -768,6 +779,7 @@ const cleaningTipGuideContent: CleaningTipGuideInput[] = [
   {
     slug: "airbnb-turnover-cleaning-checklist",
     title: "Airbnb Turnover Cleaning Checklist for Guest-Ready Rentals",
+    seoTitle: "Airbnb Turnover Cleaning Checklist",
     category: "Vacation Rentals",
     summary:
       "A host-friendly turnover routine for beds, bathrooms, kitchens, restocking, guest-left items, and final photo-ready presentation.",
