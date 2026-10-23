@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import { businessInfo } from "@/lib/site-data";
 import { SITE_URL } from "@/lib/site-url";
 import { Navbar } from "@/components/navbar";
@@ -125,6 +126,7 @@ export default function RootLayout({
           <ChatWidget />
         </HideOnConnect>
         <CursorBubbleTrail />
+        <Analytics />
       </body>
     </html>
   );
