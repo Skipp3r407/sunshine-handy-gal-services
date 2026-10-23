@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { GalleryPageClient } from "@/components/gallery-page-client";
+import { RecentWorkFeed } from "@/components/recent-work-feed";
 import { galleryItems, miscGalleryItems } from "@/lib/gallery-data";
 import { businessInfo } from "@/lib/site-data";
 
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 export default function GalleryPage() {
   return (
     <div className="rounded-[2rem] bg-[#faf9f6] px-4 py-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] sm:px-8 sm:py-12 lg:px-10 lg:py-14">
+      <RecentWorkFeed />
       <GalleryPageClient items={galleryItems} miscItems={miscGalleryItems} />
     </div>
   );
