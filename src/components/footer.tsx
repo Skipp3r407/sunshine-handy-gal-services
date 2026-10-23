@@ -129,13 +129,13 @@ export function Footer() {
               <span className="block text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-white/65">
                 Website Designed By
               </span>
-              <span className="mt-1 flex items-center justify-center gap-2 sm:justify-start">
+              <span className="mt-1.5 flex flex-col items-center gap-1 sm:items-start">
                 <Image
-                  src="/images/elevate-digital-studios-logo.png"
+                  src="/images/elevate-logo-wide.png"
                   alt=""
-                  width={28}
-                  height={28}
-                  className="h-7 w-7 rounded-full bg-white object-cover"
+                  width={480}
+                  height={152}
+                  className="h-auto w-[130px] object-contain"
                 />
                 <span className="font-semibold text-white transition-all duration-200 group-hover:text-sky-200 group-hover:[text-shadow:0_0_12px_rgba(56,189,248,0.75)]">
                   Elevate Digital Studios
