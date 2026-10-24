@@ -8,16 +8,17 @@ import { useEffect, useState } from "react";
  */
 const FEED_URL = "https://www.elevatedigitalstudios.net/api/gallery/sunshines-handy-gal";
 
-type FeedItem = { id: string; caption: string; added: string; src: string };
+type FeedItem = { id: string; caption: string; category?: string; added: string; src: string };
 
 export function RecentWorkFeed() {
   const [items, setItems] = useState<FeedItem[]>([]);
   const [open, setOpen] = useState<FeedItem | null>(null);
+  const [section, setSection] = useState("All");
 
   useEffect(() => {
     fetch(FEED_URL)
       .then((r) => (r.ok ? r.json() : { items: [] }))
-      .then((d: { items?: FeedItem[] }) => setItems((d.items || []).slice(0, 12)))
+      .then((d: { items?: FeedItem[] }) => setItems((d.items || []).slice(0, 60)))
       .catch(() => setItems([]));
   }, []);
 
@@ -29,6 +30,9 @@ export function RecentWorkFeed() {
   }, [open]);
 
   if (items.length === 0) return null;
+  // Sheena picks a section for each photo in her app; show them as tabs once there are 2 or more.
+  const sections = [...new Set(items.map((i) => i.category).filter((c): c is string => Boolean(c)))];
+  const shown = items.filter((i) => section === "All" || i.category === section).slice(0, 12);
 
   return (
     <section aria-labelledby="recent-work-heading" className="mb-12">
@@ -36,8 +40,23 @@ export function RecentWorkFeed() {
       <h2 id="recent-work-heading" className="mt-2 text-2xl font-bold text-[#1e2a3a] sm:text-3xl">
         Recent Work
       </h2>
+      {sections.length > 1 ? (
+        <div className="mt-5 flex flex-wrap gap-2" role="group" aria-label="Filter photos by service">
+          {["All", ...sections].map((name) => (
+            <button
+              key={name}
+              type="button"
+              aria-pressed={section === name}
+              onClick={() => setSection(name)}
+              className={`rounded-full border px-4 py-1.5 text-sm font-semibold transition ${section === name ? "border-[#6d8b6e] bg-[#6d8b6e] text-white" : "border-[#1e2a3a]/15 bg-white text-[#1e2a3a] hover:border-[#6d8b6e]"}`}
+            >
+              {name}
+            </button>
+          ))}
+        </div>
+      ) : null}
       <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
-        {items.map((item) => (
+        {shown.map((item) => (
           <button
             key={item.id}
             type="button"
