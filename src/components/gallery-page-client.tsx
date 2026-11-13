@@ -47,6 +47,7 @@ function ComparisonHalves({
   minHeightClass = "min-h-[200px] sm:min-h-[220px]",
   imageHover = false,
   imageClassName = "object-cover",
+  unoptimized = false,
 }: {
   beforeSrc?: string;
   afterSrc?: string;
@@ -54,6 +55,8 @@ function ComparisonHalves({
   /** Subtle zoom on real photos */
   imageHover?: boolean;
   imageClassName?: string;
+  /** Remote feed photos: skip the Next image optimizer (they're external, redirecting URLs). */
+  unoptimized?: boolean;
 }) {
   const imgMotion = imageHover
     ? ({ whileHover: { scale: 1.06 } } as const)
@@ -77,6 +80,7 @@ function ComparisonHalves({
               src={beforeSrc}
               alt="Before cleaning"
               fill
+              unoptimized={unoptimized}
               className={imageClassName}
               sizes="(max-width: 768px) 50vw, 48vw"
             />
@@ -112,6 +116,7 @@ function ComparisonHalves({
               src={afterSrc}
               alt="After cleaning"
               fill
+              unoptimized={unoptimized}
               className={imageClassName}
               sizes="(max-width: 768px) 50vw, 48vw"
             />
@@ -222,6 +227,7 @@ function GalleryLightboxPanel({
             minHeightClass="min-h-[360px] sm:min-h-[540px] lg:min-h-[680px]"
             imageHover={!!(item.beforeSrc || item.afterSrc)}
             imageClassName="object-contain bg-charcoal/5"
+            unoptimized={item.remote}
           />
         </div>
         <p className="shrink-0 border-t border-[#e8e4dc] bg-cream/40 px-4 py-2.5 text-center text-xs text-muted-gray">
@@ -364,6 +370,7 @@ function GalleryCard({
           beforeSrc={item.beforeSrc}
           afterSrc={item.afterSrc}
           imageHover={!!(item.beforeSrc || item.afterSrc)}
+          unoptimized={item.remote}
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/[0.06] via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       </div>
@@ -555,9 +562,11 @@ function VideoLightboxPanel({
 export function GalleryPageClient({
   items,
   miscItems = [],
+  filters = galleryFilters,
 }: {
   items: GalleryItem[];
   miscItems?: MiscGalleryItem[];
+  filters?: { id: GalleryFilterId; label: string }[];
 }) {
   const reduced = useReducedMotion();
   const [filter, setFilter] = useState<GalleryFilterId>("all");
@@ -613,7 +622,7 @@ export function GalleryPageClient({
             role="tablist"
             aria-label="Filter gallery by room type"
           >
-            {galleryFilters.map((tab) => {
+            {filters.map((tab) => {
               const active = filter === tab.id;
               return (
                 <button

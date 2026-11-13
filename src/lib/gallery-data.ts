@@ -5,9 +5,15 @@ export type GalleryCategory =
   | "organization"
   | "living-space"
   | "move-out"
-  | "airbnb";
+  | "airbnb"
+  // Live uploads can add new service/area categories (RV, Whole Home, etc.).
+  | (string & {});
 
 export type GalleryFilterId = "all" | GalleryCategory;
+
+/** Turn a service/area name (e.g. "Living Space", "Move-In / Move-Out") into a stable filter id. */
+export const slugifyCategory = (c: string) =>
+  c.toLowerCase().trim().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "other";
 
 export const galleryFilters: { id: GalleryFilterId; label: string }[] = [
   { id: "all", label: "All" },
@@ -27,6 +33,8 @@ export type GalleryItem = {
   /** Paths under /public, referenced as /images/... */
   beforeSrc?: string;
   afterSrc?: string;
+  /** Live feed photos are remote (Elevate app); render them with next/image unoptimized. */
+  remote?: boolean;
 };
 
 export type MiscGalleryItem = {
